@@ -4,10 +4,15 @@
 - No arbitrary fix scripts; never downgrade package versions.
 - If in doubt, ask for clarification.
 
+# Repository layout
+
+pnpm workspace. Root `solid-kit` is private and exports nothing. Each library is `packages/<name>` with its own `package.json` and public exports. `@solid-kit/tiptap` is one package. Add the next library as another folder under `packages/`. Do not re-export a package from the root.
+
 # Package Development: Solid
 
 - Implementation reference: [Tiptap React](https://github.com/ueberdosis/tiptap/tree/main/packages/react)
 - Tech Stack: SolidJS.
+- Tiptap source: `packages/tiptap`. Import `@solid-kit/tiptap`.
 
 # SolidJS Style Guide
 

@@ -1,7 +1,7 @@
 import StarterKit from "@tiptap/starter-kit";
 import { Markdown } from "tiptap-markdown";
 import Placeholder from "@tiptap/extension-placeholder";
-import { Tiptap, useEditor, useTiptapState } from "tiptap-solid";
+import { Tiptap, useEditor, useTiptapState } from "@solid-kit/tiptap";
 import { MenuBar } from "../MenuBar";
 
 export const MarkdownEditor = () => {

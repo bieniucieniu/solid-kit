@@ -1,44 +1,42 @@
 ---
-description: SolidJS reactivity conventions for tiptap-solid
-globs: packages/solid/**/*.tsx, packages/solid/**/*.ts, examples/**/*.tsx
+description: Solid 1.9 only. Reject React hooks and JSX when editing tiptap-solid.
+globs: packages/**/*.{ts,tsx}, examples/**/*.{ts,tsx}
 alwaysApply: false
 ---
 
-# Solid reactivity in tiptap-solid
+# Solid 1.9, not React
 
-Solid components run once. Do not assume React-style re-renders.
+Peer is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. The component function runs once. Match Tiptap React's public behavior; implement it like `packages/tiptap/src`. Never import `react`.
+
+## Do not write
+
+`useState`, `useEffect`, `useLayoutEffect`, `useMemo`, `useCallback`, `useRef`, `useReducer`, `forwardRef`, `memo(`, `React.FC`, `.current`, `className`, `htmlFor`, camelCase style keys, unitless style numbers, `key=` on list rows, `{items.map(...)}` for changing lists, destructured `props`, `createMutable`.
+
+`createEffect` tracks what it reads. Its second argument is the previous value, not a dependency array. Cleanup is `onCleanup(() => {})`. A function returned from the effect does not run as cleanup.
 
 ## JSX props are getters
 
-The compiler wraps props in getters, so passing a signal read in JSX stays reactive:
-
 ```tsx
-// JSX — reactive (compiler emits a getter)
+// reactive getter
 <EditorContent editor={editor()} />
 
-// equivalent
-createComponent(EditorContent, {
-  get editor() {
-    return editor();
-  },
-});
+// passes the function itself
+<EditorContent editor={editor} />
 ```
 
-Read props inside `createEffect`, `createMemo`, or JSX — not once in `onMount` or at the top of the component body.
+Read `props.editor` inside `createEffect`, `createMemo`, or JSX. A read at the top of the function, or inside `onMount`, captures once.
 
-## Hooks vs props
+- JSX props: `editor={editor()}` is the reactive form.
+- Hook APIs: pass accessors, `useEditor(() => options)`.
+- Editor UI that changes on transactions: `useEditorState` / `useTiptapState`. Reading `editor()` once in JSX does not follow transactions.
+- Native `on*` is not tracked: `onClick={(e) => props.onClick?.(e)}`.
+- Text inputs: `onInput`. `onChange` fires on the DOM change event.
+- Conditional classes: `classList={{ active: open() }}`. `class` is a string.
+- Style keys are kebab-case strings with units: `"font-size": "12px"`.
+- Lists: `<For>` or `<Index>`. Branches: `<Show when={state()}>{(v) => ...}</Show>`.
+- Refs: `let ref: HTMLElement | undefined` and `ref={(el) => { ref = el }}`. No `.current`, no `null` unmount argument.
+- Narrow tracking with `on(deps, fn)` from `solid-js` (see `useEditor.ts`). Do not pass a deps array to `createEffect`.
 
-- **JSX props:** `editor={editor()}` is fine; read `local.editor` / `props.editor` in effects.
-- **Hook APIs:** pass accessors explicitly, e.g. `useEditor(() => options)`, `useTiptapState({ editor, selector })`.
+## Solid 2.0-rc stays out
 
-## Editor state
-
-Use `useEditorState` / `useTiptapState` for UI derived from the editor (toolbar active states, markdown preview). Do not read `editor()` once in JSX for values that change on transactions.
-
-## Avoid
-
-- Destructuring props/signals at the top level (breaks tracking)
-- `onMount` for logic that must re-run when props or signals change — use `createEffect`
-- Passing raw accessor functions as props when a JSX getter is intended (`editor={editor}` passes the function, not its value)
-- Inline `as` casts — prefer typed locals when narrowing: `const editor: EditorWithContentComponent = props.editor`
-- `as` on empty arrays/returns — prefer `createMemo((): T[] => …)` or a type predicate in `.filter()`
+This package is 1.9. Do not import `@solidjs/web` or `@solidjs/signals`. Do not use `omit`, `merge`, `onSettled`, `Loading`, `Errored`, `flush`, `isPending`, split `createEffect(compute, apply)`, or object/array `class` (that replaces `classList` only in 2.0).

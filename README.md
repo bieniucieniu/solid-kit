@@ -2,12 +2,13 @@
 
 SolidJS packages. The workspace root is private and does not export library code. Each package under `packages/` is installed on its own.
 
-| Package                       | Import                                                   |
-| ----------------------------- | -------------------------------------------------------- |
-| `@solid-kit/tiptap`           | `Tiptap`, `useEditor`, `useTiptapState`, `EditorContent` |
-| `@solid-kit/tiptap/menus`     | `BubbleMenu`, `FloatingMenu`                             |
-| `@solid-kit/tiptap/node-view` | Custom node view helpers                                 |
-| `@solid-kit/xyflow`           | `Flow`, `createFlow`, `useFlow`, `Handle`                |
+| Package                       | Import                                                     |
+| ----------------------------- | ---------------------------------------------------------- |
+| `@solid-kit/tiptap`           | `Tiptap`, `useEditor`, `useTiptapState`, `EditorContent`   |
+| `@solid-kit/tiptap/menus`     | `BubbleMenu`, `FloatingMenu`                               |
+| `@solid-kit/tiptap/node-view` | Custom node view helpers                                   |
+| `@solid-kit/xyflow`           | `Flow`, `createFlow`, `useFlow`, `Handle`                  |
+| `@solid-kit/motion`           | `motion`, `AnimatePresence`, `useMotionValue`, `useSpring` |
 
 `@solid-kit/tiptap` follows the public API of [`@tiptap/react`](https://tiptap.dev/docs/editor/getting-started/install/react).
 
@@ -94,6 +95,28 @@ export function Canvas() {
 
 Peer: `solid-js` `^1.9.0`. The example app is `examples/flow` (`pnpm --filter example-flow dev`).
 
+## `@solid-kit/motion`
+
+Solid lifecycle around the vanilla [`motion`](https://motion.dev) API (`animate`, `hover`, `press`, `drag`, `inView`, `styleEffect`). Props match Motion for React. `AnimatePresence` owns the list, because a Solid `{open() && <motion.div />}` disposes before `exit` can run.
+
+```tsx
+import { AnimatePresence, motion, useMotionValue, useSpring } from "@solid-kit/motion";
+
+const x = useMotionValue(0);
+const springX = useSpring(x, () => ({ stiffness: 220 }));
+
+<motion.div animate={{ x: 120 }} whileHover={{ scale: 1.1 }} />
+<motion.div style={{ x: springX }} />
+<AnimatePresence when={open}>
+  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
+</AnimatePresence>
+<AnimatePresence each={items} by={(item) => item.id}>
+  {(item) => <motion.div exit={{ opacity: 0 }}>{item.name}</motion.div>}
+</AnimatePresence>
+```
+
+Peers: `solid-js` `^1.9.0`, `motion` `^14.9.0`. The example app is `examples/motion` (`pnpm --filter example-motion dev`).
+
 ## Development
 
 pnpm workspace (pnpm 12+). [Vite+](https://viteplus.dev/guide/) is the toolchain. [devenv](https://devenv.sh) provides Node.js and pnpm.
@@ -104,8 +127,10 @@ pnpm install
 pnpm exec vp check
 pnpm --filter @solid-kit/tiptap build
 pnpm --filter @solid-kit/xyflow test
+pnpm --filter @solid-kit/motion test
 pnpm --filter example-simple dev
 pnpm --filter example-flow dev
+pnpm --filter example-motion dev
 pnpm --filter example-simple build
 ```
 

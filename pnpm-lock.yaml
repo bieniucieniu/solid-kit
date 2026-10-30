@@ -195,6 +195,31 @@ importers:
         specifier: ^0.1.24
         version: 0.1.24(jiti@2.7.0)(typescript@5.9.3)(vite@8.3.5(jiti@2.7.0))
 
+  examples/motion:
+    dependencies:
+      '@solid-kit/motion':
+        specifier: workspace:*
+        version: link:../../packages/motion
+      motion:
+        specifier: ^14.9.0
+        version: 14.9.0
+      solid-js:
+        specifier: ^1.9.0
+        version: 1.9.17
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.9.3
+      vite:
+        specifier: ^8.0.16
+        version: 8.3.5(jiti@2.7.0)
+      vite-plugin-solid:
+        specifier: ^2.11.0
+        version: 2.11.14(solid-js@1.9.17)(vite@8.3.5(jiti@2.7.0))
+      vite-plus:
+        specifier: ^0.1.24
+        version: 0.1.24(jiti@2.7.0)(typescript@5.9.3)(vite@8.3.5(jiti@2.7.0))
+
   examples/simple:
     dependencies:
       '@solid-kit/tiptap':
@@ -243,6 +268,30 @@ importers:
       vite-plugin-solid:
         specifier: ^2.11.0
         version: 2.11.14(solid-js@1.9.17)(vite@8.3.5(jiti@2.7.0))
+      vite-plus:
+        specifier: ^0.1.24
+        version: 0.1.24(jiti@2.7.0)(typescript@5.9.3)(vite@8.3.5(jiti@2.7.0))
+
+  packages/motion:
+    devDependencies:
+      '@solidjs/testing-library':
+        specifier: ^0.8.10
+        version: 0.8.10(@solidjs/router@0.16.3(solid-js@1.9.17))(solid-js@1.9.17)
+      motion:
+        specifier: ^14.9.0
+        version: 14.9.0
+      playwright:
+        specifier: ^1.56.1
+        version: 1.64.1
+      solid-js:
+        specifier: ^1.9.0
+        version: 1.9.17
+      unplugin-solid:
+        specifier: ^1.0.0
+        version: 1.0.0(solid-js@1.9.17)(vite@8.3.5(jiti@2.7.0))
+      vite:
+        specifier: ^8.0.16
+        version: 8.3.5(jiti@2.7.0)
       vite-plus:
         specifier: ^0.1.24
         version: 0.1.24(jiti@2.7.0)(typescript@5.9.3)(vite@8.3.5(jiti@2.7.0))
@@ -1431,6 +1480,20 @@ packages:
       picomatch:
         optional: true
 
+  framer-motion@14.9.0:
+    resolution: {integrity: sha512-g1hZu8WoTwgsoVAaqEEcefhvR03cKGtkmrKaRrWpXhnM3LGR8jl1u2qyJ1PMVlO7LKQHE8TTRQYUlMmnrY4L+g==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+      remix: ^3.1.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      remix:
+        optional: true
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -1653,6 +1716,26 @@ packages:
     resolution: {integrity: sha512-Mr75kWbk3zeccaJ/mFYYCl7RINFbWIvi4pqGKQ7CAlpWw48aHWxwg19HmEIWpad0Z5+vbSEhMxQoyO1oms0ovQ==}
     engines: {node: '>=18'}
 
+  motion-dom@14.9.0:
+    resolution: {integrity: sha512-wGjKbNDMHd75aLStkxLCKZ+T8/wusZHklmNLK1Ak68UrdBt2X8I4yweYR/0WonxGnBsw6oloDTIV8pN+UTvzzA==}
+
+  motion-utils@14.7.0:
+    resolution: {integrity: sha512-woO0/Nb7ys75f94fjvQi/6leiHGvZUYkeHUPEZ3vxsV+9OpEVhkxp01x8MlRwX0zt31EqgXsKDAoBoJLC148Tw==}
+
+  motion@14.9.0:
+    resolution: {integrity: sha512-Oc+jjq/AyhwsnEUaAq2xEu/SsfKTphgsXqoxddTSLzgTdXZc6FwHcp9RLGSECccTykN1/p3gWUN4kMJAamm+1g==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+      remix: ^3.1.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      remix:
+        optional: true
+
   mrmime@2.0.1:
     resolution: {integrity: sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ==}
     engines: {node: '>=10'}
@@ -1867,6 +1950,9 @@ packages:
   totalist@3.0.1:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
     engines: {node: '>=6'}
+
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
@@ -2840,6 +2926,12 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.7
 
+  framer-motion@14.9.0:
+    dependencies:
+      motion-dom: 14.9.0
+      motion-utils: 14.7.0
+      tslib: 2.8.1
+
   fsevents@2.3.3:
     optional: true
 
@@ -2995,6 +3087,17 @@ snapshots:
   merge-anything@6.0.9:
     dependencies:
       is-what: 5.5.7
+
+  motion-dom@14.9.0:
+    dependencies:
+      motion-utils: 14.7.0
+
+  motion-utils@14.7.0: {}
+
+  motion@14.9.0:
+    dependencies:
+      framer-motion: 14.9.0
+      tslib: 2.8.1
 
   mrmime@2.0.1: {}
 
@@ -3268,6 +3371,8 @@ snapshots:
       prosemirror-markdown: 1.13.9
 
   totalist@3.0.1: {}
+
+  tslib@2.8.1: {}
 
   typescript@5.9.3: {}
 

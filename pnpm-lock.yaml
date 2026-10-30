@@ -165,19 +165,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@tiptap/core':
-        specifier: ^3.23.5
-        version: 3.32.1(@tiptap/pm@3.32.1)
-      '@tiptap/pm':
-        specifier: ^3.23.5
-        version: 3.32.1
-      fast-equals:
-        specifier: ^5.3.3
-        version: 5.4.5
-      solid-js:
-        specifier: ^1.9.0
-        version: 1.9.17
     devDependencies:
       vite:
         specifier: ^8.0.16
@@ -185,16 +172,12 @@ importers:
       vite-plus:
         specifier: ^0.1.24
         version: 0.1.24(jiti@2.7.0)(typescript@5.9.3)(vite@8.3.5(jiti@2.7.0))
-    optionalDependencies:
-      '@tiptap/extension-bubble-menu':
-        specifier: ^3.23.5
-        version: 3.32.1(@tiptap/core@3.32.1(@tiptap/pm@3.32.1))(@tiptap/pm@3.32.1)
-      '@tiptap/extension-floating-menu':
-        specifier: ^3.23.5
-        version: 3.32.1(@floating-ui/dom@1.8.0)(@tiptap/core@3.32.1(@tiptap/pm@3.32.1))(@tiptap/pm@3.32.1)
 
   examples/simple:
     dependencies:
+      '@solid-kit/tiptap':
+        specifier: workspace:*
+        version: link:../../packages/tiptap
       '@solidjs/router':
         specifier: ^0.16.1
         version: 0.16.3(solid-js@1.9.17)
@@ -217,14 +200,11 @@ importers:
         specifier: ^3.23.5
         version: 3.32.1
       solid-js:
-        specifier: ^1.8.20
+        specifier: ^1.9.0
         version: 1.9.17
       tiptap-markdown:
         specifier: ^0.9.0
         version: 0.9.0(@tiptap/core@3.32.1(@tiptap/pm@3.32.1))
-      tiptap-solid:
-        specifier: workspace:*
-        version: link:../..
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.3.0
@@ -245,7 +225,7 @@ importers:
         specifier: ^0.1.24
         version: 0.1.24(jiti@2.7.0)(typescript@5.9.3)(vite@8.3.5(jiti@2.7.0))
 
-  packages/solid:
+  packages/tiptap:
     dependencies:
       '@tiptap/core':
         specifier: ^3.23.5

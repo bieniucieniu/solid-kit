@@ -1,5 +1,5 @@
 import type { Component } from "solid-js";
-import { useTiptap, useTiptapState } from "tiptap-solid";
+import { useTiptap, useTiptapState } from "@solid-kit/tiptap";
 
 const Button: Component<{
   onClick: () => void;

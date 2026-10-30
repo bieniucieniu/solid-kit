@@ -1,10 +1,10 @@
 ---
-description: SolidJS reactivity conventions for tiptap-solid
-globs: packages/solid/**/*.tsx, packages/solid/**/*.ts, examples/**/*.tsx
+description: SolidJS reactivity conventions for packages under packages/
+globs: packages/**/*.tsx, packages/**/*.ts, examples/**/*.tsx
 alwaysApply: false
 ---
 
-# Solid reactivity in tiptap-solid
+# Solid reactivity in packages/*
 
 Solid components run once. Do not assume React-style re-renders.
 

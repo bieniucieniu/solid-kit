@@ -1,6 +1,6 @@
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
-import { Tiptap, useEditor } from "tiptap-solid";
+import { Tiptap, useEditor } from "@solid-kit/tiptap";
 import { MenuBar } from "../MenuBar";
 
 export const BasicEditor = () => {

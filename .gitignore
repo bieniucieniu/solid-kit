@@ -109,3 +109,6 @@ dist
 # devenv
 .devenv*
 devenv.local.nix
+
+# Vitest browser failure attachments
+.vitest-attachments

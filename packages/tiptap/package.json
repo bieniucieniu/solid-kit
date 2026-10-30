@@ -1,0 +1,43 @@
+{
+  "name": "@solid-kit/tiptap",
+  "version": "0.0.1",
+  "private": true,
+  "description": "SolidJS components for tiptap (library source)",
+  "files": [
+    "src"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./menus": {
+      "types": "./src/menus/index.ts",
+      "import": "./src/menus/index.ts",
+      "default": "./src/menus/index.ts"
+    },
+    "./node-view": {
+      "types": "./src/node-view.ts",
+      "import": "./src/node-view.ts",
+      "default": "./src/node-view.ts"
+    }
+  },
+  "dependencies": {
+    "fast-equals": "^5.3.3"
+  },
+  "devDependencies": {
+    "unplugin-solid": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@tiptap/core": "^3.23.5",
+    "@tiptap/pm": "^3.23.5",
+    "solid-js": "^1.9.0"
+  },
+  "optionalDependencies": {
+    "@tiptap/extension-bubble-menu": "^3.23.5",
+    "@tiptap/extension-floating-menu": "^3.23.5"
+  }
+}

@@ -4,6 +4,10 @@
 - No arbitrary fix scripts; never downgrade package versions.
 - If in doubt, ask for clarification.
 
+# Repository layout
+
+pnpm workspace. Root `solid-kit` is private and exports nothing. Each library is `packages/<name>` with its own `package.json` and public exports. `@solid-kit/tiptap` is one package. Add the next library as another folder under `packages/`. Do not re-export a package from the root.
+
 # Package Development: Solid
 
 Peer dependency is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. Write Solid 1.9 only.

@@ -25,6 +25,9 @@
       "default": "./src/node-view.ts"
     }
   },
+  "scripts": {
+    "build": "vp pack"
+  },
   "dependencies": {
     "fast-equals": "^5.3.3"
   },

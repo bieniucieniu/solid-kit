@@ -1,0 +1,28 @@
+import { clientOnly } from "@solidjs/start";
+import { DocsPage } from "~/components/preview";
+
+const BasicEditor = clientOnly(() => import("~/demos/tiptap/basic"));
+
+const snippet = `import StarterKit from "@tiptap/starter-kit";
+import { Tiptap, useEditor } from "@solid-kit/tiptap";
+
+const editor = useEditor(() => ({
+  extensions: [StarterKit],
+  content: "<p>Hello world</p>",
+}));
+
+<Tiptap editor={editor}>
+  <Tiptap.Content />
+</Tiptap>`;
+
+export default function BasicPage() {
+  return (
+    <DocsPage
+      title="Basic"
+      description="Starter kit editor with a formatting toolbar."
+      snippet={snippet}
+    >
+      <BasicEditor fallback={<div class="min-h-[300px]" />} />
+    </DocsPage>
+  );
+}

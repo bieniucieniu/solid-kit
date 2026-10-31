@@ -1,0 +1,16 @@
+import { clientOnly } from "@solidjs/start";
+import { DocsPage } from "~/components/preview";
+
+const AnimateDemo = clientOnly(() => import("~/demos/motion/animate"));
+
+const snippet = `import { motion } from "@solid-kit/motion";
+
+<motion.div animate={{ x: 80 }} />`;
+
+export default function AnimatePage() {
+  return (
+    <DocsPage title="Animate" description="Move an element to a target." snippet={snippet}>
+      <AnimateDemo fallback={<div class="h-16" />} />
+    </DocsPage>
+  );
+}

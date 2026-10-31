@@ -1,6 +1,7 @@
 packages:
   - "packages/*"
-  - "examples/*"
+allowBuilds:
+  esbuild: true
 minimumReleaseAgeExclude:
   - framer-motion@14.9.0
   - motion-dom@14.9.0

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "solid-kit",
+  "homepage": "https://github.com/bieniucieniu/solid-kit",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Theme",
+      "description": "Tailwind CSS 4 tokens. Light values go on :root, dark values on .dark, color and radius mappings on @theme inline.",
+      "css": {
+        "@custom-variant dark (&:is(.dark *))": {}
+      },
+      "cssVars": {
+        "theme": {
+          "color-background": "var(--background)",
+          "color-foreground": "var(--foreground)",
+          "color-primary": "var(--primary)",
+          "color-primary-foreground": "var(--primary-foreground)",
+          "color-muted": "var(--muted)",
+          "color-muted-foreground": "var(--muted-foreground)",
+          "color-border": "var(--border)",
+          "color-ring": "var(--ring)",
+          "radius-lg": "var(--radius)"
+        },
+        "light": {
+          "radius": "0.625rem",
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.145 0 0)",
+          "primary": "oklch(0.205 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "muted": "oklch(0.97 0 0)",
+          "muted-foreground": "oklch(0.556 0 0)",
+          "border": "oklch(0.922 0 0)",
+          "ring": "oklch(0.708 0 0)"
+        },
+        "dark": {
+          "background": "oklch(0.145 0 0)",
+          "foreground": "oklch(0.985 0 0)",
+          "primary": "oklch(0.922 0 0)",
+          "primary-foreground": "oklch(0.205 0 0)",
+          "muted": "oklch(0.269 0 0)",
+          "muted-foreground": "oklch(0.708 0 0)",
+          "border": "oklch(1 0 0 / 10%)",
+          "ring": "oklch(0.556 0 0)"
+        }
+      }
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn",
+      "description": "clsx + tailwind-merge class helper.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "packages/ui/src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Plain button. One style. No variant props.",
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/button.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal dialog. Styled wrapper around @corvu/dialog.",
+      "dependencies": ["@corvu/dialog"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/dialog.tsx",
+          "type": "registry:ui",
+          "target": "@ui/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Tooltip. Styled wrapper around @corvu/tooltip.",
+      "dependencies": ["@corvu/tooltip"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "@ui/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Checkbox. Styled wrapper around @kobalte/core/checkbox. Corvu has no checkbox.",
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "@ui/checkbox.tsx"
+        }
+      ]
+    }
+  ]
+}

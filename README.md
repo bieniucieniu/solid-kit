@@ -10,6 +10,8 @@ SolidJS packages. The workspace root is private and does not export library code
 | `@solid-kit/xyflow`           | `Flow`, `createFlow`, `useFlow`, `Handle`                  |
 | `@solid-kit/motion`           | `motion`, `AnimatePresence`, `useMotionValue`, `useSpring` |
 
+UI registry (shadcn CLI, Tailwind 4): [`packages/ui`](packages/ui/README.md).
+
 `@solid-kit/tiptap` follows the public API of [`@tiptap/react`](https://tiptap.dev/docs/editor/getting-started/install/react).
 
 ## Install `@solid-kit/tiptap`

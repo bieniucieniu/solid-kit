@@ -5,6 +5,9 @@
   "description": "SolidJS packages. Each library lives under packages/ and is published on its own.",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "registry:build": "pnpm dlx shadcn@latest build"
+  },
   "devDependencies": {
     "vite": "^8.0.16",
     "vite-plus": "^0.1.24"

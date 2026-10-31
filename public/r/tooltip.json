@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "description": "Tooltip. Styled wrapper around @corvu/tooltip.",
+  "dependencies": [
+    "@corvu/tooltip"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/tooltip.tsx",
+      "content": "import TooltipPrimitive, {\n  type ArrowProps,\n  type ContentProps,\n  type DynamicProps,\n  type RootProps,\n} from \"@corvu/tooltip\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nfunction TooltipRoot(props: RootProps) {\n  return <TooltipPrimitive {...props} />;\n}\n\nexport function TooltipContent(props: DynamicProps<\"div\", ContentProps>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TooltipPrimitive.Content\n      ref={props.ref}\n      class={cn(\n        \"z-50 rounded-lg bg-primary px-3 py-1.5 text-sm text-primary-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function TooltipArrow(props: DynamicProps<\"div\", ArrowProps>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TooltipPrimitive.Arrow ref={props.ref} class={cn(\"text-primary\", props.class)} {...rest} />\n  );\n}\n\nexport const TooltipAnchor = TooltipPrimitive.Anchor;\nexport const TooltipTrigger = TooltipPrimitive.Trigger;\nexport const TooltipPortal = TooltipPrimitive.Portal;\n\nexport const Tooltip = Object.assign(TooltipRoot, {\n  Anchor: TooltipAnchor,\n  Trigger: TooltipTrigger,\n  Portal: TooltipPortal,\n  Content: TooltipContent,\n  Arrow: TooltipArrow,\n  useContext: TooltipPrimitive.useContext,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/tooltip.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

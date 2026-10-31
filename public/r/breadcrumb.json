@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "breadcrumb",
+  "title": "Breadcrumb",
+  "description": "Breadcrumb. Styled wrapper around @kobalte/core/breadcrumbs.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/breadcrumb.tsx",
+      "content": "import { Breadcrumbs as BreadcrumbsPrimitive } from \"@kobalte/core/breadcrumbs\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype BreadcrumbRootProps = ComponentProps<typeof BreadcrumbsPrimitive>;\ntype BreadcrumbLinkProps = ComponentProps<typeof BreadcrumbsPrimitive.Link>;\ntype BreadcrumbSeparatorProps = ComponentProps<typeof BreadcrumbsPrimitive.Separator>;\n\nfunction BreadcrumbRoot(props: BreadcrumbRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <BreadcrumbsPrimitive\n      ref={props.ref}\n      class={cn(\n        \"text-sm text-muted-foreground [&_ol]:flex [&_ol]:items-center [&_ol]:gap-1 [&_ol]:list-none [&_ol]:p-0\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function BreadcrumbLink(props: BreadcrumbLinkProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <BreadcrumbsPrimitive.Link\n      ref={props.ref}\n      class={cn(\n        \"text-muted-foreground ring-ring hover:text-foreground focus-visible:ring-2 focus-visible:outline-none data-current:font-medium data-current:text-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function BreadcrumbSeparator(props: BreadcrumbSeparatorProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <BreadcrumbsPrimitive.Separator\n      ref={props.ref}\n      class={cn(\"text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Breadcrumb = Object.assign(BreadcrumbRoot, {\n  Link: BreadcrumbLink,\n  Separator: BreadcrumbSeparator,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/breadcrumb.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

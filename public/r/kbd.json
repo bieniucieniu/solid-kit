@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "description": "Keyboard key. Styled HTML.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/kbd.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Kbd(props: JSX.HTMLAttributes<HTMLElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <kbd\n      ref={props.ref}\n      class={cn(\n        \"inline-flex h-5 min-w-5 items-center justify-center rounded-lg border border-border bg-muted px-1 font-mono text-xs text-muted-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/kbd.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

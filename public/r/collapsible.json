@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "title": "Collapsible",
+  "description": "Collapsible. Styled wrapper around @kobalte/core/collapsible.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/collapsible.tsx",
+      "content": "import { Collapsible as CollapsiblePrimitive } from \"@kobalte/core/collapsible\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype CollapsibleRootProps = ComponentProps<typeof CollapsiblePrimitive>;\ntype CollapsibleTriggerProps = ComponentProps<typeof CollapsiblePrimitive.Trigger>;\ntype CollapsibleContentProps = ComponentProps<typeof CollapsiblePrimitive.Content>;\n\nfunction CollapsibleRoot(props: CollapsibleRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <CollapsiblePrimitive\n      ref={props.ref}\n      class={cn(\"data-disabled:opacity-50\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function CollapsibleTrigger(props: CollapsibleTriggerProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\", \"children\"]);\n  return (\n    <CollapsiblePrimitive.Trigger\n      ref={props.ref}\n      class={cn(\n        \"group inline-flex items-center gap-2 text-sm font-medium text-foreground ring-ring focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50\",\n        props.class,\n      )}\n      {...rest}\n    >\n      {props.children}\n      <svg\n        viewBox=\"0 0 24 24\"\n        class=\"size-4 shrink-0 group-data-expanded:rotate-180\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        stroke-width=\"2\"\n        aria-hidden=\"true\"\n      >\n        <path d=\"m6 9 6 6 6-6\" />\n      </svg>\n    </CollapsiblePrimitive.Trigger>\n  );\n}\n\nexport function CollapsibleContent(props: CollapsibleContentProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <CollapsiblePrimitive.Content\n      ref={props.ref}\n      class={cn(\"overflow-hidden pt-2 text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Collapsible = Object.assign(CollapsibleRoot, {\n  Trigger: CollapsibleTrigger,\n  Content: CollapsibleContent,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/collapsible.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

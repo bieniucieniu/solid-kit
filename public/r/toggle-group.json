@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-group",
+  "title": "Toggle Group",
+  "description": "Toggle Group. Styled wrapper around @kobalte/core/toggle-group.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/toggle-group.tsx",
+      "content": "import { ToggleGroup as ToggleGroupPrimitive } from \"@kobalte/core/toggle-group\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype ToggleGroupRootProps = ComponentProps<typeof ToggleGroupPrimitive>;\ntype ToggleGroupItemProps = ComponentProps<typeof ToggleGroupPrimitive.Item>;\n\nfunction ToggleGroupRoot(props: ToggleGroupRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToggleGroupPrimitive\n      ref={props.ref}\n      class={cn(\"inline-flex items-center gap-1 data-[orientation=vertical]:flex-col\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ToggleGroupItem(props: ToggleGroupItemProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToggleGroupPrimitive.Item\n      ref={props.ref}\n      class={cn(\n        \"inline-flex items-center justify-center rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50 data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport const ToggleGroup = Object.assign(ToggleGroupRoot, {\n  Item: ToggleGroupItem,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/toggle-group.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

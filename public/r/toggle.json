@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle",
+  "title": "Toggle",
+  "description": "Toggle. Styled wrapper around @kobalte/core/toggle-button.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/toggle.tsx",
+      "content": "import { ToggleButton as ToggleButtonPrimitive } from \"@kobalte/core/toggle-button\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype ToggleProps = ComponentProps<typeof ToggleButtonPrimitive>;\n\nexport function Toggle(props: ToggleProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToggleButtonPrimitive\n      ref={props.ref}\n      class={cn(\n        \"inline-flex items-center justify-center rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50 data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/toggle.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

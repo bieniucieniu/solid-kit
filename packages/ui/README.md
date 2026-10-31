@@ -67,14 +67,59 @@ The same tokens live in [`src/theme.css`](src/theme.css).
 
 ## Primitives
 
-Corvu first. Kobalte only when Corvu has no primitive.
+`dialog` uses `@corvu/dialog`. `tooltip` uses `@corvu/tooltip`. `checkbox` uses `@kobalte/core/checkbox`. New components use `@kobalte/core`. Markup components are styled HTML.
 
-| Item       | Primitive                |
-| ---------- | ------------------------ |
-| `button`   | `<button>`               |
-| `dialog`   | `@corvu/dialog`          |
-| `tooltip`  | `@corvu/tooltip`         |
-| `checkbox` | `@kobalte/core/checkbox` |
+The registry item name matches the filename. The full list is in the root [`registry.json`](../../registry.json).
+
+| Item              | Primitive                     |
+| ----------------- | ----------------------------- |
+| `button`          | `<button>`                    |
+| `dialog`          | `@corvu/dialog`               |
+| `tooltip`         | `@corvu/tooltip`              |
+| `checkbox`        | `@kobalte/core/checkbox`      |
+| `accordion`       | `@kobalte/core/accordion`     |
+| `alert`           | `@kobalte/core/alert`         |
+| `alert-dialog`    | `@kobalte/core/alert-dialog`  |
+| `aspect-ratio`    | styled HTML                   |
+| `avatar`          | `@kobalte/core/image`         |
+| `badge`           | styled HTML                   |
+| `breadcrumb`      | `@kobalte/core/breadcrumbs`   |
+| `button-group`    | styled HTML                   |
+| `card`            | styled HTML                   |
+| `collapsible`     | `@kobalte/core/collapsible`   |
+| `combobox`        | `@kobalte/core/combobox`      |
+| `context-menu`    | `@kobalte/core/context-menu`  |
+| `drawer`          | `@kobalte/core/dialog`        |
+| `dropdown-menu`   | `@kobalte/core/dropdown-menu` |
+| `empty`           | styled HTML                   |
+| `field`           | styled HTML                   |
+| `hover-card`      | `@kobalte/core/hover-card`    |
+| `input`           | `@kobalte/core/text-field`    |
+| `input-group`     | styled HTML                   |
+| `item`            | styled HTML                   |
+| `kbd`             | styled HTML                   |
+| `label`           | styled HTML                   |
+| `menubar`         | `@kobalte/core/menubar`       |
+| `native-select`   | styled HTML                   |
+| `navigation-menu` | `@kobalte/core/popover`       |
+| `pagination`      | `@kobalte/core/pagination`    |
+| `popover`         | `@kobalte/core/popover`       |
+| `progress`        | `@kobalte/core/progress`      |
+| `radio-group`     | `@kobalte/core/radio-group`   |
+| `scroll-area`     | styled HTML                   |
+| `select`          | `@kobalte/core/select`        |
+| `separator`       | `@kobalte/core/separator`     |
+| `sheet`           | `@kobalte/core/dialog`        |
+| `skeleton`        | `@kobalte/core/skeleton`      |
+| `slider`          | `@kobalte/core/slider`        |
+| `spinner`         | styled HTML                   |
+| `switch`          | `@kobalte/core/switch`        |
+| `table`           | styled HTML                   |
+| `tabs`            | `@kobalte/core/tabs`          |
+| `textarea`        | `@kobalte/core/text-field`    |
+| `toast`           | `@kobalte/core/toast`         |
+| `toggle`          | `@kobalte/core/toggle-button` |
+| `toggle-group`    | `@kobalte/core/toggle-group`  |
 
 ```tsx
 import { Button } from "@/components/ui/button";

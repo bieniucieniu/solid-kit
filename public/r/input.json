@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "title": "Input",
+  "description": "Input. Styled wrapper around @kobalte/core/text-field.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/input.tsx",
+      "content": "import { TextField as TextFieldPrimitive } from \"@kobalte/core/text-field\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype InputRootProps = ComponentProps<typeof TextFieldPrimitive>;\ntype InputLabelProps = ComponentProps<typeof TextFieldPrimitive.Label>;\ntype InputControlProps = ComponentProps<typeof TextFieldPrimitive.Input>;\ntype InputDescriptionProps = ComponentProps<typeof TextFieldPrimitive.Description>;\ntype InputErrorMessageProps = ComponentProps<typeof TextFieldPrimitive.ErrorMessage>;\n\nconst fieldClass =\n  \"w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground ring-ring outline-none focus-visible:ring-2 data-invalid:border-foreground disabled:opacity-50 placeholder:text-muted-foreground\";\n\nfunction InputRoot(props: InputRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive\n      ref={props.ref}\n      class={cn(\"flex w-full flex-col gap-1.5 data-disabled:opacity-50\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function InputLabel(props: InputLabelProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive.Label\n      ref={props.ref}\n      class={cn(\"text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function InputControl(props: InputControlProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return <TextFieldPrimitive.Input ref={props.ref} class={cn(fieldClass, props.class)} {...rest} />;\n}\n\nexport function InputDescription(props: InputDescriptionProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive.Description\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function InputErrorMessage(props: InputErrorMessageProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive.ErrorMessage\n      ref={props.ref}\n      class={cn(\"text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Input = Object.assign(InputRoot, {\n  Label: InputLabel,\n  Input: InputControl,\n  Description: InputDescription,\n  ErrorMessage: InputErrorMessage,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/input.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table",
+  "title": "Table",
+  "description": "Table with header, body, row, head, and cell.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/table.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nfunction TableRoot(props: JSX.HTMLAttributes<HTMLTableElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <table\n      ref={props.ref}\n      class={cn(\"w-full border-collapse text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function TableHeader(props: JSX.HTMLAttributes<HTMLTableSectionElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <thead\n      ref={props.ref}\n      class={cn(\"bg-muted\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function TableBody(props: JSX.HTMLAttributes<HTMLTableSectionElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return <tbody ref={props.ref} class={props.class} {...rest} />;\n}\n\nexport function TableRow(props: JSX.HTMLAttributes<HTMLTableRowElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <tr\n      ref={props.ref}\n      class={cn(\"border-b border-border\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function TableHead(props: JSX.ThHTMLAttributes<HTMLTableCellElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <th\n      ref={props.ref}\n      class={cn(\n        \"h-10 px-3 text-left align-middle text-sm font-medium text-muted-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function TableCell(props: JSX.TdHTMLAttributes<HTMLTableCellElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <td\n      ref={props.ref}\n      class={cn(\"px-3 py-2 align-middle text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Table = Object.assign(TableRoot, {\n  Header: TableHeader,\n  Body: TableBody,\n  Row: TableRow,\n  Head: TableHead,\n  Cell: TableCell,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/table.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

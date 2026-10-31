@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toast",
+  "title": "Toast",
+  "description": "Toast. Styled wrapper around @kobalte/core/toast.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/toast.tsx",
+      "content": "import { Toast as ToastPrimitive, toaster, useToastContext } from \"@kobalte/core/toast\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype ToastRootProps = ComponentProps<typeof ToastPrimitive>;\ntype ToastRegionProps = ComponentProps<typeof ToastPrimitive.Region>;\ntype ToastListProps = ComponentProps<typeof ToastPrimitive.List>;\ntype ToastTitleProps = ComponentProps<typeof ToastPrimitive.Title>;\ntype ToastDescriptionProps = ComponentProps<typeof ToastPrimitive.Description>;\ntype ToastCloseButtonProps = ComponentProps<typeof ToastPrimitive.CloseButton>;\ntype ToastProgressTrackProps = ComponentProps<typeof ToastPrimitive.ProgressTrack>;\ntype ToastProgressFillProps = ComponentProps<typeof ToastPrimitive.ProgressFill>;\n\nfunction ToastRoot(props: ToastRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive\n      ref={props.ref}\n      class={cn(\n        \"z-50 flex w-full flex-col gap-1 rounded-lg border border-border bg-background p-4 text-foreground shadow-lg\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function ToastRegion(props: ToastRegionProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive.Region\n      ref={props.ref}\n      class={cn(\n        \"fixed right-0 bottom-0 z-50 flex max-h-screen w-full max-w-sm flex-col gap-2 p-4 outline-none\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function ToastList(props: ToastListProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive.List\n      ref={props.ref}\n      class={cn(\"flex w-full flex-col gap-2 outline-none\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ToastTitle(props: ToastTitleProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive.Title\n      ref={props.ref}\n      class={cn(\"text-sm font-medium text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ToastDescription(props: ToastDescriptionProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive.Description\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ToastCloseButton(props: ToastCloseButtonProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive.CloseButton\n      ref={props.ref}\n      class={cn(\n        \"inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function ToastProgressTrack(props: ToastProgressTrackProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive.ProgressTrack\n      ref={props.ref}\n      class={cn(\"mt-2 h-1 w-full overflow-hidden rounded-lg bg-muted\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ToastProgressFill(props: ToastProgressFillProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ToastPrimitive.ProgressFill\n      ref={props.ref}\n      class={cn(\"h-full w-(--kb-toast-progress-fill-width) bg-primary\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport { toaster };\n\nexport const Toast = Object.assign(ToastRoot, {\n  Root: ToastRoot,\n  Region: ToastRegion,\n  List: ToastList,\n  Title: ToastTitle,\n  Description: ToastDescription,\n  CloseButton: ToastCloseButton,\n  ProgressTrack: ToastProgressTrack,\n  ProgressFill: ToastProgressFill,\n  useContext: useToastContext,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/toast.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

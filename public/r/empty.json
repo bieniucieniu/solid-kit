@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty",
+  "title": "Empty",
+  "description": "Empty state with header, title, description, and content.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/empty.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nfunction EmptyRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\n        \"flex flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-border bg-background p-8 text-center text-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function EmptyHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"flex flex-col items-center gap-1\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function EmptyTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <h3\n      ref={props.ref}\n      class={cn(\"text-lg font-medium text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function EmptyDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <p\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function EmptyContent(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"flex flex-col items-center gap-2\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Empty = Object.assign(EmptyRoot, {\n  Header: EmptyHeader,\n  Title: EmptyTitle,\n  Description: EmptyDescription,\n  Content: EmptyContent,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/empty.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "native-select",
+  "title": "Native Select",
+  "description": "Native select element. Styled HTML.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/native-select.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function NativeSelect(props: JSX.SelectHTMLAttributes<HTMLSelectElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <select\n      ref={props.ref}\n      class={cn(\n        \"h-9 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground ring-ring focus-visible:outline-none focus-visible:ring-2 disabled:opacity-50\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/native-select.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

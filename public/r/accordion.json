@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "accordion",
+  "title": "Accordion",
+  "description": "Accordion. Styled wrapper around @kobalte/core/accordion.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/accordion.tsx",
+      "content": "import { Accordion as AccordionPrimitive } from \"@kobalte/core/accordion\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype AccordionRootProps = ComponentProps<typeof AccordionPrimitive>;\ntype AccordionItemProps = ComponentProps<typeof AccordionPrimitive.Item>;\ntype AccordionHeaderProps = ComponentProps<typeof AccordionPrimitive.Header>;\ntype AccordionTriggerProps = ComponentProps<typeof AccordionPrimitive.Trigger>;\ntype AccordionContentProps = ComponentProps<typeof AccordionPrimitive.Content>;\n\nfunction AccordionRoot(props: AccordionRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return <AccordionPrimitive ref={props.ref} class={cn(\"w-full\", props.class)} {...rest} />;\n}\n\nexport function AccordionItem(props: AccordionItemProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <AccordionPrimitive.Item\n      ref={props.ref}\n      class={cn(\"border-b border-border data-disabled:opacity-50\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function AccordionHeader(props: AccordionHeaderProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return <AccordionPrimitive.Header ref={props.ref} class={cn(\"flex\", props.class)} {...rest} />;\n}\n\nexport function AccordionTrigger(props: AccordionTriggerProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\", \"children\"]);\n  return (\n    <AccordionPrimitive.Trigger\n      ref={props.ref}\n      class={cn(\n        \"group flex w-full items-center justify-between gap-2 py-3 text-left text-sm font-medium text-foreground ring-ring focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50\",\n        props.class,\n      )}\n      {...rest}\n    >\n      {props.children}\n      <svg\n        viewBox=\"0 0 24 24\"\n        class=\"size-4 shrink-0 group-data-expanded:rotate-180\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        stroke-width=\"2\"\n        aria-hidden=\"true\"\n      >\n        <path d=\"m6 9 6 6 6-6\" />\n      </svg>\n    </AccordionPrimitive.Trigger>\n  );\n}\n\nexport function AccordionContent(props: AccordionContentProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <AccordionPrimitive.Content\n      ref={props.ref}\n      class={cn(\"overflow-hidden pb-4 text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Accordion = Object.assign(AccordionRoot, {\n  Item: AccordionItem,\n  Header: AccordionHeader,\n  Trigger: AccordionTrigger,\n  Content: AccordionContent,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/accordion.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

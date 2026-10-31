@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sheet",
+  "title": "Sheet",
+  "description": "Sheet. Styled wrapper around @kobalte/core/dialog.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/sheet.tsx",
+      "content": "import { Dialog as SheetPrimitive, useDialogContext } from \"@kobalte/core/dialog\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype SheetRootProps = ComponentProps<typeof SheetPrimitive>;\ntype SheetOverlayProps = ComponentProps<typeof SheetPrimitive.Overlay>;\ntype SheetContentProps = ComponentProps<typeof SheetPrimitive.Content>;\ntype SheetTitleProps = ComponentProps<typeof SheetPrimitive.Title>;\ntype SheetDescriptionProps = ComponentProps<typeof SheetPrimitive.Description>;\ntype SheetCloseButtonProps = ComponentProps<typeof SheetPrimitive.CloseButton>;\n\nfunction SheetRoot(props: SheetRootProps) {\n  return <SheetPrimitive {...props} />;\n}\n\nexport function SheetOverlay(props: SheetOverlayProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SheetPrimitive.Overlay\n      ref={props.ref}\n      class={cn(\"fixed inset-0 z-50 bg-foreground/40\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function SheetContent(props: SheetContentProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SheetPrimitive.Content\n      ref={props.ref}\n      class={cn(\n        \"fixed inset-y-0 right-0 z-50 h-full w-full max-w-sm overflow-auto rounded-lg border border-border bg-background p-6 text-foreground shadow-lg outline-none\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function SheetTitle(props: SheetTitleProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SheetPrimitive.Title\n      ref={props.ref}\n      class={cn(\"text-lg font-medium text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function SheetDescription(props: SheetDescriptionProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SheetPrimitive.Description\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function SheetCloseButton(props: SheetCloseButtonProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SheetPrimitive.CloseButton\n      ref={props.ref}\n      class={cn(\n        \"inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport const SheetTrigger = SheetPrimitive.Trigger;\nexport const SheetPortal = SheetPrimitive.Portal;\n\nexport const Sheet = Object.assign(SheetRoot, {\n  Trigger: SheetTrigger,\n  Portal: SheetPortal,\n  Overlay: SheetOverlay,\n  Content: SheetContent,\n  Title: SheetTitle,\n  Description: SheetDescription,\n  CloseButton: SheetCloseButton,\n  useContext: useDialogContext,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/sheet.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

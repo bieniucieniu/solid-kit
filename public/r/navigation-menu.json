@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "navigation-menu",
+  "title": "Navigation Menu",
+  "description": "Navigation menu. Layout with a dropdown from @kobalte/core/popover.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/navigation-menu.tsx",
+      "content": "import { Popover as PopoverPrimitive } from \"@kobalte/core/popover\";\nimport { type ComponentProps, type JSX, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nfunction NavigationMenuRoot(props: JSX.HTMLAttributes<HTMLElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <nav\n      ref={props.ref}\n      class={cn(\"relative flex items-center\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function NavigationMenuList(props: JSX.HTMLAttributes<HTMLUListElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ul\n      ref={props.ref}\n      class={cn(\"m-0 flex list-none items-center gap-1 p-0\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function NavigationMenuItem(props: JSX.LiHTMLAttributes<HTMLLIElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <PopoverPrimitive gutter={8} placement=\"bottom-start\">\n      <li ref={props.ref} class={cn(\"relative\", props.class)} {...rest} />\n    </PopoverPrimitive>\n  );\n}\n\nexport function NavigationMenuTrigger(\n  props: ComponentProps<typeof PopoverPrimitive.Trigger>,\n) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <PopoverPrimitive.Trigger\n      ref={props.ref}\n      class={cn(\n        \"inline-flex items-center justify-center rounded-lg bg-background px-3 py-2 text-sm font-medium text-foreground ring-ring hover:bg-muted focus-visible:outline-none focus-visible:ring-2 data-expanded:bg-muted\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function NavigationMenuContent(\n  props: ComponentProps<typeof PopoverPrimitive.Content>,\n) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Content\n        ref={props.ref}\n        class={cn(\n          \"z-50 w-max min-w-48 rounded-lg border border-border bg-background p-3 text-sm text-foreground shadow-lg outline-none\",\n          props.class,\n        )}\n        {...rest}\n      />\n    </PopoverPrimitive.Portal>\n  );\n}\n\nexport function NavigationMenuLink(props: JSX.AnchorHTMLAttributes<HTMLAnchorElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <a\n      ref={props.ref}\n      class={cn(\n        \"inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium text-foreground ring-ring hover:bg-muted focus-visible:outline-none focus-visible:ring-2\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport const NavigationMenu = Object.assign(NavigationMenuRoot, {\n  List: NavigationMenuList,\n  Item: NavigationMenuItem,\n  Trigger: NavigationMenuTrigger,\n  Content: NavigationMenuContent,\n  Link: NavigationMenuLink,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/navigation-menu.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

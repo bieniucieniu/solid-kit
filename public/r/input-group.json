@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input-group",
+  "title": "Input Group",
+  "description": "Input group. Styled HTML flex wrapper.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/input-group.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function InputGroup(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      role=\"group\"\n      class={cn(\n        \"flex w-full items-center gap-2 rounded-lg border border-border bg-background px-3 text-sm text-foreground ring-ring focus-within:outline-none focus-within:ring-2\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/input-group.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

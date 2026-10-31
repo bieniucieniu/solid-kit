@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "description": "Card with header, title, description, content, and footer.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/card.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nfunction CardRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\n        \"rounded-lg border border-border bg-background text-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function CardHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"flex flex-col gap-1.5 p-6\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function CardTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <h3\n      ref={props.ref}\n      class={cn(\"text-lg font-medium text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function CardDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <p\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function CardContent(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return <div ref={props.ref} class={cn(\"p-6 pt-0\", props.class)} {...rest} />;\n}\n\nexport function CardFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"flex items-center gap-2 p-6 pt-0\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Card = Object.assign(CardRoot, {\n  Header: CardHeader,\n  Title: CardTitle,\n  Description: CardDescription,\n  Content: CardContent,\n  Footer: CardFooter,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/card.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

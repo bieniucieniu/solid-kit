@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "item",
+  "title": "Item",
+  "description": "Item with media, content, title, description, and actions.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/item.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nfunction ItemRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\n        \"flex items-center gap-3 rounded-lg border border-border bg-background p-3 text-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function ItemMedia(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"flex shrink-0 items-center justify-center\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ItemContent(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"flex min-w-0 flex-1 flex-col gap-1\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ItemTitle(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"text-sm font-medium text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ItemDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <p\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function ItemActions(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"flex shrink-0 items-center gap-2\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Item = Object.assign(ItemRoot, {\n  Media: ItemMedia,\n  Content: ItemContent,\n  Title: ItemTitle,\n  Description: ItemDescription,\n  Actions: ItemActions,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/item.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

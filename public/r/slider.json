@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "title": "Slider",
+  "description": "Slider. Styled wrapper around @kobalte/core/slider.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/slider.tsx",
+      "content": "import { Slider as SliderPrimitive } from \"@kobalte/core/slider\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype SliderRootProps = ComponentProps<typeof SliderPrimitive>;\ntype SliderLabelProps = ComponentProps<typeof SliderPrimitive.Label>;\ntype SliderValueLabelProps = ComponentProps<typeof SliderPrimitive.ValueLabel>;\ntype SliderDescriptionProps = ComponentProps<typeof SliderPrimitive.Description>;\ntype SliderErrorMessageProps = ComponentProps<typeof SliderPrimitive.ErrorMessage>;\ntype SliderTrackProps = ComponentProps<typeof SliderPrimitive.Track>;\ntype SliderFillProps = ComponentProps<typeof SliderPrimitive.Fill>;\ntype SliderThumbProps = ComponentProps<typeof SliderPrimitive.Thumb>;\n\nfunction SliderRoot(props: SliderRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive\n      ref={props.ref}\n      class={cn(\n        \"flex w-full touch-none flex-col gap-2 data-disabled:opacity-50 data-[orientation=vertical]:h-40 data-[orientation=vertical]:w-fit\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function SliderLabel(props: SliderLabelProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive.Label\n      ref={props.ref}\n      class={cn(\"text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function SliderValueLabel(props: SliderValueLabelProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive.ValueLabel\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function SliderDescription(props: SliderDescriptionProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive.Description\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function SliderErrorMessage(props: SliderErrorMessageProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive.ErrorMessage\n      ref={props.ref}\n      class={cn(\"text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function SliderTrack(props: SliderTrackProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive.Track\n      ref={props.ref}\n      class={cn(\n        \"relative h-4 w-full rounded-lg bg-muted data-[orientation=vertical]:h-full data-[orientation=vertical]:w-4\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function SliderFill(props: SliderFillProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive.Fill\n      ref={props.ref}\n      class={cn(\n        \"absolute bg-primary data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function SliderThumb(props: SliderThumbProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SliderPrimitive.Thumb\n      ref={props.ref}\n      class={cn(\n        \"block size-4 rounded-lg border border-border bg-background ring-ring focus-visible:ring-2 focus-visible:outline-none\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport const SliderInput = SliderPrimitive.Input;\n\nexport const Slider = Object.assign(SliderRoot, {\n  Label: SliderLabel,\n  ValueLabel: SliderValueLabel,\n  Description: SliderDescription,\n  ErrorMessage: SliderErrorMessage,\n  Track: SliderTrack,\n  Fill: SliderFill,\n  Thumb: SliderThumb,\n  Input: SliderInput,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/slider.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

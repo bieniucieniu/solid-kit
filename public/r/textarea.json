@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "title": "Textarea",
+  "description": "Textarea. Styled wrapper around @kobalte/core/text-field.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/textarea.tsx",
+      "content": "import { TextField as TextFieldPrimitive } from \"@kobalte/core/text-field\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype TextareaRootProps = ComponentProps<typeof TextFieldPrimitive>;\ntype TextareaLabelProps = ComponentProps<typeof TextFieldPrimitive.Label>;\ntype TextareaControlProps = ComponentProps<typeof TextFieldPrimitive.TextArea>;\ntype TextareaDescriptionProps = ComponentProps<typeof TextFieldPrimitive.Description>;\ntype TextareaErrorMessageProps = ComponentProps<typeof TextFieldPrimitive.ErrorMessage>;\n\nconst fieldClass =\n  \"min-h-24 w-full resize-y rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground ring-ring outline-none focus-visible:ring-2 data-invalid:border-foreground disabled:opacity-50 placeholder:text-muted-foreground\";\n\nfunction TextareaRoot(props: TextareaRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive\n      ref={props.ref}\n      class={cn(\"flex w-full flex-col gap-1.5 data-disabled:opacity-50\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function TextareaLabel(props: TextareaLabelProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive.Label\n      ref={props.ref}\n      class={cn(\"text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function TextareaControl(props: TextareaControlProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive.TextArea ref={props.ref} class={cn(fieldClass, props.class)} {...rest} />\n  );\n}\n\nexport function TextareaDescription(props: TextareaDescriptionProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive.Description\n      ref={props.ref}\n      class={cn(\"text-sm text-muted-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function TextareaErrorMessage(props: TextareaErrorMessageProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <TextFieldPrimitive.ErrorMessage\n      ref={props.ref}\n      class={cn(\"text-sm text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport const Textarea = Object.assign(TextareaRoot, {\n  Label: TextareaLabel,\n  TextArea: TextareaControl,\n  Description: TextareaDescription,\n  ErrorMessage: TextareaErrorMessage,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/textarea.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

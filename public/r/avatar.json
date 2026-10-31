@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "title": "Avatar",
+  "description": "Avatar. Styled wrapper around @kobalte/core/image.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/avatar.tsx",
+      "content": "import { Image as ImagePrimitive } from \"@kobalte/core/image\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype AvatarRootProps = ComponentProps<typeof ImagePrimitive>;\ntype AvatarImgProps = ComponentProps<typeof ImagePrimitive.Img>;\ntype AvatarFallbackProps = ComponentProps<typeof ImagePrimitive.Fallback>;\n\nfunction AvatarRoot(props: AvatarRootProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ImagePrimitive\n      ref={props.ref}\n      class={cn(\n        \"relative inline-flex size-10 shrink-0 overflow-hidden rounded-lg bg-muted\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport function AvatarImg(props: AvatarImgProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ImagePrimitive.Img\n      ref={props.ref}\n      class={cn(\"size-full object-cover\", props.class)}\n      {...rest}\n    />\n  );\n}\n\nexport function AvatarFallback(props: AvatarFallbackProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <ImagePrimitive.Fallback\n      ref={props.ref}\n      class={cn(\n        \"flex size-full items-center justify-center text-sm text-muted-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n\nexport const Avatar = Object.assign(AvatarRoot, {\n  Img: AvatarImg,\n  Fallback: AvatarFallback,\n});\n",
+      "type": "registry:ui",
+      "target": "@ui/avatar.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

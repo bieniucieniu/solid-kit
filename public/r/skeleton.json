@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "Skeleton. Styled wrapper around @kobalte/core/skeleton.",
+  "dependencies": [
+    "@kobalte/core"
+  ],
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils"
+  ],
+  "files": [
+    {
+      "path": "packages/ui/src/components/skeleton.tsx",
+      "content": "import { Skeleton as SkeletonPrimitive } from \"@kobalte/core/skeleton\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype SkeletonProps = ComponentProps<typeof SkeletonPrimitive>;\n\nexport function Skeleton(props: SkeletonProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SkeletonPrimitive\n      ref={props.ref}\n      class={cn(\n        \"block rounded-lg data-visible:bg-muted data-visible:text-transparent data-visible:data-animate:animate-pulse\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@ui/skeleton.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

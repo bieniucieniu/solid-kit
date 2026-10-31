@@ -23,6 +23,7 @@ import {
   type InternalNodeBase,
   type InternalNodeUpdate,
   type NodeChange,
+  type NodeHandleBounds,
   type NodeLookup,
   type NodeOrigin,
   type PanZoomInstance,
@@ -127,6 +128,16 @@ export function createFlow(options: Accessor<FlowOptions> = () => ({})) {
 
   rebuildIndexes();
 
+  function copyHandleBounds(bounds: NodeHandleBounds | undefined): NodeHandleBounds | undefined {
+    if (!bounds) return undefined;
+    const copyList = (handles: NodeHandleBounds["source"]) =>
+      handles?.map((handle) => ({ ...handle })) ?? null;
+    return {
+      source: copyList(bounds.source),
+      target: copyList(bounds.target),
+    };
+  }
+
   function publishNode(node: FlowNode): FlowNode {
     const internal = nodeLookup.get(node.id);
     if (!internal) return node;
@@ -142,6 +153,7 @@ export function createFlow(options: Accessor<FlowOptions> = () => ({})) {
           y: internal.internals.positionAbsolute.y,
         },
         z: internal.internals.z,
+        handleBounds: copyHandleBounds(internal.internals.handleBounds),
       },
     };
   }

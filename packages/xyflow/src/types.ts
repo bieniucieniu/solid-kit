@@ -8,6 +8,7 @@ import type {
   FitViewOptionsBase,
   NodeBase,
   NodeChange,
+  NodeHandleBounds,
   NodeOrigin,
   Viewport,
   XYPosition,
@@ -21,6 +22,7 @@ export type FlowNode<Data extends FlowNodeData = FlowNodeData> = NodeBase<Data> 
   internals?: {
     positionAbsolute: XYPosition;
     z: number;
+    handleBounds?: NodeHandleBounds;
   };
 };
 

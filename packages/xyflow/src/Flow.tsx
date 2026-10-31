@@ -1,4 +1,4 @@
-import { For, type JSX, createEffect, createSignal, onCleanup, onMount } from "solid-js";
+import { For, Show, type JSX, createEffect, createSignal, onCleanup, onMount } from "solid-js";
 import { FlowProvider, useFlow } from "./context";
 import type { Flow as FlowStore } from "./createFlow";
 import { Background } from "./components/Background";
@@ -103,7 +103,13 @@ function FlowSurface(props: { class?: string; style?: JSX.CSSProperties; childre
             }}
           >
             <div class="xy-flow__edges" style={layerStyle}>
-              <For each={flow.edges}>{(edge) => <EdgeView edge={edge} />}</For>
+              <For each={flow.edges}>
+                {(edge) => (
+                  <Show when={!edge.hidden}>
+                    <EdgeView edge={edge} />
+                  </Show>
+                )}
+              </For>
             </div>
             <div class="xy-flow__nodes" style={layerStyle}>
               <For each={flow.nodes}>

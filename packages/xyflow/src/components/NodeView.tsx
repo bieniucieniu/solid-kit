@@ -8,7 +8,7 @@ import { builtinNodeTypes } from "./Nodes";
 
 export function NodeView(props: { node: FlowNode; resizeObserver: ResizeObserver }) {
   const flow = useFlow();
-  let element: HTMLDivElement | undefined;
+  const [element, setElement] = createSignal<HTMLDivElement>();
   let drag: XYDragInstance | undefined;
   const [mounted, setMounted] = createSignal(false);
 
@@ -20,22 +20,30 @@ export function NodeView(props: { node: FlowNode; resizeObserver: ResizeObserver
     (props.node.selectable === undefined && flow.elementsSelectable);
 
   onMount(() => {
-    if (element) props.resizeObserver.observe(element);
     drag = XYDrag({
       getStoreItems: () => flow.getStoreItems(),
       onNodeMouseDown: (id) => flow.handleNodeClick(id),
     });
     setMounted(true);
     onCleanup(() => {
-      if (element) props.resizeObserver.unobserve(element);
+      const node = element();
+      if (node) props.resizeObserver.unobserve(node);
       drag?.destroy();
     });
   });
 
   createEffect(() => {
-    if (!mounted() || !element || !drag || props.node.hidden || !draggable()) return;
+    const node = element();
+    if (!node) return;
+    props.resizeObserver.observe(node);
+    onCleanup(() => props.resizeObserver.unobserve(node));
+  });
+
+  createEffect(() => {
+    const node = element();
+    if (!mounted() || !node || !drag || props.node.hidden || !draggable()) return;
     drag.update({
-      domNode: element,
+      domNode: node,
       nodeId: props.node.id,
       noDragClassName: "nodrag",
       handleSelector: props.node.dragHandle,
@@ -49,9 +57,7 @@ export function NodeView(props: { node: FlowNode; resizeObserver: ResizeObserver
   return (
     <Show when={!props.node.hidden}>
       <div
-        ref={(el) => {
-          element = el;
-        }}
+        ref={setElement}
         class={cx("xy-flow__node", `xy-flow__node-${nodeType()}`, props.node.class, {
           nopan: draggable(),
           selected: props.node.selected,

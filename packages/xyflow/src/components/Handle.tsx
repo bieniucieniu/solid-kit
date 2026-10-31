@@ -6,7 +6,7 @@ import {
   type Connection,
   type HandleType,
 } from "@xyflow/system";
-import { splitProps } from "solid-js";
+import { createEffect, splitProps, untrack } from "solid-js";
 import { useFlow, useNodeId } from "../context";
 import { cx } from "../cx";
 
@@ -34,10 +34,26 @@ export function Handle(props: HandleProps) {
   ]);
   const flow = useFlow();
   const nodeId = useNodeId();
+  let handleElement: HTMLDivElement | undefined;
   const type = () => props.type ?? "source";
   const position = () => props.position ?? Position.Top;
   const handleId = () => props.id ?? null;
-  const connectable = () => props.isConnectable !== false && flow.nodesConnectable;
+  const connectable = () => {
+    if (props.isConnectable === false) return false;
+    const nodeConnectable = nodeId ? flow.getNode(nodeId)?.connectable : undefined;
+    if (nodeConnectable === false) return false;
+    return flow.nodesConnectable;
+  };
+
+  createEffect(() => {
+    const side = position();
+    untrack(() => {
+      const id = nodeId;
+      const nodeElement = handleElement?.closest(".xy-flow__node");
+      if (!id || !(nodeElement instanceof HTMLDivElement) || !side) return;
+      flow.updateNodeInternals(new Map([[id, { id, nodeElement, force: true }]]));
+    });
+  });
   const connectableStart = () => props.isConnectableStart !== false;
   const connectableEnd = () => props.isConnectableEnd !== false;
 
@@ -66,7 +82,7 @@ export function Handle(props: HandleProps) {
   };
 
   const onMouseDown = (event: MouseEvent) => {
-    if (!nodeId || !connectableStart() || event.button !== 0) return;
+    if (!nodeId || !connectable() || !connectableStart() || event.button !== 0) return;
     event.stopPropagation();
     XYHandle.onPointerDown(event, {
       handleDomNode: event.currentTarget as Element,
@@ -120,6 +136,9 @@ export function Handle(props: HandleProps) {
   return (
     <div
       {...rest}
+      ref={(el) => {
+        handleElement = el;
+      }}
       data-handleid={handleId()}
       data-nodeid={nodeId}
       data-handlepos={position()}

@@ -111,6 +111,7 @@ export function Pane(props: { children: JSX.Element }) {
   const onClick = (event: MouseEvent) => {
     if (event.target !== container || flow.connection.inProgress || selecting()) return;
     flow.resetSelectedElements();
+    flow.setConnectionClickStart(null);
   };
 
   return (

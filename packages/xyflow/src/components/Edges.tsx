@@ -88,6 +88,25 @@ export const builtinEdgeTypes = {
   smoothstep: BuiltinEdge,
 };
 
+function trackHandleBounds(node: { internals?: { handleBounds?: { source: unknown[] | null; target: unknown[] | null } } }) {
+  const bounds = node.internals?.handleBounds;
+  const lists = [bounds?.source, bounds?.target];
+  for (const list of lists) {
+    const count = list?.length ?? 0;
+    for (let index = 0; index < count; index += 1) {
+      const handle = list?.[index] as
+        | { x?: number; y?: number; width?: number; height?: number; position?: string }
+        | undefined;
+      if (!handle) continue;
+      void handle.x;
+      void handle.y;
+      void handle.width;
+      void handle.height;
+      void handle.position;
+    }
+  }
+}
+
 const containerStyle = {
   position: "absolute",
   width: "100%",
@@ -102,6 +121,8 @@ export function EdgeView(props: { edge: FlowEdge }) {
     const source = flow.getNode(props.edge.source);
     const target = flow.getNode(props.edge.target);
     if (!source || !target) return null;
+    trackHandleBounds(source);
+    trackHandleBounds(target);
     const sourceX = source.internals?.positionAbsolute.x;
     const sourceY = source.internals?.positionAbsolute.y;
     const targetX = target.internals?.positionAbsolute.x;
@@ -164,7 +185,7 @@ export function EdgeView(props: { edge: FlowEdge }) {
             )}
             data-id={props.edge.id}
             data-testid={`rf__edge-${props.edge.id}`}
-            onClick={onClick}
+            on:click={onClick}
           >
             <Dynamic
               component={

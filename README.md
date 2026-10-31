@@ -95,7 +95,7 @@ export function Canvas() {
 }
 ```
 
-Peer: `solid-js` `^1.9.0`. The example app is `examples/flow` (`pnpm --filter example-flow dev`).
+Peer: `solid-js` `^1.9.0`. Docs: `pnpm --filter web dev` (`/xyflow`).
 
 ## `@solid-kit/motion`
 
@@ -117,7 +117,7 @@ const springX = useSpring(x, () => ({ stiffness: 220 }));
 </AnimatePresence>
 ```
 
-Peers: `solid-js` `^1.9.0`, `motion` `^14.9.0`. The example app is `examples/motion` (`pnpm --filter example-motion dev`).
+Peers: `solid-js` `^1.9.0`, `motion` `^14.9.0`. Docs: `pnpm --filter web dev` (`/motion`).
 
 ## Development
 
@@ -130,10 +130,8 @@ pnpm exec vp check
 pnpm --filter @solid-kit/tiptap build
 pnpm --filter @solid-kit/xyflow test
 pnpm --filter @solid-kit/motion test
-pnpm --filter example-simple dev
-pnpm --filter example-flow dev
-pnpm --filter example-motion dev
-pnpm --filter example-simple build
+pnpm --filter web dev
+pnpm --filter web build
 ```
 
 Add another library as `packages/<name>` with its own `package.json`. Do not add its exports to the root package.

@@ -1,0 +1,20 @@
+import { clientOnly } from "@solidjs/start";
+import { DocsPage } from "~/components/preview";
+
+const HoverDemo = clientOnly(() => import("~/demos/motion/hover"));
+
+const snippet = `import { motion } from "@solid-kit/motion";
+
+<motion.div whileHover={{ scale: 1.15 }} />`;
+
+export default function HoverPage() {
+  return (
+    <DocsPage
+      title="Hover"
+      description="Scale while the pointer is over the box."
+      snippet={snippet}
+    >
+      <HoverDemo fallback={<div class="h-16" />} />
+    </DocsPage>
+  );
+}

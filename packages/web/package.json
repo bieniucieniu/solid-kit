@@ -1,0 +1,39 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview"
+  },
+  "dependencies": {
+    "@solid-kit/motion": "workspace:*",
+    "@solid-kit/tiptap": "workspace:*",
+    "@solid-kit/ui": "workspace:*",
+    "@solid-kit/xyflow": "workspace:*",
+    "@solidjs/router": "^0.16.0",
+    "@solidjs/start": "^2.1.0",
+    "@tiptap/core": "^3.23.5",
+    "@tiptap/extension-bubble-menu": "^3.23.5",
+    "@tiptap/extension-floating-menu": "^3.23.5",
+    "@tiptap/extension-placeholder": "^3.23.5",
+    "@tiptap/pm": "^3.23.5",
+    "@tiptap/starter-kit": "^3.23.5",
+    "motion": "^14.9.0",
+    "solid-js": "^1.9.15",
+    "tiptap-markdown": "^0.9.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "nitro": "3.0.261029-rc",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.5.4",
+    "vite": "^8.0.16",
+    "vite-plus": "^0.1.24"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

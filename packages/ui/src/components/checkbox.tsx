@@ -15,7 +15,7 @@ function CheckboxRoot(props: CheckboxRootProps) {
     <CheckboxPrimitive
       ref={props.ref}
       class={cn(
-        "group inline-flex items-center gap-2 text-sm text-foreground data-disabled:opacity-50",
+        "group inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -29,7 +29,7 @@ export function CheckboxControl(props: CheckboxControlProps) {
     <CheckboxPrimitive.Control
       ref={props.ref}
       class={cn(
-        "flex size-4 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-primary-foreground ring-ring group-focus-within:ring-2 data-checked:border-primary data-checked:bg-primary data-indeterminate:border-primary data-indeterminate:bg-primary",
+        "flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input text-primary-foreground transition-shadow group-focus-within:ring-2 group-focus-within:ring-ring/30 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground data-indeterminate:border-primary data-indeterminate:bg-primary data-invalid:border-destructive dark:bg-input/30",
         props.class,
       )}
       {...rest}
@@ -49,7 +49,7 @@ export function CheckboxIndicator(props: CheckboxIndicatorProps) {
       {props.children ?? (
         <svg
           viewBox="0 0 24 24"
-          class="size-3"
+          class="size-3.5"
           fill="none"
           stroke="currentColor"
           stroke-width="3"
@@ -69,7 +69,7 @@ export function CheckboxLabel(props: CheckboxLabelProps) {
   return (
     <CheckboxPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -80,7 +80,7 @@ export function CheckboxDescription(props: CheckboxDescriptionProps) {
   return (
     <CheckboxPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -91,7 +91,7 @@ export function CheckboxErrorMessage(props: CheckboxErrorMessageProps) {
   return (
     <CheckboxPrimitive.ErrorMessage
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );

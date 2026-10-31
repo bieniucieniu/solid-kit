@@ -12,7 +12,7 @@ function BreadcrumbRoot(props: BreadcrumbRootProps) {
     <BreadcrumbsPrimitive
       ref={props.ref}
       class={cn(
-        "text-sm text-muted-foreground [&_ol]:flex [&_ol]:items-center [&_ol]:gap-1 [&_ol]:list-none [&_ol]:p-0",
+        "gap-1.5 text-xs/relaxed text-muted-foreground [&_ol]:flex [&_ol]:items-center [&_ol]:gap-1.5 [&_ol]:list-none [&_ol]:p-0",
         props.class,
       )}
       {...rest}
@@ -39,7 +39,7 @@ export function BreadcrumbSeparator(props: BreadcrumbSeparatorProps) {
   return (
     <BreadcrumbsPrimitive.Separator
       ref={props.ref}
-      class={cn("text-muted-foreground", props.class)}
+      class={cn("text-muted-foreground [&>svg]:size-3.5", props.class)}
       {...rest}
     />
   );

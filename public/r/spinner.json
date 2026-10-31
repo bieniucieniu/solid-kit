@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "packages/ui/src/components/spinner.tsx",
-      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Spinner(props: JSX.HTMLAttributes<HTMLSpanElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <span\n      ref={props.ref}\n      role=\"status\"\n      aria-label=\"Loading\"\n      class={cn(\n        \"inline-block size-4 shrink-0 animate-spin rounded-full border-2 border-border border-t-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Spinner(props: JSX.HTMLAttributes<HTMLSpanElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <span\n      ref={props.ref}\n      role=\"status\"\n      aria-label=\"Loading\"\n      class={cn(\n        \"inline-block size-3.5 shrink-0 animate-spin rounded-full border-2 border-muted border-t-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/spinner.tsx"
     }

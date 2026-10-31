@@ -15,7 +15,7 @@ export function HoverCardContent(props: HoverCardContentProps) {
     <HoverCardPrimitive.Content
       ref={props.ref}
       class={cn(
-        "z-50 w-72 rounded-lg border border-border bg-background p-4 text-foreground shadow-lg outline-none",
+        "z-50 w-72 rounded-lg bg-popover p-2.5 text-xs/relaxed text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none",
         props.class,
       )}
       {...rest}

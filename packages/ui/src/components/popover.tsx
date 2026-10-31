@@ -18,7 +18,7 @@ export function PopoverContent(props: PopoverContentProps) {
     <PopoverPrimitive.Content
       ref={props.ref}
       class={cn(
-        "z-50 w-72 rounded-lg border border-border bg-background p-4 text-foreground shadow-lg outline-none",
+        "z-50 flex w-72 flex-col gap-4 rounded-lg bg-popover p-2.5 text-xs text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none",
         props.class,
       )}
       {...rest}
@@ -31,7 +31,7 @@ export function PopoverTitle(props: PopoverTitleProps) {
   return (
     <PopoverPrimitive.Title
       ref={props.ref}
-      class={cn("text-lg font-medium text-foreground", props.class)}
+      class={cn("text-sm font-medium", props.class)}
       {...rest}
     />
   );
@@ -42,7 +42,7 @@ export function PopoverDescription(props: PopoverDescriptionProps) {
   return (
     <PopoverPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -54,7 +54,7 @@ export function PopoverCloseButton(props: PopoverCloseButtonProps) {
     <PopoverPrimitive.CloseButton
       ref={props.ref}
       class={cn(
-        "inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
+        "inline-flex h-7 items-center justify-center rounded-md px-2 text-xs/relaxed text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none data-disabled:opacity-50",
         props.class,
       )}
       {...rest}

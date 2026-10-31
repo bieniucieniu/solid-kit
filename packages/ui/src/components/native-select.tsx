@@ -8,7 +8,7 @@ export function NativeSelect(props: JSX.SelectHTMLAttributes<HTMLSelectElement>)
     <select
       ref={props.ref}
       class={cn(
-        "h-9 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground ring-ring focus-visible:outline-none focus-visible:ring-2 disabled:opacity-50",
+        "h-7 w-full min-w-0 appearance-none rounded-md border border-input bg-input/20 py-0.5 pr-6 pl-2 text-xs/relaxed text-foreground transition-colors select-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none disabled:opacity-50 dark:bg-input/30 dark:hover:bg-input/50",
         props.class,
       )}
       {...rest}

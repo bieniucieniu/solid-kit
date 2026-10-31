@@ -17,7 +17,7 @@ function ToastRoot(props: ToastRootProps) {
     <ToastPrimitive
       ref={props.ref}
       class={cn(
-        "z-50 flex w-full flex-col gap-1 rounded-lg border border-border bg-background p-4 text-foreground shadow-lg",
+        "z-50 flex w-full flex-col gap-1 rounded-md bg-popover p-4 text-xs/relaxed text-popover-foreground shadow-md ring-1 ring-foreground/10",
         props.class,
       )}
       {...rest}
@@ -55,7 +55,7 @@ export function ToastTitle(props: ToastTitleProps) {
   return (
     <ToastPrimitive.Title
       ref={props.ref}
-      class={cn("text-sm font-medium text-foreground", props.class)}
+      class={cn("text-sm font-medium", props.class)}
       {...rest}
     />
   );
@@ -66,7 +66,7 @@ export function ToastDescription(props: ToastDescriptionProps) {
   return (
     <ToastPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -78,7 +78,7 @@ export function ToastCloseButton(props: ToastCloseButtonProps) {
     <ToastPrimitive.CloseButton
       ref={props.ref}
       class={cn(
-        "inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
+        "inline-flex h-7 items-center justify-center rounded-md px-2 text-xs/relaxed text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -91,7 +91,7 @@ export function ToastProgressTrack(props: ToastProgressTrackProps) {
   return (
     <ToastPrimitive.ProgressTrack
       ref={props.ref}
-      class={cn("mt-2 h-1 w-full overflow-hidden rounded-lg bg-muted", props.class)}
+      class={cn("mt-2 h-1 w-full overflow-hidden rounded-md bg-muted", props.class)}
       {...rest}
     />
   );

@@ -17,7 +17,7 @@ export function TooltipContent(props: DynamicProps<"div", ContentProps>) {
     <TooltipPrimitive.Content
       ref={props.ref}
       class={cn(
-        "z-50 rounded-lg bg-primary px-3 py-1.5 text-sm text-primary-foreground",
+        "z-50 inline-flex items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background",
         props.class,
       )}
       {...rest}
@@ -28,7 +28,7 @@ export function TooltipContent(props: DynamicProps<"div", ContentProps>) {
 export function TooltipArrow(props: DynamicProps<"div", ArrowProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <TooltipPrimitive.Arrow ref={props.ref} class={cn("text-primary", props.class)} {...rest} />
+    <TooltipPrimitive.Arrow ref={props.ref} class={cn("text-foreground", props.class)} {...rest} />
   );
 }
 

@@ -9,7 +9,7 @@ type PaginationItemProps = ComponentProps<typeof PaginationPrimitive.Item>;
 type PaginationEllipsisProps = ComponentProps<typeof PaginationPrimitive.Ellipsis>;
 
 const pageClass =
-  "inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-2 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50 data-current:bg-primary data-current:text-primary-foreground data-current:hover:bg-primary";
+  "inline-flex h-7 min-w-7 items-center justify-center rounded-md px-2 text-xs/relaxed hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none data-disabled:opacity-50 data-current:bg-primary data-current:text-primary-foreground";
 
 function PaginationRoot(props: PaginationRootProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
@@ -17,7 +17,7 @@ function PaginationRoot(props: PaginationRootProps) {
     <PaginationPrimitive
       ref={props.ref}
       class={cn(
-        "data-disabled:opacity-50 [&>ul]:flex [&>ul]:list-none [&>ul]:items-center [&>ul]:gap-1 [&>ul]:p-0 [&_li]:flex",
+        "data-disabled:opacity-50 [&>ul]:flex [&>ul]:list-none [&>ul]:items-center [&>ul]:gap-0.5 [&>ul]:p-0 [&_li]:flex",
         props.class,
       )}
       {...rest}
@@ -32,7 +32,7 @@ export function PaginationPrevious(props: PaginationPreviousProps) {
       {props.children ?? (
         <svg
           viewBox="0 0 24 24"
-          class="size-4"
+          class="size-3.5"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
@@ -52,7 +52,7 @@ export function PaginationNext(props: PaginationNextProps) {
       {props.children ?? (
         <svg
           viewBox="0 0 24 24"
-          class="size-4"
+          class="size-3.5"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
@@ -76,7 +76,7 @@ export function PaginationEllipsis(props: PaginationEllipsisProps) {
     <PaginationPrimitive.Ellipsis
       ref={props.ref}
       class={cn(
-        "flex h-9 min-w-9 items-center justify-center text-sm text-muted-foreground",
+        "flex size-7 items-center justify-center text-xs text-muted-foreground",
         props.class,
       )}
       {...rest}

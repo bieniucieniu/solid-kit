@@ -12,7 +12,7 @@ function AvatarRoot(props: AvatarRootProps) {
     <ImagePrimitive
       ref={props.ref}
       class={cn(
-        "relative inline-flex size-10 shrink-0 overflow-hidden rounded-lg bg-muted",
+        "relative inline-flex size-8 shrink-0 overflow-hidden rounded-full bg-muted",
         props.class,
       )}
       {...rest}
@@ -25,7 +25,7 @@ export function AvatarImg(props: AvatarImgProps) {
   return (
     <ImagePrimitive.Img
       ref={props.ref}
-      class={cn("size-full object-cover", props.class)}
+      class={cn("size-full rounded-full object-cover", props.class)}
       {...rest}
     />
   );
@@ -37,7 +37,7 @@ export function AvatarFallback(props: AvatarFallbackProps) {
     <ImagePrimitive.Fallback
       ref={props.ref}
       class={cn(
-        "flex size-full items-center justify-center text-sm text-muted-foreground",
+        "flex size-full items-center justify-center rounded-full bg-muted text-xs text-muted-foreground",
         props.class,
       )}
       {...rest}

@@ -17,10 +17,7 @@ function RadioGroupRoot(props: RadioGroupRootProps) {
   return (
     <RadioGroupPrimitive
       ref={props.ref}
-      class={cn(
-        "flex flex-col gap-2 text-sm text-foreground data-disabled:opacity-50",
-        props.class,
-      )}
+      class={cn("grid gap-3 text-xs text-foreground data-disabled:opacity-50", props.class)}
       {...rest}
     />
   );
@@ -31,7 +28,7 @@ export function RadioGroupLabel(props: RadioGroupLabelProps) {
   return (
     <RadioGroupPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -42,7 +39,7 @@ export function RadioGroupDescription(props: RadioGroupDescriptionProps) {
   return (
     <RadioGroupPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -53,7 +50,7 @@ export function RadioGroupErrorMessage(props: RadioGroupErrorMessageProps) {
   return (
     <RadioGroupPrimitive.ErrorMessage
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );
@@ -65,7 +62,7 @@ export function RadioGroupItem(props: RadioGroupItemProps) {
     <RadioGroupPrimitive.Item
       ref={props.ref}
       class={cn(
-        "group inline-flex items-center gap-2 text-sm text-foreground data-disabled:opacity-50",
+        "group inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -79,7 +76,7 @@ export function RadioGroupItemControl(props: RadioGroupItemControlProps) {
     <RadioGroupPrimitive.ItemControl
       ref={props.ref}
       class={cn(
-        "flex size-4 shrink-0 items-center justify-center rounded-lg border border-border bg-background ring-ring group-focus-within:ring-2 data-checked:border-primary data-checked:bg-primary data-invalid:border-foreground",
+        "flex size-4 shrink-0 items-center justify-center rounded-full border border-input group-focus-within:ring-3 group-focus-within:ring-ring/50 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground data-invalid:border-destructive dark:bg-input/30",
         props.class,
       )}
       {...rest}
@@ -92,7 +89,7 @@ export function RadioGroupItemIndicator(props: RadioGroupItemIndicatorProps) {
   return (
     <RadioGroupPrimitive.ItemIndicator
       ref={props.ref}
-      class={cn("size-2 rounded-lg bg-primary-foreground", props.class)}
+      class={cn("size-2 rounded-full bg-primary-foreground", props.class)}
       {...rest}
     />
   );
@@ -103,7 +100,7 @@ export function RadioGroupItemLabel(props: RadioGroupItemLabelProps) {
   return (
     <RadioGroupPrimitive.ItemLabel
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -114,7 +111,7 @@ export function RadioGroupItemDescription(props: RadioGroupItemDescriptionProps)
   return (
     <RadioGroupPrimitive.ItemDescription
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );

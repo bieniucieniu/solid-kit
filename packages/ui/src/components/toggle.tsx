@@ -10,7 +10,7 @@ export function Toggle(props: ToggleProps) {
     <ToggleButtonPrimitive
       ref={props.ref}
       class={cn(
-        "inline-flex items-center justify-center rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50 data-pressed:border-primary data-pressed:bg-primary data-pressed:text-primary-foreground",
+        "inline-flex h-7 min-w-7 items-center justify-center gap-1 rounded-md bg-transparent px-2 text-xs font-medium transition-all hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:outline-none data-disabled:opacity-50 data-pressed:bg-muted",
         props.class,
       )}
       {...rest}

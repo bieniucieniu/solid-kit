@@ -3,9 +3,9 @@ import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
 const surfaceClass =
-  "z-50 min-w-48 rounded-lg border border-border bg-background p-1 text-foreground shadow-lg outline-none";
+  "z-50 min-w-32 rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none";
 const itemClass =
-  "flex cursor-default items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-foreground outline-none data-highlighted:bg-muted data-disabled:opacity-50";
+  "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs/relaxed outline-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:opacity-50";
 
 type MenubarRootProps = ComponentProps<typeof MenubarPrimitive>;
 type MenubarTriggerProps = ComponentProps<typeof MenubarPrimitive.Trigger>;
@@ -29,10 +29,7 @@ function MenubarRoot(props: MenubarRootProps) {
   return (
     <MenubarPrimitive
       ref={props.ref}
-      class={cn(
-        "flex h-10 items-center gap-1 rounded-lg border border-border bg-background p-1 text-sm text-foreground",
-        props.class,
-      )}
+      class={cn("flex h-9 items-center rounded-lg border p-1", props.class)}
       {...rest}
     />
   );
@@ -42,7 +39,7 @@ function CheckIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      class="size-3"
+      class="size-3.5"
       fill="none"
       stroke="currentColor"
       stroke-width="3"
@@ -59,7 +56,7 @@ export function MenubarTrigger(props: MenubarTriggerProps) {
     <MenubarPrimitive.Trigger
       ref={props.ref}
       class={cn(
-        "rounded-lg px-3 py-1.5 text-sm text-foreground ring-ring data-highlighted:bg-muted data-expanded:bg-muted data-disabled:opacity-50 focus-visible:ring-2 focus-visible:outline-none",
+        "rounded-[calc(var(--radius-md)-2px)] px-2 py-[calc(--spacing(0.85))] text-xs/relaxed font-medium hover:bg-muted data-highlighted:bg-muted data-expanded:bg-muted data-disabled:opacity-50 focus-visible:outline-none",
         props.class,
       )}
       {...rest}
@@ -84,7 +81,7 @@ export function MenubarItemLabel(props: MenubarItemLabelProps) {
   return (
     <MenubarPrimitive.ItemLabel
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs text-foreground", props.class)}
       {...rest}
     />
   );
@@ -95,7 +92,7 @@ export function MenubarItemDescription(props: MenubarItemDescriptionProps) {
   return (
     <MenubarPrimitive.ItemDescription
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -106,7 +103,10 @@ export function MenubarItemIndicator(props: MenubarItemIndicatorProps) {
   return (
     <MenubarPrimitive.ItemIndicator
       ref={props.ref}
-      class={cn("flex size-4 shrink-0 items-center justify-center", props.class)}
+      class={cn(
+        "pointer-events-none flex size-3.5 shrink-0 items-center justify-center",
+        props.class,
+      )}
       {...rest}
     >
       {props.children ?? <CheckIcon />}
@@ -159,7 +159,7 @@ export function MenubarGroupLabel(props: MenubarGroupLabelProps) {
   return (
     <MenubarPrimitive.GroupLabel
       ref={props.ref}
-      class={cn("px-2 py-1.5 text-sm text-muted-foreground", props.class)}
+      class={cn("px-2 py-1.5 text-xs text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -170,7 +170,7 @@ export function MenubarIcon(props: MenubarIconProps) {
   return (
     <MenubarPrimitive.Icon
       ref={props.ref}
-      class={cn("size-4 shrink-0 text-muted-foreground", props.class)}
+      class={cn("size-3.5 shrink-0 text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -181,13 +181,17 @@ export function MenubarSubTrigger(props: MenubarSubTriggerProps) {
   return (
     <MenubarPrimitive.SubTrigger
       ref={props.ref}
-      class={cn(itemClass, "data-expanded:bg-muted", props.class)}
+      class={cn(
+        itemClass,
+        "data-expanded:bg-accent data-expanded:text-accent-foreground",
+        props.class,
+      )}
       {...rest}
     >
       {props.children}
       <svg
         viewBox="0 0 24 24"
-        class="ml-auto size-4 shrink-0"
+        class="ml-auto size-3.5 shrink-0"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -202,11 +206,7 @@ export function MenubarSubTrigger(props: MenubarSubTriggerProps) {
 export function MenubarSubContent(props: MenubarSubContentProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <MenubarPrimitive.SubContent
-      ref={props.ref}
-      class={cn(surfaceClass, props.class)}
-      {...rest}
-    />
+    <MenubarPrimitive.SubContent ref={props.ref} class={cn(surfaceClass, props.class)} {...rest} />
   );
 }
 
@@ -216,7 +216,7 @@ export function MenubarSeparator(props: MenubarSeparatorProps) {
     <MenubarPrimitive.Separator
       ref={props.ref}
       class={cn(
-        "my-1 h-px bg-border data-[orientation=vertical]:my-0 data-[orientation=vertical]:h-auto data-[orientation=vertical]:w-px",
+        "-mx-1 my-1 h-px bg-border/50 data-[orientation=vertical]:mx-0 data-[orientation=vertical]:my-0 data-[orientation=vertical]:h-auto data-[orientation=vertical]:w-px",
         props.class,
       )}
       {...rest}

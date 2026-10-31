@@ -18,7 +18,7 @@ export function DrawerOverlay(props: DrawerOverlayProps) {
   return (
     <DrawerPrimitive.Overlay
       ref={props.ref}
-      class={cn("fixed inset-0 z-50 bg-foreground/40", props.class)}
+      class={cn("fixed inset-0 z-50 bg-black/80", props.class)}
       {...rest}
     />
   );
@@ -30,7 +30,7 @@ export function DrawerContent(props: DrawerContentProps) {
     <DrawerPrimitive.Content
       ref={props.ref}
       class={cn(
-        "fixed inset-x-0 bottom-0 z-50 max-h-[85vh] w-full overflow-auto rounded-lg border border-border bg-background p-6 text-foreground shadow-lg outline-none",
+        "fixed inset-x-0 bottom-0 z-50 flex max-h-[85vh] w-full flex-col gap-1 overflow-auto rounded-t-xl bg-popover p-4 text-xs/relaxed text-popover-foreground shadow-lg outline-none",
         props.class,
       )}
       {...rest}
@@ -43,7 +43,7 @@ export function DrawerTitle(props: DrawerTitleProps) {
   return (
     <DrawerPrimitive.Title
       ref={props.ref}
-      class={cn("text-lg font-medium text-foreground", props.class)}
+      class={cn("text-sm font-medium", props.class)}
       {...rest}
     />
   );
@@ -54,7 +54,7 @@ export function DrawerDescription(props: DrawerDescriptionProps) {
   return (
     <DrawerPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -66,7 +66,7 @@ export function DrawerCloseButton(props: DrawerCloseButtonProps) {
     <DrawerPrimitive.CloseButton
       ref={props.ref}
       class={cn(
-        "inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm text-foreground ring-ring hover:bg-muted focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
+        "inline-flex h-7 items-center justify-center rounded-md px-2 text-xs/relaxed text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none data-disabled:opacity-50",
         props.class,
       )}
       {...rest}

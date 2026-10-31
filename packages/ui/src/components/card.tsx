@@ -8,7 +8,7 @@ function CardRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {
     <div
       ref={props.ref}
       class={cn(
-        "rounded-lg border border-border bg-background text-foreground",
+        "flex flex-col gap-4 overflow-hidden rounded-lg bg-card py-4 text-xs/relaxed text-card-foreground ring-1 ring-foreground/10",
         props.class,
       )}
       {...rest}
@@ -18,51 +18,29 @@ function CardRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {
 
 export function CardHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <div
-      ref={props.ref}
-      class={cn("flex flex-col gap-1.5 p-6", props.class)}
-      {...rest}
-    />
-  );
+  return <div ref={props.ref} class={cn("flex flex-col gap-1 px-4", props.class)} {...rest} />;
 }
 
 export function CardTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <h3
-      ref={props.ref}
-      class={cn("text-lg font-medium text-foreground", props.class)}
-      {...rest}
-    />
-  );
+  return <h3 ref={props.ref} class={cn("text-sm font-medium", props.class)} {...rest} />;
 }
 
 export function CardDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <p
-      ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
-      {...rest}
-    />
+    <p ref={props.ref} class={cn("text-xs/relaxed text-muted-foreground", props.class)} {...rest} />
   );
 }
 
 export function CardContent(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return <div ref={props.ref} class={cn("p-6 pt-0", props.class)} {...rest} />;
+  return <div ref={props.ref} class={cn("px-4", props.class)} {...rest} />;
 }
 
 export function CardFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <div
-      ref={props.ref}
-      class={cn("flex items-center gap-2 p-6 pt-0", props.class)}
-      {...rest}
-    />
-  );
+  return <div ref={props.ref} class={cn("flex items-center gap-2 px-4", props.class)} {...rest} />;
 }
 
 export const Card = Object.assign(CardRoot, {

@@ -9,7 +9,7 @@ type InputDescriptionProps = ComponentProps<typeof TextFieldPrimitive.Descriptio
 type InputErrorMessageProps = ComponentProps<typeof TextFieldPrimitive.ErrorMessage>;
 
 const fieldClass =
-  "w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground ring-ring outline-none focus-visible:ring-2 data-invalid:border-foreground disabled:opacity-50 placeholder:text-muted-foreground";
+  "h-7 w-full rounded-md border border-input bg-input/20 px-2 py-0.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 data-invalid:border-destructive disabled:opacity-50 md:text-xs/relaxed dark:bg-input/30";
 
 function InputRoot(props: InputRootProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
@@ -27,7 +27,7 @@ export function InputLabel(props: InputLabelProps) {
   return (
     <TextFieldPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -43,7 +43,7 @@ export function InputDescription(props: InputDescriptionProps) {
   return (
     <TextFieldPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -54,7 +54,7 @@ export function InputErrorMessage(props: InputErrorMessageProps) {
   return (
     <TextFieldPrimitive.ErrorMessage
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );

@@ -15,7 +15,7 @@ function SwitchRoot(props: SwitchRootProps) {
     <SwitchPrimitive
       ref={props.ref}
       class={cn(
-        "group inline-flex items-center gap-2 text-sm text-foreground data-disabled:opacity-50",
+        "group inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -29,7 +29,7 @@ export function SwitchControl(props: SwitchControlProps) {
     <SwitchPrimitive.Control
       ref={props.ref}
       class={cn(
-        "inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-lg border border-border bg-muted p-0.5 ring-ring group-focus-within:ring-2 data-checked:border-primary data-checked:bg-primary data-invalid:border-foreground",
+        "inline-flex h-[16.6px] w-[28px] shrink-0 cursor-pointer items-center rounded-full border border-transparent p-px group-focus-within:ring-2 group-focus-within:ring-ring/30 data-checked:bg-primary data-unchecked:bg-input data-invalid:border-destructive dark:data-unchecked:bg-input/80",
         props.class,
       )}
       {...rest}
@@ -43,7 +43,7 @@ export function SwitchThumb(props: SwitchThumbProps) {
     <SwitchPrimitive.Thumb
       ref={props.ref}
       class={cn(
-        "pointer-events-none block size-4 rounded-lg bg-foreground data-checked:translate-x-3.5 data-checked:bg-primary-foreground",
+        "pointer-events-none block size-3.5 rounded-full bg-background transition-transform data-checked:ml-auto dark:data-unchecked:bg-foreground dark:data-checked:bg-primary-foreground",
         props.class,
       )}
       {...rest}
@@ -56,7 +56,7 @@ export function SwitchLabel(props: SwitchLabelProps) {
   return (
     <SwitchPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -67,7 +67,7 @@ export function SwitchDescription(props: SwitchDescriptionProps) {
   return (
     <SwitchPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -78,7 +78,7 @@ export function SwitchErrorMessage(props: SwitchErrorMessageProps) {
   return (
     <SwitchPrimitive.ErrorMessage
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );

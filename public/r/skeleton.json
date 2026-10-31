@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "packages/ui/src/components/skeleton.tsx",
-      "content": "import { Skeleton as SkeletonPrimitive } from \"@kobalte/core/skeleton\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype SkeletonProps = ComponentProps<typeof SkeletonPrimitive>;\n\nexport function Skeleton(props: SkeletonProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SkeletonPrimitive\n      ref={props.ref}\n      class={cn(\n        \"block rounded-lg data-visible:bg-muted data-visible:text-transparent data-visible:data-animate:animate-pulse\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "content": "import { Skeleton as SkeletonPrimitive } from \"@kobalte/core/skeleton\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype SkeletonProps = ComponentProps<typeof SkeletonPrimitive>;\n\nexport function Skeleton(props: SkeletonProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <SkeletonPrimitive\n      ref={props.ref}\n      class={cn(\n        \"block rounded-md bg-muted data-visible:text-transparent data-visible:data-animate:animate-pulse\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/skeleton.tsx"
     }

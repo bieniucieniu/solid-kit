@@ -24,7 +24,7 @@ export function ProgressLabel(props: ProgressLabelProps) {
   return (
     <ProgressPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -35,7 +35,7 @@ export function ProgressValueLabel(props: ProgressValueLabelProps) {
   return (
     <ProgressPrimitive.ValueLabel
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground tabular-nums", props.class)}
       {...rest}
     />
   );
@@ -46,7 +46,7 @@ export function ProgressTrack(props: ProgressTrackProps) {
   return (
     <ProgressPrimitive.Track
       ref={props.ref}
-      class={cn("h-2 w-full overflow-hidden rounded-lg bg-muted", props.class)}
+      class={cn("h-1 w-full overflow-hidden rounded-md bg-muted", props.class)}
       {...rest}
     />
   );

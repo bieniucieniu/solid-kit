@@ -7,7 +7,7 @@ export function ContextMenuDemo() {
   return (
     <div class="flex flex-col items-start gap-3">
       <ContextMenu>
-        <ContextMenu.Trigger class="flex h-24 w-64 items-center justify-center rounded-lg border border-dashed border-border text-sm text-muted-foreground">
+        <ContextMenu.Trigger class="flex h-24 w-64 items-center justify-center rounded-lg border border-dashed border-border text-xs text-muted-foreground">
           Right click
         </ContextMenu.Trigger>
         <ContextMenu.Portal>
@@ -17,7 +17,7 @@ export function ContextMenuDemo() {
           </ContextMenu.Content>
         </ContextMenu.Portal>
       </ContextMenu>
-      <p class="text-sm text-muted-foreground">Action: {action()}</p>
+      <p class="text-xs text-muted-foreground">Action: {action()}</p>
     </div>
   );
 }

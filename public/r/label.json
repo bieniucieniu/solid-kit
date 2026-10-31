@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "packages/ui/src/components/label.tsx",
-      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Label(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <label\n      ref={props.ref}\n      class={cn(\"text-sm font-medium text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Label(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <label\n      ref={props.ref}\n      class={cn(\"text-xs/relaxed leading-none font-medium text-foreground\", props.class)}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/label.tsx"
     }

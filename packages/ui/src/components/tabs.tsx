@@ -25,7 +25,7 @@ export function TabsList(props: TabsListProps) {
     <TabsPrimitive.List
       ref={props.ref}
       class={cn(
-        "relative inline-flex items-center gap-1 rounded-lg bg-muted p-1 text-muted-foreground data-[orientation=vertical]:flex-col",
+        "relative inline-flex h-8 items-center rounded-lg bg-muted p-[3px] text-muted-foreground data-[orientation=vertical]:h-auto data-[orientation=vertical]:flex-col",
         props.class,
       )}
       {...rest}
@@ -39,7 +39,7 @@ export function TabsTrigger(props: TabsTriggerProps) {
     <TabsPrimitive.Trigger
       ref={props.ref}
       class={cn(
-        "inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-sm whitespace-nowrap text-foreground ring-ring focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50 data-highlighted:bg-background data-selected:bg-background",
+        "inline-flex items-center justify-center gap-1.5 rounded-md border border-transparent px-1.5 py-0.5 text-xs font-medium whitespace-nowrap text-foreground focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50 data-highlighted:bg-background data-selected:bg-background [&_svg:not([class*='size-'])]:size-3.5",
         props.class,
       )}
       {...rest}
@@ -66,7 +66,7 @@ export function TabsContent(props: TabsContentProps) {
   return (
     <TabsPrimitive.Content
       ref={props.ref}
-      class={cn("text-sm text-foreground outline-none", props.class)}
+      class={cn("text-xs/relaxed text-foreground outline-none", props.class)}
       {...rest}
     />
   );

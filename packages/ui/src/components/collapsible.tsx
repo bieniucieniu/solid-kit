@@ -23,7 +23,7 @@ export function CollapsibleTrigger(props: CollapsibleTriggerProps) {
     <CollapsiblePrimitive.Trigger
       ref={props.ref}
       class={cn(
-        "group inline-flex items-center gap-2 text-sm font-medium text-foreground ring-ring focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
+        "group inline-flex items-center gap-2 text-xs/relaxed font-medium focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -48,7 +48,7 @@ export function CollapsibleContent(props: CollapsibleContentProps) {
   return (
     <CollapsiblePrimitive.Content
       ref={props.ref}
-      class={cn("overflow-hidden pt-2 text-sm text-foreground", props.class)}
+      class={cn("overflow-hidden pt-2 text-xs/relaxed", props.class)}
       {...rest}
     />
   );

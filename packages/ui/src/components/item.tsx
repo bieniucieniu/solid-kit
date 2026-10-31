@@ -8,7 +8,7 @@ function ItemRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {
     <div
       ref={props.ref}
       class={cn(
-        "flex items-center gap-3 rounded-lg border border-border bg-background p-3 text-foreground",
+        "flex items-center gap-2.5 rounded-md border border-transparent px-3 py-2.5 text-xs/relaxed",
         props.class,
       )}
       {...rest}
@@ -30,11 +30,7 @@ export function ItemMedia(props: JSX.HTMLAttributes<HTMLDivElement>) {
 export function ItemContent(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <div
-      ref={props.ref}
-      class={cn("flex min-w-0 flex-1 flex-col gap-1", props.class)}
-      {...rest}
-    />
+    <div ref={props.ref} class={cn("flex min-w-0 flex-1 flex-col gap-1", props.class)} {...rest} />
   );
 }
 
@@ -43,7 +39,7 @@ export function ItemTitle(props: JSX.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       ref={props.ref}
-      class={cn("text-sm font-medium text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium leading-snug", props.class)}
       {...rest}
     />
   );
@@ -54,7 +50,7 @@ export function ItemDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>)
   return (
     <p
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-left text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -63,11 +59,7 @@ export function ItemDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>)
 export function ItemActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <div
-      ref={props.ref}
-      class={cn("flex shrink-0 items-center gap-2", props.class)}
-      {...rest}
-    />
+    <div ref={props.ref} class={cn("flex shrink-0 items-center gap-2", props.class)} {...rest} />
   );
 }
 

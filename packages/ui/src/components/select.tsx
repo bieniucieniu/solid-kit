@@ -23,7 +23,7 @@ function SelectRoot(props: SelectRootProps) {
     <SelectPrimitive
       ref={props.ref}
       class={cn(
-        "flex flex-col gap-2 text-sm text-foreground data-disabled:opacity-50",
+        "flex flex-col gap-2 text-xs text-foreground data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -35,7 +35,7 @@ function CheckIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      class="size-3"
+      class="size-3.5"
       fill="none"
       stroke="currentColor"
       stroke-width="3"
@@ -52,7 +52,7 @@ export function SelectTrigger(props: SelectTriggerProps) {
     <SelectPrimitive.Trigger
       ref={props.ref}
       class={cn(
-        "flex w-full items-center justify-between gap-2 rounded-lg border border-border bg-background px-3 py-2 text-left text-sm text-foreground ring-ring data-invalid:border-foreground data-expanded:ring-2 focus-visible:ring-2 focus-visible:outline-none",
+        "flex h-7 w-full items-center justify-between gap-1.5 rounded-md border border-input bg-input/20 px-2 py-1.5 text-left text-xs/relaxed transition-colors focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none data-invalid:border-destructive data-expanded:ring-2 dark:bg-input/30 dark:hover:bg-input/50",
         props.class,
       )}
       {...rest}
@@ -66,7 +66,7 @@ export function SelectValue(props: SelectValueProps) {
     <SelectPrimitive.Value
       ref={props.ref}
       class={cn(
-        "grow truncate text-sm text-foreground data-placeholder-shown:text-muted-foreground",
+        "flex flex-1 truncate text-left data-placeholder-shown:text-muted-foreground",
         props.class,
       )}
       {...rest}
@@ -79,7 +79,7 @@ export function SelectIcon(props: SelectIconProps) {
   return (
     <SelectPrimitive.Icon
       ref={props.ref}
-      class={cn("size-4 shrink-0 text-muted-foreground", props.class)}
+      class={cn("size-3.5 shrink-0 text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -91,7 +91,7 @@ export function SelectContent(props: SelectContentProps) {
     <SelectPrimitive.Content
       ref={props.ref}
       class={cn(
-        "z-50 min-w-48 overflow-hidden rounded-lg border border-border bg-background text-foreground shadow-lg outline-none",
+        "z-50 min-w-32 overflow-hidden rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none",
         props.class,
       )}
       {...rest}
@@ -104,7 +104,7 @@ export function SelectListbox(props: SelectListboxProps) {
   return (
     <SelectPrimitive.Listbox
       ref={props.ref}
-      class={cn("max-h-60 overflow-auto p-1 outline-none", props.class)}
+      class={cn("max-h-72 overflow-y-auto p-1 outline-none", props.class)}
       {...rest}
     />
   );
@@ -116,7 +116,7 @@ export function SelectItem(props: SelectItemProps) {
     <SelectPrimitive.Item
       ref={props.ref}
       class={cn(
-        "flex cursor-default items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-foreground outline-none data-highlighted:bg-muted data-selected:bg-muted data-disabled:opacity-50",
+        "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs/relaxed outline-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -129,7 +129,7 @@ export function SelectItemLabel(props: SelectItemLabelProps) {
   return (
     <SelectPrimitive.ItemLabel
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs text-foreground", props.class)}
       {...rest}
     />
   );
@@ -140,7 +140,7 @@ export function SelectItemDescription(props: SelectItemDescriptionProps) {
   return (
     <SelectPrimitive.ItemDescription
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -151,7 +151,10 @@ export function SelectItemIndicator(props: SelectItemIndicatorProps) {
   return (
     <SelectPrimitive.ItemIndicator
       ref={props.ref}
-      class={cn("flex size-4 shrink-0 items-center justify-center", props.class)}
+      class={cn(
+        "pointer-events-none flex size-3.5 shrink-0 items-center justify-center",
+        props.class,
+      )}
       {...rest}
     >
       {props.children ?? <CheckIcon />}
@@ -164,7 +167,7 @@ export function SelectSection(props: SelectSectionProps) {
   return (
     <SelectPrimitive.Section
       ref={props.ref}
-      class={cn("px-2 py-1.5 text-sm text-muted-foreground", props.class)}
+      class={cn("px-2 py-1.5 text-xs text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -175,7 +178,7 @@ export function SelectLabel(props: SelectLabelProps) {
   return (
     <SelectPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -186,7 +189,7 @@ export function SelectDescription(props: SelectDescriptionProps) {
   return (
     <SelectPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -197,7 +200,7 @@ export function SelectErrorMessage(props: SelectErrorMessageProps) {
   return (
     <SelectPrimitive.ErrorMessage
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );

@@ -7,7 +7,7 @@ export function Label(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {
   return (
     <label
       ref={props.ref}
-      class={cn("text-sm font-medium text-foreground", props.class)}
+      class={cn("text-xs/relaxed leading-none font-medium text-foreground", props.class)}
       {...rest}
     />
   );

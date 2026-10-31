@@ -30,7 +30,7 @@ export function SliderLabel(props: SliderLabelProps) {
   return (
     <SliderPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -41,7 +41,7 @@ export function SliderValueLabel(props: SliderValueLabelProps) {
   return (
     <SliderPrimitive.ValueLabel
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -52,7 +52,7 @@ export function SliderDescription(props: SliderDescriptionProps) {
   return (
     <SliderPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -63,7 +63,7 @@ export function SliderErrorMessage(props: SliderErrorMessageProps) {
   return (
     <SliderPrimitive.ErrorMessage
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );
@@ -75,7 +75,7 @@ export function SliderTrack(props: SliderTrackProps) {
     <SliderPrimitive.Track
       ref={props.ref}
       class={cn(
-        "relative h-4 w-full rounded-lg bg-muted data-[orientation=vertical]:h-full data-[orientation=vertical]:w-4",
+        "relative rounded-md bg-muted data-[orientation=horizontal]:h-1 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1",
         props.class,
       )}
       {...rest}
@@ -103,7 +103,7 @@ export function SliderThumb(props: SliderThumbProps) {
     <SliderPrimitive.Thumb
       ref={props.ref}
       class={cn(
-        "block size-4 rounded-lg border border-border bg-background ring-ring focus-visible:ring-2 focus-visible:outline-none",
+        "relative block size-3 rounded-md border border-ring bg-white ring-ring/30 hover:ring-2 focus-visible:ring-2 focus-visible:outline-none",
         props.class,
       )}
       {...rest}

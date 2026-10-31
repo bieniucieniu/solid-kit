@@ -4,13 +4,7 @@ import { cn } from "@/lib/utils";
 
 function FieldRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <div
-      ref={props.ref}
-      class={cn("flex flex-col gap-2", props.class)}
-      {...rest}
-    />
-  );
+  return <div ref={props.ref} class={cn("flex flex-col gap-2", props.class)} {...rest} />;
 }
 
 export function FieldLabel(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {
@@ -18,7 +12,7 @@ export function FieldLabel(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {
   return (
     <label
       ref={props.ref}
-      class={cn("text-sm font-medium text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium leading-snug text-foreground", props.class)}
       {...rest}
     />
   );
@@ -29,7 +23,7 @@ export function FieldDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>
   return (
     <p
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-left text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -41,7 +35,7 @@ export function FieldError(props: JSX.HTMLAttributes<HTMLParagraphElement>) {
     <p
       ref={props.ref}
       role="alert"
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );

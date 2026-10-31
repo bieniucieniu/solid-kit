@@ -10,7 +10,13 @@ type AccordionContentProps = ComponentProps<typeof AccordionPrimitive.Content>;
 
 function AccordionRoot(props: AccordionRootProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return <AccordionPrimitive ref={props.ref} class={cn("w-full", props.class)} {...rest} />;
+  return (
+    <AccordionPrimitive
+      ref={props.ref}
+      class={cn("w-full overflow-hidden rounded-md border", props.class)}
+      {...rest}
+    />
+  );
 }
 
 export function AccordionItem(props: AccordionItemProps) {
@@ -18,7 +24,10 @@ export function AccordionItem(props: AccordionItemProps) {
   return (
     <AccordionPrimitive.Item
       ref={props.ref}
-      class={cn("border-b border-border data-disabled:opacity-50", props.class)}
+      class={cn(
+        "not-last:border-b data-expanded:bg-muted/50 data-disabled:opacity-50",
+        props.class,
+      )}
       {...rest}
     />
   );
@@ -35,7 +44,7 @@ export function AccordionTrigger(props: AccordionTriggerProps) {
     <AccordionPrimitive.Trigger
       ref={props.ref}
       class={cn(
-        "group flex w-full items-center justify-between gap-2 py-3 text-left text-sm font-medium text-foreground ring-ring focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
+        "group flex w-full items-center justify-between gap-6 p-2 text-left text-xs/relaxed font-medium hover:underline focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -60,7 +69,7 @@ export function AccordionContent(props: AccordionContentProps) {
   return (
     <AccordionPrimitive.Content
       ref={props.ref}
-      class={cn("overflow-hidden pb-4 text-sm text-foreground", props.class)}
+      class={cn("overflow-hidden px-2 pb-4 text-xs/relaxed", props.class)}
       {...rest}
     />
   );

@@ -6,9 +6,9 @@ import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
 const surfaceClass =
-  "z-50 min-w-48 rounded-lg border border-border bg-background p-1 text-foreground shadow-lg outline-none";
+  "z-50 min-w-32 rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none";
 const itemClass =
-  "flex cursor-default items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-foreground outline-none data-highlighted:bg-muted data-disabled:opacity-50";
+  "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs/relaxed outline-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:opacity-50";
 
 type ContextMenuRootProps = ComponentProps<typeof ContextMenuPrimitive>;
 type ContextMenuContentProps = ComponentProps<typeof ContextMenuPrimitive.Content>;
@@ -34,7 +34,7 @@ function CheckIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
-      class="size-3"
+      class="size-3.5"
       fill="none"
       stroke="currentColor"
       stroke-width="3"
@@ -48,19 +48,13 @@ function CheckIcon() {
 export function ContextMenuContent(props: ContextMenuContentProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <ContextMenuPrimitive.Content
-      ref={props.ref}
-      class={cn(surfaceClass, props.class)}
-      {...rest}
-    />
+    <ContextMenuPrimitive.Content ref={props.ref} class={cn(surfaceClass, props.class)} {...rest} />
   );
 }
 
 export function ContextMenuItem(props: ContextMenuItemProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <ContextMenuPrimitive.Item ref={props.ref} class={cn(itemClass, props.class)} {...rest} />
-  );
+  return <ContextMenuPrimitive.Item ref={props.ref} class={cn(itemClass, props.class)} {...rest} />;
 }
 
 export function ContextMenuItemLabel(props: ContextMenuItemLabelProps) {
@@ -68,7 +62,7 @@ export function ContextMenuItemLabel(props: ContextMenuItemLabelProps) {
   return (
     <ContextMenuPrimitive.ItemLabel
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs text-foreground", props.class)}
       {...rest}
     />
   );
@@ -79,7 +73,7 @@ export function ContextMenuItemDescription(props: ContextMenuItemDescriptionProp
   return (
     <ContextMenuPrimitive.ItemDescription
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -90,7 +84,10 @@ export function ContextMenuItemIndicator(props: ContextMenuItemIndicatorProps) {
   return (
     <ContextMenuPrimitive.ItemIndicator
       ref={props.ref}
-      class={cn("flex size-4 shrink-0 items-center justify-center", props.class)}
+      class={cn(
+        "pointer-events-none flex size-3.5 shrink-0 items-center justify-center",
+        props.class,
+      )}
       {...rest}
     >
       {props.children ?? <CheckIcon />}
@@ -134,7 +131,11 @@ export function ContextMenuRadioItem(props: ContextMenuRadioItemProps) {
 export function ContextMenuGroup(props: ContextMenuGroupProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <ContextMenuPrimitive.Group ref={props.ref} class={cn("flex flex-col", props.class)} {...rest} />
+    <ContextMenuPrimitive.Group
+      ref={props.ref}
+      class={cn("flex flex-col", props.class)}
+      {...rest}
+    />
   );
 }
 
@@ -143,7 +144,7 @@ export function ContextMenuGroupLabel(props: ContextMenuGroupLabelProps) {
   return (
     <ContextMenuPrimitive.GroupLabel
       ref={props.ref}
-      class={cn("px-2 py-1.5 text-sm text-muted-foreground", props.class)}
+      class={cn("px-2 py-1.5 text-xs text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -154,7 +155,7 @@ export function ContextMenuIcon(props: ContextMenuIconProps) {
   return (
     <ContextMenuPrimitive.Icon
       ref={props.ref}
-      class={cn("size-4 shrink-0 text-muted-foreground", props.class)}
+      class={cn("size-3.5 shrink-0 text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -165,13 +166,17 @@ export function ContextMenuSubTrigger(props: ContextMenuSubTriggerProps) {
   return (
     <ContextMenuPrimitive.SubTrigger
       ref={props.ref}
-      class={cn(itemClass, "data-expanded:bg-muted", props.class)}
+      class={cn(
+        itemClass,
+        "data-expanded:bg-accent data-expanded:text-accent-foreground",
+        props.class,
+      )}
       {...rest}
     >
       {props.children}
       <svg
         viewBox="0 0 24 24"
-        class="ml-auto size-4 shrink-0"
+        class="ml-auto size-3.5 shrink-0"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -200,7 +205,7 @@ export function ContextMenuSeparator(props: ContextMenuSeparatorProps) {
     <ContextMenuPrimitive.Separator
       ref={props.ref}
       class={cn(
-        "my-1 h-px bg-border data-[orientation=vertical]:my-0 data-[orientation=vertical]:h-auto data-[orientation=vertical]:w-px",
+        "-mx-1 my-1 h-px bg-border/50 data-[orientation=vertical]:mx-0 data-[orientation=vertical]:my-0 data-[orientation=vertical]:h-auto data-[orientation=vertical]:w-px",
         props.class,
       )}
       {...rest}

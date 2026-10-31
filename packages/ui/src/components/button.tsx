@@ -8,7 +8,7 @@ export function Button(props: JSX.ButtonHTMLAttributes<HTMLButtonElement>) {
     <button
       ref={props.ref}
       class={cn(
-        "inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-ring transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex h-7 items-center justify-center gap-1 rounded-md border border-transparent bg-primary bg-clip-padding px-2 text-xs/relaxed font-medium text-primary-foreground hover:bg-primary/80 focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none active:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg:not([class*='size-'])]:size-3.5",
         props.class,
       )}
       {...rest}

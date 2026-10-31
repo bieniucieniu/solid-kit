@@ -47,7 +47,7 @@ pnpm dlx shadcn@latest add bieniucieniu/solid-kit/checkbox
 
 ## Theming
 
-Edit CSS variables only. Components use `bg-background`, `text-foreground`, `border-border`, `text-primary-foreground`, `rounded-lg`, and `ring-ring`.
+Edit CSS variables only. Controls use `h-7`, `rounded-md`, and `text-xs/relaxed`. Surfaces use `rounded-lg` or `rounded-xl`, `bg-popover` / `bg-card`, and `ring-foreground/10`. Colors come from `bg-background`, `text-foreground`, `border-input`, `bg-primary`, and `text-primary-foreground`.
 
 ```css
 :root {

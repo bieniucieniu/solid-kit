@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "packages/ui/src/components/kbd.tsx",
-      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Kbd(props: JSX.HTMLAttributes<HTMLElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <kbd\n      ref={props.ref}\n      class={cn(\n        \"inline-flex h-5 min-w-5 items-center justify-center rounded-lg border border-border bg-muted px-1 font-mono text-xs text-muted-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Kbd(props: JSX.HTMLAttributes<HTMLElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <kbd\n      ref={props.ref}\n      class={cn(\n        \"inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-xs bg-muted px-1 font-sans text-[0.625rem] font-medium text-muted-foreground\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/kbd.tsx"
     }

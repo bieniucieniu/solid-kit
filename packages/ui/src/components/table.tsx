@@ -7,7 +7,7 @@ function TableRoot(props: JSX.HTMLAttributes<HTMLTableElement>) {
   return (
     <table
       ref={props.ref}
-      class={cn("w-full border-collapse text-sm text-foreground", props.class)}
+      class={cn("w-full caption-bottom border-collapse text-xs", props.class)}
       {...rest}
     />
   );
@@ -15,13 +15,7 @@ function TableRoot(props: JSX.HTMLAttributes<HTMLTableElement>) {
 
 export function TableHeader(props: JSX.HTMLAttributes<HTMLTableSectionElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <thead
-      ref={props.ref}
-      class={cn("bg-muted", props.class)}
-      {...rest}
-    />
-  );
+  return <thead ref={props.ref} class={cn("[&_tr]:border-b", props.class)} {...rest} />;
 }
 
 export function TableBody(props: JSX.HTMLAttributes<HTMLTableSectionElement>) {
@@ -34,7 +28,7 @@ export function TableRow(props: JSX.HTMLAttributes<HTMLTableRowElement>) {
   return (
     <tr
       ref={props.ref}
-      class={cn("border-b border-border", props.class)}
+      class={cn("border-b border-border transition-colors hover:bg-muted/50", props.class)}
       {...rest}
     />
   );
@@ -46,7 +40,7 @@ export function TableHead(props: JSX.ThHTMLAttributes<HTMLTableCellElement>) {
     <th
       ref={props.ref}
       class={cn(
-        "h-10 px-3 text-left align-middle text-sm font-medium text-muted-foreground",
+        "h-10 px-2 text-left align-middle font-medium whitespace-nowrap text-foreground",
         props.class,
       )}
       {...rest}
@@ -57,11 +51,7 @@ export function TableHead(props: JSX.ThHTMLAttributes<HTMLTableCellElement>) {
 export function TableCell(props: JSX.TdHTMLAttributes<HTMLTableCellElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <td
-      ref={props.ref}
-      class={cn("px-3 py-2 align-middle text-sm text-foreground", props.class)}
-      {...rest}
-    />
+    <td ref={props.ref} class={cn("p-2 align-middle whitespace-nowrap", props.class)} {...rest} />
   );
 }
 

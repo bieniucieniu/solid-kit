@@ -10,7 +10,7 @@ export function Skeleton(props: SkeletonProps) {
     <SkeletonPrimitive
       ref={props.ref}
       class={cn(
-        "block rounded-lg data-visible:bg-muted data-visible:text-transparent data-visible:data-animate:animate-pulse",
+        "block rounded-md bg-muted data-visible:text-transparent data-visible:data-animate:animate-pulse",
         props.class,
       )}
       {...rest}

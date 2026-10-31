@@ -9,7 +9,7 @@ type TextareaDescriptionProps = ComponentProps<typeof TextFieldPrimitive.Descrip
 type TextareaErrorMessageProps = ComponentProps<typeof TextFieldPrimitive.ErrorMessage>;
 
 const fieldClass =
-  "min-h-24 w-full resize-y rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground ring-ring outline-none focus-visible:ring-2 data-invalid:border-foreground disabled:opacity-50 placeholder:text-muted-foreground";
+  "min-h-16 w-full resize-none rounded-md border border-input bg-input/20 px-2 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 data-invalid:border-destructive disabled:opacity-50 md:text-xs/relaxed dark:bg-input/30";
 
 function TextareaRoot(props: TextareaRootProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
@@ -27,7 +27,7 @@ export function TextareaLabel(props: TextareaLabelProps) {
   return (
     <TextFieldPrimitive.Label
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
       {...rest}
     />
   );
@@ -45,7 +45,7 @@ export function TextareaDescription(props: TextareaDescriptionProps) {
   return (
     <TextFieldPrimitive.Description
       ref={props.ref}
-      class={cn("text-sm text-muted-foreground", props.class)}
+      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
       {...rest}
     />
   );
@@ -56,7 +56,7 @@ export function TextareaErrorMessage(props: TextareaErrorMessageProps) {
   return (
     <TextFieldPrimitive.ErrorMessage
       ref={props.ref}
-      class={cn("text-sm text-foreground", props.class)}
+      class={cn("text-xs/relaxed text-destructive", props.class)}
       {...rest}
     />
   );

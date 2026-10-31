@@ -8,7 +8,7 @@ export function Kbd(props: JSX.HTMLAttributes<HTMLElement>) {
     <kbd
       ref={props.ref}
       class={cn(
-        "inline-flex h-5 min-w-5 items-center justify-center rounded-lg border border-border bg-muted px-1 font-mono text-xs text-muted-foreground",
+        "inline-flex h-5 w-fit min-w-5 items-center justify-center gap-1 rounded-xs bg-muted px-1 font-sans text-[0.625rem] font-medium text-muted-foreground",
         props.class,
       )}
       {...rest}

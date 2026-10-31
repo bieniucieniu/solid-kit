@@ -10,7 +10,7 @@ function AlertRoot(props: AlertRootProps) {
     <AlertPrimitive
       ref={props.ref}
       class={cn(
-        "flex w-full flex-col gap-1 rounded-lg border border-border bg-background p-4 text-foreground",
+        "grid w-full gap-0.5 rounded-lg border bg-card px-2 py-1.5 text-left text-xs/relaxed text-card-foreground",
         props.class,
       )}
       {...rest}
@@ -20,14 +20,14 @@ function AlertRoot(props: AlertRootProps) {
 
 export function AlertTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <h2 ref={props.ref} class={cn("text-sm font-medium text-foreground", props.class)} {...rest} />
-  );
+  return <h2 ref={props.ref} class={cn("font-medium", props.class)} {...rest} />;
 }
 
 export function AlertDescription(props: JSX.HTMLAttributes<HTMLParagraphElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return <p ref={props.ref} class={cn("text-sm text-muted-foreground", props.class)} {...rest} />;
+  return (
+    <p ref={props.ref} class={cn("text-xs/relaxed text-muted-foreground", props.class)} {...rest} />
+  );
 }
 
 export function AlertAction(props: JSX.HTMLAttributes<HTMLDivElement>) {

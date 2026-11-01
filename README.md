@@ -63,6 +63,7 @@ A Solid store owns the graph. `@xyflow/system` stays the interaction engine. `on
 
 ```tsx
 import { Flow, Handle, Position, createFlow, type FlowNode } from "@solid-kit/xyflow";
+import { Background, Controls } from "@solid-kit/xyflow/panels";
 import "@solid-kit/xyflow/style.css";
 
 function TextNode(props: { node: FlowNode }) {
@@ -88,8 +89,8 @@ export function Canvas() {
 
   return (
     <Flow flow={flow}>
-      <Flow.Background />
-      <Flow.Controls />
+      <Background />
+      <Controls />
     </Flow>
   );
 }

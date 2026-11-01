@@ -4,13 +4,343 @@
   "homepage": "https://github.com/bieniucieniu/solid-kit",
   "items": [
     {
+      "name": "motion",
+      "title": "Motion",
+      "description": "Solid bindings over the vanilla motion API.",
+      "dependencies": [
+        "motion@^14.9.0",
+        "solid-js@^1.9.0"
+      ],
+      "files": [
+        {
+          "path": "packages/motion/src/index.ts",
+          "type": "registry:file",
+          "target": "@components/motion/index.ts"
+        },
+        {
+          "path": "packages/motion/src/context.tsx",
+          "type": "registry:file",
+          "target": "@components/motion/context.tsx"
+        },
+        {
+          "path": "packages/motion/src/hooks.ts",
+          "type": "registry:file",
+          "target": "@components/motion/hooks.ts"
+        },
+        {
+          "path": "packages/motion/src/motion.tsx",
+          "type": "registry:file",
+          "target": "@components/motion/motion.tsx"
+        },
+        {
+          "path": "packages/motion/src/presence.tsx",
+          "type": "registry:file",
+          "target": "@components/motion/presence.tsx"
+        },
+        {
+          "path": "packages/motion/src/resolve.ts",
+          "type": "registry:file",
+          "target": "@components/motion/resolve.ts"
+        },
+        {
+          "path": "packages/motion/src/schedule.ts",
+          "type": "registry:file",
+          "target": "@components/motion/schedule.ts"
+        },
+        {
+          "path": "packages/motion/src/state.ts",
+          "type": "registry:file",
+          "target": "@components/motion/state.ts"
+        },
+        {
+          "path": "packages/motion/src/target-style.ts",
+          "type": "registry:file",
+          "target": "@components/motion/target-style.ts"
+        },
+        {
+          "path": "packages/motion/src/types.ts",
+          "type": "registry:file",
+          "target": "@components/motion/types.ts"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tiptap",
+      "title": "Tiptap",
+      "description": "Core editor.",
+      "dependencies": [
+        "fast-equals@^5.3.3",
+        "@tiptap/core@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "files": [
+        {
+          "path": "packages/tiptap/src/index.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/index.ts"
+        },
+        {
+          "path": "packages/tiptap/src/Context.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/Context.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/EditorContent.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/EditorContent.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/Tiptap.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/Tiptap.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/types.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/types.ts"
+        },
+        {
+          "path": "packages/tiptap/src/useEditor.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/useEditor.ts"
+        },
+        {
+          "path": "packages/tiptap/src/useEditorState.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/useEditorState.ts"
+        },
+        {
+          "path": "packages/tiptap/src/editor.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/editor.ts"
+        }
+      ],
+      "type": "registry:block"
+    },
+    {
+      "name": "tiptap-menus",
+      "title": "Tiptap Menus",
+      "description": "Bubble menu and floating menu.",
+      "dependencies": [
+        "@tiptap/extension-bubble-menu@^3.23.5",
+        "@tiptap/extension-floating-menu@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/tiptap"
+      ],
+      "files": [
+        {
+          "path": "packages/tiptap/src/menus/index.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/index.ts"
+        },
+        {
+          "path": "packages/tiptap/src/menus/BubbleMenu.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/BubbleMenu.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/menus/FloatingMenu.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/FloatingMenu.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/menus/getAutoPluginKey.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/getAutoPluginKey.ts"
+        }
+      ],
+      "docs": "Import from \"@/components/tiptap/menus\".",
+      "type": "registry:block"
+    },
+    {
+      "name": "tiptap-node-view",
+      "title": "Tiptap Node View",
+      "description": "Node and mark view renderers.",
+      "dependencies": [
+        "@tiptap/core@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/tiptap"
+      ],
+      "files": [
+        {
+          "path": "packages/tiptap/src/node-view.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/node-view.ts"
+        },
+        {
+          "path": "packages/tiptap/src/NodeViewContent.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/NodeViewContent.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/NodeViewWrapper.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/NodeViewWrapper.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/SolidMarkViewRenderer.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/SolidMarkViewRenderer.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/SolidNodeViewRenderer.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/SolidNodeViewRenderer.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/SolidRenderer.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/SolidRenderer.tsx"
+        },
+        {
+          "path": "packages/tiptap/src/useSolidNodeView.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/useSolidNodeView.ts"
+        }
+      ],
+      "docs": "Import from \"@/components/tiptap/node-view\".",
+      "type": "registry:block"
+    },
+    {
+      "name": "xyflow",
+      "title": "XYFlow",
+      "description": "Canvas.",
+      "dependencies": [
+        "@xyflow/system@0.0.83",
+        "solid-js@^1.9.0"
+      ],
+      "files": [
+        {
+          "path": "packages/xyflow/src/index.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/index.ts"
+        },
+        {
+          "path": "packages/xyflow/src/Flow.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/Flow.tsx"
+        },
+        {
+          "path": "packages/xyflow/src/createFlow.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/createFlow.ts"
+        },
+        {
+          "path": "packages/xyflow/src/context.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/context.tsx"
+        },
+        {
+          "path": "packages/xyflow/src/types.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/types.ts"
+        },
+        {
+          "path": "packages/xyflow/src/changes.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/changes.ts"
+        },
+        {
+          "path": "packages/xyflow/src/cx.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/cx.ts"
+        },
+        {
+          "path": "packages/xyflow/src/style.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/style.css"
+        },
+        {
+          "path": "packages/xyflow/src/styles/init.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/init.css"
+        },
+        {
+          "path": "packages/xyflow/src/styles/base.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/base.css"
+        },
+        {
+          "path": "packages/xyflow/src/styles/style.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/style.css"
+        },
+        {
+          "path": "packages/xyflow/src/styles/node-resizer.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/node-resizer.css"
+        },
+        {
+          "path": "packages/xyflow/src/components/Edges.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Edges.tsx"
+        },
+        {
+          "path": "packages/xyflow/src/components/Handle.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Handle.tsx"
+        },
+        {
+          "path": "packages/xyflow/src/components/Nodes.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Nodes.tsx"
+        },
+        {
+          "path": "packages/xyflow/src/components/NodeView.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/NodeView.tsx"
+        },
+        {
+          "path": "packages/xyflow/src/components/Pane.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Pane.tsx"
+        }
+      ],
+      "docs": "Import the stylesheet from \"@/components/xyflow/style.css\".",
+      "type": "registry:block"
+    },
+    {
+      "name": "xyflow-panels",
+      "title": "XYFlow Panels",
+      "description": "Background and controls.",
+      "dependencies": [
+        "solid-js@^1.9.0"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/xyflow"
+      ],
+      "files": [
+        {
+          "path": "packages/xyflow/src/panels.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/panels.ts"
+        },
+        {
+          "path": "packages/xyflow/src/components/Background.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Background.tsx"
+        },
+        {
+          "path": "packages/xyflow/src/components/Controls.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Controls.tsx"
+        }
+      ],
+      "docs": "Import { Background, Controls } from \"@/components/xyflow/panels\". The core stylesheet is still required.",
+      "type": "registry:block"
+    },
+    {
       "name": "theme",
-      "type": "registry:theme",
       "title": "Theme",
       "description": "Tailwind CSS 4 tokens. Light values go on :root, dark values on .dark, color and radius mappings on @theme inline.",
-      "css": {
-        "@custom-variant dark (&:is(.dark *))": {}
-      },
       "cssVars": {
         "theme": {
           "color-background": "var(--background)",
@@ -80,711 +410,876 @@
           "input": "oklch(1 0 0 / 15%)",
           "ring": "oklch(0.556 0 0)"
         }
-      }
+      },
+      "css": {
+        "@custom-variant dark (&:is(.dark *))": {}
+      },
+      "type": "registry:theme"
     },
     {
       "name": "utils",
-      "type": "registry:lib",
       "title": "cn",
       "description": "clsx + tailwind-merge class helper.",
-      "dependencies": ["clsx", "tailwind-merge"],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
       "files": [
         {
           "path": "packages/ui/src/lib/utils.ts",
           "type": "registry:lib",
           "target": "@lib/utils.ts"
         }
-      ]
+      ],
+      "type": "registry:lib"
     },
     {
       "name": "button",
-      "type": "registry:ui",
       "title": "Button",
       "description": "Plain button. One style. No variant props.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/button.tsx",
           "type": "registry:ui",
           "target": "@ui/button.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "dialog",
-      "type": "registry:ui",
       "title": "Dialog",
       "description": "Modal dialog. Styled wrapper around @corvu/dialog.",
-      "dependencies": ["@corvu/dialog"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@corvu/dialog"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/dialog.tsx",
           "type": "registry:ui",
           "target": "@ui/dialog.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "tooltip",
-      "type": "registry:ui",
       "title": "Tooltip",
       "description": "Tooltip. Styled wrapper around @corvu/tooltip.",
-      "dependencies": ["@corvu/tooltip"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@corvu/tooltip"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/tooltip.tsx",
           "type": "registry:ui",
           "target": "@ui/tooltip.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "checkbox",
-      "type": "registry:ui",
       "title": "Checkbox",
       "description": "Checkbox. Styled wrapper around @kobalte/core/checkbox. Corvu has no checkbox.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/checkbox.tsx",
           "type": "registry:ui",
           "target": "@ui/checkbox.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "accordion",
-      "type": "registry:ui",
       "title": "Accordion",
       "description": "Accordion. Styled wrapper around @kobalte/core/accordion.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/accordion.tsx",
           "type": "registry:ui",
           "target": "@ui/accordion.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "alert",
-      "type": "registry:ui",
       "title": "Alert",
       "description": "Alert. Styled wrapper around @kobalte/core/alert.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/alert.tsx",
           "type": "registry:ui",
           "target": "@ui/alert.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "alert-dialog",
-      "type": "registry:ui",
       "title": "Alert Dialog",
       "description": "Alert Dialog. Styled wrapper around @kobalte/core/alert-dialog.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/alert-dialog.tsx",
           "type": "registry:ui",
           "target": "@ui/alert-dialog.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "aspect-ratio",
-      "type": "registry:ui",
       "title": "Aspect Ratio",
       "description": "Aspect ratio box. Styled HTML.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/aspect-ratio.tsx",
           "type": "registry:ui",
           "target": "@ui/aspect-ratio.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "avatar",
-      "type": "registry:ui",
       "title": "Avatar",
       "description": "Avatar. Styled wrapper around @kobalte/core/image.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/avatar.tsx",
           "type": "registry:ui",
           "target": "@ui/avatar.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "badge",
-      "type": "registry:ui",
       "title": "Badge",
       "description": "Badge. Styled HTML.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/badge.tsx",
           "type": "registry:ui",
           "target": "@ui/badge.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "breadcrumb",
-      "type": "registry:ui",
       "title": "Breadcrumb",
       "description": "Breadcrumb. Styled wrapper around @kobalte/core/breadcrumbs.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/breadcrumb.tsx",
           "type": "registry:ui",
           "target": "@ui/breadcrumb.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "button-group",
-      "type": "registry:ui",
       "title": "Button Group",
       "description": "Button group. Styled HTML flex wrapper.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/button-group.tsx",
           "type": "registry:ui",
           "target": "@ui/button-group.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "card",
-      "type": "registry:ui",
       "title": "Card",
       "description": "Card with header, title, description, content, and footer.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/card.tsx",
           "type": "registry:ui",
           "target": "@ui/card.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "collapsible",
-      "type": "registry:ui",
       "title": "Collapsible",
       "description": "Collapsible. Styled wrapper around @kobalte/core/collapsible.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/collapsible.tsx",
           "type": "registry:ui",
           "target": "@ui/collapsible.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "combobox",
-      "type": "registry:ui",
       "title": "Combobox",
       "description": "Combobox. Styled wrapper around @kobalte/core/combobox.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/combobox.tsx",
           "type": "registry:ui",
           "target": "@ui/combobox.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "context-menu",
-      "type": "registry:ui",
       "title": "Context Menu",
       "description": "Context Menu. Styled wrapper around @kobalte/core/context-menu.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/context-menu.tsx",
           "type": "registry:ui",
           "target": "@ui/context-menu.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "drawer",
-      "type": "registry:ui",
       "title": "Drawer",
       "description": "Drawer. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/drawer.tsx",
           "type": "registry:ui",
           "target": "@ui/drawer.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "dropdown-menu",
-      "type": "registry:ui",
       "title": "Dropdown Menu",
       "description": "Dropdown Menu. Styled wrapper around @kobalte/core/dropdown-menu.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/dropdown-menu.tsx",
           "type": "registry:ui",
           "target": "@ui/dropdown-menu.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "empty",
-      "type": "registry:ui",
       "title": "Empty",
       "description": "Empty state with header, title, description, and content.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/empty.tsx",
           "type": "registry:ui",
           "target": "@ui/empty.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "field",
-      "type": "registry:ui",
       "title": "Field",
       "description": "Field with label, description, and error around a control.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/field.tsx",
           "type": "registry:ui",
           "target": "@ui/field.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "hover-card",
-      "type": "registry:ui",
       "title": "Hover Card",
       "description": "Hover Card. Styled wrapper around @kobalte/core/hover-card.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/hover-card.tsx",
           "type": "registry:ui",
           "target": "@ui/hover-card.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "input",
-      "type": "registry:ui",
       "title": "Input",
       "description": "Input. Styled wrapper around @kobalte/core/text-field.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/input.tsx",
           "type": "registry:ui",
           "target": "@ui/input.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "input-group",
-      "type": "registry:ui",
       "title": "Input Group",
       "description": "Input group. Styled HTML flex wrapper.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/input-group.tsx",
           "type": "registry:ui",
           "target": "@ui/input-group.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "item",
-      "type": "registry:ui",
       "title": "Item",
       "description": "Item with media, content, title, description, and actions.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/item.tsx",
           "type": "registry:ui",
           "target": "@ui/item.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "kbd",
-      "type": "registry:ui",
       "title": "Kbd",
       "description": "Keyboard key. Styled HTML.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/kbd.tsx",
           "type": "registry:ui",
           "target": "@ui/kbd.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "label",
-      "type": "registry:ui",
       "title": "Label",
       "description": "Label. Styled HTML.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/label.tsx",
           "type": "registry:ui",
           "target": "@ui/label.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "menubar",
-      "type": "registry:ui",
       "title": "Menubar",
       "description": "Menubar. Styled wrapper around @kobalte/core/menubar.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/menubar.tsx",
           "type": "registry:ui",
           "target": "@ui/menubar.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "native-select",
-      "type": "registry:ui",
       "title": "Native Select",
       "description": "Native select element. Styled HTML.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/native-select.tsx",
           "type": "registry:ui",
           "target": "@ui/native-select.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "navigation-menu",
-      "type": "registry:ui",
       "title": "Navigation Menu",
       "description": "Navigation menu. Layout with a dropdown from @kobalte/core/popover.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/navigation-menu.tsx",
           "type": "registry:ui",
           "target": "@ui/navigation-menu.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "pagination",
-      "type": "registry:ui",
       "title": "Pagination",
       "description": "Pagination. Styled wrapper around @kobalte/core/pagination.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/pagination.tsx",
           "type": "registry:ui",
           "target": "@ui/pagination.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "popover",
-      "type": "registry:ui",
       "title": "Popover",
       "description": "Popover. Styled wrapper around @kobalte/core/popover.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/popover.tsx",
           "type": "registry:ui",
           "target": "@ui/popover.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "progress",
-      "type": "registry:ui",
       "title": "Progress",
       "description": "Progress. Styled wrapper around @kobalte/core/progress.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/progress.tsx",
           "type": "registry:ui",
           "target": "@ui/progress.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "radio-group",
-      "type": "registry:ui",
       "title": "Radio Group",
       "description": "Radio Group. Styled wrapper around @kobalte/core/radio-group.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/radio-group.tsx",
           "type": "registry:ui",
           "target": "@ui/radio-group.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "scroll-area",
-      "type": "registry:ui",
       "title": "Scroll Area",
       "description": "Scroll area. Styled HTML with overflow.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/scroll-area.tsx",
           "type": "registry:ui",
           "target": "@ui/scroll-area.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "select",
-      "type": "registry:ui",
       "title": "Select",
       "description": "Select. Styled wrapper around @kobalte/core/select.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/select.tsx",
           "type": "registry:ui",
           "target": "@ui/select.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "separator",
-      "type": "registry:ui",
       "title": "Separator",
       "description": "Separator. Styled wrapper around @kobalte/core/separator.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/separator.tsx",
           "type": "registry:ui",
           "target": "@ui/separator.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "sheet",
-      "type": "registry:ui",
       "title": "Sheet",
       "description": "Sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/sheet.tsx",
           "type": "registry:ui",
           "target": "@ui/sheet.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "skeleton",
-      "type": "registry:ui",
       "title": "Skeleton",
       "description": "Skeleton. Styled wrapper around @kobalte/core/skeleton.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/skeleton.tsx",
           "type": "registry:ui",
           "target": "@ui/skeleton.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "slider",
-      "type": "registry:ui",
       "title": "Slider",
       "description": "Slider. Styled wrapper around @kobalte/core/slider.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/slider.tsx",
           "type": "registry:ui",
           "target": "@ui/slider.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "spinner",
-      "type": "registry:ui",
       "title": "Spinner",
       "description": "Spinner. Styled HTML.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/spinner.tsx",
           "type": "registry:ui",
           "target": "@ui/spinner.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "switch",
-      "type": "registry:ui",
       "title": "Switch",
       "description": "Switch. Styled wrapper around @kobalte/core/switch.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/switch.tsx",
           "type": "registry:ui",
           "target": "@ui/switch.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "table",
-      "type": "registry:ui",
       "title": "Table",
       "description": "Table with header, body, row, head, and cell.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/table.tsx",
           "type": "registry:ui",
           "target": "@ui/table.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "tabs",
-      "type": "registry:ui",
       "title": "Tabs",
       "description": "Tabs. Styled wrapper around @kobalte/core/tabs.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/tabs.tsx",
           "type": "registry:ui",
           "target": "@ui/tabs.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "textarea",
-      "type": "registry:ui",
       "title": "Textarea",
       "description": "Textarea. Styled wrapper around @kobalte/core/text-field.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/textarea.tsx",
           "type": "registry:ui",
           "target": "@ui/textarea.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toast",
-      "type": "registry:ui",
       "title": "Toast",
       "description": "Toast. Styled wrapper around @kobalte/core/toast.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/toast.tsx",
           "type": "registry:ui",
           "target": "@ui/toast.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toggle",
-      "type": "registry:ui",
       "title": "Toggle",
       "description": "Toggle. Styled wrapper around @kobalte/core/toggle-button.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/toggle.tsx",
           "type": "registry:ui",
           "target": "@ui/toggle.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     },
     {
       "name": "toggle-group",
-      "type": "registry:ui",
       "title": "Toggle Group",
       "description": "Toggle Group. Styled wrapper around @kobalte/core/toggle-group.",
-      "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "dependencies": [
+        "@kobalte/core"
+      ],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils"
+      ],
       "files": [
         {
           "path": "packages/ui/src/components/toggle-group.tsx",
           "type": "registry:ui",
           "target": "@ui/toggle-group.tsx"
         }
-      ]
+      ],
+      "type": "registry:ui"
     }
   ]
 }

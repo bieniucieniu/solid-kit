@@ -1,0 +1,126 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "xyflow",
+      "type": "registry:block",
+      "title": "XYFlow",
+      "description": "Canvas.",
+      "dependencies": ["@xyflow/system@0.0.83", "solid-js@^1.9.0"],
+      "files": [
+        {
+          "path": "src/index.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/index.ts"
+        },
+        {
+          "path": "src/Flow.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/Flow.tsx"
+        },
+        {
+          "path": "src/createFlow.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/createFlow.ts"
+        },
+        {
+          "path": "src/context.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/context.tsx"
+        },
+        {
+          "path": "src/types.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/types.ts"
+        },
+        {
+          "path": "src/changes.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/changes.ts"
+        },
+        {
+          "path": "src/cx.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/cx.ts"
+        },
+        {
+          "path": "src/style.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/style.css"
+        },
+        {
+          "path": "src/styles/init.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/init.css"
+        },
+        {
+          "path": "src/styles/base.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/base.css"
+        },
+        {
+          "path": "src/styles/style.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/style.css"
+        },
+        {
+          "path": "src/styles/node-resizer.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/node-resizer.css"
+        },
+        {
+          "path": "src/components/Edges.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Edges.tsx"
+        },
+        {
+          "path": "src/components/Handle.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Handle.tsx"
+        },
+        {
+          "path": "src/components/Nodes.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Nodes.tsx"
+        },
+        {
+          "path": "src/components/NodeView.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/NodeView.tsx"
+        },
+        {
+          "path": "src/components/Pane.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Pane.tsx"
+        }
+      ],
+      "docs": "Import the stylesheet from \"@/components/xyflow/style.css\"."
+    },
+    {
+      "name": "xyflow-panels",
+      "type": "registry:block",
+      "title": "XYFlow Panels",
+      "description": "Background and controls.",
+      "dependencies": ["solid-js@^1.9.0"],
+      "registryDependencies": ["bieniucieniu/solid-kit/xyflow"],
+      "files": [
+        {
+          "path": "src/panels.ts",
+          "type": "registry:file",
+          "target": "@components/xyflow/panels.ts"
+        },
+        {
+          "path": "src/components/Background.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Background.tsx"
+        },
+        {
+          "path": "src/components/Controls.tsx",
+          "type": "registry:file",
+          "target": "@components/xyflow/components/Controls.tsx"
+        }
+      ],
+      "docs": "Import { Background, Controls } from \"@/components/xyflow/panels\". The core stylesheet is still required."
+    }
+  ]
+}

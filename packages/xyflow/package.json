@@ -16,6 +16,11 @@
       "import": "./src/index.ts",
       "default": "./src/index.ts"
     },
+    "./panels": {
+      "types": "./src/panels.ts",
+      "import": "./src/panels.ts",
+      "default": "./src/panels.ts"
+    },
     "./style.css": "./src/style.css"
   },
   "scripts": {

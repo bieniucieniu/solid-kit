@@ -4,6 +4,7 @@ import { DocsPage } from "~/components/preview";
 const CanvasDemo = clientOnly(() => import("~/demos/xyflow/canvas"));
 
 const snippet = `import { Flow, Handle, Position, createFlow } from "@solid-kit/xyflow";
+import { Background, Controls } from "@solid-kit/xyflow/panels";
 import "@solid-kit/xyflow/style.css";
 
 const flow = createFlow(() => ({
@@ -16,8 +17,8 @@ const flow = createFlow(() => ({
 }));
 
 <Flow flow={flow}>
-  <Flow.Background />
-  <Flow.Controls />
+  <Background />
+  <Controls />
 </Flow>`;
 
 export default function XYFlowPage() {

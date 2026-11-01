@@ -1,0 +1,145 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "tiptap",
+      "type": "registry:block",
+      "title": "Tiptap",
+      "description": "Core editor.",
+      "dependencies": [
+        "fast-equals@^5.3.3",
+        "@tiptap/core@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "files": [
+        {
+          "path": "src/index.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/index.ts"
+        },
+        {
+          "path": "src/Context.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/Context.tsx"
+        },
+        {
+          "path": "src/EditorContent.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/EditorContent.tsx"
+        },
+        {
+          "path": "src/Tiptap.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/Tiptap.tsx"
+        },
+        {
+          "path": "src/types.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/types.ts"
+        },
+        {
+          "path": "src/useEditor.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/useEditor.ts"
+        },
+        {
+          "path": "src/useEditorState.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/useEditorState.ts"
+        },
+        {
+          "path": "src/editor.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/editor.ts"
+        }
+      ]
+    },
+    {
+      "name": "tiptap-menus",
+      "type": "registry:block",
+      "title": "Tiptap Menus",
+      "description": "Bubble menu and floating menu.",
+      "dependencies": [
+        "@tiptap/extension-bubble-menu@^3.23.5",
+        "@tiptap/extension-floating-menu@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
+      "files": [
+        {
+          "path": "src/menus/index.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/index.ts"
+        },
+        {
+          "path": "src/menus/BubbleMenu.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/BubbleMenu.tsx"
+        },
+        {
+          "path": "src/menus/FloatingMenu.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/FloatingMenu.tsx"
+        },
+        {
+          "path": "src/menus/getAutoPluginKey.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/menus/getAutoPluginKey.ts"
+        }
+      ],
+      "docs": "Import from \"@/components/tiptap/menus\"."
+    },
+    {
+      "name": "tiptap-node-view",
+      "type": "registry:block",
+      "title": "Tiptap Node View",
+      "description": "Node and mark view renderers.",
+      "dependencies": [
+        "@tiptap/core@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
+      "files": [
+        {
+          "path": "src/node-view.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/node-view.ts"
+        },
+        {
+          "path": "src/NodeViewContent.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/NodeViewContent.tsx"
+        },
+        {
+          "path": "src/NodeViewWrapper.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/NodeViewWrapper.tsx"
+        },
+        {
+          "path": "src/SolidMarkViewRenderer.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/SolidMarkViewRenderer.tsx"
+        },
+        {
+          "path": "src/SolidNodeViewRenderer.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/SolidNodeViewRenderer.tsx"
+        },
+        {
+          "path": "src/SolidRenderer.tsx",
+          "type": "registry:file",
+          "target": "@components/tiptap/SolidRenderer.tsx"
+        },
+        {
+          "path": "src/useSolidNodeView.ts",
+          "type": "registry:file",
+          "target": "@components/tiptap/useSolidNodeView.ts"
+        }
+      ],
+      "docs": "Import from \"@/components/tiptap/node-view\"."
+    }
+  ]
+}

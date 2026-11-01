@@ -1,0 +1,64 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "motion",
+      "type": "registry:block",
+      "title": "Motion",
+      "description": "Solid bindings over the vanilla motion API.",
+      "dependencies": ["motion@^14.9.0", "solid-js@^1.9.0"],
+      "files": [
+        {
+          "path": "src/index.ts",
+          "type": "registry:file",
+          "target": "@components/motion/index.ts"
+        },
+        {
+          "path": "src/context.tsx",
+          "type": "registry:file",
+          "target": "@components/motion/context.tsx"
+        },
+        {
+          "path": "src/hooks.ts",
+          "type": "registry:file",
+          "target": "@components/motion/hooks.ts"
+        },
+        {
+          "path": "src/motion.tsx",
+          "type": "registry:file",
+          "target": "@components/motion/motion.tsx"
+        },
+        {
+          "path": "src/presence.tsx",
+          "type": "registry:file",
+          "target": "@components/motion/presence.tsx"
+        },
+        {
+          "path": "src/resolve.ts",
+          "type": "registry:file",
+          "target": "@components/motion/resolve.ts"
+        },
+        {
+          "path": "src/schedule.ts",
+          "type": "registry:file",
+          "target": "@components/motion/schedule.ts"
+        },
+        {
+          "path": "src/state.ts",
+          "type": "registry:file",
+          "target": "@components/motion/state.ts"
+        },
+        {
+          "path": "src/target-style.ts",
+          "type": "registry:file",
+          "target": "@components/motion/target-style.ts"
+        },
+        {
+          "path": "src/types.ts",
+          "type": "registry:file",
+          "target": "@components/motion/types.ts"
+        }
+      ]
+    }
+  ]
+}

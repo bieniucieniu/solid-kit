@@ -1,9 +1,15 @@
 import type { Editor } from "@tiptap/core";
-import type { JSX } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import type { Store } from "solid-js/store";
-import type { SolidRenderer } from "./SolidRenderer";
 
 export type AnyProps = Record<string, any>;
+
+export type ContentRenderer<P extends AnyProps = AnyProps> = {
+  id: string;
+  element: HTMLElement;
+  component: Component<P>;
+  props: P;
+};
 
 export type EditorWithContentComponent<P extends AnyProps = AnyProps> = Editor & {
   contentComponent?: ContentComponent<P> | null;
@@ -11,7 +17,7 @@ export type EditorWithContentComponent<P extends AnyProps = AnyProps> = Editor &
 };
 
 export type ContentComponent<P extends AnyProps = AnyProps> = {
-  setRenderer(id: string, renderer: SolidRenderer<P>): void;
+  setRenderer(id: string, renderer: ContentRenderer<P>): void;
   removeRenderer(id: string): void;
   renderers: Readonly<Store<Record<string, JSX.Element>>>;
 };

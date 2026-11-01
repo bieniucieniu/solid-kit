@@ -1,6 +1,7 @@
 import { cleanup, render } from "@solidjs/testing-library";
 import { afterEach, beforeEach, expect } from "vite-plus/test";
 import { page, type Locator } from "vite-plus/test/browser";
+import { Background, Controls } from "@solid-kit/xyflow/panels";
 import { Flow, Handle, Position, createFlow, type FlowNode, type FlowStore } from "../index";
 import type { FlowOptions } from "../types";
 import "../style.css";
@@ -39,8 +40,8 @@ export function mountFlow(options: FlowOptions) {
     flow = createFlow(() => options);
     return (
       <Flow flow={flow} style={{ width: "800px", height: "600px" }}>
-        <Flow.Background />
-        <Flow.Controls />
+        <Background />
+        <Controls />
       </Flow>
     );
   });

@@ -1,4 +1,5 @@
 import { Flow, Handle, Position, createFlow, type FlowNode } from "@solid-kit/xyflow";
+import { Background, Controls } from "@solid-kit/xyflow/panels";
 import "@solid-kit/xyflow/style.css";
 
 function TextNode(props: { node: FlowNode }) {
@@ -25,8 +26,8 @@ export default function CanvasDemo() {
   return (
     <div class="h-96">
       <Flow flow={flow}>
-        <Flow.Background />
-        <Flow.Controls />
+        <Background />
+        <Controls />
       </Flow>
     </div>
   );

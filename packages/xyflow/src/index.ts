@@ -3,8 +3,6 @@ export type { Flow as FlowStore } from "./createFlow";
 export { Flow, type FlowProps } from "./Flow";
 export { useFlow } from "./context";
 export { Handle, type HandleProps } from "./components/Handle";
-export { Background } from "./components/Background";
-export { Controls } from "./components/Controls";
 export { BaseEdge } from "./components/Edges";
 export type {
   FlowNode,

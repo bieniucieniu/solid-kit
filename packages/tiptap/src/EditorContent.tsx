@@ -3,8 +3,7 @@ import type { ComponentProps, JSX } from "solid-js";
 import { createEffect, createMemo, For, onCleanup, splitProps } from "solid-js";
 import { createStore } from "solid-js/store";
 import { Dynamic, Portal } from "solid-js/web";
-import type { ContentComponent, EditorWithContentComponent } from "./editor";
-import type { SolidRenderer } from "./SolidRenderer";
+import type { ContentComponent, ContentRenderer, EditorWithContentComponent } from "./editor";
 
 export interface EditorContentProps extends ComponentProps<"div"> {
   editor: Editor | null;
@@ -15,7 +14,7 @@ function getInstance(): ContentComponent {
 
   return {
     renderers,
-    setRenderer(id: string, renderer: SolidRenderer) {
+    setRenderer(id: string, renderer: ContentRenderer) {
       setRenderers(
         id,
         <Portal mount={renderer.element}>

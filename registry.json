@@ -786,5 +786,10 @@
         }
       ]
     }
+  ],
+  "include": [
+    "packages/motion/registry.json",
+    "packages/tiptap/registry.json",
+    "packages/xyflow/registry.json"
   ]
 }

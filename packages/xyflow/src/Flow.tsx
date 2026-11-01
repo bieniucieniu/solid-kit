@@ -1,8 +1,6 @@
 import { For, Show, type JSX, createEffect, createSignal, onCleanup, onMount } from "solid-js";
 import { FlowProvider, useFlow } from "./context";
 import type { Flow as FlowStore } from "./createFlow";
-import { Background } from "./components/Background";
-import { Controls } from "./components/Controls";
 import { ConnectionLine, EdgeView } from "./components/Edges";
 import { NodeView } from "./components/NodeView";
 import { Pane } from "./components/Pane";
@@ -23,7 +21,7 @@ const layerStyle: JSX.CSSProperties = {
   left: 0,
 };
 
-export function FlowRoot(props: FlowProps) {
+export function Flow(props: FlowProps) {
   return (
     <FlowProvider flow={props.flow}>
       <FlowSurface class={props.class} style={props.style}>
@@ -124,8 +122,3 @@ function FlowSurface(props: { class?: string; style?: JSX.CSSProperties; childre
     </div>
   );
 }
-
-export const Flow = Object.assign(FlowRoot, {
-  Background,
-  Controls,
-});

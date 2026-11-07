@@ -1,5 +1,5 @@
 import { BubbleMenuPlugin, type BubbleMenuPluginProps } from "@tiptap/extension-bubble-menu";
-import { createEffect, createMemo, type JSX, onCleanup, splitProps } from "solid-js";
+import { createEffect, createMemo, type JSX, onCleanup, splitProps, untrack } from "solid-js";
 import { Portal, spread } from "solid-js/web";
 import { useCurrentEditor } from "../Context";
 import { getAutoPluginKey } from "./getAutoPluginKey";
@@ -34,6 +34,7 @@ export const BubbleMenu = (props: BubbleMenuProps) => {
   });
 
   const currentEditorCtx = useCurrentEditor();
+  let registration = 0;
 
   /**
    * The editor instance where the bubble menu plugin will be registered.
@@ -48,27 +49,36 @@ export const BubbleMenu = (props: BubbleMenuProps) => {
     }
 
     const bubbleMenuElement = menuEl;
+    const current = ++registration;
     bubbleMenuElement.style.visibility = "hidden";
     bubbleMenuElement.style.position = "absolute";
     const pluginKey = resolvedPluginKey();
 
-    const plugin = BubbleMenuPlugin({
-      updateDelay: props.updateDelay,
-      resizeDelay: props.resizeDelay,
-      appendTo: props.appendTo,
-      pluginKey,
-      shouldShow: props.shouldShow,
-      getReferencedVirtualElement: props.getReferencedVirtualElement,
-      options: props.options,
-      editor: editor,
-      element: bubbleMenuElement,
-    });
+    // Options are read untracked: changing one must not re-register the plugin.
+    // The `updateOptions` effect below forwards option changes.
+    const plugin = untrack(() =>
+      BubbleMenuPlugin({
+        updateDelay: props.updateDelay,
+        resizeDelay: props.resizeDelay,
+        appendTo: props.appendTo,
+        pluginKey,
+        shouldShow: props.shouldShow,
+        getReferencedVirtualElement: props.getReferencedVirtualElement,
+        options: props.options,
+        editor: editor,
+        element: bubbleMenuElement,
+      }),
+    );
 
     editor.registerPlugin(plugin);
 
     onCleanup(() => {
       editor.unregisterPlugin(pluginKey);
       window.requestAnimationFrame(() => {
+        // A newer registration reuses this element; leave it in place.
+        if (current !== registration) {
+          return;
+        }
         if (bubbleMenuElement.parentNode) {
           bubbleMenuElement.parentNode.removeChild(bubbleMenuElement);
         }

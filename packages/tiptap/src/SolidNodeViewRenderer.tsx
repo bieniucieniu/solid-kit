@@ -46,13 +46,15 @@ export class SolidNodeView<
   NodeEditor extends Editor = Editor,
   Options extends SolidNodeViewRendererOptions = SolidNodeViewRendererOptions,
 > extends NodeView<Component<SolidNodeViewProps<T>>, NodeEditor, Options> {
-  renderer!: SolidRenderer<SolidNodeViewProps<T>>;
+  // `NodeView`'s constructor calls `mount()` before subclass fields initialize, so fields
+  // that `mount()` sets are `declare`d: a field definition would reset them after `super()`.
+  declare renderer: SolidRenderer<SolidNodeViewProps<T>>;
 
-  contentDOMElement!: HTMLElement | null;
+  declare contentDOMElement: HTMLElement | null;
 
   selectionRafId: number | null = null;
 
-  private currentPos: number | undefined;
+  declare private currentPos: number | undefined;
 
   private handlePositionUpdate = () => {
     const newPos = this.getPos();
@@ -101,7 +103,7 @@ export class SolidNodeView<
     }
   }
 
-  private cachedExtensionWithSyncedStorage: NodeViewRendererProps["extension"] | null = null;
+  declare private cachedExtensionWithSyncedStorage: NodeViewRendererProps["extension"] | undefined;
 
   get extensionWithSyncedStorage(): NodeViewRendererProps["extension"] {
     if (!this.cachedExtensionWithSyncedStorage) {

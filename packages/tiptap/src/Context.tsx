@@ -40,7 +40,8 @@ export function EditorProvider(props: EditorProviderProps) {
     "slotBefore",
     "editorContainerProps",
   ]);
-  const editor = useEditor(() => editorOptions);
+  // Spread so the accessor reads every option prop and `useEditor` re-syncs when one changes.
+  const editor = useEditor(() => ({ ...editorOptions }));
 
   const contextValue = {
     get editor() {

@@ -6,9 +6,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "registry:build": "pnpm dlx shadcn@latest build"
+    "registry:build": "shadcn build",
+    "storybook": "storybook"
   },
   "devDependencies": {
+    "shadcn": "latest",
     "vite": "^8.0.16",
     "vite-plus": "^0.1.24"
   },

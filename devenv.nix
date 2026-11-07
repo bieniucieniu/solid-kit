@@ -10,12 +10,17 @@
       install.enable = true;
     };
   };
-  tasks = {
-    "web:dev".exec = "pnpm --filter web dev";
-    "storybook:dev".exec = "pnpm --filter storybook dev";
-  };
+
+  tasks."pnpm:install".exec = "pnpm install";
+
   profiles = {
-    web.module.processes.web.exec = "pnpm --filter web dev";
-    storybook.module.processes.storybook.exec = "pnpm --filter storybook dev";
+    web.module = {
+      processes.web.exec = "pnpm --filter web dev";
+      tasks."pnpm:install".before = [ "devenv:processes:web" ];
+    };
+    storybook.module = {
+      processes.storybook.exec = "pnpm --filter storybook dev";
+      tasks."pnpm:install".before = [ "devenv:processes:storybook" ];
+    };
   };
 }

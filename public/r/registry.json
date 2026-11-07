@@ -833,7 +833,7 @@
     {
       "name": "navigation-menu",
       "title": "Navigation Menu",
-      "description": "Navigation menu. Layout with a dropdown from @kobalte/core/popover.",
+      "description": "Navigation menu. Several dropdowns that open on hover and share one viewport, from @kobalte/core/navigation-menu.",
       "dependencies": ["@kobalte/core"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [

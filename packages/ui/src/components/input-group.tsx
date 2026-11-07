@@ -1,6 +1,6 @@
 import type { JSX } from "solid-js";
 import { splitProps } from "solid-js";
-import { type ButtonVariant, buttonVariants } from "./button";
+import { Button, type ButtonVariant } from "./button";
 import { cn } from "@/lib/utils";
 
 function InputGroupRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {
@@ -46,7 +46,9 @@ export function InputGroupAddon(
       onClick={(event) => {
         if (typeof props.onClick === "function") props.onClick(event);
         if ((event.target as HTMLElement).closest("button")) return;
-        event.currentTarget.parentElement?.querySelector("input")?.focus();
+        event.currentTarget.parentElement
+          ?.querySelector<HTMLElement>("[data-slot=input-group-control]")
+          ?.focus();
       }}
       {...rest}
     />
@@ -66,20 +68,17 @@ export function InputGroupButton(
     size?: keyof typeof inputGroupButtonSizeClasses;
   },
 ) {
-  const [, rest] = splitProps(props, ["class", "ref", "variant", "size", "type"]);
+  const [, rest] = splitProps(props, ["class", "variant", "size", "type"]);
   return (
-    <button
-      ref={props.ref}
+    <Button
       type={props.type ?? "button"}
+      variant={props.variant ?? "ghost"}
       data-size={props.size ?? "xs"}
-      class={buttonVariants({
-        variant: props.variant ?? "ghost",
-        class: cn(
-          "flex items-center gap-2 rounded-md text-xs/relaxed shadow-none",
-          inputGroupButtonSizeClasses[props.size ?? "xs"],
-          props.class,
-        ),
-      })}
+      class={cn(
+        "flex items-center gap-2 rounded-md text-xs/relaxed shadow-none",
+        inputGroupButtonSizeClasses[props.size ?? "xs"],
+        props.class,
+      )}
       {...rest}
     />
   );
@@ -90,6 +89,7 @@ export function InputGroupText(props: JSX.HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
       ref={props.ref}
+      data-slot="input-group-text"
       class={cn(
         "flex items-center gap-2 text-xs/relaxed text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
         props.class,

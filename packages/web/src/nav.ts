@@ -53,6 +53,7 @@ export const sidebars: Record<PackageId, NavItem[]> = {
     { title: "Button group", href: "/ui/button-group" },
     { title: "Card", href: "/ui/card" },
     { title: "Checkbox", href: "/ui/checkbox" },
+    { title: "Code block", href: "/ui/code-block" },
     { title: "Collapsible", href: "/ui/collapsible" },
     { title: "Combobox", href: "/ui/combobox" },
     { title: "Context menu", href: "/ui/context-menu" },

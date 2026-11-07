@@ -82,6 +82,23 @@ export {
   CardHeader,
   CardTitle,
 } from "./components/card";
+export {
+  CodeBlock,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockFooter,
+  CodeBlockHeader,
+  CodeBlockLine,
+  CodeBlockTitle,
+  createHighlightedCode,
+} from "./components/code-block";
+export {
+  type HighlightedLine,
+  type HighlightedToken,
+  highlightCode,
+  resolveLanguage,
+} from "./lib/highlighter";
 export { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./components/collapsible";
 export {
   Combobox,

@@ -467,6 +467,38 @@
       "type": "registry:ui"
     },
     {
+      "name": "highlighter",
+      "title": "Highlighter",
+      "description": "Shiki syntax highlighting with the JavaScript regex engine. Languages load on first use.",
+      "dependencies": ["shiki"],
+      "files": [
+        {
+          "path": "packages/ui/src/lib/highlighter.ts",
+          "type": "registry:lib",
+          "target": "@lib/highlighter.ts"
+        }
+      ],
+      "type": "registry:lib"
+    },
+    {
+      "name": "code-block",
+      "title": "Code Block",
+      "description": "Code block with header, copy button, line numbers, diff and highlighted lines, and Shiki syntax highlighting.",
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button",
+        "bieniucieniu/solid-kit/highlighter"
+      ],
+      "files": [
+        {
+          "path": "packages/ui/src/components/code-block.tsx",
+          "type": "registry:ui",
+          "target": "@ui/code-block.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "checkbox",
       "title": "Checkbox",
       "description": "Checkbox. Styled wrapper around @kobalte/core/checkbox. Corvu has no checkbox.",

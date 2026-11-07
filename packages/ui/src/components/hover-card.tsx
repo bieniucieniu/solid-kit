@@ -25,12 +25,10 @@ export function HoverCardContent(props: HoverCardContentProps) {
 
 export const HoverCardTrigger = HoverCardPrimitive.Trigger;
 export const HoverCardPortal = HoverCardPrimitive.Portal;
-export const HoverCardArrow = HoverCardPrimitive.Arrow;
 
 export const HoverCard = Object.assign(HoverCardRoot, {
   Trigger: HoverCardTrigger,
   Portal: HoverCardPortal,
   Content: HoverCardContent,
-  Arrow: HoverCardArrow,
   useContext: useHoverCardContext,
 });

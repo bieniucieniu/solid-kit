@@ -29,7 +29,6 @@ export {
 export {
   Tooltip,
   TooltipAnchor,
-  TooltipArrow,
   TooltipContent,
   TooltipPortal,
   TooltipTrigger,
@@ -174,7 +173,6 @@ export {
 } from "./components/field";
 export {
   HoverCard,
-  HoverCardArrow,
   HoverCardContent,
   HoverCardPortal,
   HoverCardTrigger,

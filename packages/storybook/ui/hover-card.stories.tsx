@@ -19,10 +19,7 @@ function HoverCardDemo() {
     <HoverCard>
       <HoverCard.Trigger as={Button}>Hover</HoverCard.Trigger>
       <HoverCard.Portal>
-        <HoverCard.Content>
-          Ada Lovelace
-          <HoverCard.Arrow />
-        </HoverCard.Content>
+        <HoverCard.Content>Ada Lovelace</HoverCard.Content>
       </HoverCard.Portal>
     </HoverCard>
   );

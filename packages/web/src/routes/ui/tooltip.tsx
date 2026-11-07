@@ -8,7 +8,6 @@ const snippet = `import { Button, Tooltip } from "@solid-kit/ui";
   <Tooltip.Portal>
     <Tooltip.Content>
       Saved
-      <Tooltip.Arrow />
     </Tooltip.Content>
   </Tooltip.Portal>
 </Tooltip>`;

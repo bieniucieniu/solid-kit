@@ -5,10 +5,7 @@ export function TooltipDemo() {
     <Tooltip>
       <Tooltip.Trigger as={Button}>Hover</Tooltip.Trigger>
       <Tooltip.Portal>
-        <Tooltip.Content>
-          Saved
-          <Tooltip.Arrow />
-        </Tooltip.Content>
+        <Tooltip.Content>Saved</Tooltip.Content>
       </Tooltip.Portal>
     </Tooltip>
   );

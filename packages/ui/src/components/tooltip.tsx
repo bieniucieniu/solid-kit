@@ -1,5 +1,4 @@
 import TooltipPrimitive, {
-  type ArrowProps,
   type ContentProps,
   type DynamicProps,
   type RootProps,
@@ -26,13 +25,6 @@ export function TooltipContent(props: DynamicProps<"div", ContentProps>) {
   );
 }
 
-export function TooltipArrow(props: DynamicProps<"div", ArrowProps>) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
-  return (
-    <TooltipPrimitive.Arrow ref={props.ref} class={cn("text-foreground", props.class)} {...rest} />
-  );
-}
-
 export const TooltipAnchor = TooltipPrimitive.Anchor;
 export const TooltipTrigger = TooltipPrimitive.Trigger;
 export const TooltipPortal = TooltipPrimitive.Portal;
@@ -42,6 +34,5 @@ export const Tooltip = Object.assign(TooltipRoot, {
   Trigger: TooltipTrigger,
   Portal: TooltipPortal,
   Content: TooltipContent,
-  Arrow: TooltipArrow,
   useContext: TooltipPrimitive.useContext,
 });

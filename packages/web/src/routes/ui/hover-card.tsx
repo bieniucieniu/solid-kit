@@ -8,7 +8,6 @@ const snippet = `import { Button, HoverCard } from "@solid-kit/ui";
   <HoverCard.Portal>
     <HoverCard.Content>
       Ada Lovelace
-      <HoverCard.Arrow />
     </HoverCard.Content>
   </HoverCard.Portal>
 </HoverCard>`;

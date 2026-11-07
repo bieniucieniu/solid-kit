@@ -3,12 +3,8 @@
   "name": "accordion",
   "title": "Accordion",
   "description": "Accordion. Styled wrapper around @kobalte/core/accordion.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/accordion.tsx",

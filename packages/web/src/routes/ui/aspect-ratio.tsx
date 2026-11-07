@@ -7,7 +7,11 @@ const snippet = `import { AspectRatio } from "@solid-kit/ui";
 
 export default function AspectRatioPage() {
   return (
-    <DocsPage title="Aspect ratio" description="A box that keeps a width to height ratio." snippet={snippet}>
+    <DocsPage
+      title="Aspect ratio"
+      description="A box that keeps a width to height ratio."
+      snippet={snippet}
+    >
       <AspectRatioDemo />
     </DocsPage>
   );

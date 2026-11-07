@@ -129,8 +129,14 @@ describe("nodes", () => {
     await element(view.getByTestId("rf__node-1")).toBeVisible();
     await element(view.getByTestId("rf__node-2")).toBeVisible();
 
-    const source = view.getByTestId("rf__node-1").element().querySelector(".xy-flow__handle.source");
-    const target = view.getByTestId("rf__node-2").element().querySelector(".xy-flow__handle.target");
+    const source = view
+      .getByTestId("rf__node-1")
+      .element()
+      .querySelector(".xy-flow__handle.source");
+    const target = view
+      .getByTestId("rf__node-2")
+      .element()
+      .querySelector(".xy-flow__handle.target");
     if (!source || !target) throw new Error("handles were not measured");
     await userEvent.dragAndDrop(page.elementLocator(source), page.elementLocator(target));
 

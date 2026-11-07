@@ -3,13 +3,8 @@
   "name": "toggle-group",
   "title": "Toggle Group",
   "description": "Toggle Group. Styled wrapper around @kobalte/core/toggle-group.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils",
-    "bieniucieniu/solid-kit/toggle"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/toggle"],
   "files": [
     {
       "path": "packages/ui/src/components/toggle-group.tsx",

@@ -3,13 +3,8 @@
   "name": "drawer",
   "title": "Drawer",
   "description": "Drawer. Styled wrapper around @kobalte/core/dialog.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils",
-    "bieniucieniu/solid-kit/button"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
   "files": [
     {
       "path": "packages/ui/src/components/drawer.tsx",

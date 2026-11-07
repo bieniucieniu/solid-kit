@@ -3,12 +3,8 @@
   "name": "alert",
   "title": "Alert",
   "description": "Alert. Styled wrapper around @kobalte/core/alert.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/alert.tsx",

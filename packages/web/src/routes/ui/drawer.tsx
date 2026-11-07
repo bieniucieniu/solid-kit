@@ -17,7 +17,11 @@ const snippet = `import { Button, Drawer } from "@solid-kit/ui";
 
 export default function DrawerPage() {
   return (
-    <DocsPage title="Drawer" description="A panel that slides up from the bottom." snippet={snippet}>
+    <DocsPage
+      title="Drawer"
+      description="A panel that slides up from the bottom."
+      snippet={snippet}
+    >
       <DrawerDemo />
     </DocsPage>
   );

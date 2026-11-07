@@ -15,7 +15,11 @@ const snippet = `import { ContextMenu } from "@solid-kit/ui";
 
 export default function ContextMenuPage() {
   return (
-    <DocsPage title="Context menu" description="A menu opened with a right click." snippet={snippet}>
+    <DocsPage
+      title="Context menu"
+      description="A menu opened with a right click."
+      snippet={snippet}
+    >
       <ContextMenuDemo />
     </DocsPage>
   );

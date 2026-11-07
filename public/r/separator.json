@@ -3,12 +3,8 @@
   "name": "separator",
   "title": "Separator",
   "description": "Separator. Styled wrapper around @kobalte/core/separator.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/separator.tsx",

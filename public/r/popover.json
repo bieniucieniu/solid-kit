@@ -3,13 +3,8 @@
   "name": "popover",
   "title": "Popover",
   "description": "Popover. Styled wrapper around @kobalte/core/popover.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils",
-    "bieniucieniu/solid-kit/button"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
   "files": [
     {
       "path": "packages/ui/src/components/popover.tsx",

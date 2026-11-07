@@ -11,7 +11,11 @@ const snippet = `import { Field } from "@solid-kit/ui";
 
 export default function FieldPage() {
   return (
-    <DocsPage title="Field" description="A label and description around a control." snippet={snippet}>
+    <DocsPage
+      title="Field"
+      description="A label and description around a control."
+      snippet={snippet}
+    >
       <FieldDemo />
     </DocsPage>
   );

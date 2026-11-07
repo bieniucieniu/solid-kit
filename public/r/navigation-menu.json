@@ -3,12 +3,8 @@
   "name": "navigation-menu",
   "title": "Navigation Menu",
   "description": "Navigation menu. Layout with a dropdown from @kobalte/core/popover.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/navigation-menu.tsx",

@@ -3,12 +3,8 @@
   "name": "select",
   "title": "Select",
   "description": "Select. Styled wrapper around @kobalte/core/select.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/select.tsx",

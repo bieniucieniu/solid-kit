@@ -3,13 +3,8 @@
   "name": "toast",
   "title": "Toast",
   "description": "Toast. Styled wrapper around @kobalte/core/toast.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils",
-    "bieniucieniu/solid-kit/button"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
   "files": [
     {
       "path": "packages/ui/src/components/toast.tsx",

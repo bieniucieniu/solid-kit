@@ -32,23 +32,23 @@ Never write these. They compile, then do nothing, or they are the wrong framewor
 - `createMutable` (gone in 2.0; this repo uses `createSignal` / `createStore`)
 - Solid 2.0-only APIs listed below
 
-| React habit | Solid 1.9 in this repo |
-| --- | --- |
-| `useState` | `createSignal`; read it with `count()` |
-| `useEffect(fn, deps)` | `createEffect(fn)`; it tracks reads. Cleanup: `onCleanup` |
-| `useMemo` / `useCallback` | read it inline. `createMemo` only for a new object/array, or a call to a function that came from props |
-| `useRef` / `.current` | `let ref: HTMLElement \| undefined` and `ref={(el) => { ref = el }}` |
-| `useContext` | `useContext` from `solid-js` |
-| destructure `props` | `props.x`, or `splitProps` |
-| `className` | `class` |
-| `` className={on ? "a" : "b"} `` | `classList={{ a: on() }}` |
-| `style={{ fontSize: 12 }}` | `style={{ "font-size": "12px" }}` |
-| `onChange` on a text field | `onInput` (`onChange` is the DOM change event) |
-| `<div onClick={props.onClick}>` | `<div onClick={(e) => props.onClick?.(e)}>` — native `on*` is not a tracked scope |
-| `{list.map}` | `<For each={list()}>` |
-| index-stable list | `<Index each={list()}>` |
-| `{cond && <A />}` | `<Show when={cond()}>` |
-| `React.memo` | nothing |
+| React habit                     | Solid 1.9 in this repo                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `useState`                      | `createSignal`; read it with `count()`                                                                 |
+| `useEffect(fn, deps)`           | `createEffect(fn)`; it tracks reads. Cleanup: `onCleanup`                                              |
+| `useMemo` / `useCallback`       | read it inline. `createMemo` only for a new object/array, or a call to a function that came from props |
+| `useRef` / `.current`           | `let ref: HTMLElement \| undefined` and `ref={(el) => { ref = el }}`                                   |
+| `useContext`                    | `useContext` from `solid-js`                                                                           |
+| destructure `props`             | `props.x`, or `splitProps`                                                                             |
+| `className`                     | `class`                                                                                                |
+| `className={on ? "a" : "b"}`    | `classList={{ a: on() }}`                                                                              |
+| `style={{ fontSize: 12 }}`      | `style={{ "font-size": "12px" }}`                                                                      |
+| `onChange` on a text field      | `onInput` (`onChange` is the DOM change event)                                                         |
+| `<div onClick={props.onClick}>` | `<div onClick={(e) => props.onClick?.(e)}>` — native `on*` is not a tracked scope                      |
+| `{list.map}`                    | `<For each={list()}>`                                                                                  |
+| index-stable list               | `<Index each={list()}>`                                                                                |
+| `{cond && <A />}`               | `<Show when={cond()}>`                                                                                 |
+| `React.memo`                    | nothing                                                                                                |
 
 ## Solid 1.9
 
@@ -86,16 +86,16 @@ export function NodeViewWrapper(props: NodeViewWrapperProps) {
 
 2.0 RC (August 2026) is a different API. This package still typechecks as 1.9. Guides: [v2.solidjs.com](https://v2.solidjs.com), [migration](https://github.com/solidjs/solid/blob/next/documentation/solid-2.0/MIGRATION.md), [RC post](https://www.solidjs.com/blog/solid-2-0-rc-the-big-reveal).
 
-| If you reach for this (2.0) | Stay on this (1.9) |
-| --- | --- |
-| `omit` / `merge` | `splitProps` / `mergeProps` |
-| `onSettled` | `onMount` + `onCleanup` |
-| `createEffect(compute, apply)` and return-as-cleanup | one-function `createEffect` + `onCleanup` |
-| `Loading` / `Errored` / `Reveal` / `isPending` / `flush` | `Suspense` / `ErrorBoundary`; no `flush` |
-| async `createMemo`, no `createResource` | `createResource` when a fetch helper is actually needed |
-| object or array `class` | `class` string + `classList` |
+| If you reach for this (2.0)                                           | Stay on this (1.9)                                                          |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `omit` / `merge`                                                      | `splitProps` / `mergeProps`                                                 |
+| `onSettled`                                                           | `onMount` + `onCleanup`                                                     |
+| `createEffect(compute, apply)` and return-as-cleanup                  | one-function `createEffect` + `onCleanup`                                   |
+| `Loading` / `Errored` / `Reveal` / `isPending` / `flush`              | `Suspense` / `ErrorBoundary`; no `flush`                                    |
+| async `createMemo`, no `createResource`                               | `createResource` when a fetch helper is actually needed                     |
+| object or array `class`                                               | `class` string + `classList`                                                |
 | `@solidjs/web`, `@solidjs/signals`, `jsxImportSource: "@solidjs/web"` | `solid-js`, `solid-js/web`, `solid-js/store`, `jsxImportSource: "solid-js"` |
-| context used as the provider element | `Context.Provider` |
+| context used as the provider element                                  | `Context.Provider`                                                          |
 
 `createMutable`, `produce`, and `batch` still exist in 1.9 and are removed in 2.0. Do not add them. Use `createSignal` and `createStore`.
 

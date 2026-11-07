@@ -7,10 +7,7 @@
       "name": "motion",
       "title": "Motion",
       "description": "Solid bindings over the vanilla motion API.",
-      "dependencies": [
-        "motion@^14.9.0",
-        "solid-js@^1.9.0"
-      ],
+      "dependencies": ["motion@^14.9.0", "solid-js@^1.9.0"],
       "files": [
         {
           "path": "packages/motion/src/index.ts",
@@ -129,9 +126,7 @@
         "@tiptap/pm@^3.23.5",
         "solid-js@^1.9.0"
       ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/tiptap"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
       "files": [
         {
           "path": "packages/tiptap/src/menus/index.ts",
@@ -161,14 +156,8 @@
       "name": "tiptap-node-view",
       "title": "Tiptap Node View",
       "description": "Node and mark view renderers.",
-      "dependencies": [
-        "@tiptap/core@^3.23.5",
-        "@tiptap/pm@^3.23.5",
-        "solid-js@^1.9.0"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/tiptap"
-      ],
+      "dependencies": ["@tiptap/core@^3.23.5", "@tiptap/pm@^3.23.5", "solid-js@^1.9.0"],
+      "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
       "files": [
         {
           "path": "packages/tiptap/src/node-view.ts",
@@ -213,10 +202,7 @@
       "name": "xyflow",
       "title": "XYFlow",
       "description": "Canvas.",
-      "dependencies": [
-        "@xyflow/system@0.0.83",
-        "solid-js@^1.9.0"
-      ],
+      "dependencies": ["@xyflow/system@0.0.83", "solid-js@^1.9.0"],
       "files": [
         {
           "path": "packages/xyflow/src/index.ts",
@@ -311,12 +297,8 @@
       "name": "xyflow-panels",
       "title": "XYFlow Panels",
       "description": "Background and controls.",
-      "dependencies": [
-        "solid-js@^1.9.0"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/xyflow"
-      ],
+      "dependencies": ["solid-js@^1.9.0"],
+      "registryDependencies": ["bieniucieniu/solid-kit/xyflow"],
       "files": [
         {
           "path": "packages/xyflow/src/panels.ts",
@@ -341,9 +323,7 @@
       "name": "theme",
       "title": "Theme",
       "description": "Tailwind CSS 4 tokens. Light values go on :root, dark values on .dark, color and radius mappings on @theme inline.",
-      "devDependencies": [
-        "tw-animate-css"
-      ],
+      "devDependencies": ["tw-animate-css"],
       "cssVars": {
         "theme": {
           "color-background": "var(--background)",
@@ -432,10 +412,7 @@
       "name": "utils",
       "title": "cn",
       "description": "clsx + tailwind-merge class helper.",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "packages/ui/src/lib/utils.ts",
@@ -449,9 +426,7 @@
       "name": "button",
       "title": "Button",
       "description": "Button with shadcn variants (default, outline, secondary, ghost, destructive, link) and sizes.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/button.tsx",
@@ -465,13 +440,8 @@
       "name": "dialog",
       "title": "Dialog",
       "description": "Modal dialog. Styled wrapper around @corvu/dialog.",
-      "dependencies": [
-        "@corvu/dialog"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "dependencies": ["@corvu/dialog"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/dialog.tsx",
@@ -485,12 +455,8 @@
       "name": "tooltip",
       "title": "Tooltip",
       "description": "Tooltip. Styled wrapper around @corvu/tooltip.",
-      "dependencies": [
-        "@corvu/tooltip"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@corvu/tooltip"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/tooltip.tsx",
@@ -504,12 +470,8 @@
       "name": "checkbox",
       "title": "Checkbox",
       "description": "Checkbox. Styled wrapper around @kobalte/core/checkbox. Corvu has no checkbox.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/checkbox.tsx",
@@ -523,12 +485,8 @@
       "name": "accordion",
       "title": "Accordion",
       "description": "Accordion. Styled wrapper around @kobalte/core/accordion.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/accordion.tsx",
@@ -542,12 +500,8 @@
       "name": "alert",
       "title": "Alert",
       "description": "Alert. Styled wrapper around @kobalte/core/alert.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/alert.tsx",
@@ -561,13 +515,8 @@
       "name": "alert-dialog",
       "title": "Alert Dialog",
       "description": "Alert Dialog. Styled wrapper around @kobalte/core/alert-dialog.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/alert-dialog.tsx",
@@ -581,9 +530,7 @@
       "name": "aspect-ratio",
       "title": "Aspect Ratio",
       "description": "Aspect ratio box. Styled HTML.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/aspect-ratio.tsx",
@@ -597,12 +544,8 @@
       "name": "avatar",
       "title": "Avatar",
       "description": "Avatar. Styled wrapper around @kobalte/core/image.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/avatar.tsx",
@@ -616,9 +559,7 @@
       "name": "badge",
       "title": "Badge",
       "description": "Badge. Styled HTML.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/badge.tsx",
@@ -632,12 +573,8 @@
       "name": "breadcrumb",
       "title": "Breadcrumb",
       "description": "Breadcrumb. Styled wrapper around @kobalte/core/breadcrumbs.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/breadcrumb.tsx",
@@ -651,9 +588,7 @@
       "name": "button-group",
       "title": "Button Group",
       "description": "Button group. Styled HTML flex wrapper.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/button-group.tsx",
@@ -667,9 +602,7 @@
       "name": "card",
       "title": "Card",
       "description": "Card with header, title, description, content, and footer.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/card.tsx",
@@ -683,12 +616,8 @@
       "name": "collapsible",
       "title": "Collapsible",
       "description": "Collapsible. Styled wrapper around @kobalte/core/collapsible.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/collapsible.tsx",
@@ -702,12 +631,8 @@
       "name": "combobox",
       "title": "Combobox",
       "description": "Combobox. Styled wrapper around @kobalte/core/combobox.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/combobox.tsx",
@@ -721,12 +646,8 @@
       "name": "context-menu",
       "title": "Context Menu",
       "description": "Context Menu. Styled wrapper around @kobalte/core/context-menu.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/context-menu.tsx",
@@ -740,13 +661,8 @@
       "name": "drawer",
       "title": "Drawer",
       "description": "Drawer. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/drawer.tsx",
@@ -760,12 +676,8 @@
       "name": "dropdown-menu",
       "title": "Dropdown Menu",
       "description": "Dropdown Menu. Styled wrapper around @kobalte/core/dropdown-menu.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/dropdown-menu.tsx",
@@ -779,9 +691,7 @@
       "name": "empty",
       "title": "Empty",
       "description": "Empty state with header, title, description, and content.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/empty.tsx",
@@ -795,9 +705,7 @@
       "name": "field",
       "title": "Field",
       "description": "Field with label, description, and error around a control.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/field.tsx",
@@ -811,12 +719,8 @@
       "name": "hover-card",
       "title": "Hover Card",
       "description": "Hover Card. Styled wrapper around @kobalte/core/hover-card.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/hover-card.tsx",
@@ -830,12 +734,8 @@
       "name": "input",
       "title": "Input",
       "description": "Input. Styled wrapper around @kobalte/core/text-field.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/input.tsx",
@@ -849,10 +749,7 @@
       "name": "input-group",
       "title": "Input Group",
       "description": "Input group. Styled HTML flex wrapper.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/input-group.tsx",
@@ -866,9 +763,7 @@
       "name": "item",
       "title": "Item",
       "description": "Item with media, content, title, description, and actions.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/item.tsx",
@@ -882,9 +777,7 @@
       "name": "kbd",
       "title": "Kbd",
       "description": "Keyboard key. Styled HTML.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/kbd.tsx",
@@ -898,9 +791,7 @@
       "name": "label",
       "title": "Label",
       "description": "Label. Styled HTML.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/label.tsx",
@@ -914,12 +805,8 @@
       "name": "menubar",
       "title": "Menubar",
       "description": "Menubar. Styled wrapper around @kobalte/core/menubar.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/menubar.tsx",
@@ -933,9 +820,7 @@
       "name": "native-select",
       "title": "Native Select",
       "description": "Native select element. Styled HTML.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/native-select.tsx",
@@ -949,12 +834,8 @@
       "name": "navigation-menu",
       "title": "Navigation Menu",
       "description": "Navigation menu. Layout with a dropdown from @kobalte/core/popover.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/navigation-menu.tsx",
@@ -968,13 +849,8 @@
       "name": "pagination",
       "title": "Pagination",
       "description": "Pagination. Styled wrapper around @kobalte/core/pagination.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/pagination.tsx",
@@ -988,13 +864,8 @@
       "name": "popover",
       "title": "Popover",
       "description": "Popover. Styled wrapper around @kobalte/core/popover.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/popover.tsx",
@@ -1008,12 +879,8 @@
       "name": "progress",
       "title": "Progress",
       "description": "Progress. Styled wrapper around @kobalte/core/progress.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/progress.tsx",
@@ -1027,12 +894,8 @@
       "name": "radio-group",
       "title": "Radio Group",
       "description": "Radio Group. Styled wrapper around @kobalte/core/radio-group.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/radio-group.tsx",
@@ -1046,9 +909,7 @@
       "name": "scroll-area",
       "title": "Scroll Area",
       "description": "Scroll area. Styled HTML with overflow.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/scroll-area.tsx",
@@ -1062,12 +923,8 @@
       "name": "select",
       "title": "Select",
       "description": "Select. Styled wrapper around @kobalte/core/select.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/select.tsx",
@@ -1081,12 +938,8 @@
       "name": "separator",
       "title": "Separator",
       "description": "Separator. Styled wrapper around @kobalte/core/separator.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/separator.tsx",
@@ -1100,13 +953,8 @@
       "name": "sheet",
       "title": "Sheet",
       "description": "Sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/sheet.tsx",
@@ -1120,12 +968,8 @@
       "name": "skeleton",
       "title": "Skeleton",
       "description": "Skeleton. Styled wrapper around @kobalte/core/skeleton.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/skeleton.tsx",
@@ -1139,12 +983,8 @@
       "name": "slider",
       "title": "Slider",
       "description": "Slider. Styled wrapper around @kobalte/core/slider.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/slider.tsx",
@@ -1158,9 +998,7 @@
       "name": "spinner",
       "title": "Spinner",
       "description": "Spinner. Styled HTML.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/spinner.tsx",
@@ -1174,12 +1012,8 @@
       "name": "switch",
       "title": "Switch",
       "description": "Switch. Styled wrapper around @kobalte/core/switch.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/switch.tsx",
@@ -1193,9 +1027,7 @@
       "name": "table",
       "title": "Table",
       "description": "Table with header, body, row, head, and cell.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/table.tsx",
@@ -1209,12 +1041,8 @@
       "name": "tabs",
       "title": "Tabs",
       "description": "Tabs. Styled wrapper around @kobalte/core/tabs.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/tabs.tsx",
@@ -1228,12 +1056,8 @@
       "name": "textarea",
       "title": "Textarea",
       "description": "Textarea. Styled wrapper around @kobalte/core/text-field.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/textarea.tsx",
@@ -1247,13 +1071,8 @@
       "name": "toast",
       "title": "Toast",
       "description": "Toast. Styled wrapper around @kobalte/core/toast.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/button"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/toast.tsx",
@@ -1267,12 +1086,8 @@
       "name": "toggle",
       "title": "Toggle",
       "description": "Toggle. Styled wrapper around @kobalte/core/toggle-button.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/ui/src/components/toggle.tsx",
@@ -1286,13 +1101,8 @@
       "name": "toggle-group",
       "title": "Toggle Group",
       "description": "Toggle Group. Styled wrapper around @kobalte/core/toggle-group.",
-      "dependencies": [
-        "@kobalte/core"
-      ],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/toggle"
-      ],
+      "dependencies": ["@kobalte/core"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/toggle"],
       "files": [
         {
           "path": "packages/ui/src/components/toggle-group.tsx",

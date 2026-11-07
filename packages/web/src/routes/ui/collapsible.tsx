@@ -10,7 +10,11 @@ const snippet = `import { Collapsible } from "@solid-kit/ui";
 
 export default function CollapsiblePage() {
   return (
-    <DocsPage title="Collapsible" description="A single section that opens and closes." snippet={snippet}>
+    <DocsPage
+      title="Collapsible"
+      description="A single section that opens and closes."
+      snippet={snippet}
+    >
       <CollapsibleDemo />
     </DocsPage>
   );

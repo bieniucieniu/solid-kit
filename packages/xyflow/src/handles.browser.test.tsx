@@ -61,26 +61,30 @@ describe("handles", () => {
     await element(view.getByTestId("rf__node-1")).toBeVisible();
     await element(view.getByTestId("rf__node-2")).toBeVisible();
 
-    await expect.poll(() => {
-      const node = flowNode(view, "1");
-      const target = handleCenter(node, "target");
-      const source = handleCenter(node, "source");
-      if (!target || !source) return 999;
-      return Math.max(
-        distance(target, edgePoint(node, "top")),
-        distance(source, edgePoint(node, "bottom")),
-      );
-    }).toBeLessThanOrEqual(tolerance);
+    await expect
+      .poll(() => {
+        const node = flowNode(view, "1");
+        const target = handleCenter(node, "target");
+        const source = handleCenter(node, "source");
+        if (!target || !source) return 999;
+        return Math.max(
+          distance(target, edgePoint(node, "top")),
+          distance(source, edgePoint(node, "bottom")),
+        );
+      })
+      .toBeLessThanOrEqual(tolerance);
 
-    await expect.poll(() => {
-      const edge = view.getByTestId("rf__edge-e1-2").query();
-      if (!edge) return 999;
-      const ends = pathEnds(edge);
-      const source = handleCenter(flowNode(view, "1"), "source");
-      const target = handleCenter(flowNode(view, "2"), "target");
-      if (!ends || !source || !target) return 999;
-      return Math.max(distance(ends.start, source), distance(ends.end, target));
-    }).toBeLessThanOrEqual(tolerance);
+    await expect
+      .poll(() => {
+        const edge = view.getByTestId("rf__edge-e1-2").query();
+        if (!edge) return 999;
+        const ends = pathEnds(edge);
+        const source = handleCenter(flowNode(view, "1"), "source");
+        const target = handleCenter(flowNode(view, "2"), "target");
+        if (!ends || !source || !target) return 999;
+        return Math.max(distance(ends.start, source), distance(ends.end, target));
+      })
+      .toBeLessThanOrEqual(tolerance);
   });
 
   test("custom node dots sit on the left and right edge centers", async () => {
@@ -107,26 +111,30 @@ describe("handles", () => {
     await element(view.getByTestId("rf__node-1")).toBeVisible();
     await element(view.getByTestId("rf__node-2")).toBeVisible();
 
-    await expect.poll(() => {
-      const node = flowNode(view, "1");
-      const target = handleCenter(node, "target");
-      const source = handleCenter(node, "source");
-      if (!target || !source) return 999;
-      return Math.max(
-        distance(target, edgePoint(node, "left")),
-        distance(source, edgePoint(node, "right")),
-      );
-    }).toBeLessThanOrEqual(tolerance);
+    await expect
+      .poll(() => {
+        const node = flowNode(view, "1");
+        const target = handleCenter(node, "target");
+        const source = handleCenter(node, "source");
+        if (!target || !source) return 999;
+        return Math.max(
+          distance(target, edgePoint(node, "left")),
+          distance(source, edgePoint(node, "right")),
+        );
+      })
+      .toBeLessThanOrEqual(tolerance);
 
-    await expect.poll(() => {
-      const edge = view.getByTestId("rf__edge-e1-2").query();
-      if (!edge) return 999;
-      const ends = pathEnds(edge);
-      const source = handleCenter(flowNode(view, "1"), "source");
-      const target = handleCenter(flowNode(view, "2"), "target");
-      if (!ends || !source || !target) return 999;
-      return Math.max(distance(ends.start, source), distance(ends.end, target));
-    }).toBeLessThanOrEqual(tolerance);
+    await expect
+      .poll(() => {
+        const edge = view.getByTestId("rf__edge-e1-2").query();
+        if (!edge) return 999;
+        const ends = pathEnds(edge);
+        const source = handleCenter(flowNode(view, "1"), "source");
+        const target = handleCenter(flowNode(view, "2"), "target");
+        if (!ends || !source || !target) return 999;
+        return Math.max(distance(ends.start, source), distance(ends.end, target));
+      })
+      .toBeLessThanOrEqual(tolerance);
   });
 
   test("size-stable position change moves the edge path with the dots", async () => {
@@ -147,29 +155,35 @@ describe("handles", () => {
     flow.updateNode("1", { sourcePosition: Position.Right });
     flow.updateNode("2", { targetPosition: Position.Left });
 
-    await expect.poll(() => {
-      const node = flowNode(view, "1");
-      const source = handleCenter(node, "source");
-      if (!source) return 999;
-      return distance(source, edgePoint(node, "right"));
-    }).toBeLessThanOrEqual(tolerance);
+    await expect
+      .poll(() => {
+        const node = flowNode(view, "1");
+        const source = handleCenter(node, "source");
+        if (!source) return 999;
+        return distance(source, edgePoint(node, "right"));
+      })
+      .toBeLessThanOrEqual(tolerance);
 
-    await expect.poll(() => {
-      const node = flowNode(view, "2");
-      const target = handleCenter(node, "target");
-      if (!target) return 999;
-      return distance(target, edgePoint(node, "left"));
-    }).toBeLessThanOrEqual(tolerance);
+    await expect
+      .poll(() => {
+        const node = flowNode(view, "2");
+        const target = handleCenter(node, "target");
+        if (!target) return 999;
+        return distance(target, edgePoint(node, "left"));
+      })
+      .toBeLessThanOrEqual(tolerance);
 
-    await expect.poll(() => {
-      const edge = view.getByTestId("rf__edge-e1-2").query();
-      if (!edge) return 999;
-      const ends = pathEnds(edge);
-      const source = handleCenter(flowNode(view, "1"), "source");
-      const target = handleCenter(flowNode(view, "2"), "target");
-      if (!ends || !source || !target) return 999;
-      return Math.max(distance(ends.start, source), distance(ends.end, target));
-    }).toBeLessThanOrEqual(tolerance);
+    await expect
+      .poll(() => {
+        const edge = view.getByTestId("rf__edge-e1-2").query();
+        if (!edge) return 999;
+        const ends = pathEnds(edge);
+        const source = handleCenter(flowNode(view, "1"), "source");
+        const target = handleCenter(flowNode(view, "2"), "target");
+        if (!ends || !source || !target) return 999;
+        return Math.max(distance(ends.start, source), distance(ends.end, target));
+      })
+      .toBeLessThanOrEqual(tolerance);
 
     const box = flowNode(view, "1").getBoundingClientRect();
     expect(box.width).toBe(widthBefore);

@@ -17,7 +17,11 @@ const snippet = `import { AlertDialog, Button } from "@solid-kit/ui";
 
 export default function AlertDialogPage() {
   return (
-    <DocsPage title="Alert dialog" description="A modal that asks for confirmation." snippet={snippet}>
+    <DocsPage
+      title="Alert dialog"
+      description="A modal that asks for confirmation."
+      snippet={snippet}
+    >
       <AlertDialogDemo />
     </DocsPage>
   );

@@ -3,7 +3,10 @@ import { page, userEvent, type Locator } from "vite-plus/test/browser";
 import { element, installFlowBrowser, mountFlow, nodes } from "./testing/mount";
 
 function handle(view: Locator, id: string, kind: "source" | "target") {
-  const found = view.getByTestId(`rf__node-${id}`).element().querySelector(`.xy-flow__handle.${kind}`);
+  const found = view
+    .getByTestId(`rf__node-${id}`)
+    .element()
+    .querySelector(`.xy-flow__handle.${kind}`);
   if (!found) throw new Error(`${kind} handle on node ${id} was not measured`);
   return found;
 }

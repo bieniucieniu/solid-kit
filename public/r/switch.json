@@ -3,12 +3,8 @@
   "name": "switch",
   "title": "Switch",
   "description": "Switch. Styled wrapper around @kobalte/core/switch.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/switch.tsx",

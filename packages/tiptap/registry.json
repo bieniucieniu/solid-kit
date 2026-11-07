@@ -96,11 +96,7 @@
       "type": "registry:block",
       "title": "Tiptap Node View",
       "description": "Node and mark view renderers.",
-      "dependencies": [
-        "@tiptap/core@^3.23.5",
-        "@tiptap/pm@^3.23.5",
-        "solid-js@^1.9.0"
-      ],
+      "dependencies": ["@tiptap/core@^3.23.5", "@tiptap/pm@^3.23.5", "solid-js@^1.9.0"],
       "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
       "files": [
         {

@@ -3,12 +3,8 @@
   "name": "hover-card",
   "title": "Hover Card",
   "description": "Hover Card. Styled wrapper around @kobalte/core/hover-card.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/hover-card.tsx",

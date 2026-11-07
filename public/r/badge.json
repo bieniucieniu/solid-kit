@@ -3,9 +3,7 @@
   "name": "badge",
   "title": "Badge",
   "description": "Badge. Styled HTML.",
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/badge.tsx",

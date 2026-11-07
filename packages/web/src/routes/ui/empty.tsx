@@ -15,7 +15,11 @@ const snippet = `import { Button, Empty } from "@solid-kit/ui";
 
 export default function EmptyPage() {
   return (
-    <DocsPage title="Empty" description="A placeholder when there is nothing to show." snippet={snippet}>
+    <DocsPage
+      title="Empty"
+      description="A placeholder when there is nothing to show."
+      snippet={snippet}
+    >
       <EmptyDemo />
     </DocsPage>
   );

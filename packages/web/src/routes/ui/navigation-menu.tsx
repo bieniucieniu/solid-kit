@@ -19,7 +19,11 @@ const snippet = `import { NavigationMenu } from "@solid-kit/ui";
 
 export default function NavigationMenuPage() {
   return (
-    <DocsPage title="Navigation menu" description="A nav bar with a dropdown panel." snippet={snippet}>
+    <DocsPage
+      title="Navigation menu"
+      description="A nav bar with a dropdown panel."
+      snippet={snippet}
+    >
       <NavigationMenuDemo />
     </DocsPage>
   );

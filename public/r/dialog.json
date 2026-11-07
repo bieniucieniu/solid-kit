@@ -3,13 +3,8 @@
   "name": "dialog",
   "title": "Dialog",
   "description": "Modal dialog. Styled wrapper around @corvu/dialog.",
-  "dependencies": [
-    "@corvu/dialog"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils",
-    "bieniucieniu/solid-kit/button"
-  ],
+  "dependencies": ["@corvu/dialog"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
   "files": [
     {
       "path": "packages/ui/src/components/dialog.tsx",

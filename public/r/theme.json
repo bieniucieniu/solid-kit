@@ -3,9 +3,7 @@
   "name": "theme",
   "title": "Theme",
   "description": "Tailwind CSS 4 tokens. Light values go on :root, dark values on .dark, color and radius mappings on @theme inline.",
-  "devDependencies": [
-    "tw-animate-css"
-  ],
+  "devDependencies": ["tw-animate-css"],
   "cssVars": {
     "theme": {
       "color-background": "var(--background)",

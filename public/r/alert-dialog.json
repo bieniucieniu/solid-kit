@@ -3,13 +3,8 @@
   "name": "alert-dialog",
   "title": "Alert Dialog",
   "description": "Alert Dialog. Styled wrapper around @kobalte/core/alert-dialog.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils",
-    "bieniucieniu/solid-kit/button"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
   "files": [
     {
       "path": "packages/ui/src/components/alert-dialog.tsx",

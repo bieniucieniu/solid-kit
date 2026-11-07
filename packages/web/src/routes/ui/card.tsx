@@ -16,7 +16,11 @@ const snippet = `import { Button, Card } from "@solid-kit/ui";
 
 export default function CardPage() {
   return (
-    <DocsPage title="Card" description="A bordered block with a header and footer." snippet={snippet}>
+    <DocsPage
+      title="Card"
+      description="A bordered block with a header and footer."
+      snippet={snippet}
+    >
       <CardDemo />
     </DocsPage>
   );

@@ -3,9 +3,7 @@
   "name": "button-group",
   "title": "Button Group",
   "description": "Button group. Styled HTML flex wrapper.",
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/button-group.tsx",

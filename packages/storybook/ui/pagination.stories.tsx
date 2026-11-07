@@ -23,9 +23,7 @@ function PaginationDemo() {
         count={10}
         page={page()}
         onPageChange={setPage}
-        itemComponent={(props) => (
-          <Pagination.Item page={props.page}>{props.page}</Pagination.Item>
-        )}
+        itemComponent={(props) => <Pagination.Item page={props.page}>{props.page}</Pagination.Item>}
         ellipsisComponent={() => <Pagination.Ellipsis />}
       >
         <Pagination.Previous />

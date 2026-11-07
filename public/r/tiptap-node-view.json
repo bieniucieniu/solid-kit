@@ -3,14 +3,8 @@
   "name": "tiptap-node-view",
   "title": "Tiptap Node View",
   "description": "Node and mark view renderers.",
-  "dependencies": [
-    "@tiptap/core@^3.23.5",
-    "@tiptap/pm@^3.23.5",
-    "solid-js@^1.9.0"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/tiptap"
-  ],
+  "dependencies": ["@tiptap/core@^3.23.5", "@tiptap/pm@^3.23.5", "solid-js@^1.9.0"],
+  "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
   "files": [
     {
       "path": "packages/tiptap/src/node-view.ts",

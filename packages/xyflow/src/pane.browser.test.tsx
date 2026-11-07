@@ -67,7 +67,10 @@ describe("pane", () => {
     await expect.poll(() => viewportTransform(view).scale).toBeGreaterThanOrEqual(0.5);
     await expect.poll(() => viewportTransform(view).scale).toBeLessThan(1);
     await expect
-      .poll(() => (view.getByRole("button", { name: "zoom out" }).element() as HTMLButtonElement).disabled)
+      .poll(
+        () =>
+          (view.getByRole("button", { name: "zoom out" }).element() as HTMLButtonElement).disabled,
+      )
       .toBe(true);
   });
 

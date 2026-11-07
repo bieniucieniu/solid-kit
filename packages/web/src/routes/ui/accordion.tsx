@@ -14,7 +14,11 @@ const snippet = `import { Accordion } from "@solid-kit/ui";
 
 export default function AccordionPage() {
   return (
-    <DocsPage title="Accordion" description="Expand and collapse stacked sections." snippet={snippet}>
+    <DocsPage
+      title="Accordion"
+      description="Expand and collapse stacked sections."
+      snippet={snippet}
+    >
       <AccordionDemo />
     </DocsPage>
   );

@@ -88,7 +88,9 @@ export const builtinEdgeTypes = {
   smoothstep: BuiltinEdge,
 };
 
-function trackHandleBounds(node: { internals?: { handleBounds?: { source: unknown[] | null; target: unknown[] | null } } }) {
+function trackHandleBounds(node: {
+  internals?: { handleBounds?: { source: unknown[] | null; target: unknown[] | null } };
+}) {
   const bounds = node.internals?.handleBounds;
   const lists = [bounds?.source, bounds?.target];
   for (const list of lists) {

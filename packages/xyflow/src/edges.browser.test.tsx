@@ -18,9 +18,10 @@ describe("edges", () => {
     const { view } = mountFlow({ nodes, edges: [edge] });
     await element(view.getByTestId("rf__edge-e1-2")).toBeInTheDocument();
 
-    view.getByTestId("rf__edge-e1-2").element().dispatchEvent(
-      new MouseEvent("click", { bubbles: true, cancelable: true }),
-    );
+    view
+      .getByTestId("rf__edge-e1-2")
+      .element()
+      .dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 
     await expect
       .poll(() => view.getByTestId("rf__edge-e1-2").element().classList.contains("selected"))
@@ -46,7 +47,9 @@ describe("edges", () => {
     const { view } = mountFlow({ nodes, edges: [{ ...edge, class: "custom-edge" }] });
     await element(view.getByTestId("rf__edge-e1-2")).toBeInTheDocument();
 
-    expect(view.getByTestId("rf__edge-e1-2").element().classList.contains("custom-edge")).toBe(true);
+    expect(view.getByTestId("rf__edge-e1-2").element().classList.contains("custom-edge")).toBe(
+      true,
+    );
   });
 
   test("style is applied to the path", async () => {
@@ -64,9 +67,10 @@ describe("edges", () => {
     const { view } = mountFlow({ nodes, edges: [edge] });
     await element(view.getByTestId("rf__edge-e1-2")).toBeInTheDocument();
 
-    view.getByTestId("rf__edge-e1-2").element().dispatchEvent(
-      new MouseEvent("click", { bubbles: true, cancelable: true }),
-    );
+    view
+      .getByTestId("rf__edge-e1-2")
+      .element()
+      .dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
     await expect
       .poll(() => view.getByTestId("rf__edge-e1-2").element().classList.contains("selected"))
       .toBe(true);

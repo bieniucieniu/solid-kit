@@ -3,10 +3,7 @@
   "name": "input-group",
   "title": "Input Group",
   "description": "Input group. Styled HTML flex wrapper.",
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils",
-    "bieniucieniu/solid-kit/button"
-  ],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
   "files": [
     {
       "path": "packages/ui/src/components/input-group.tsx",

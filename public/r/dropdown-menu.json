@@ -3,12 +3,8 @@
   "name": "dropdown-menu",
   "title": "Dropdown Menu",
   "description": "Dropdown Menu. Styled wrapper around @kobalte/core/dropdown-menu.",
-  "dependencies": [
-    "@kobalte/core"
-  ],
-  "registryDependencies": [
-    "bieniucieniu/solid-kit/utils"
-  ],
+  "dependencies": ["@kobalte/core"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/ui/src/components/dropdown-menu.tsx",

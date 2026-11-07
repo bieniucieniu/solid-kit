@@ -10,7 +10,11 @@ const snippet = `import { InputGroup } from "@solid-kit/ui";
 
 export default function InputGroupPage() {
   return (
-    <DocsPage title="Input group" description="An input with extra content beside it." snippet={snippet}>
+    <DocsPage
+      title="Input group"
+      description="An input with extra content beside it."
+      snippet={snippet}
+    >
       <InputGroupDemo />
     </DocsPage>
   );

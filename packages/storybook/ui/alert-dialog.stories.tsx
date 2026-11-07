@@ -21,9 +21,14 @@ function AlertDialogDemo() {
       <AlertDialog.Portal>
         <AlertDialog.Overlay />
         <AlertDialog.Content>
-          <AlertDialog.Title>Delete this file?</AlertDialog.Title>
-          <AlertDialog.Description>This cannot be undone.</AlertDialog.Description>
-          <AlertDialog.CloseButton>Cancel</AlertDialog.CloseButton>
+          <AlertDialog.Header>
+            <AlertDialog.Title>Delete this file?</AlertDialog.Title>
+            <AlertDialog.Description>This cannot be undone.</AlertDialog.Description>
+          </AlertDialog.Header>
+          <AlertDialog.Footer>
+            <AlertDialog.CloseButton>Cancel</AlertDialog.CloseButton>
+            <AlertDialog.CloseButton variant="destructive">Delete</AlertDialog.CloseButton>
+          </AlertDialog.Footer>
         </AlertDialog.Content>
       </AlertDialog.Portal>
     </AlertDialog>

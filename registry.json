@@ -8,8 +8,18 @@
       "type": "registry:theme",
       "title": "Theme",
       "description": "Tailwind CSS 4 tokens. Light values go on :root, dark values on .dark, color and radius mappings on @theme inline.",
+      "devDependencies": ["tw-animate-css"],
       "css": {
-        "@custom-variant dark (&:is(.dark *))": {}
+        "@import \"tw-animate-css\"": {},
+        "@custom-variant dark (&:is(.dark *))": {},
+        "@layer base": {
+          "*": {
+            "@apply border-border outline-ring/50": {}
+          },
+          "body": {
+            "@apply bg-background text-foreground": {}
+          }
+        }
       },
       "cssVars": {
         "theme": {
@@ -100,7 +110,7 @@
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
-      "description": "Plain button. One style. No variant props.",
+      "description": "Button with shadcn variants (default, outline, secondary, ghost, destructive, link) and sizes.",
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
@@ -116,7 +126,7 @@
       "title": "Dialog",
       "description": "Modal dialog. Styled wrapper around @corvu/dialog.",
       "dependencies": ["@corvu/dialog"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/dialog.tsx",
@@ -191,7 +201,7 @@
       "title": "Alert Dialog",
       "description": "Alert Dialog. Styled wrapper around @kobalte/core/alert-dialog.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/alert-dialog.tsx",
@@ -337,7 +347,7 @@
       "title": "Drawer",
       "description": "Drawer. Styled wrapper around @kobalte/core/dialog.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/drawer.tsx",
@@ -424,7 +434,7 @@
       "type": "registry:ui",
       "title": "Input Group",
       "description": "Input group. Styled HTML flex wrapper.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/input-group.tsx",
@@ -525,7 +535,7 @@
       "title": "Pagination",
       "description": "Pagination. Styled wrapper around @kobalte/core/pagination.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/pagination.tsx",
@@ -540,7 +550,7 @@
       "title": "Popover",
       "description": "Popover. Styled wrapper around @kobalte/core/popover.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/popover.tsx",
@@ -629,7 +639,7 @@
       "title": "Sheet",
       "description": "Sheet. Styled wrapper around @kobalte/core/dialog.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/sheet.tsx",
@@ -747,7 +757,7 @@
       "title": "Toast",
       "description": "Toast. Styled wrapper around @kobalte/core/toast.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
           "path": "packages/ui/src/components/toast.tsx",
@@ -777,7 +787,7 @@
       "title": "Toggle Group",
       "description": "Toggle Group. Styled wrapper around @kobalte/core/toggle-group.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/toggle"],
       "files": [
         {
           "path": "packages/ui/src/components/toggle-group.tsx",

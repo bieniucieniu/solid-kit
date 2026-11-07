@@ -15,7 +15,7 @@ function CheckboxRoot(props: CheckboxRootProps) {
     <CheckboxPrimitive
       ref={props.ref}
       class={cn(
-        "group inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:opacity-50",
+        "group/checkbox inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:cursor-not-allowed data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -29,7 +29,7 @@ export function CheckboxControl(props: CheckboxControlProps) {
     <CheckboxPrimitive.Control
       ref={props.ref}
       class={cn(
-        "flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input text-primary-foreground transition-shadow group-focus-within:ring-2 group-focus-within:ring-ring/30 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground data-indeterminate:border-primary data-indeterminate:bg-primary data-invalid:border-destructive dark:bg-input/30",
+        "relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input transition-shadow outline-none peer-focus-visible:border-ring peer-focus-visible:ring-2 peer-focus-visible:ring-ring/30 data-invalid:border-destructive data-invalid:ring-2 data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary data-indeterminate:border-primary data-indeterminate:bg-primary data-indeterminate:text-primary-foreground dark:data-indeterminate:bg-primary",
         props.class,
       )}
       {...rest}
@@ -43,16 +43,20 @@ export function CheckboxIndicator(props: CheckboxIndicatorProps) {
   return (
     <CheckboxPrimitive.Indicator
       ref={props.ref}
-      class={cn("flex items-center justify-center", props.class)}
+      class={cn(
+        "grid place-content-center text-current transition-none [&>svg]:size-3.5",
+        props.class,
+      )}
       {...rest}
     >
       {props.children ?? (
         <svg
           viewBox="0 0 24 24"
-          class="size-3.5"
           fill="none"
           stroke="currentColor"
-          stroke-width="3"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
           aria-hidden="true"
         >
           <Show when={state.indeterminate()} fallback={<path d="M20 6 9 17l-5-5" />}>
@@ -69,7 +73,10 @@ export function CheckboxLabel(props: CheckboxLabelProps) {
   return (
     <CheckboxPrimitive.Label
       ref={props.ref}
-      class={cn("text-xs/relaxed font-medium text-foreground", props.class)}
+      class={cn(
+        "text-xs/relaxed leading-none font-medium text-foreground select-none",
+        props.class,
+      )}
       {...rest}
     />
   );
@@ -97,7 +104,10 @@ export function CheckboxErrorMessage(props: CheckboxErrorMessageProps) {
   );
 }
 
-export const CheckboxInput = CheckboxPrimitive.Input;
+export function CheckboxInput(props: ComponentProps<typeof CheckboxPrimitive.Input>) {
+  const [, rest] = splitProps(props, ["class", "ref"]);
+  return <CheckboxPrimitive.Input ref={props.ref} class={cn("peer", props.class)} {...rest} />;
+}
 
 export const Checkbox = Object.assign(CheckboxRoot, {
   Input: CheckboxInput,

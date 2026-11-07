@@ -21,9 +21,13 @@ function DrawerDemo() {
       <Drawer.Portal>
         <Drawer.Overlay />
         <Drawer.Content>
-          <Drawer.Title>Filters</Drawer.Title>
-          <Drawer.Description>Narrow the list.</Drawer.Description>
-          <Drawer.CloseButton>Close</Drawer.CloseButton>
+          <Drawer.Header>
+            <Drawer.Title>Filters</Drawer.Title>
+            <Drawer.Description>Narrow the list.</Drawer.Description>
+          </Drawer.Header>
+          <Drawer.Footer>
+            <Drawer.CloseButton>Close</Drawer.CloseButton>
+          </Drawer.Footer>
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer>

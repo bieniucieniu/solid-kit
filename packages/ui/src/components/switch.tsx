@@ -2,7 +2,7 @@ import { Switch as SwitchPrimitive } from "@kobalte/core/switch";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type SwitchRootProps = ComponentProps<typeof SwitchPrimitive>;
+type SwitchRootProps = ComponentProps<typeof SwitchPrimitive> & { size?: "sm" | "default" };
 type SwitchControlProps = ComponentProps<typeof SwitchPrimitive.Control>;
 type SwitchThumbProps = ComponentProps<typeof SwitchPrimitive.Thumb>;
 type SwitchLabelProps = ComponentProps<typeof SwitchPrimitive.Label>;
@@ -10,12 +10,13 @@ type SwitchDescriptionProps = ComponentProps<typeof SwitchPrimitive.Description>
 type SwitchErrorMessageProps = ComponentProps<typeof SwitchPrimitive.ErrorMessage>;
 
 function SwitchRoot(props: SwitchRootProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [, rest] = splitProps(props, ["class", "ref", "size"]);
   return (
     <SwitchPrimitive
       ref={props.ref}
+      data-size={props.size ?? "default"}
       class={cn(
-        "group inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:opacity-50",
+        "group/switch inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:cursor-not-allowed data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -29,7 +30,7 @@ export function SwitchControl(props: SwitchControlProps) {
     <SwitchPrimitive.Control
       ref={props.ref}
       class={cn(
-        "inline-flex h-[16.6px] w-[28px] shrink-0 cursor-pointer items-center rounded-full border border-transparent p-px group-focus-within:ring-2 group-focus-within:ring-ring/30 data-checked:bg-primary data-unchecked:bg-input data-invalid:border-destructive dark:data-unchecked:bg-input/80",
+        "relative inline-flex shrink-0 items-center rounded-full border border-transparent transition-all outline-none peer-focus-visible:border-ring peer-focus-visible:ring-2 peer-focus-visible:ring-ring/30 group-data-[size=default]/switch:h-[16.6px] group-data-[size=default]/switch:w-[28px] group-data-[size=sm]/switch:h-[14px] group-data-[size=sm]/switch:w-[24px] data-checked:bg-primary data-invalid:border-destructive data-invalid:ring-2 data-invalid:ring-destructive/20 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40 not-data-checked:bg-input dark:not-data-checked:bg-input/80",
         props.class,
       )}
       {...rest}
@@ -43,7 +44,7 @@ export function SwitchThumb(props: SwitchThumbProps) {
     <SwitchPrimitive.Thumb
       ref={props.ref}
       class={cn(
-        "pointer-events-none block size-3.5 rounded-full bg-background transition-transform data-checked:ml-auto dark:data-unchecked:bg-foreground dark:data-checked:bg-primary-foreground",
+        "pointer-events-none block translate-x-0 rounded-full bg-background ring-0 transition-transform group-data-[size=default]/switch:size-3.5 group-data-[size=sm]/switch:size-3 data-checked:translate-x-[calc(100%-2px)] dark:not-data-checked:bg-foreground dark:data-checked:bg-primary-foreground",
         props.class,
       )}
       {...rest}
@@ -84,7 +85,10 @@ export function SwitchErrorMessage(props: SwitchErrorMessageProps) {
   );
 }
 
-export const SwitchInput = SwitchPrimitive.Input;
+export function SwitchInput(props: ComponentProps<typeof SwitchPrimitive.Input>) {
+  const [, rest] = splitProps(props, ["class", "ref"]);
+  return <SwitchPrimitive.Input ref={props.ref} class={cn("peer", props.class)} {...rest} />;
+}
 
 export const Switch = Object.assign(SwitchRoot, {
   Input: SwitchInput,

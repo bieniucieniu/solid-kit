@@ -27,7 +27,9 @@ function DropdownMenuDemo() {
             <DropdownMenu.Item onSelect={() => setAction("Edit")}>Edit</DropdownMenu.Item>
             <DropdownMenu.Item onSelect={() => setAction("Duplicate")}>Duplicate</DropdownMenu.Item>
             <DropdownMenu.Separator />
-            <DropdownMenu.Item onSelect={() => setAction("Delete")}>Delete</DropdownMenu.Item>
+            <DropdownMenu.Item variant="destructive" onSelect={() => setAction("Delete")}>
+              Delete
+            </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu>

@@ -3,6 +3,9 @@
   "name": "theme",
   "title": "Theme",
   "description": "Tailwind CSS 4 tokens. Light values go on :root, dark values on .dark, color and radius mappings on @theme inline.",
+  "devDependencies": [
+    "tw-animate-css"
+  ],
   "cssVars": {
     "theme": {
       "color-background": "var(--background)",
@@ -74,7 +77,16 @@
     }
   },
   "css": {
-    "@custom-variant dark (&:is(.dark *))": {}
+    "@import \"tw-animate-css\"": {},
+    "@custom-variant dark (&:is(.dark *))": {},
+    "@layer base": {
+      "*": {
+        "@apply border-border outline-ring/50": {}
+      },
+      "body": {
+        "@apply bg-background text-foreground": {}
+      }
+    }
   },
   "type": "registry:theme"
 }

@@ -6,7 +6,7 @@ type HoverCardRootProps = ComponentProps<typeof HoverCardPrimitive>;
 type HoverCardContentProps = ComponentProps<typeof HoverCardPrimitive.Content>;
 
 function HoverCardRoot(props: HoverCardRootProps) {
-  return <HoverCardPrimitive {...props} />;
+  return <HoverCardPrimitive gutter={4} {...props} />;
 }
 
 export function HoverCardContent(props: HoverCardContentProps) {
@@ -15,7 +15,7 @@ export function HoverCardContent(props: HoverCardContentProps) {
     <HoverCardPrimitive.Content
       ref={props.ref}
       class={cn(
-        "z-50 w-72 rounded-lg bg-popover p-2.5 text-xs/relaxed text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none",
+        "z-50 w-72 origin-(--kb-hovercard-content-transform-origin) rounded-lg bg-popover p-2.5 text-xs/relaxed text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-hidden data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
         props.class,
       )}
       {...rest}

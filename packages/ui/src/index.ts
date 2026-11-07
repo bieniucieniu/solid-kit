@@ -1,4 +1,10 @@
-export { Button } from "./components/button";
+export {
+  Button,
+  type ButtonProps,
+  type ButtonSize,
+  type ButtonVariant,
+  buttonVariants,
+} from "./components/button";
 export {
   Checkbox,
   CheckboxControl,
@@ -13,6 +19,8 @@ export {
   DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
+  DialogHeader,
   DialogLabel,
   DialogOverlay,
   DialogPortal,
@@ -39,18 +47,36 @@ export {
   AlertDialogCloseButton,
   AlertDialogContent,
   AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogMedia,
   AlertDialogOverlay,
   AlertDialogPortal,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "./components/alert-dialog";
 export { AspectRatio } from "./components/aspect-ratio";
-export { Avatar, AvatarFallback, AvatarImg } from "./components/avatar";
-export { Badge } from "./components/badge";
-export { Breadcrumb, BreadcrumbLink, BreadcrumbSeparator } from "./components/breadcrumb";
-export { ButtonGroup } from "./components/button-group";
+export {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImg,
+} from "./components/avatar";
+export { Badge, type BadgeVariant, badgeVariants } from "./components/badge";
+export {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "./components/breadcrumb";
+export { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "./components/button-group";
 export {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -94,6 +120,7 @@ export {
   ContextMenuRadioGroup,
   ContextMenuRadioItem,
   ContextMenuSeparator,
+  ContextMenuShortcut,
   ContextMenuSub,
   ContextMenuSubContent,
   ContextMenuSubTrigger,
@@ -104,6 +131,8 @@ export {
   DrawerCloseButton,
   DrawerContent,
   DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
   DrawerOverlay,
   DrawerPortal,
   DrawerTitle,
@@ -125,13 +154,24 @@ export {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "./components/dropdown-menu";
 export { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyTitle } from "./components/empty";
-export { Field, FieldDescription, FieldError, FieldLabel } from "./components/field";
+export {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSet,
+  FieldTitle,
+} from "./components/field";
 export {
   HoverCard,
   HoverCardArrow,
@@ -146,9 +186,27 @@ export {
   InputErrorMessage,
   InputLabel,
 } from "./components/input";
-export { InputGroup } from "./components/input-group";
-export { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "./components/item";
-export { Kbd } from "./components/kbd";
+export {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "./components/input-group";
+export {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemFooter,
+  ItemGroup,
+  ItemHeader,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from "./components/item";
+export { Kbd, KbdGroup } from "./components/kbd";
 export { Label } from "./components/label";
 export {
   Menubar,
@@ -167,12 +225,13 @@ export {
   MenubarRadioGroup,
   MenubarRadioItem,
   MenubarSeparator,
+  MenubarShortcut,
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
 } from "./components/menubar";
-export { NativeSelect } from "./components/native-select";
+export { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from "./components/native-select";
 export {
   NavigationMenu,
   NavigationMenuContent,
@@ -180,6 +239,7 @@ export {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "./components/navigation-menu";
 export {
   Pagination,
@@ -196,6 +256,7 @@ export {
   PopoverCloseButton,
   PopoverContent,
   PopoverDescription,
+  PopoverHeader,
   PopoverPortal,
   PopoverTitle,
   PopoverTrigger,
@@ -245,6 +306,8 @@ export {
   SheetCloseButton,
   SheetContent,
   SheetDescription,
+  SheetFooter,
+  SheetHeader,
   SheetOverlay,
   SheetPortal,
   SheetTitle,
@@ -272,7 +335,16 @@ export {
   SwitchLabel,
   SwitchThumb,
 } from "./components/switch";
-export { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./components/table";
+export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./components/table";
 export { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "./components/tabs";
 export {
   Textarea,
@@ -292,6 +364,6 @@ export {
   ToastTitle,
 } from "./components/toast";
 export { toaster } from "./components/toast";
-export { Toggle } from "./components/toggle";
+export { Toggle, type ToggleSize, type ToggleVariant, toggleVariants } from "./components/toggle";
 export { ToggleGroup, ToggleGroupItem } from "./components/toggle-group";
 export { cn } from "./lib/utils";

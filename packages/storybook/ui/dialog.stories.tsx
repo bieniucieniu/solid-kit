@@ -21,9 +21,16 @@ function DialogDemo() {
       <Dialog.Portal>
         <Dialog.Overlay />
         <Dialog.Content>
-          <Dialog.Label>Edit profile</Dialog.Label>
-          <Dialog.Description>This dialog stays on the page until you close it.</Dialog.Description>
-          <Dialog.Close class="mt-4">Close</Dialog.Close>
+          <Dialog.Header>
+            <Dialog.Label>Edit profile</Dialog.Label>
+            <Dialog.Description>
+              This dialog stays on the page until you close it.
+            </Dialog.Description>
+          </Dialog.Header>
+          <Dialog.Footer>
+            <Dialog.Close>Cancel</Dialog.Close>
+            <Dialog.Close variant="default">Save changes</Dialog.Close>
+          </Dialog.Footer>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog>

@@ -20,8 +20,10 @@ function PopoverDemo() {
       <Popover.Trigger as={Button}>Open</Popover.Trigger>
       <Popover.Portal>
         <Popover.Content>
-          <Popover.Title>Dimensions</Popover.Title>
-          <Popover.Description>Set the size of the frame.</Popover.Description>
+          <Popover.Header>
+            <Popover.Title>Dimensions</Popover.Title>
+            <Popover.Description>Set the size of the frame.</Popover.Description>
+          </Popover.Header>
           <Popover.CloseButton>Close</Popover.CloseButton>
         </Popover.Content>
       </Popover.Portal>

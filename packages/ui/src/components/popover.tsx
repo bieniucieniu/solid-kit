@@ -1,15 +1,19 @@
 import { Popover as PopoverPrimitive, usePopoverContext } from "@kobalte/core/popover";
-import { type ComponentProps, splitProps } from "solid-js";
+import { type ComponentProps, type JSX, splitProps } from "solid-js";
+import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
 type PopoverRootProps = ComponentProps<typeof PopoverPrimitive>;
 type PopoverContentProps = ComponentProps<typeof PopoverPrimitive.Content>;
 type PopoverTitleProps = ComponentProps<typeof PopoverPrimitive.Title>;
 type PopoverDescriptionProps = ComponentProps<typeof PopoverPrimitive.Description>;
-type PopoverCloseButtonProps = ComponentProps<typeof PopoverPrimitive.CloseButton>;
+type PopoverCloseButtonProps = ComponentProps<typeof PopoverPrimitive.CloseButton> & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+};
 
 function PopoverRoot(props: PopoverRootProps) {
-  return <PopoverPrimitive {...props} />;
+  return <PopoverPrimitive gutter={4} {...props} />;
 }
 
 export function PopoverContent(props: PopoverContentProps) {
@@ -18,9 +22,21 @@ export function PopoverContent(props: PopoverContentProps) {
     <PopoverPrimitive.Content
       ref={props.ref}
       class={cn(
-        "z-50 flex w-72 flex-col gap-4 rounded-lg bg-popover p-2.5 text-xs text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none",
+        "z-50 flex w-72 origin-(--kb-popover-content-transform-origin) flex-col gap-4 rounded-lg bg-popover p-2.5 text-xs text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-hidden data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
         props.class,
       )}
+      {...rest}
+    />
+  );
+}
+
+export function PopoverHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
+  const [, rest] = splitProps(props, ["class", "ref"]);
+  return (
+    <div
+      ref={props.ref}
+      data-slot="popover-header"
+      class={cn("flex flex-col gap-1 text-xs", props.class)}
       {...rest}
     />
   );
@@ -42,21 +58,22 @@ export function PopoverDescription(props: PopoverDescriptionProps) {
   return (
     <PopoverPrimitive.Description
       ref={props.ref}
-      class={cn("text-xs/relaxed text-muted-foreground", props.class)}
+      class={cn("text-muted-foreground", props.class)}
       {...rest}
     />
   );
 }
 
 export function PopoverCloseButton(props: PopoverCloseButtonProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [, rest] = splitProps(props, ["class", "ref", "variant", "size"]);
   return (
     <PopoverPrimitive.CloseButton
       ref={props.ref}
-      class={cn(
-        "inline-flex h-7 items-center justify-center rounded-md px-2 text-xs/relaxed text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none data-disabled:opacity-50",
-        props.class,
-      )}
+      class={buttonVariants({
+        variant: props.variant ?? "outline",
+        size: props.size,
+        class: props.class,
+      })}
       {...rest}
     />
   );
@@ -73,6 +90,7 @@ export const Popover = Object.assign(PopoverRoot, {
   Portal: PopoverPortal,
   Content: PopoverContent,
   Arrow: PopoverArrow,
+  Header: PopoverHeader,
   Title: PopoverTitle,
   Description: PopoverDescription,
   CloseButton: PopoverCloseButton,

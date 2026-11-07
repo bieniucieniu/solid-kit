@@ -19,9 +19,10 @@ function InputGroupDemo() {
 
   return (
     <InputGroup class="max-w-xs">
-      <span class="text-muted-foreground">https://</span>
-      <input
-        class="min-w-0 flex-1 bg-transparent py-2 text-foreground outline-none"
+      <InputGroup.Addon>
+        <InputGroup.Text>https://</InputGroup.Text>
+      </InputGroup.Addon>
+      <InputGroup.Input
         placeholder="example.com"
         value={value()}
         onInput={(event) => setValue(event.currentTarget.value)}

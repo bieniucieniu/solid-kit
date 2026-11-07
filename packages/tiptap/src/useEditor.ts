@@ -8,7 +8,6 @@ import {
   onMount,
   untrack,
 } from "solid-js";
-import { useEditorState } from "./useEditorState";
 
 const isSSR = typeof window === "undefined";
 const isDev =
@@ -25,8 +24,8 @@ export type UseEditorOptions = Partial<EditorOptions> & {
    */
   immediatelyRender?: boolean;
   /**
-   * Whether to re-render the editor on each transaction.
-   * This is legacy behavior that will be removed in future versions.
+   * Accepted for parity with Tiptap React and ignored: Solid has no component re-render.
+   * Read editor state with `useEditorState` instead.
    * @default false
    */
   shouldRerenderOnTransaction?: boolean;
@@ -225,26 +224,6 @@ export function useEditor(
       { defer: true },
     ),
   );
-
-  // The default behavior is to re-render on each transaction
-  // This is legacy behavior that will be removed in future versions
-  useEditorState({
-    editor,
-    selector: ({ transactionNumber }) => {
-      const opts = options();
-      if (
-        opts.shouldRerenderOnTransaction === false ||
-        opts.shouldRerenderOnTransaction === undefined
-      ) {
-        return null;
-      }
-
-      if (opts.immediatelyRender && transactionNumber === 0) {
-        return 0;
-      }
-      return transactionNumber + 1;
-    },
-  });
 
   return editor;
 }

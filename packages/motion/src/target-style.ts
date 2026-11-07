@@ -57,7 +57,7 @@ const transformFns: Record<TransformKey, (value: string | number) => string> = {
   skewY: (value) => `skewY(${deg(value)})`,
 };
 
-function isTransformKey(key: string): key is TransformKey {
+export function isTransformKey(key: string): key is TransformKey {
   return key in transformFns;
 }
 

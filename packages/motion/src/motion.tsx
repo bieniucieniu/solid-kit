@@ -1,6 +1,13 @@
 import { isMotionValue } from "motion";
-import type { JSX } from "solid-js";
-import { type Component, createEffect, onCleanup, splitProps, untrack, useContext } from "solid-js";
+import {
+  type Component,
+  createEffect,
+  on,
+  onCleanup,
+  splitProps,
+  untrack,
+  useContext,
+} from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { MotionConfigContext, VariantContext, type VariantContextValue } from "./context";
 import { PresenceContext } from "./presence";
@@ -14,7 +21,7 @@ import {
 } from "./resolve";
 import { scheduleMotion } from "./schedule";
 import { MotionState, type MotionSnapshot } from "./state";
-import { pinPopLayout, targetToStyle } from "./target-style";
+import { isTransformKey, pinPopLayout, targetToStyle } from "./target-style";
 import {
   motionPropKeys,
   type AnimationControls,
@@ -29,7 +36,7 @@ function isControls(value: unknown): value is AnimationControls {
   return "subscribe" in value && "start" in value && "stop" in value;
 }
 
-function staticStyle(style: MotionStyle | undefined): JSX.CSSProperties {
+function staticStyle(style: MotionStyle | undefined): Record<string, string | number> {
   const css: Record<string, string | number> = {};
   if (!style) return css;
   for (const [key, value] of Object.entries(style)) {
@@ -160,6 +167,26 @@ function createMotionComponent(tag: string): Component<MotionComponentProps> {
       }
       scheduleMotion(() => state.apply(snap));
     });
+
+    // `initialStyle` covers the first paint. Later changes to plain (non-MotionValue) style
+    // values are written here; transform keys stay with MotionState.
+    createEffect(
+      on(
+        () => staticStyle(local.style),
+        (next, prev) => {
+          const node = element;
+          if (!prev || !(node instanceof HTMLElement || node instanceof SVGElement)) return;
+          for (const key of Object.keys(prev)) {
+            if (!(key in next) && !isTransformKey(key)) node.style.removeProperty(key);
+          }
+          for (const [key, value] of Object.entries(next)) {
+            if (isTransformKey(key) || prev[key] === value) continue;
+            node.style.setProperty(key, String(value));
+          }
+        },
+        { defer: true },
+      ),
+    );
 
     createEffect(() => {
       const child = local.children;

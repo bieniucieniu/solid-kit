@@ -1,6 +1,6 @@
 import type { Editor } from "@tiptap/core";
 import type { Component } from "solid-js";
-import { createStore, reconcile } from "solid-js/store";
+import { createStore } from "solid-js/store";
 
 import type { AnyProps, EditorWithContentComponent } from "./editor";
 
@@ -39,7 +39,8 @@ export class SolidRenderer<P extends AnyProps = AnyProps> {
 
     const [store, setStore] = createStore(props as P);
     this.props = store;
-    this.setProps = (newProps: Partial<P>) => setStore(reconcile(newProps as P));
+    // Merge like Tiptap React: a partial update (e.g. `{ selected: true }`) keeps the other props.
+    this.setProps = (newProps: Partial<P>) => setStore(newProps as P);
 
     this.element = document.createElement(as);
     this.element.classList.add("solid-renderer");

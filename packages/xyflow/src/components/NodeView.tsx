@@ -50,6 +50,9 @@ export function NodeView(props: { node: FlowNode; resizeObserver: ResizeObserver
       isSelectable: selectable(),
       nodeClickDistance: 0,
     });
+    // Runs before the next update and when dragging is turned off or the node is hidden,
+    // so a node that is no longer draggable has no drag listeners left.
+    onCleanup(() => drag?.destroy());
   });
 
   const position = () => props.node.internals?.positionAbsolute ?? props.node.position;

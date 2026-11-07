@@ -1,5 +1,5 @@
 import { FloatingMenuPlugin, type FloatingMenuPluginProps } from "@tiptap/extension-floating-menu";
-import { createEffect, createMemo, type JSX, onCleanup, splitProps } from "solid-js";
+import { createEffect, createMemo, type JSX, onCleanup, splitProps, untrack } from "solid-js";
 import { Portal, spread } from "solid-js/web";
 import { useCurrentEditor } from "../Context";
 import { getAutoPluginKey } from "./getAutoPluginKey";
@@ -34,6 +34,7 @@ export const FloatingMenu = (props: FloatingMenuProps) => {
   });
 
   const currentEditorCtx = useCurrentEditor();
+  let registration = 0;
 
   /**
    * The editor instance where the floating menu plugin will be registered.
@@ -48,26 +49,35 @@ export const FloatingMenu = (props: FloatingMenuProps) => {
     }
 
     const floatingMenuElement = menuEl;
+    const current = ++registration;
     floatingMenuElement.style.visibility = "hidden";
     floatingMenuElement.style.position = "absolute";
 
     const pluginKey = resolvedPluginKey();
-    const plugin = FloatingMenuPlugin({
-      updateDelay: props.updateDelay,
-      resizeDelay: props.resizeDelay,
-      appendTo: props.appendTo,
-      pluginKey,
-      shouldShow: props.shouldShow,
-      options: props.options,
-      editor: editor,
-      element: floatingMenuElement,
-    });
+    // Options are read untracked: changing one must not re-register the plugin.
+    // The `updateOptions` effect below forwards option changes.
+    const plugin = untrack(() =>
+      FloatingMenuPlugin({
+        updateDelay: props.updateDelay,
+        resizeDelay: props.resizeDelay,
+        appendTo: props.appendTo,
+        pluginKey,
+        shouldShow: props.shouldShow,
+        options: props.options,
+        editor: editor,
+        element: floatingMenuElement,
+      }),
+    );
 
     editor.registerPlugin(plugin);
 
     onCleanup(() => {
       editor.unregisterPlugin(pluginKey);
       window.requestAnimationFrame(() => {
+        // A newer registration reuses this element; leave it in place.
+        if (current !== registration) {
+          return;
+        }
         if (floatingMenuElement.parentNode) {
           floatingMenuElement.parentNode.removeChild(floatingMenuElement);
         }

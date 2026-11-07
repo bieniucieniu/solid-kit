@@ -1,5 +1,19 @@
-import { Badge } from "@solid-kit/ui";
+import { Badge, type BadgeVariant } from "@solid-kit/ui";
+import { For } from "solid-js";
+
+const variants: BadgeVariant[] = [
+  "default",
+  "secondary",
+  "destructive",
+  "outline",
+  "ghost",
+  "link",
+];
 
 export function BadgeDemo() {
-  return <Badge>New</Badge>;
+  return (
+    <div class="flex flex-wrap items-center gap-2">
+      <For each={variants}>{(variant) => <Badge variant={variant}>{variant}</Badge>}</For>
+    </div>
+  );
 }

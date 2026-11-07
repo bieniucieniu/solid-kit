@@ -1,12 +1,19 @@
 import { DocsPage } from "~/components/preview";
 import { ButtonGroupDemo } from "~/demos/ui/button-group";
 
-const snippet = `import { Button, ButtonGroup } from "@solid-kit/ui";
+const snippet = `import { Button, ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "@solid-kit/ui";
+
+// orientation: "horizontal" | "vertical"
+<ButtonGroup orientation="vertical">
+  <Button variant="outline">Top</Button>
+  <Button variant="outline">Bottom</Button>
+</ButtonGroup>
 
 <ButtonGroup>
-  <Button>Cut</Button>
-  <Button>Copy</Button>
-  <Button>Paste</Button>
+  <ButtonGroupText>Zoom</ButtonGroupText>
+  <Button variant="secondary">-</Button>
+  <ButtonGroupSeparator />
+  <Button variant="secondary">+</Button>
 </ButtonGroup>`;
 
 export default function ButtonGroupPage() {

@@ -3,10 +3,12 @@ import { SeparatorDemo } from "~/demos/ui/separator";
 
 const snippet = `import { Separator } from "@solid-kit/ui";
 
-<div>
-  <span>Above</span>
-  <Separator />
-  <span>Below</span>
+// orientation: "horizontal" | "vertical"
+<Separator />
+<div class="flex h-5 items-center gap-3">
+  <span>Blog</span>
+  <Separator orientation="vertical" />
+  <span>Docs</span>
 </div>`;
 
 export default function SeparatorPage() {

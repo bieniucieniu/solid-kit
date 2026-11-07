@@ -4,8 +4,20 @@ import { InputGroupDemo } from "~/demos/ui/input-group";
 const snippet = `import { InputGroup } from "@solid-kit/ui";
 
 <InputGroup>
-  <span>https://</span>
-  <input placeholder="example.com" />
+  <InputGroup.Addon>
+    <InputGroup.Text>https://</InputGroup.Text>
+  </InputGroup.Addon>
+  <InputGroup.Input placeholder="example.com" />
+  <InputGroup.Addon align="inline-end">
+    <InputGroup.Button size="sm">Go</InputGroup.Button>
+  </InputGroup.Addon>
+</InputGroup>
+
+<InputGroup>
+  <InputGroup.Textarea placeholder="Message" />
+  <InputGroup.Addon align="block-end">
+    <InputGroup.Button variant="default">Send</InputGroup.Button>
+  </InputGroup.Addon>
 </InputGroup>`;
 
 export default function InputGroupPage() {

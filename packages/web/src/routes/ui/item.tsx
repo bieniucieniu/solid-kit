@@ -3,14 +3,18 @@ import { ItemDemo } from "~/demos/ui/item";
 
 const snippet = `import { Button, Item } from "@solid-kit/ui";
 
-<Item>
-  <Item.Media>AL</Item.Media>
+// variant: "default" | "outline" | "muted"   size: "default" | "sm" | "xs"
+// Item.Media variant: "default" | "icon" | "image"
+<Item variant="outline" size="sm">
+  <Item.Media variant="image">
+    <img src="https://github.com/solidjs.png" alt="Solid" />
+  </Item.Media>
   <Item.Content>
     <Item.Title>Ada Lovelace</Item.Title>
     <Item.Description>Editor</Item.Description>
   </Item.Content>
   <Item.Actions>
-    <Button>View</Button>
+    <Button variant="outline" size="sm">View</Button>
   </Item.Actions>
 </Item>`;
 

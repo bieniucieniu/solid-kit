@@ -3,8 +3,9 @@ import { TabsDemo } from "~/demos/ui/tabs";
 
 const snippet = `import { Tabs } from "@solid-kit/ui";
 
+// Tabs.List variant: "default" | "line"   Tabs orientation: "horizontal" | "vertical"
 <Tabs defaultValue="account">
-  <Tabs.List>
+  <Tabs.List variant="line">
     <Tabs.Trigger value="account">Account</Tabs.Trigger>
     <Tabs.Trigger value="password">Password</Tabs.Trigger>
   </Tabs.List>

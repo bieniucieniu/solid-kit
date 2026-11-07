@@ -3,7 +3,8 @@ import { ToggleDemo } from "~/demos/ui/toggle";
 
 const snippet = `import { Toggle } from "@solid-kit/ui";
 
-<Toggle pressed={pressed()} onChange={setPressed}>
+// variant: "default" | "outline"   size: "sm" | "default" | "lg"
+<Toggle variant="outline" size="sm" pressed={pressed()} onChange={setPressed}>
   Bold
 </Toggle>`;
 

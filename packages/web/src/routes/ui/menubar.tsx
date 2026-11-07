@@ -10,6 +10,8 @@ const snippet = `import { Menubar } from "@solid-kit/ui";
       <Menubar.Content>
         <Menubar.Item>New</Menubar.Item>
         <Menubar.Item>Open</Menubar.Item>
+        <Menubar.Separator />
+        <Menubar.Item variant="destructive">Delete</Menubar.Item>
       </Menubar.Content>
     </Menubar.Portal>
   </Menubar.Menu>

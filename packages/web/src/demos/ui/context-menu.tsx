@@ -14,6 +14,10 @@ export function ContextMenuDemo() {
           <ContextMenu.Content>
             <ContextMenu.Item onSelect={() => setAction("Back")}>Back</ContextMenu.Item>
             <ContextMenu.Item onSelect={() => setAction("Forward")}>Forward</ContextMenu.Item>
+            <ContextMenu.Separator />
+            <ContextMenu.Item variant="destructive" onSelect={() => setAction("Delete")}>
+              Delete
+            </ContextMenu.Item>
           </ContextMenu.Content>
         </ContextMenu.Portal>
       </ContextMenu>

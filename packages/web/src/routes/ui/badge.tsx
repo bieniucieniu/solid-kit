@@ -3,7 +3,9 @@ import { BadgeDemo } from "~/demos/ui/badge";
 
 const snippet = `import { Badge } from "@solid-kit/ui";
 
-<Badge>New</Badge>`;
+// variant: "default" | "secondary" | "destructive" | "outline" | "ghost" | "link"
+<Badge>New</Badge>
+<Badge variant="outline">Draft</Badge>`;
 
 export default function BadgePage() {
   return (

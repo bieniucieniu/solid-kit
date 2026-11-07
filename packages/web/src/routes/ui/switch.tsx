@@ -3,7 +3,8 @@ import { SwitchDemo } from "~/demos/ui/switch";
 
 const snippet = `import { Switch } from "@solid-kit/ui";
 
-<Switch checked={checked()} onChange={setChecked}>
+// size: "sm" | "default"
+<Switch size="sm" checked={checked()} onChange={setChecked}>
   <Switch.Input />
   <Switch.Control>
     <Switch.Thumb />

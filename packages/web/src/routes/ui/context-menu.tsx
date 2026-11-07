@@ -9,6 +9,8 @@ const snippet = `import { ContextMenu } from "@solid-kit/ui";
     <ContextMenu.Content>
       <ContextMenu.Item>Back</ContextMenu.Item>
       <ContextMenu.Item>Forward</ContextMenu.Item>
+      <ContextMenu.Separator />
+      <ContextMenu.Item variant="destructive">Delete</ContextMenu.Item>
     </ContextMenu.Content>
   </ContextMenu.Portal>
 </ContextMenu>`;

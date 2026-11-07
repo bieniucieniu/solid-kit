@@ -9,7 +9,7 @@ const snippet = `import { Button, DropdownMenu } from "@solid-kit/ui";
     <DropdownMenu.Content>
       <DropdownMenu.Item>Edit</DropdownMenu.Item>
       <DropdownMenu.Separator />
-      <DropdownMenu.Item>Delete</DropdownMenu.Item>
+      <DropdownMenu.Item variant="destructive">Delete</DropdownMenu.Item>
     </DropdownMenu.Content>
   </DropdownMenu.Portal>
 </DropdownMenu>`;

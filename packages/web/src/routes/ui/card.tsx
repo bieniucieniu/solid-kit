@@ -3,10 +3,14 @@ import { CardDemo } from "~/demos/ui/card";
 
 const snippet = `import { Button, Card } from "@solid-kit/ui";
 
-<Card>
+// size: "default" | "sm"
+<Card size="sm">
   <Card.Header>
     <Card.Title>Project</Card.Title>
     <Card.Description>A short summary of the work.</Card.Description>
+    <Card.Action>
+      <Button variant="ghost" size="sm">Edit</Button>
+    </Card.Action>
   </Card.Header>
   <Card.Content>Three open tasks.</Card.Content>
   <Card.Footer>

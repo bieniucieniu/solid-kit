@@ -3,9 +3,10 @@ import { AlertDemo } from "~/demos/ui/alert";
 
 const snippet = `import { Alert } from "@solid-kit/ui";
 
-<Alert>
-  <Alert.Title>Heads up</Alert.Title>
-  <Alert.Description>You can change this later.</Alert.Description>
+// variant: "default" | "destructive"
+<Alert variant="destructive">
+  <Alert.Title>Payment failed</Alert.Title>
+  <Alert.Description>Check your card details and try again.</Alert.Description>
 </Alert>`;
 
 export default function AlertPage() {

@@ -1,4 +1,5 @@
 import { createHandler, StartServer, type DocumentComponentProps } from "@solidjs/start/server";
+import { themeInitScript } from "~/components/theme-toggle";
 
 function Document(props: DocumentComponentProps) {
   return (
@@ -7,6 +8,7 @@ function Document(props: DocumentComponentProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>solid-kit</title>
+        <script innerHTML={themeInitScript} />
         {props.assets}
       </head>
       <body>

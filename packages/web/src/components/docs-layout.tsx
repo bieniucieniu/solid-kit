@@ -1,36 +1,19 @@
-import { useLocation, useNavigate } from "@solidjs/router";
-import { Button } from "@solid-kit/ui";
+import { ScrollArea } from "@solid-kit/ui";
 import type { JSX } from "solid-js";
-import { For } from "solid-js";
+import { SidebarNav } from "~/components/sidebar-nav";
 import { sidebars, type PackageId } from "~/nav";
 
 export function DocsLayout(props: { pkg: PackageId; children: JSX.Element }) {
-  const location = useLocation();
-  const navigate = useNavigate();
-
   return (
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-8 md:flex-row">
-      <aside class="w-full shrink-0 md:w-48">
-        <nav class="sticky top-20 flex flex-col gap-1">
-          <For each={sidebars[props.pkg]}>
-            {(item) => (
-              <Button
-                type="button"
-                aria-current={location.pathname === item.href ? "page" : undefined}
-                class={
-                  location.pathname === item.href
-                    ? "w-full justify-start bg-muted text-foreground"
-                    : "w-full justify-start bg-transparent text-muted-foreground hover:bg-muted"
-                }
-                onClick={() => navigate(item.href)}
-              >
-                {item.title}
-              </Button>
-            )}
-          </For>
-        </nav>
+    <>
+      <aside class="fixed top-(--header-height) bottom-0 left-0 z-30 hidden w-56 border-r border-border bg-background md:block">
+        <ScrollArea class="h-full">
+          <SidebarNav items={sidebars[props.pkg]} class="p-3" />
+        </ScrollArea>
       </aside>
-      <div class="min-w-0 flex-1">{props.children}</div>
-    </div>
+      <div class="md:pl-56">
+        <div class="mx-auto w-full max-w-4xl min-w-0 px-4 py-8 md:px-8">{props.children}</div>
+      </div>
+    </>
   );
 }

@@ -1,0 +1,29 @@
+import type { Meta, StoryObj } from "storybook-solidjs-vite";
+import { Switch } from "../../ui/src/components/switch";
+import { createSignal } from "solid-js";
+
+const meta = {
+  title: "UI/Switch",
+  component: Switch,
+} satisfies Meta<typeof Switch>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: () => <SwitchDemo />,
+};
+
+function SwitchDemo() {
+  const [checked, setChecked] = createSignal(false);
+
+  return (
+    <Switch checked={checked()} onChange={setChecked}>
+      <Switch.Input />
+      <Switch.Control>
+        <Switch.Thumb />
+      </Switch.Control>
+      <Switch.Label>Airplane mode</Switch.Label>
+    </Switch>
+  );
+}

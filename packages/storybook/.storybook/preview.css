@@ -4,3 +4,7 @@
 @source "../../tiptap/src";
 @source "../../xyflow/src";
 @source "../../web/src";
+@source "../ui";
+@source "../motion";
+@source "../tiptap";
+@source "../xyflow";

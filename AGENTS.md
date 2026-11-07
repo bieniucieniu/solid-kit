@@ -4,6 +4,47 @@
 - No arbitrary fix scripts; never downgrade package versions.
 - If in doubt, ask for clarification.
 
+# Git
+
+Every commit uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). A branch an agent creates uses [Conventional Branch](https://conventionalbranch.org/).
+
+## Commits
+
+`<type>[optional scope][!]: <description>`
+
+- Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
+- Scope is the package or area (`ui`, `web`, `tiptap`)
+- Description is imperative, lowercase, and has no trailing period
+- A breaking change adds `!` after the type or scope and a `BREAKING CHANGE:` footer
+- One subject line. Add a body only when the why is not obvious
+
+```
+feat(ui): add a shiki code block
+fix(toast): slide siblings when the stack reflows
+```
+
+## Branches
+
+`<type>/<description>`
+
+The agent that creates the branch is the type:
+
+| Agent | Type |
+| --- | --- |
+| Cursor | `cursor` |
+| Claude | `claude` |
+| Any other agent | `ai` |
+
+Description is lowercase `a-z`, digits, and hyphens. Dots are for versions. No underscores, spaces, doubled hyphens, or a hyphen at either end.
+
+```
+cursor/shiki-code-block
+claude/toast-reflow
+ai/drawer-bottom-sheet
+```
+
+`main`, `master`, and `develop` stay as they are. Create a branch only when the user asks. A commit on the current branch still uses Conventional Commits.
+
 # Repository layout
 
 pnpm workspace. Root `solid-kit` is private and exports nothing. Each library is `packages/<name>` with its own `package.json` and public exports. `@solid-kit/tiptap` is one package. Add the next library as another folder under `packages/`. Do not re-export a package from the root.

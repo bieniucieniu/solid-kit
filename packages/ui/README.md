@@ -61,7 +61,11 @@ Edit CSS variables only. Controls use `h-7`, `rounded-md`, and `text-xs/relaxed`
 }
 ```
 
-Put `.dark` on an ancestor. There are no `variant` or `size` props and no style presets.
+Put `.dark` on an ancestor. Components follow shadcn's Mira style. `button`, `badge`, `toggle`, `alert`, `item` and a few others take shadcn's `variant` / `size` props; `buttonVariants`, `badgeVariants` and `toggleVariants` return the same class strings for other elements.
+
+## Animations
+
+`theme` installs [`tw-animate-css`](https://github.com/Wombosvideo/tw-animate-css) and imports it next to `tailwindcss`. Overlays use Kobalte's (and corvu's) state attributes: `data-expanded:animate-in` on open and `data-closed:animate-out` on close (`data-open` for corvu). Kobalte keeps the element mounted until the exit animation ends. It only waits when the `animation-name` changes between open and closed, so keep separate enter and exit animations. Accordion and collapsible animate `height` through `--kb-accordion-content-height` / `--kb-collapsible-content-height`. Popper content scales from `--kb-*-content-transform-origin`.
 
 The same tokens live in [`src/theme.css`](src/theme.css).
 

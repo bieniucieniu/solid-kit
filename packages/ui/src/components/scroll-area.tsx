@@ -7,7 +7,11 @@ export function ScrollArea(props: JSX.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       ref={props.ref}
-      class={cn("overflow-auto", props.class)}
+      data-slot="scroll-area"
+      class={cn(
+        "relative overflow-auto rounded-[inherit] [scrollbar-color:var(--border)_transparent] [scrollbar-width:thin] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1",
+        props.class,
+      )}
       {...rest}
     />
   );

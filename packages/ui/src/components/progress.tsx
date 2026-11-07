@@ -46,7 +46,10 @@ export function ProgressTrack(props: ProgressTrackProps) {
   return (
     <ProgressPrimitive.Track
       ref={props.ref}
-      class={cn("h-1 w-full overflow-hidden rounded-md bg-muted", props.class)}
+      class={cn(
+        "relative flex h-1 w-full items-center overflow-x-hidden rounded-md bg-muted",
+        props.class,
+      )}
       {...rest}
     />
   );
@@ -58,7 +61,7 @@ export function ProgressFill(props: ProgressFillProps) {
     <ProgressPrimitive.Fill
       ref={props.ref}
       class={cn(
-        "h-full w-[var(--kb-progress-fill-width)] bg-primary data-indeterminate:w-full data-indeterminate:animate-pulse",
+        "h-full w-(--kb-progress-fill-width) bg-primary transition-all data-indeterminate:w-full data-indeterminate:animate-pulse",
         props.class,
       )}
       {...rest}

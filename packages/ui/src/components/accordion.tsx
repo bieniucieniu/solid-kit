@@ -13,7 +13,7 @@ function AccordionRoot(props: AccordionRootProps) {
   return (
     <AccordionPrimitive
       ref={props.ref}
-      class={cn("w-full overflow-hidden rounded-md border", props.class)}
+      class={cn("flex w-full flex-col overflow-hidden rounded-md border", props.class)}
       {...rest}
     />
   );
@@ -24,10 +24,7 @@ export function AccordionItem(props: AccordionItemProps) {
   return (
     <AccordionPrimitive.Item
       ref={props.ref}
-      class={cn(
-        "not-last:border-b data-expanded:bg-muted/50 data-disabled:opacity-50",
-        props.class,
-      )}
+      class={cn("not-last:border-b data-expanded:bg-muted/50", props.class)}
       {...rest}
     />
   );
@@ -44,7 +41,7 @@ export function AccordionTrigger(props: AccordionTriggerProps) {
     <AccordionPrimitive.Trigger
       ref={props.ref}
       class={cn(
-        "group flex w-full items-center justify-between gap-6 p-2 text-left text-xs/relaxed font-medium hover:underline focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
+        "group/accordion-trigger relative flex flex-1 items-start justify-between gap-6 border border-transparent p-2 text-left text-xs/relaxed font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -52,7 +49,8 @@ export function AccordionTrigger(props: AccordionTriggerProps) {
       {props.children}
       <svg
         viewBox="0 0 24 24"
-        class="size-4 shrink-0 group-data-expanded:rotate-180"
+        data-slot="accordion-trigger-icon"
+        class="pointer-events-none ml-auto size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-expanded/accordion-trigger:rotate-180"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -65,13 +63,23 @@ export function AccordionTrigger(props: AccordionTriggerProps) {
 }
 
 export function AccordionContent(props: AccordionContentProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
     <AccordionPrimitive.Content
       ref={props.ref}
-      class={cn("overflow-hidden px-2 pb-4 text-xs/relaxed", props.class)}
+      data-slot="accordion-content"
+      class="overflow-hidden px-2 text-xs/relaxed data-expanded:animate-accordion-down data-closed:animate-accordion-up"
       {...rest}
-    />
+    >
+      <div
+        class={cn(
+          "pt-0 pb-4 [&_a]:underline [&_a]:underline-offset-3 [&_a]:hover:text-foreground [&_p:not(:last-child)]:mb-4",
+          props.class,
+        )}
+      >
+        {props.children}
+      </div>
+    </AccordionPrimitive.Content>
   );
 }
 

@@ -17,7 +17,7 @@ function RadioGroupRoot(props: RadioGroupRootProps) {
   return (
     <RadioGroupPrimitive
       ref={props.ref}
-      class={cn("grid gap-3 text-xs text-foreground data-disabled:opacity-50", props.class)}
+      class={cn("grid w-full gap-3 text-xs text-foreground data-disabled:opacity-50", props.class)}
       {...rest}
     />
   );
@@ -62,7 +62,7 @@ export function RadioGroupItem(props: RadioGroupItemProps) {
     <RadioGroupPrimitive.Item
       ref={props.ref}
       class={cn(
-        "group inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:opacity-50",
+        "group/radio-group-item inline-flex items-center gap-2 text-xs/relaxed text-foreground data-disabled:cursor-not-allowed data-disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -76,7 +76,7 @@ export function RadioGroupItemControl(props: RadioGroupItemControlProps) {
     <RadioGroupPrimitive.ItemControl
       ref={props.ref}
       class={cn(
-        "flex size-4 shrink-0 items-center justify-center rounded-full border border-input group-focus-within:ring-3 group-focus-within:ring-ring/50 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground data-invalid:border-destructive dark:bg-input/30",
+        "relative flex aspect-square size-4 shrink-0 items-center justify-center rounded-full border border-input outline-none peer-focus-visible:border-ring peer-focus-visible:ring-3 peer-focus-visible:ring-ring/50 data-invalid:border-destructive data-invalid:ring-3 data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
         props.class,
       )}
       {...rest}
@@ -89,7 +89,10 @@ export function RadioGroupItemIndicator(props: RadioGroupItemIndicatorProps) {
   return (
     <RadioGroupPrimitive.ItemIndicator
       ref={props.ref}
-      class={cn("size-2 rounded-full bg-primary-foreground", props.class)}
+      class={cn(
+        "absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground",
+        props.class,
+      )}
       {...rest}
     />
   );
@@ -117,7 +120,12 @@ export function RadioGroupItemDescription(props: RadioGroupItemDescriptionProps)
   );
 }
 
-export const RadioGroupItemInput = RadioGroupPrimitive.ItemInput;
+export function RadioGroupItemInput(props: ComponentProps<typeof RadioGroupPrimitive.ItemInput>) {
+  const [, rest] = splitProps(props, ["class", "ref"]);
+  return (
+    <RadioGroupPrimitive.ItemInput ref={props.ref} class={cn("peer", props.class)} {...rest} />
+  );
+}
 
 export const RadioGroup = Object.assign(RadioGroupRoot, {
   Label: RadioGroupLabel,

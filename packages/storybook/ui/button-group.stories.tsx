@@ -17,9 +17,15 @@ export const Default: Story = {
 function ButtonGroupDemo() {
   return (
     <ButtonGroup>
-      <Button type="button">Cut</Button>
-      <Button type="button">Copy</Button>
-      <Button type="button">Paste</Button>
+      <Button type="button" variant="outline">
+        Cut
+      </Button>
+      <Button type="button" variant="outline">
+        Copy
+      </Button>
+      <Button type="button" variant="outline">
+        Paste
+      </Button>
     </ButtonGroup>
   );
 }

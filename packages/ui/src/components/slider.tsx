@@ -75,7 +75,7 @@ export function SliderTrack(props: SliderTrackProps) {
     <SliderPrimitive.Track
       ref={props.ref}
       class={cn(
-        "relative rounded-md bg-muted data-[orientation=horizontal]:h-1 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1",
+        "relative grow rounded-md bg-muted select-none data-[orientation=horizontal]:h-1 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1",
         props.class,
       )}
       {...rest}
@@ -89,7 +89,7 @@ export function SliderFill(props: SliderFillProps) {
     <SliderPrimitive.Fill
       ref={props.ref}
       class={cn(
-        "absolute bg-primary data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
+        "absolute rounded-md bg-primary select-none data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
         props.class,
       )}
       {...rest}
@@ -103,7 +103,7 @@ export function SliderThumb(props: SliderThumbProps) {
     <SliderPrimitive.Thumb
       ref={props.ref}
       class={cn(
-        "relative block size-3 rounded-md border border-ring bg-white ring-ring/30 hover:ring-2 focus-visible:ring-2 focus-visible:outline-none",
+        "relative top-1/2 block size-3 shrink-0 -translate-y-1/2 rounded-md border border-ring bg-white ring-ring/30 transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-2 focus-visible:ring-2 focus-visible:outline-hidden active:ring-2 data-disabled:pointer-events-none data-disabled:opacity-50 data-[orientation=vertical]:top-auto data-[orientation=vertical]:left-1/2 data-[orientation=vertical]:-translate-x-1/2 data-[orientation=vertical]:translate-y-0",
         props.class,
       )}
       {...rest}

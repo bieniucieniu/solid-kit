@@ -1,15 +1,21 @@
 import { DropdownMenu as DropdownMenuPrimitive } from "@kobalte/core/dropdown-menu";
-import { type ComponentProps, splitProps } from "solid-js";
+import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
 const surfaceClass =
-  "z-50 min-w-32 rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none";
+  "z-50 max-h-(--kb-popper-content-available-height) min-w-32 origin-(--kb-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-none data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95";
 const itemClass =
-  "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs/relaxed outline-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:opacity-50";
+  "group/menu-item relative flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs/relaxed outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:data-highlighted:bg-destructive/10 data-[variant=destructive]:data-highlighted:text-destructive dark:data-[variant=destructive]:data-highlighted:bg-destructive/20 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 data-[variant=destructive]:*:[svg]:text-destructive";
+const checkItemClass =
+  "relative flex min-h-7 cursor-default items-center gap-2 rounded-md py-1.5 pr-8 pl-2 text-xs outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5";
+const subTriggerClass =
+  "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:**:text-accent-foreground data-expanded:bg-accent data-expanded:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5";
 
 type DropdownMenuRootProps = ComponentProps<typeof DropdownMenuPrimitive>;
 type DropdownMenuContentProps = ComponentProps<typeof DropdownMenuPrimitive.Content>;
-type DropdownMenuItemProps = ComponentProps<typeof DropdownMenuPrimitive.Item>;
+type DropdownMenuItemProps = ComponentProps<typeof DropdownMenuPrimitive.Item> & {
+  variant?: "default" | "destructive";
+};
 type DropdownMenuItemLabelProps = ComponentProps<typeof DropdownMenuPrimitive.ItemLabel>;
 type DropdownMenuItemDescriptionProps = ComponentProps<
   typeof DropdownMenuPrimitive.ItemDescription
@@ -26,7 +32,7 @@ type DropdownMenuSubContentProps = ComponentProps<typeof DropdownMenuPrimitive.S
 type DropdownMenuSeparatorProps = ComponentProps<typeof DropdownMenuPrimitive.Separator>;
 
 function DropdownMenuRoot(props: DropdownMenuRootProps) {
-  return <DropdownMenuPrimitive {...props} />;
+  return <DropdownMenuPrimitive gutter={4} {...props} />;
 }
 
 function CheckIcon() {
@@ -56,9 +62,14 @@ export function DropdownMenuContent(props: DropdownMenuContentProps) {
 }
 
 export function DropdownMenuItem(props: DropdownMenuItemProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [, rest] = splitProps(props, ["class", "ref", "variant"]);
   return (
-    <DropdownMenuPrimitive.Item ref={props.ref} class={cn(itemClass, props.class)} {...rest} />
+    <DropdownMenuPrimitive.Item
+      ref={props.ref}
+      data-variant={props.variant ?? "default"}
+      class={cn(itemClass, props.class)}
+      {...rest}
+    />
   );
 }
 
@@ -90,7 +101,7 @@ export function DropdownMenuItemIndicator(props: DropdownMenuItemIndicatorProps)
     <DropdownMenuPrimitive.ItemIndicator
       ref={props.ref}
       class={cn(
-        "pointer-events-none flex size-3.5 shrink-0 items-center justify-center",
+        "pointer-events-none absolute right-2 flex items-center justify-center",
         props.class,
       )}
       {...rest}
@@ -105,7 +116,7 @@ export function DropdownMenuCheckboxItem(props: DropdownMenuCheckboxItemProps) {
   return (
     <DropdownMenuPrimitive.CheckboxItem
       ref={props.ref}
-      class={cn(itemClass, "data-checked:text-foreground", props.class)}
+      class={cn(checkItemClass, props.class)}
       {...rest}
     />
   );
@@ -127,7 +138,7 @@ export function DropdownMenuRadioItem(props: DropdownMenuRadioItemProps) {
   return (
     <DropdownMenuPrimitive.RadioItem
       ref={props.ref}
-      class={cn(itemClass, "data-checked:text-foreground", props.class)}
+      class={cn(checkItemClass, props.class)}
       {...rest}
     />
   );
@@ -171,17 +182,13 @@ export function DropdownMenuSubTrigger(props: DropdownMenuSubTriggerProps) {
   return (
     <DropdownMenuPrimitive.SubTrigger
       ref={props.ref}
-      class={cn(
-        itemClass,
-        "data-expanded:bg-accent data-expanded:text-accent-foreground",
-        props.class,
-      )}
+      class={cn(subTriggerClass, props.class)}
       {...rest}
     >
       {props.children}
       <svg
         viewBox="0 0 24 24"
-        class="ml-auto size-3.5 shrink-0"
+        class="ml-auto"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -218,6 +225,21 @@ export function DropdownMenuSeparator(props: DropdownMenuSeparatorProps) {
   );
 }
 
+export function DropdownMenuShortcut(props: JSX.HTMLAttributes<HTMLSpanElement>) {
+  const [, rest] = splitProps(props, ["class", "ref"]);
+  return (
+    <span
+      ref={props.ref}
+      data-slot="dropdown-menu-shortcut"
+      class={cn(
+        "ml-auto text-[0.625rem] tracking-widest text-muted-foreground group-data-highlighted/menu-item:text-accent-foreground",
+        props.class,
+      )}
+      {...rest}
+    />
+  );
+}
+
 export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 export const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 export const DropdownMenuArrow = DropdownMenuPrimitive.Arrow;
@@ -242,4 +264,5 @@ export const DropdownMenu = Object.assign(DropdownMenuRoot, {
   SubTrigger: DropdownMenuSubTrigger,
   SubContent: DropdownMenuSubContent,
   Separator: DropdownMenuSeparator,
+  Shortcut: DropdownMenuShortcut,
 });

@@ -341,6 +341,9 @@
       "name": "theme",
       "title": "Theme",
       "description": "Tailwind CSS 4 tokens. Light values go on :root, dark values on .dark, color and radius mappings on @theme inline.",
+      "devDependencies": [
+        "tw-animate-css"
+      ],
       "cssVars": {
         "theme": {
           "color-background": "var(--background)",
@@ -412,7 +415,16 @@
         }
       },
       "css": {
-        "@custom-variant dark (&:is(.dark *))": {}
+        "@import \"tw-animate-css\"": {},
+        "@custom-variant dark (&:is(.dark *))": {},
+        "@layer base": {
+          "*": {
+            "@apply border-border outline-ring/50": {}
+          },
+          "body": {
+            "@apply bg-background text-foreground": {}
+          }
+        }
       },
       "type": "registry:theme"
     },
@@ -436,7 +448,7 @@
     {
       "name": "button",
       "title": "Button",
-      "description": "Plain button. One style. No variant props.",
+      "description": "Button with shadcn variants (default, outline, secondary, ghost, destructive, link) and sizes.",
       "registryDependencies": [
         "bieniucieniu/solid-kit/utils"
       ],
@@ -457,7 +469,8 @@
         "@corvu/dialog"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -552,7 +565,8 @@
         "@kobalte/core"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -730,7 +744,8 @@
         "@kobalte/core"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -835,7 +850,8 @@
       "title": "Input Group",
       "description": "Input group. Styled HTML flex wrapper.",
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -956,7 +972,8 @@
         "@kobalte/core"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -975,7 +992,8 @@
         "@kobalte/core"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -1086,7 +1104,8 @@
         "@kobalte/core"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -1232,7 +1251,8 @@
         "@kobalte/core"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/button"
       ],
       "files": [
         {
@@ -1270,7 +1290,8 @@
         "@kobalte/core"
       ],
       "registryDependencies": [
-        "bieniucieniu/solid-kit/utils"
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/toggle"
       ],
       "files": [
         {

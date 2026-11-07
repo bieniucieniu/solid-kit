@@ -10,7 +10,7 @@ export function Separator(props: SeparatorProps) {
     <SeparatorPrimitive
       ref={props.ref}
       class={cn(
-        "shrink-0 border-0 bg-border data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
+        "shrink-0 border-0 bg-border data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch",
         props.class,
       )}
       {...rest}

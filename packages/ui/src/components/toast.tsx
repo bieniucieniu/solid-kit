@@ -1,5 +1,6 @@
 import { Toast as ToastPrimitive, toaster, useToastContext } from "@kobalte/core/toast";
 import { type ComponentProps, splitProps } from "solid-js";
+import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
 type ToastRootProps = ComponentProps<typeof ToastPrimitive>;
@@ -7,7 +8,10 @@ type ToastRegionProps = ComponentProps<typeof ToastPrimitive.Region>;
 type ToastListProps = ComponentProps<typeof ToastPrimitive.List>;
 type ToastTitleProps = ComponentProps<typeof ToastPrimitive.Title>;
 type ToastDescriptionProps = ComponentProps<typeof ToastPrimitive.Description>;
-type ToastCloseButtonProps = ComponentProps<typeof ToastPrimitive.CloseButton>;
+type ToastCloseButtonProps = ComponentProps<typeof ToastPrimitive.CloseButton> & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+};
 type ToastProgressTrackProps = ComponentProps<typeof ToastPrimitive.ProgressTrack>;
 type ToastProgressFillProps = ComponentProps<typeof ToastPrimitive.ProgressFill>;
 
@@ -17,7 +21,7 @@ function ToastRoot(props: ToastRootProps) {
     <ToastPrimitive
       ref={props.ref}
       class={cn(
-        "z-50 flex w-full flex-col gap-1 rounded-md bg-popover p-4 text-xs/relaxed text-popover-foreground shadow-md ring-1 ring-foreground/10",
+        "group/toast pointer-events-auto relative z-50 flex w-full flex-col gap-1.5 rounded-lg border border-border bg-popover p-4 text-xs/relaxed text-popover-foreground shadow-lg duration-200 data-opened:animate-in data-opened:fade-in-0 data-opened:slide-in-from-bottom-full data-closed:animate-out data-closed:fade-out-80 data-closed:slide-out-to-right-full data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-transform data-[swipe=end]:animate-out data-[swipe=end]:slide-out-to-right-full data-[swipe=move]:translate-x-(--kb-toast-swipe-move-x) data-[swipe=move]:transition-none",
         props.class,
       )}
       {...rest}
@@ -31,7 +35,7 @@ export function ToastRegion(props: ToastRegionProps) {
     <ToastPrimitive.Region
       ref={props.ref}
       class={cn(
-        "fixed right-0 bottom-0 z-50 flex max-h-screen w-full max-w-sm flex-col gap-2 p-4 outline-none",
+        "fixed right-0 bottom-0 z-50 flex max-h-screen w-full flex-col gap-2 p-4 outline-none sm:max-w-[356px]",
         props.class,
       )}
       {...rest}
@@ -55,7 +59,7 @@ export function ToastTitle(props: ToastTitleProps) {
   return (
     <ToastPrimitive.Title
       ref={props.ref}
-      class={cn("text-sm font-medium", props.class)}
+      class={cn("text-xs font-medium", props.class)}
       {...rest}
     />
   );
@@ -73,14 +77,15 @@ export function ToastDescription(props: ToastDescriptionProps) {
 }
 
 export function ToastCloseButton(props: ToastCloseButtonProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [, rest] = splitProps(props, ["class", "ref", "variant", "size"]);
   return (
     <ToastPrimitive.CloseButton
       ref={props.ref}
-      class={cn(
-        "inline-flex h-7 items-center justify-center rounded-md px-2 text-xs/relaxed text-foreground hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-none data-disabled:opacity-50",
-        props.class,
-      )}
+      class={buttonVariants({
+        variant: props.variant ?? "outline",
+        size: props.size ?? "sm",
+        class: props.class,
+      })}
       {...rest}
     />
   );
@@ -91,7 +96,7 @@ export function ToastProgressTrack(props: ToastProgressTrackProps) {
   return (
     <ToastPrimitive.ProgressTrack
       ref={props.ref}
-      class={cn("mt-2 h-1 w-full overflow-hidden rounded-md bg-muted", props.class)}
+      class={cn("mt-2 h-1 w-full overflow-hidden rounded-full bg-muted", props.class)}
       {...rest}
     />
   );

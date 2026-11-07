@@ -2,17 +2,23 @@ import {
   ContextMenu as ContextMenuPrimitive,
   useContextMenuContext,
 } from "@kobalte/core/context-menu";
-import { type ComponentProps, splitProps } from "solid-js";
+import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
 const surfaceClass =
-  "z-50 min-w-32 rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 outline-none";
+  "z-50 max-h-(--kb-popper-content-available-height) min-w-32 origin-(--kb-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-none data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95";
 const itemClass =
-  "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs/relaxed outline-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:opacity-50";
+  "group/menu-item relative flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs/relaxed outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground not-data-[variant=destructive]:data-highlighted:**:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:data-highlighted:bg-destructive/10 data-[variant=destructive]:data-highlighted:text-destructive dark:data-[variant=destructive]:data-highlighted:bg-destructive/20 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5 data-[variant=destructive]:*:[svg]:text-destructive";
+const checkItemClass =
+  "relative flex min-h-7 cursor-default items-center gap-2 rounded-md py-1.5 pr-8 pl-2 text-xs outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5";
+const subTriggerClass =
+  "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:**:text-accent-foreground data-expanded:bg-accent data-expanded:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5";
 
 type ContextMenuRootProps = ComponentProps<typeof ContextMenuPrimitive>;
 type ContextMenuContentProps = ComponentProps<typeof ContextMenuPrimitive.Content>;
-type ContextMenuItemProps = ComponentProps<typeof ContextMenuPrimitive.Item>;
+type ContextMenuItemProps = ComponentProps<typeof ContextMenuPrimitive.Item> & {
+  variant?: "default" | "destructive";
+};
 type ContextMenuItemLabelProps = ComponentProps<typeof ContextMenuPrimitive.ItemLabel>;
 type ContextMenuItemDescriptionProps = ComponentProps<typeof ContextMenuPrimitive.ItemDescription>;
 type ContextMenuItemIndicatorProps = ComponentProps<typeof ContextMenuPrimitive.ItemIndicator>;
@@ -53,8 +59,15 @@ export function ContextMenuContent(props: ContextMenuContentProps) {
 }
 
 export function ContextMenuItem(props: ContextMenuItemProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
-  return <ContextMenuPrimitive.Item ref={props.ref} class={cn(itemClass, props.class)} {...rest} />;
+  const [, rest] = splitProps(props, ["class", "ref", "variant"]);
+  return (
+    <ContextMenuPrimitive.Item
+      ref={props.ref}
+      data-variant={props.variant ?? "default"}
+      class={cn(itemClass, props.class)}
+      {...rest}
+    />
+  );
 }
 
 export function ContextMenuItemLabel(props: ContextMenuItemLabelProps) {
@@ -85,7 +98,7 @@ export function ContextMenuItemIndicator(props: ContextMenuItemIndicatorProps) {
     <ContextMenuPrimitive.ItemIndicator
       ref={props.ref}
       class={cn(
-        "pointer-events-none flex size-3.5 shrink-0 items-center justify-center",
+        "pointer-events-none absolute right-2 flex items-center justify-center",
         props.class,
       )}
       {...rest}
@@ -100,7 +113,7 @@ export function ContextMenuCheckboxItem(props: ContextMenuCheckboxItemProps) {
   return (
     <ContextMenuPrimitive.CheckboxItem
       ref={props.ref}
-      class={cn(itemClass, "data-checked:text-foreground", props.class)}
+      class={cn(checkItemClass, props.class)}
       {...rest}
     />
   );
@@ -122,7 +135,7 @@ export function ContextMenuRadioItem(props: ContextMenuRadioItemProps) {
   return (
     <ContextMenuPrimitive.RadioItem
       ref={props.ref}
-      class={cn(itemClass, "data-checked:text-foreground", props.class)}
+      class={cn(checkItemClass, props.class)}
       {...rest}
     />
   );
@@ -166,17 +179,13 @@ export function ContextMenuSubTrigger(props: ContextMenuSubTriggerProps) {
   return (
     <ContextMenuPrimitive.SubTrigger
       ref={props.ref}
-      class={cn(
-        itemClass,
-        "data-expanded:bg-accent data-expanded:text-accent-foreground",
-        props.class,
-      )}
+      class={cn(subTriggerClass, props.class)}
       {...rest}
     >
       {props.children}
       <svg
         viewBox="0 0 24 24"
-        class="ml-auto size-3.5 shrink-0"
+        class="ml-auto"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -213,6 +222,21 @@ export function ContextMenuSeparator(props: ContextMenuSeparatorProps) {
   );
 }
 
+export function ContextMenuShortcut(props: JSX.HTMLAttributes<HTMLSpanElement>) {
+  const [, rest] = splitProps(props, ["class", "ref"]);
+  return (
+    <span
+      ref={props.ref}
+      data-slot="context-menu-shortcut"
+      class={cn(
+        "ml-auto text-[0.625rem] tracking-widest text-muted-foreground group-data-highlighted/menu-item:text-accent-foreground",
+        props.class,
+      )}
+      {...rest}
+    />
+  );
+}
+
 export const ContextMenuTrigger = ContextMenuPrimitive.Trigger;
 export const ContextMenuPortal = ContextMenuPrimitive.Portal;
 export const ContextMenuArrow = ContextMenuPrimitive.Arrow;
@@ -237,5 +261,6 @@ export const ContextMenu = Object.assign(ContextMenuRoot, {
   SubTrigger: ContextMenuSubTrigger,
   SubContent: ContextMenuSubContent,
   Separator: ContextMenuSeparator,
+  Shortcut: ContextMenuShortcut,
   useContext: useContextMenuContext,
 });

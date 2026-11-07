@@ -35,6 +35,7 @@ function ComboboxDemo() {
       <Combobox.Label>Fruit</Combobox.Label>
       <Combobox.Control>
         <Combobox.Input />
+        <Combobox.Trigger />
       </Combobox.Control>
       <Combobox.Portal>
         <Combobox.Content>

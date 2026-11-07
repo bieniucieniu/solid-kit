@@ -11,6 +11,7 @@ function CollapsibleRoot(props: CollapsibleRootProps) {
   return (
     <CollapsiblePrimitive
       ref={props.ref}
+      data-slot="collapsible"
       class={cn("data-disabled:opacity-50", props.class)}
       {...rest}
     />
@@ -23,7 +24,7 @@ export function CollapsibleTrigger(props: CollapsibleTriggerProps) {
     <CollapsiblePrimitive.Trigger
       ref={props.ref}
       class={cn(
-        "group inline-flex items-center gap-2 text-xs/relaxed font-medium focus-visible:ring-2 focus-visible:outline-none data-disabled:opacity-50",
+        "group/collapsible-trigger inline-flex items-center gap-2 rounded-md text-xs/relaxed font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:opacity-50",
         props.class,
       )}
       {...rest}
@@ -31,7 +32,7 @@ export function CollapsibleTrigger(props: CollapsibleTriggerProps) {
       {props.children}
       <svg
         viewBox="0 0 24 24"
-        class="size-4 shrink-0 group-data-expanded:rotate-180"
+        class="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-expanded/collapsible-trigger:rotate-180"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
@@ -44,13 +45,16 @@ export function CollapsibleTrigger(props: CollapsibleTriggerProps) {
 }
 
 export function CollapsibleContent(props: CollapsibleContentProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
     <CollapsiblePrimitive.Content
       ref={props.ref}
-      class={cn("overflow-hidden pt-2 text-xs/relaxed", props.class)}
+      data-slot="collapsible-content"
+      class="overflow-hidden text-xs/relaxed data-expanded:animate-collapsible-down data-closed:animate-collapsible-up"
       {...rest}
-    />
+    >
+      <div class={cn("pt-2", props.class)}>{props.children}</div>
+    </CollapsiblePrimitive.Content>
   );
 }
 

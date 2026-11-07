@@ -1,0 +1,6 @@
+@import "@solid-kit/ui/theme.css";
+@source "../../ui/src";
+@source "../../motion/src";
+@source "../../tiptap/src";
+@source "../../xyflow/src";
+@source "../../web/src";

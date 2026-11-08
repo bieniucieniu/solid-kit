@@ -1,4 +1,4 @@
-import type { HighlighterCore, LanguageInput, ThemedToken } from "shiki/core";
+import type { HighlighterCore, LanguageInput, ThemedToken } from "@shikijs/core";
 
 export type HighlightedToken = Pick<ThemedToken, "content" | "htmlStyle">;
 export type HighlightedLine = HighlightedToken[];
@@ -8,19 +8,19 @@ export type HighlightedLine = HighlightedToken[];
  * Anything else renders as plain text.
  */
 const languages: Record<string, LanguageInput> = {
-  bash: () => import("shiki/langs/bash.mjs"),
-  css: () => import("shiki/langs/css.mjs"),
-  diff: () => import("shiki/langs/diff.mjs"),
-  html: () => import("shiki/langs/html.mjs"),
-  javascript: () => import("shiki/langs/javascript.mjs"),
-  json: () => import("shiki/langs/json.mjs"),
-  jsx: () => import("shiki/langs/jsx.mjs"),
-  markdown: () => import("shiki/langs/markdown.mjs"),
-  python: () => import("shiki/langs/python.mjs"),
-  sql: () => import("shiki/langs/sql.mjs"),
-  tsx: () => import("shiki/langs/tsx.mjs"),
-  typescript: () => import("shiki/langs/typescript.mjs"),
-  yaml: () => import("shiki/langs/yaml.mjs"),
+  bash: () => import("@shikijs/langs/bash"),
+  css: () => import("@shikijs/langs/css"),
+  diff: () => import("@shikijs/langs/diff"),
+  html: () => import("@shikijs/langs/html"),
+  javascript: () => import("@shikijs/langs/javascript"),
+  json: () => import("@shikijs/langs/json"),
+  jsx: () => import("@shikijs/langs/jsx"),
+  markdown: () => import("@shikijs/langs/markdown"),
+  python: () => import("@shikijs/langs/python"),
+  sql: () => import("@shikijs/langs/sql"),
+  tsx: () => import("@shikijs/langs/tsx"),
+  typescript: () => import("@shikijs/langs/typescript"),
+  yaml: () => import("@shikijs/langs/yaml"),
 };
 
 const aliases: Record<string, string> = {
@@ -44,10 +44,10 @@ let highlighter: Promise<HighlighterCore> | undefined;
 const loaded = new Map<string, Promise<void>>();
 
 function getHighlighter() {
-  highlighter ??= Promise.all([import("shiki/core"), import("shiki/engine/javascript")])
+  highlighter ??= Promise.all([import("@shikijs/core"), import("@shikijs/engine-javascript")])
     .then(([{ createHighlighterCore }, { createJavaScriptRegexEngine }]) =>
       createHighlighterCore({
-        themes: [import("shiki/themes/github-light.mjs"), import("shiki/themes/github-dark.mjs")],
+        themes: [import("@shikijs/themes/github-light"), import("@shikijs/themes/github-dark")],
         langs: [],
         engine: createJavaScriptRegexEngine(),
       }),

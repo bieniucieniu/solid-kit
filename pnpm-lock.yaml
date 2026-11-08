@@ -326,12 +326,21 @@ importers:
       '@kobalte/core':
         specifier: ^0.13.14
         version: 0.13.14(solid-js@1.9.17)
+      '@shikijs/core':
+        specifier: ^4.5.0
+        version: 4.5.0
+      '@shikijs/engine-javascript':
+        specifier: ^4.5.0
+        version: 4.5.0
+      '@shikijs/langs':
+        specifier: ^4.5.0
+        version: 4.5.0
+      '@shikijs/themes':
+        specifier: ^4.5.0
+        version: 4.5.0
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      shiki:
-        specifier: ^4.5.0
-        version: 4.5.0
       tailwind-merge:
         specifier: ^3.7.0
         version: 3.7.0

@@ -470,7 +470,12 @@
       "name": "highlighter",
       "title": "Highlighter",
       "description": "Shiki syntax highlighting with the JavaScript regex engine. Languages load on first use.",
-      "dependencies": ["shiki"],
+      "dependencies": [
+        "@shikijs/core",
+        "@shikijs/engine-javascript",
+        "@shikijs/langs",
+        "@shikijs/themes"
+      ],
       "files": [
         {
           "path": "packages/ui/src/lib/highlighter.ts",

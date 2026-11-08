@@ -8,11 +8,6 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-  build: {
-    rolldownOptions: {
-      external: ["env", "wasi_snapshot_preview1"],
-    },
-  },
   ssr: {
     noExternal: [/^@solid-kit\//],
   },

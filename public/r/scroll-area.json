@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "packages/ui/src/components/scroll-area.tsx",
-      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function ScrollArea(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      data-slot=\"scroll-area\"\n      class={cn(\n        \"relative overflow-auto rounded-[inherit] [scrollbar-color:var(--border)_transparent] [scrollbar-width:thin] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function ScrollArea(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\"]);\n  return (\n    <div\n      data-slot=\"scroll-area\"\n      class={cn(\n        \"relative overflow-auto rounded-[inherit] [scrollbar-color:var(--border)_transparent] scrollbar-thin transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/scroll-area.tsx"
     }

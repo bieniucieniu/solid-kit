@@ -5,10 +5,12 @@ import {
   createMemo,
   createSignal,
   For,
+  getOwner,
   Index,
   indexArray,
   type JSX,
   onCleanup,
+  runWithOwner,
   Show,
   splitProps,
 } from "solid-js";
@@ -346,5 +348,15 @@ export function createHighlightedCode(
   });
 
   // One element per line index, updated in place, so unchanged lines keep their DOM nodes.
-  return indexArray(lines, (line) => <HighlightedTokens line={line()} />);
+  // Built on first read, not here: the server maps arrays as soon as `indexArray` is called,
+  // which would render the tokens before the surrounding markup and shift every hydration
+  // key after them. The owner is captured now so the lines are disposed with the caller.
+  const owner = getOwner();
+  let mapped: Accessor<JSX.Element[]> | undefined;
+  return () => {
+    mapped ??= runWithOwner(owner, () =>
+      indexArray(lines, (line) => <HighlightedTokens line={line()} />),
+    );
+    return mapped?.() ?? [];
+  };
 }

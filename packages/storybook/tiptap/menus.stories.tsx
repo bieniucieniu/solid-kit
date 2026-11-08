@@ -4,7 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 import { Show } from "solid-js";
 import { Tiptap, TiptapContent, useEditor } from "../../tiptap/src";
 import { BubbleMenu, FloatingMenu } from "../../tiptap/src/menus";
-import { MenuButton } from "./menu-bar";
+import { BlockButtons, HeadingButtons, MarkButtons, useMenuState } from "./menu-bar";
 
 const meta = {
   title: "Tiptap/Menus",
@@ -17,6 +17,24 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => <MenusEditor />,
 };
+
+const menuClass =
+  "flex items-center gap-1 rounded-lg border border-border bg-popover p-1 shadow-md";
+
+function SelectionTools() {
+  const state = useMenuState();
+  return <MarkButtons state={state} />;
+}
+
+function NewLineTools() {
+  const state = useMenuState();
+  return (
+    <>
+      <HeadingButtons state={state} levels={[1, 2]} />
+      <BlockButtons state={state} compact />
+    </>
+  );
+}
 
 function MenusEditor() {
   const editor = useEditor(() => ({
@@ -39,42 +57,16 @@ function MenusEditor() {
         <Show when={editor()}>
           {(current) => (
             <>
-              <BubbleMenu
-                editor={current()}
-                class="flex gap-1 rounded-lg border border-border bg-background p-1.5 shadow-lg"
-              >
-                <MenuButton onClick={() => current().chain().focus().toggleBold().run()}>
-                  B
-                </MenuButton>
-                <MenuButton onClick={() => current().chain().focus().toggleItalic().run()}>
-                  I
-                </MenuButton>
-                <MenuButton onClick={() => current().chain().focus().toggleStrike().run()}>
-                  S
-                </MenuButton>
+              <BubbleMenu editor={current()} class={menuClass}>
+                <SelectionTools />
               </BubbleMenu>
-              <FloatingMenu
-                editor={current()}
-                class="flex gap-1 rounded-lg border border-border bg-background p-1.5 shadow-lg"
-              >
-                <MenuButton
-                  onClick={() => current().chain().focus().toggleHeading({ level: 1 }).run()}
-                >
-                  H1
-                </MenuButton>
-                <MenuButton
-                  onClick={() => current().chain().focus().toggleHeading({ level: 2 }).run()}
-                >
-                  H2
-                </MenuButton>
-                <MenuButton onClick={() => current().chain().focus().toggleBulletList().run()}>
-                  UL
-                </MenuButton>
+              <FloatingMenu editor={current()} class={menuClass}>
+                <NewLineTools />
               </FloatingMenu>
             </>
           )}
         </Show>
-        <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+        <TiptapContent />
       </Tiptap>
     </div>
   );

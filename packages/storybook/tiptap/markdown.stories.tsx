@@ -44,7 +44,7 @@ You can **copy/paste** markdown here, or export the content as markdown!
       <div class="tiptap-editor">
         <Tiptap editor={editor}>
           <MenuBar />
-          <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+          <TiptapContent />
         </Tiptap>
       </div>
       <div class="rounded-lg border border-dashed border-border bg-muted p-6">

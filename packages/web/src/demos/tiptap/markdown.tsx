@@ -32,7 +32,7 @@ You can **copy/paste** markdown here, or export the content as markdown!
       <div class="tiptap-editor">
         <Tiptap editor={editor}>
           <MenuBar />
-          <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+          <TiptapContent />
         </Tiptap>
       </div>
       <CodeExample code={markdown()} language="markdown" title="Markdown output" wrap />

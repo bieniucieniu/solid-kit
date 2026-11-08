@@ -11,7 +11,7 @@ const checkItemClass =
 const subTriggerClass =
   "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:**:text-accent-foreground data-expanded:bg-accent data-expanded:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5";
 
-type MenubarRootProps = ComponentProps<typeof MenubarPrimitive>;
+type MenubarProps = ComponentProps<typeof MenubarPrimitive>;
 type MenubarTriggerProps = ComponentProps<typeof MenubarPrimitive.Trigger>;
 type MenubarContentProps = ComponentProps<typeof MenubarPrimitive.Content>;
 type MenubarItemProps = ComponentProps<typeof MenubarPrimitive.Item> & {
@@ -30,7 +30,7 @@ type MenubarSubTriggerProps = ComponentProps<typeof MenubarPrimitive.SubTrigger>
 type MenubarSubContentProps = ComponentProps<typeof MenubarPrimitive.SubContent>;
 type MenubarSeparatorProps = ComponentProps<typeof MenubarPrimitive.Separator>;
 
-function MenubarRoot(props: MenubarRootProps) {
+export function Menubar(props: MenubarProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <MenubarPrimitive
@@ -247,26 +247,4 @@ export const MenubarPortal = MenubarPrimitive.Portal;
 export const MenubarArrow = MenubarPrimitive.Arrow;
 export const MenubarSub = MenubarPrimitive.Sub;
 
-export const Menubar = Object.assign(MenubarRoot, {
-  Menu: MenubarMenu,
-  Trigger: MenubarTrigger,
-  Portal: MenubarPortal,
-  Content: MenubarContent,
-  Arrow: MenubarArrow,
-  Item: MenubarItem,
-  ItemLabel: MenubarItemLabel,
-  ItemDescription: MenubarItemDescription,
-  ItemIndicator: MenubarItemIndicator,
-  CheckboxItem: MenubarCheckboxItem,
-  RadioGroup: MenubarRadioGroup,
-  RadioItem: MenubarRadioItem,
-  Group: MenubarGroup,
-  GroupLabel: MenubarGroupLabel,
-  Icon: MenubarIcon,
-  Sub: MenubarSub,
-  SubTrigger: MenubarSubTrigger,
-  SubContent: MenubarSubContent,
-  Separator: MenubarSeparator,
-  Shortcut: MenubarShortcut,
-  useContext: useMenubarContext,
-});
+export { useMenubarContext };

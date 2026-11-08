@@ -14,7 +14,7 @@ const checkItemClass =
 const subTriggerClass =
   "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:**:text-accent-foreground data-expanded:bg-accent data-expanded:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5";
 
-type ContextMenuRootProps = ComponentProps<typeof ContextMenuPrimitive>;
+type ContextMenuProps = ComponentProps<typeof ContextMenuPrimitive>;
 type ContextMenuContentProps = ComponentProps<typeof ContextMenuPrimitive.Content>;
 type ContextMenuItemProps = ComponentProps<typeof ContextMenuPrimitive.Item> & {
   variant?: "default" | "destructive";
@@ -32,7 +32,7 @@ type ContextMenuSubTriggerProps = ComponentProps<typeof ContextMenuPrimitive.Sub
 type ContextMenuSubContentProps = ComponentProps<typeof ContextMenuPrimitive.SubContent>;
 type ContextMenuSeparatorProps = ComponentProps<typeof ContextMenuPrimitive.Separator>;
 
-function ContextMenuRoot(props: ContextMenuRootProps) {
+export function ContextMenu(props: ContextMenuProps) {
   return <ContextMenuPrimitive {...props} />;
 }
 
@@ -242,25 +242,4 @@ export const ContextMenuPortal = ContextMenuPrimitive.Portal;
 export const ContextMenuArrow = ContextMenuPrimitive.Arrow;
 export const ContextMenuSub = ContextMenuPrimitive.Sub;
 
-export const ContextMenu = Object.assign(ContextMenuRoot, {
-  Trigger: ContextMenuTrigger,
-  Portal: ContextMenuPortal,
-  Content: ContextMenuContent,
-  Arrow: ContextMenuArrow,
-  Item: ContextMenuItem,
-  ItemLabel: ContextMenuItemLabel,
-  ItemDescription: ContextMenuItemDescription,
-  ItemIndicator: ContextMenuItemIndicator,
-  CheckboxItem: ContextMenuCheckboxItem,
-  RadioGroup: ContextMenuRadioGroup,
-  RadioItem: ContextMenuRadioItem,
-  Group: ContextMenuGroup,
-  GroupLabel: ContextMenuGroupLabel,
-  Icon: ContextMenuIcon,
-  Sub: ContextMenuSub,
-  SubTrigger: ContextMenuSubTrigger,
-  SubContent: ContextMenuSubContent,
-  Separator: ContextMenuSeparator,
-  Shortcut: ContextMenuShortcut,
-  useContext: useContextMenuContext,
-});
+export { useContextMenuContext };

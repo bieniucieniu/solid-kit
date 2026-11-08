@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { InputGroup } from "../../ui/src/components/input-group";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "../../ui/src/components/input-group";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -20,31 +27,31 @@ function InputGroupDemo() {
   return (
     <div class="grid w-full max-w-sm gap-4">
       <InputGroup>
-        <InputGroup.Addon>
-          <InputGroup.Text>https://</InputGroup.Text>
-        </InputGroup.Addon>
-        <InputGroup.Input
+        <InputGroupAddon>
+          <InputGroupText>https://</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput
           placeholder="example.com"
           value={value()}
           onInput={(event) => setValue(event.currentTarget.value)}
         />
-        <InputGroup.Addon align="inline-end">
-          <InputGroup.Button size="sm">Go</InputGroup.Button>
-        </InputGroup.Addon>
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton size="sm">Go</InputGroupButton>
+        </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroup.Addon align="block-start" class="border-b">
-          <InputGroup.Text>script.ts</InputGroup.Text>
-        </InputGroup.Addon>
-        <InputGroup.Input placeholder="console.log('hi')" />
+        <InputGroupAddon align="block-start" class="border-b">
+          <InputGroupText>script.ts</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput placeholder="console.log('hi')" />
       </InputGroup>
       <InputGroup>
-        <InputGroup.Textarea placeholder="Message" />
-        <InputGroup.Addon align="block-end" class="border-t">
-          <InputGroup.Button variant="default" class="ml-auto">
+        <InputGroupTextarea placeholder="Message" />
+        <InputGroupAddon align="block-end" class="border-t">
+          <InputGroupButton variant="default" class="ml-auto">
             Send
-          </InputGroup.Button>
-        </InputGroup.Addon>
+          </InputGroupButton>
+        </InputGroupAddon>
       </InputGroup>
     </div>
   );

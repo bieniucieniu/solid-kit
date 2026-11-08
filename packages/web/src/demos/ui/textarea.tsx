@@ -1,4 +1,4 @@
-import { Textarea } from "@solid-kit/ui";
+import { Textarea, TextareaControl, TextareaDescription, TextareaLabel } from "@solid-kit/ui";
 import { createSignal } from "solid-js";
 
 export function TextareaDemo() {
@@ -6,9 +6,9 @@ export function TextareaDemo() {
 
   return (
     <Textarea class="max-w-xs" value={value()} onChange={setValue}>
-      <Textarea.Label>Bio</Textarea.Label>
-      <Textarea.TextArea placeholder="A short note" />
-      <Textarea.Description>Shown on your profile.</Textarea.Description>
+      <TextareaLabel>Bio</TextareaLabel>
+      <TextareaControl placeholder="A short note" />
+      <TextareaDescription>Shown on your profile.</TextareaDescription>
     </Textarea>
   );
 }

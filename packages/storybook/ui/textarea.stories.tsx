@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Textarea } from "../../ui/src/components/textarea";
+import {
+  Textarea,
+  TextareaControl,
+  TextareaDescription,
+  TextareaLabel,
+} from "../../ui/src/components/textarea";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -19,9 +24,9 @@ function TextareaDemo() {
 
   return (
     <Textarea class="max-w-xs" value={value()} onChange={setValue}>
-      <Textarea.Label>Bio</Textarea.Label>
-      <Textarea.TextArea placeholder="A short note" />
-      <Textarea.Description>Shown on your profile.</Textarea.Description>
+      <TextareaLabel>Bio</TextareaLabel>
+      <TextareaControl placeholder="A short note" />
+      <TextareaDescription>Shown on your profile.</TextareaDescription>
     </Textarea>
   );
 }

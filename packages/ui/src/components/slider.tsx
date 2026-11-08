@@ -2,7 +2,7 @@ import { Slider as SliderPrimitive } from "@kobalte/core/slider";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type SliderRootProps = ComponentProps<typeof SliderPrimitive>;
+type SliderProps = ComponentProps<typeof SliderPrimitive>;
 type SliderLabelProps = ComponentProps<typeof SliderPrimitive.Label>;
 type SliderValueLabelProps = ComponentProps<typeof SliderPrimitive.ValueLabel>;
 type SliderDescriptionProps = ComponentProps<typeof SliderPrimitive.Description>;
@@ -11,7 +11,7 @@ type SliderTrackProps = ComponentProps<typeof SliderPrimitive.Track>;
 type SliderFillProps = ComponentProps<typeof SliderPrimitive.Fill>;
 type SliderThumbProps = ComponentProps<typeof SliderPrimitive.Thumb>;
 
-function SliderRoot(props: SliderRootProps) {
+export function Slider(props: SliderProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <SliderPrimitive
@@ -112,14 +112,3 @@ export function SliderThumb(props: SliderThumbProps) {
 }
 
 export const SliderInput = SliderPrimitive.Input;
-
-export const Slider = Object.assign(SliderRoot, {
-  Label: SliderLabel,
-  ValueLabel: SliderValueLabel,
-  Description: SliderDescription,
-  ErrorMessage: SliderErrorMessage,
-  Track: SliderTrack,
-  Fill: SliderFill,
-  Thumb: SliderThumb,
-  Input: SliderInput,
-});

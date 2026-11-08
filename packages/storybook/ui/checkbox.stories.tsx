@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Checkbox } from "../../ui/src/components/checkbox";
+import {
+  Checkbox,
+  CheckboxControl,
+  CheckboxIndicator,
+  CheckboxInput,
+  CheckboxLabel,
+} from "../../ui/src/components/checkbox";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -19,11 +25,11 @@ function CheckboxDemo() {
 
   return (
     <Checkbox checked={checked()} onChange={setChecked}>
-      <Checkbox.Input />
-      <Checkbox.Control>
-        <Checkbox.Indicator />
-      </Checkbox.Control>
-      <Checkbox.Label>Accept terms</Checkbox.Label>
+      <CheckboxInput />
+      <CheckboxControl>
+        <CheckboxIndicator />
+      </CheckboxControl>
+      <CheckboxLabel>Accept terms</CheckboxLabel>
     </Checkbox>
   );
 }

@@ -1,4 +1,11 @@
-import { Slider } from "@solid-kit/ui";
+import {
+  Slider,
+  SliderFill,
+  SliderLabel,
+  SliderThumb,
+  SliderTrack,
+  SliderValueLabel,
+} from "@solid-kit/ui";
 import { createSignal } from "solid-js";
 
 export function SliderDemo() {
@@ -6,12 +13,12 @@ export function SliderDemo() {
 
   return (
     <Slider class="max-w-xs" value={value()} onChange={setValue} minValue={0} maxValue={100}>
-      <Slider.Label>Volume</Slider.Label>
-      <Slider.ValueLabel />
-      <Slider.Track>
-        <Slider.Fill />
-        <Slider.Thumb />
-      </Slider.Track>
+      <SliderLabel>Volume</SliderLabel>
+      <SliderValueLabel />
+      <SliderTrack>
+        <SliderFill />
+        <SliderThumb />
+      </SliderTrack>
     </Slider>
   );
 }

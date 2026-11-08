@@ -1,12 +1,18 @@
-import { Button, HoverCard } from "@solid-kit/ui";
+import {
+  Button,
+  HoverCard,
+  HoverCardContent,
+  HoverCardPortal,
+  HoverCardTrigger,
+} from "@solid-kit/ui";
 
 export function HoverCardDemo() {
   return (
     <HoverCard>
-      <HoverCard.Trigger as={Button}>Hover</HoverCard.Trigger>
-      <HoverCard.Portal>
-        <HoverCard.Content>Ada Lovelace</HoverCard.Content>
-      </HoverCard.Portal>
+      <HoverCardTrigger as={Button}>Hover</HoverCardTrigger>
+      <HoverCardPortal>
+        <HoverCardContent>Ada Lovelace</HoverCardContent>
+      </HoverCardPortal>
     </HoverCard>
   );
 }

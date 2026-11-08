@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { HoverCard } from "../../ui/src/components/hover-card";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardPortal,
+  HoverCardTrigger,
+} from "../../ui/src/components/hover-card";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,10 +22,10 @@ export const Default: Story = {
 function HoverCardDemo() {
   return (
     <HoverCard>
-      <HoverCard.Trigger as={Button}>Hover</HoverCard.Trigger>
-      <HoverCard.Portal>
-        <HoverCard.Content>Ada Lovelace</HoverCard.Content>
-      </HoverCard.Portal>
+      <HoverCardTrigger as={Button}>Hover</HoverCardTrigger>
+      <HoverCardPortal>
+        <HoverCardContent>Ada Lovelace</HoverCardContent>
+      </HoverCardPortal>
     </HoverCard>
   );
 }

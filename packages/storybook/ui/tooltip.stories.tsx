@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Tooltip } from "../../ui/src/components/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipPortal,
+  TooltipTrigger,
+} from "../../ui/src/components/tooltip";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,10 +22,10 @@ export const Default: Story = {
 function TooltipDemo() {
   return (
     <Tooltip>
-      <Tooltip.Trigger as={Button}>Hover</Tooltip.Trigger>
-      <Tooltip.Portal>
-        <Tooltip.Content>Saved</Tooltip.Content>
-      </Tooltip.Portal>
+      <TooltipTrigger as={Button}>Hover</TooltipTrigger>
+      <TooltipPortal>
+        <TooltipContent>Saved</TooltipContent>
+      </TooltipPortal>
     </Tooltip>
   );
 }

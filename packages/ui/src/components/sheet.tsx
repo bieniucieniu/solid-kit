@@ -3,7 +3,7 @@ import { type ComponentProps, type JSX, Show, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type SheetRootProps = ComponentProps<typeof SheetPrimitive>;
+type SheetProps = ComponentProps<typeof SheetPrimitive>;
 type SheetOverlayProps = ComponentProps<typeof SheetPrimitive.Overlay>;
 type SheetContentProps = ComponentProps<typeof SheetPrimitive.Content> & {
   side?: "top" | "right" | "bottom" | "left";
@@ -16,7 +16,7 @@ type SheetCloseButtonProps = ComponentProps<typeof SheetPrimitive.CloseButton> &
   size?: ButtonSize;
 };
 
-function SheetRoot(props: SheetRootProps) {
+export function Sheet(props: SheetProps) {
   return <SheetPrimitive {...props} />;
 }
 
@@ -145,15 +145,4 @@ export function SheetCloseButton(props: SheetCloseButtonProps) {
 export const SheetTrigger = SheetPrimitive.Trigger;
 export const SheetPortal = SheetPrimitive.Portal;
 
-export const Sheet = Object.assign(SheetRoot, {
-  Trigger: SheetTrigger,
-  Portal: SheetPortal,
-  Overlay: SheetOverlay,
-  Content: SheetContent,
-  Header: SheetHeader,
-  Footer: SheetFooter,
-  Title: SheetTitle,
-  Description: SheetDescription,
-  CloseButton: SheetCloseButton,
-  useContext: useDialogContext,
-});
+export { useDialogContext as useSheetContext };

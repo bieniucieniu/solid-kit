@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Item } from "../../ui/src/components/item";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from "../../ui/src/components/item";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,14 +24,14 @@ export const Default: Story = {
 function ItemDemo() {
   return (
     <Item class="max-w-md">
-      <Item.Media>AL</Item.Media>
-      <Item.Content>
-        <Item.Title>Ada Lovelace</Item.Title>
-        <Item.Description>Editor</Item.Description>
-      </Item.Content>
-      <Item.Actions>
+      <ItemMedia>AL</ItemMedia>
+      <ItemContent>
+        <ItemTitle>Ada Lovelace</ItemTitle>
+        <ItemDescription>Editor</ItemDescription>
+      </ItemContent>
+      <ItemActions>
         <Button type="button">View</Button>
-      </Item.Actions>
+      </ItemActions>
     </Item>
   );
 }

@@ -2,13 +2,13 @@ import { Tabs as TabsPrimitive } from "@kobalte/core/tabs";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type TabsRootProps = ComponentProps<typeof TabsPrimitive>;
+type TabsProps = ComponentProps<typeof TabsPrimitive>;
 type TabsListProps = ComponentProps<typeof TabsPrimitive.List> & { variant?: "default" | "line" };
 type TabsTriggerProps = ComponentProps<typeof TabsPrimitive.Trigger>;
 type TabsIndicatorProps = ComponentProps<typeof TabsPrimitive.Indicator>;
 type TabsContentProps = ComponentProps<typeof TabsPrimitive.Content>;
 
-function TabsRoot(props: TabsRootProps) {
+export function Tabs(props: TabsProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <TabsPrimitive
@@ -77,10 +77,3 @@ export function TabsContent(props: TabsContentProps) {
     />
   );
 }
-
-export const Tabs = Object.assign(TabsRoot, {
-  List: TabsList,
-  Trigger: TabsTrigger,
-  Indicator: TabsIndicator,
-  Content: TabsContent,
-});

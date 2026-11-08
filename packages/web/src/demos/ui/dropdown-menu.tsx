@@ -1,4 +1,12 @@
-import { Button, DropdownMenu } from "@solid-kit/ui";
+import {
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@solid-kit/ui";
 import { createSignal } from "solid-js";
 
 export function DropdownMenuDemo() {
@@ -7,17 +15,17 @@ export function DropdownMenuDemo() {
   return (
     <div class="flex flex-col items-start gap-3">
       <DropdownMenu>
-        <DropdownMenu.Trigger as={Button}>Open</DropdownMenu.Trigger>
-        <DropdownMenu.Portal>
-          <DropdownMenu.Content>
-            <DropdownMenu.Item onSelect={() => setAction("Edit")}>Edit</DropdownMenu.Item>
-            <DropdownMenu.Item onSelect={() => setAction("Duplicate")}>Duplicate</DropdownMenu.Item>
-            <DropdownMenu.Separator />
-            <DropdownMenu.Item variant="destructive" onSelect={() => setAction("Delete")}>
+        <DropdownMenuTrigger as={Button}>Open</DropdownMenuTrigger>
+        <DropdownMenuPortal>
+          <DropdownMenuContent>
+            <DropdownMenuItem onSelect={() => setAction("Edit")}>Edit</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setAction("Duplicate")}>Duplicate</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem variant="destructive" onSelect={() => setAction("Delete")}>
               Delete
-            </DropdownMenu.Item>
-          </DropdownMenu.Content>
-        </DropdownMenu.Portal>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenuPortal>
       </DropdownMenu>
       <p class="text-sm text-muted-foreground">Action: {action()}</p>
     </div>

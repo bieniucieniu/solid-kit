@@ -7,13 +7,13 @@ type ToggleGroupStyle = { variant?: ToggleVariant; size?: ToggleSize; spacing?: 
 
 const ToggleGroupContext = createContext<ToggleGroupStyle>({});
 
-type ToggleGroupRootProps = ComponentProps<typeof ToggleGroupPrimitive> & ToggleGroupStyle;
+type ToggleGroupProps = ComponentProps<typeof ToggleGroupPrimitive> & ToggleGroupStyle;
 type ToggleGroupItemProps = ComponentProps<typeof ToggleGroupPrimitive.Item> & {
   variant?: ToggleVariant;
   size?: ToggleSize;
 };
 
-function ToggleGroupRoot(props: ToggleGroupRootProps) {
+export function ToggleGroup(props: ToggleGroupProps) {
   const [, rest] = splitProps(props, ["class", "ref", "style", "variant", "size", "spacing"]);
   const context: ToggleGroupStyle = {
     get variant() {
@@ -71,7 +71,3 @@ export function ToggleGroupItem(props: ToggleGroupItemProps) {
     />
   );
 }
-
-export const ToggleGroup = Object.assign(ToggleGroupRoot, {
-  Item: ToggleGroupItem,
-});

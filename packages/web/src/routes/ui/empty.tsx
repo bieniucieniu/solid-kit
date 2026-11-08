@@ -1,16 +1,23 @@
 import { DocsPage } from "~/components/preview";
 import { EmptyDemo } from "~/demos/ui/empty";
 
-const snippet = `import { Button, Empty } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from "@solid-kit/ui";
 
 <Empty>
-  <Empty.Header>
-    <Empty.Title>No files</Empty.Title>
-    <Empty.Description>Upload one to get started.</Empty.Description>
-  </Empty.Header>
-  <Empty.Content>
+  <EmptyHeader>
+    <EmptyTitle>No files</EmptyTitle>
+    <EmptyDescription>Upload one to get started.</EmptyDescription>
+  </EmptyHeader>
+  <EmptyContent>
     <Button>Upload</Button>
-  </Empty.Content>
+  </EmptyContent>
 </Empty>`;
 
 export default function EmptyPage() {

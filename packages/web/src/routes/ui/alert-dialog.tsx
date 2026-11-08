@@ -1,24 +1,36 @@
 import { DocsPage } from "~/components/preview";
 import { AlertDialogDemo } from "~/demos/ui/alert-dialog";
 
-const snippet = `import { AlertDialog, Button } from "@solid-kit/ui";
+const snippet = `import {
+  AlertDialog,
+  AlertDialogCloseButton,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+  Button,
+} from "@solid-kit/ui";
 
-// AlertDialog.Content size: "default" | "sm"
+// AlertDialogContent size: "default" | "sm"
 <AlertDialog>
-  <AlertDialog.Trigger as={Button}>Delete</AlertDialog.Trigger>
-  <AlertDialog.Portal>
-    <AlertDialog.Overlay />
-    <AlertDialog.Content size="sm">
-      <AlertDialog.Header>
-        <AlertDialog.Title>Delete this file?</AlertDialog.Title>
-        <AlertDialog.Description>This cannot be undone.</AlertDialog.Description>
-      </AlertDialog.Header>
-      <AlertDialog.Footer>
-        <AlertDialog.CloseButton>Cancel</AlertDialog.CloseButton>
-        <AlertDialog.CloseButton variant="destructive">Delete</AlertDialog.CloseButton>
-      </AlertDialog.Footer>
-    </AlertDialog.Content>
-  </AlertDialog.Portal>
+  <AlertDialogTrigger as={Button}>Delete</AlertDialogTrigger>
+  <AlertDialogPortal>
+    <AlertDialogOverlay />
+    <AlertDialogContent size="sm">
+      <AlertDialogHeader>
+        <AlertDialogTitle>Delete this file?</AlertDialogTitle>
+        <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
+      </AlertDialogHeader>
+      <AlertDialogFooter>
+        <AlertDialogCloseButton>Cancel</AlertDialogCloseButton>
+        <AlertDialogCloseButton variant="destructive">Delete</AlertDialogCloseButton>
+      </AlertDialogFooter>
+    </AlertDialogContent>
+  </AlertDialogPortal>
 </AlertDialog>`;
 
 export default function AlertDialogPage() {

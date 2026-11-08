@@ -2,7 +2,7 @@ import { TextField as TextFieldPrimitive } from "@kobalte/core/text-field";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type TextareaRootProps = ComponentProps<typeof TextFieldPrimitive>;
+type TextareaProps = ComponentProps<typeof TextFieldPrimitive>;
 type TextareaLabelProps = ComponentProps<typeof TextFieldPrimitive.Label>;
 type TextareaControlProps = ComponentProps<typeof TextFieldPrimitive.TextArea>;
 type TextareaDescriptionProps = ComponentProps<typeof TextFieldPrimitive.Description>;
@@ -11,7 +11,7 @@ type TextareaErrorMessageProps = ComponentProps<typeof TextFieldPrimitive.ErrorM
 const fieldClass =
   "flex field-sizing-content min-h-16 w-full resize-none rounded-md border border-input bg-input/20 px-2 py-2 text-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-2 data-invalid:ring-destructive/20 md:text-xs/relaxed dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40";
 
-function TextareaRoot(props: TextareaRootProps) {
+export function Textarea(props: TextareaProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <TextFieldPrimitive
@@ -67,10 +67,3 @@ export function TextareaErrorMessage(props: TextareaErrorMessageProps) {
     />
   );
 }
-
-export const Textarea = Object.assign(TextareaRoot, {
-  Label: TextareaLabel,
-  TextArea: TextareaControl,
-  Description: TextareaDescription,
-  ErrorMessage: TextareaErrorMessage,
-});

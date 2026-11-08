@@ -1,22 +1,34 @@
 import { DocsPage } from "~/components/preview";
 import { DrawerDemo } from "~/demos/ui/drawer";
 
-const snippet = `import { Button, Drawer } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  Drawer,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@solid-kit/ui";
 
 <Drawer>
-  <Drawer.Trigger as={Button}>Open</Drawer.Trigger>
-  <Drawer.Portal>
-    <Drawer.Overlay />
-    <Drawer.Content>
-      <Drawer.Header>
-        <Drawer.Title>Filters</Drawer.Title>
-        <Drawer.Description>Narrow the list.</Drawer.Description>
-      </Drawer.Header>
-      <Drawer.Footer>
-        <Drawer.CloseButton>Close</Drawer.CloseButton>
-      </Drawer.Footer>
-    </Drawer.Content>
-  </Drawer.Portal>
+  <DrawerTrigger as={Button}>Open</DrawerTrigger>
+  <DrawerPortal>
+    <DrawerOverlay />
+    <DrawerContent>
+      <DrawerHeader>
+        <DrawerTitle>Filters</DrawerTitle>
+        <DrawerDescription>Narrow the list.</DrawerDescription>
+      </DrawerHeader>
+      <DrawerFooter>
+        <DrawerCloseButton>Close</DrawerCloseButton>
+      </DrawerFooter>
+    </DrawerContent>
+  </DrawerPortal>
 </Drawer>`;
 
 export default function DrawerPage() {

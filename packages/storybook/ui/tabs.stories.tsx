@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Tabs } from "../../ui/src/components/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../ui/src/components/tabs";
 
 const meta = {
   title: "UI/Tabs",
@@ -16,12 +16,12 @@ export const Default: Story = {
 function TabsDemo() {
   return (
     <Tabs defaultValue="account">
-      <Tabs.List>
-        <Tabs.Trigger value="account">Account</Tabs.Trigger>
-        <Tabs.Trigger value="password">Password</Tabs.Trigger>
-      </Tabs.List>
-      <Tabs.Content value="account">Account settings.</Tabs.Content>
-      <Tabs.Content value="password">Password settings.</Tabs.Content>
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      <TabsContent value="account">Account settings.</TabsContent>
+      <TabsContent value="password">Password settings.</TabsContent>
     </Tabs>
   );
 }

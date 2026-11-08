@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Toast, toaster } from "../../ui/src/components/toast";
+import {
+  Toast,
+  ToastCloseButton,
+  ToastDescription,
+  toaster,
+  ToastList,
+  ToastRegion,
+  ToastTitle,
+} from "../../ui/src/components/toast";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -22,18 +30,18 @@ function ToastDemo() {
         onClick={() =>
           toaster.show((props) => (
             <Toast toastId={props.toastId} persistent>
-              <Toast.Title>Saved</Toast.Title>
-              <Toast.Description>Your changes are stored.</Toast.Description>
-              <Toast.CloseButton>Close</Toast.CloseButton>
+              <ToastTitle>Saved</ToastTitle>
+              <ToastDescription>Your changes are stored.</ToastDescription>
+              <ToastCloseButton>Close</ToastCloseButton>
             </Toast>
           ))
         }
       >
         Show toast
       </Button>
-      <Toast.Region>
-        <Toast.List />
-      </Toast.Region>
+      <ToastRegion>
+        <ToastList />
+      </ToastRegion>
     </>
   );
 }

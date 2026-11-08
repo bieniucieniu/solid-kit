@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Table } from "../../ui/src/components/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../../ui/src/components/table";
 
 const meta = {
   title: "UI/Table",
@@ -16,22 +23,22 @@ export const Default: Story = {
 function TableDemo() {
   return (
     <Table>
-      <Table.Header>
-        <Table.Row>
-          <Table.Head>Name</Table.Head>
-          <Table.Head>Role</Table.Head>
-        </Table.Row>
-      </Table.Header>
-      <Table.Body>
-        <Table.Row>
-          <Table.Cell>Ada</Table.Cell>
-          <Table.Cell>Admin</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Grace</Table.Cell>
-          <Table.Cell>Editor</Table.Cell>
-        </Table.Row>
-      </Table.Body>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Name</TableHead>
+          <TableHead>Role</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>Ada</TableCell>
+          <TableCell>Admin</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Grace</TableCell>
+          <TableCell>Editor</TableCell>
+        </TableRow>
+      </TableBody>
     </Table>
   );
 }

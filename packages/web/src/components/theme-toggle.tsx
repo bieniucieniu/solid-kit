@@ -1,4 +1,13 @@
-import { Button, DropdownMenu } from "@solid-kit/ui";
+import {
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItemIndicator,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@solid-kit/ui";
 import { createSignal, For } from "solid-js";
 
 type Theme = "light" | "dark";
@@ -72,7 +81,7 @@ export function ThemeToggle() {
   // fail). Both icons render and the `.dark` class on <html> picks one, from the first paint.
   return (
     <DropdownMenu placement="bottom-end">
-      <DropdownMenu.Trigger
+      <DropdownMenuTrigger
         as={Button}
         type="button"
         variant="ghost"
@@ -94,24 +103,24 @@ export function ThemeToggle() {
           </g>
           <path class="hidden dark:inline" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
         </svg>
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content class="min-w-28">
-          <DropdownMenu.RadioGroup
+      </DropdownMenuTrigger>
+      <DropdownMenuPortal>
+        <DropdownMenuContent class="min-w-28">
+          <DropdownMenuRadioGroup
             value={preference()}
             onChange={(value) => setThemePreference(parsePreference(value))}
           >
             <For each={options}>
               {(option) => (
-                <DropdownMenu.RadioItem value={option.value}>
+                <DropdownMenuRadioItem value={option.value}>
                   {option.label}
-                  <DropdownMenu.ItemIndicator />
-                </DropdownMenu.RadioItem>
+                  <DropdownMenuItemIndicator />
+                </DropdownMenuRadioItem>
               )}
             </For>
-          </DropdownMenu.RadioGroup>
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
+          </DropdownMenuRadioGroup>
+        </DropdownMenuContent>
+      </DropdownMenuPortal>
     </DropdownMenu>
   );
 }

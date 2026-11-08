@@ -1,4 +1,14 @@
-import { Select } from "@solid-kit/ui";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectItemLabel,
+  SelectLabel,
+  SelectListbox,
+  SelectPortal,
+  SelectTrigger,
+  SelectValue,
+} from "@solid-kit/ui";
 import { createSignal } from "solid-js";
 
 const options = ["Apple", "Banana", "Orange"];
@@ -14,20 +24,20 @@ export function SelectDemo() {
       onChange={setFruit}
       placeholder="Pick a fruit"
       itemComponent={(props) => (
-        <Select.Item item={props.item}>
-          <Select.ItemLabel>{props.item.rawValue}</Select.ItemLabel>
-        </Select.Item>
+        <SelectItem item={props.item}>
+          <SelectItemLabel>{props.item.rawValue}</SelectItemLabel>
+        </SelectItem>
       )}
     >
-      <Select.Label>Fruit</Select.Label>
-      <Select.Trigger>
-        <Select.Value<string>>{(state) => state.selectedOption()}</Select.Value>
-      </Select.Trigger>
-      <Select.Portal>
-        <Select.Content>
-          <Select.Listbox />
-        </Select.Content>
-      </Select.Portal>
+      <SelectLabel>Fruit</SelectLabel>
+      <SelectTrigger>
+        <SelectValue<string>>{(state) => state.selectedOption()}</SelectValue>
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectContent>
+          <SelectListbox />
+        </SelectContent>
+      </SelectPortal>
     </Select>
   );
 }

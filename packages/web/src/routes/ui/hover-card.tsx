@@ -1,15 +1,21 @@
 import { DocsPage } from "~/components/preview";
 import { HoverCardDemo } from "~/demos/ui/hover-card";
 
-const snippet = `import { Button, HoverCard } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  HoverCard,
+  HoverCardContent,
+  HoverCardPortal,
+  HoverCardTrigger,
+} from "@solid-kit/ui";
 
 <HoverCard>
-  <HoverCard.Trigger as={Button}>Hover</HoverCard.Trigger>
-  <HoverCard.Portal>
-    <HoverCard.Content>
+  <HoverCardTrigger as={Button}>Hover</HoverCardTrigger>
+  <HoverCardPortal>
+    <HoverCardContent>
       Ada Lovelace
-    </HoverCard.Content>
-  </HoverCard.Portal>
+    </HoverCardContent>
+  </HoverCardPortal>
 </HoverCard>`;
 
 export default function HoverCardPage() {

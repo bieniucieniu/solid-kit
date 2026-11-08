@@ -1,5 +1,16 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Dialog } from "../../ui/src/components/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogLabel,
+  DialogOverlay,
+  DialogPortal,
+  DialogTrigger,
+} from "../../ui/src/components/dialog";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,22 +28,20 @@ export const Default: Story = {
 function DialogDemo() {
   return (
     <Dialog>
-      <Dialog.Trigger as={Button}>Open</Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay />
-        <Dialog.Content>
-          <Dialog.Header>
-            <Dialog.Label>Edit profile</Dialog.Label>
-            <Dialog.Description>
-              This dialog stays on the page until you close it.
-            </Dialog.Description>
-          </Dialog.Header>
-          <Dialog.Footer>
-            <Dialog.Close>Cancel</Dialog.Close>
-            <Dialog.Close variant="default">Save changes</Dialog.Close>
-          </Dialog.Footer>
-        </Dialog.Content>
-      </Dialog.Portal>
+      <DialogTrigger as={Button}>Open</DialogTrigger>
+      <DialogPortal>
+        <DialogOverlay />
+        <DialogContent>
+          <DialogHeader>
+            <DialogLabel>Edit profile</DialogLabel>
+            <DialogDescription>This dialog stays on the page until you close it.</DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <DialogClose>Cancel</DialogClose>
+            <DialogClose variant="default">Save changes</DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </DialogPortal>
     </Dialog>
   );
 }

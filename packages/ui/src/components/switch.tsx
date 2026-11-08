@@ -2,14 +2,14 @@ import { Switch as SwitchPrimitive } from "@kobalte/core/switch";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type SwitchRootProps = ComponentProps<typeof SwitchPrimitive> & { size?: "sm" | "default" };
+type SwitchProps = ComponentProps<typeof SwitchPrimitive> & { size?: "sm" | "default" };
 type SwitchControlProps = ComponentProps<typeof SwitchPrimitive.Control>;
 type SwitchThumbProps = ComponentProps<typeof SwitchPrimitive.Thumb>;
 type SwitchLabelProps = ComponentProps<typeof SwitchPrimitive.Label>;
 type SwitchDescriptionProps = ComponentProps<typeof SwitchPrimitive.Description>;
 type SwitchErrorMessageProps = ComponentProps<typeof SwitchPrimitive.ErrorMessage>;
 
-function SwitchRoot(props: SwitchRootProps) {
+export function Switch(props: SwitchProps) {
   const [, rest] = splitProps(props, ["class", "ref", "size"]);
   return (
     <SwitchPrimitive
@@ -89,12 +89,3 @@ export function SwitchInput(props: ComponentProps<typeof SwitchPrimitive.Input>)
   const [, rest] = splitProps(props, ["class", "ref"]);
   return <SwitchPrimitive.Input ref={props.ref} class={cn("peer", props.class)} {...rest} />;
 }
-
-export const Switch = Object.assign(SwitchRoot, {
-  Input: SwitchInput,
-  Control: SwitchControl,
-  Thumb: SwitchThumb,
-  Label: SwitchLabel,
-  Description: SwitchDescription,
-  ErrorMessage: SwitchErrorMessage,
-});

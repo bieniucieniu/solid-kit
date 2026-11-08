@@ -1,4 +1,16 @@
-import { AlertDialog, Button } from "@solid-kit/ui";
+import {
+  AlertDialog,
+  AlertDialogCloseButton,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+  Button,
+} from "@solid-kit/ui";
 import { For } from "solid-js";
 
 const sizes = ["default", "sm"] as const;
@@ -9,22 +21,22 @@ export function AlertDialogDemo() {
       <For each={sizes}>
         {(size) => (
           <AlertDialog>
-            <AlertDialog.Trigger as={Button} variant="outline">
+            <AlertDialogTrigger as={Button} variant="outline">
               Delete ({size})
-            </AlertDialog.Trigger>
-            <AlertDialog.Portal>
-              <AlertDialog.Overlay />
-              <AlertDialog.Content size={size}>
-                <AlertDialog.Header>
-                  <AlertDialog.Title>Delete this file?</AlertDialog.Title>
-                  <AlertDialog.Description>This cannot be undone.</AlertDialog.Description>
-                </AlertDialog.Header>
-                <AlertDialog.Footer>
-                  <AlertDialog.CloseButton>Cancel</AlertDialog.CloseButton>
-                  <AlertDialog.CloseButton variant="destructive">Delete</AlertDialog.CloseButton>
-                </AlertDialog.Footer>
-              </AlertDialog.Content>
-            </AlertDialog.Portal>
+            </AlertDialogTrigger>
+            <AlertDialogPortal>
+              <AlertDialogOverlay />
+              <AlertDialogContent size={size}>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Delete this file?</AlertDialogTitle>
+                  <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCloseButton>Cancel</AlertDialogCloseButton>
+                  <AlertDialogCloseButton variant="destructive">Delete</AlertDialogCloseButton>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogPortal>
           </AlertDialog>
         )}
       </For>

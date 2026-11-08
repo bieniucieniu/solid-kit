@@ -6,7 +6,7 @@ import TooltipPrimitive, {
 import { splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-function TooltipRoot(props: RootProps) {
+export function Tooltip(props: RootProps) {
   return <TooltipPrimitive {...props} />;
 }
 
@@ -29,10 +29,4 @@ export const TooltipAnchor = TooltipPrimitive.Anchor;
 export const TooltipTrigger = TooltipPrimitive.Trigger;
 export const TooltipPortal = TooltipPrimitive.Portal;
 
-export const Tooltip = Object.assign(TooltipRoot, {
-  Anchor: TooltipAnchor,
-  Trigger: TooltipTrigger,
-  Portal: TooltipPortal,
-  Content: TooltipContent,
-  useContext: TooltipPrimitive.useContext,
-});
+export const useTooltipContext = TooltipPrimitive.useContext;

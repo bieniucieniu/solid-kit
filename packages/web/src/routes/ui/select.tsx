@@ -1,26 +1,36 @@
 import { DocsPage } from "~/components/preview";
 import { SelectDemo } from "~/demos/ui/select";
 
-const snippet = `import { Select } from "@solid-kit/ui";
+const snippet = `import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectItemLabel,
+  SelectLabel,
+  SelectListbox,
+  SelectPortal,
+  SelectTrigger,
+  SelectValue,
+} from "@solid-kit/ui";
 
 <Select
   options={["Apple", "Banana", "Orange"]}
   placeholder="Pick a fruit"
   itemComponent={(props) => (
-    <Select.Item item={props.item}>
-      <Select.ItemLabel>{props.item.rawValue}</Select.ItemLabel>
-    </Select.Item>
+    <SelectItem item={props.item}>
+      <SelectItemLabel>{props.item.rawValue}</SelectItemLabel>
+    </SelectItem>
   )}
 >
-  <Select.Label>Fruit</Select.Label>
-  <Select.Trigger>
-    <Select.Value>{(state) => state.selectedOption()}</Select.Value>
-  </Select.Trigger>
-  <Select.Portal>
-    <Select.Content>
-      <Select.Listbox />
-    </Select.Content>
-  </Select.Portal>
+  <SelectLabel>Fruit</SelectLabel>
+  <SelectTrigger>
+    <SelectValue>{(state) => state.selectedOption()}</SelectValue>
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectContent>
+      <SelectListbox />
+    </SelectContent>
+  </SelectPortal>
 </Select>`;
 
 export default function SelectPage() {

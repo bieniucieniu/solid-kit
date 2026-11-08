@@ -2,10 +2,10 @@ import { HoverCard as HoverCardPrimitive, useHoverCardContext } from "@kobalte/c
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type HoverCardRootProps = ComponentProps<typeof HoverCardPrimitive>;
+type HoverCardProps = ComponentProps<typeof HoverCardPrimitive>;
 type HoverCardContentProps = ComponentProps<typeof HoverCardPrimitive.Content>;
 
-function HoverCardRoot(props: HoverCardRootProps) {
+export function HoverCard(props: HoverCardProps) {
   return <HoverCardPrimitive gutter={4} {...props} />;
 }
 
@@ -26,9 +26,4 @@ export function HoverCardContent(props: HoverCardContentProps) {
 export const HoverCardTrigger = HoverCardPrimitive.Trigger;
 export const HoverCardPortal = HoverCardPrimitive.Portal;
 
-export const HoverCard = Object.assign(HoverCardRoot, {
-  Trigger: HoverCardTrigger,
-  Portal: HoverCardPortal,
-  Content: HoverCardContent,
-  useContext: useHoverCardContext,
-});
+export { useHoverCardContext };

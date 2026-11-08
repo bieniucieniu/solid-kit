@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Slider } from "../../ui/src/components/slider";
+import {
+  Slider,
+  SliderFill,
+  SliderLabel,
+  SliderThumb,
+  SliderTrack,
+  SliderValueLabel,
+} from "../../ui/src/components/slider";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -19,12 +26,12 @@ function SliderDemo() {
 
   return (
     <Slider class="max-w-xs" value={value()} onChange={setValue} minValue={0} maxValue={100}>
-      <Slider.Label>Volume</Slider.Label>
-      <Slider.ValueLabel />
-      <Slider.Track>
-        <Slider.Fill />
-        <Slider.Thumb />
-      </Slider.Track>
+      <SliderLabel>Volume</SliderLabel>
+      <SliderValueLabel />
+      <SliderTrack>
+        <SliderFill />
+        <SliderThumb />
+      </SliderTrack>
     </Slider>
   );
 }

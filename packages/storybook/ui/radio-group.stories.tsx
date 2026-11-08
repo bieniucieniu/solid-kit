@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { RadioGroup } from "../../ui/src/components/radio-group";
+import {
+  RadioGroup,
+  RadioGroupItem,
+  RadioGroupItemControl,
+  RadioGroupItemIndicator,
+  RadioGroupItemInput,
+  RadioGroupItemLabel,
+  RadioGroupLabel,
+} from "../../ui/src/components/radio-group";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -19,21 +27,21 @@ function RadioGroupDemo() {
 
   return (
     <RadioGroup value={fruit()} onChange={setFruit}>
-      <RadioGroup.Label>Fruit</RadioGroup.Label>
-      <RadioGroup.Item value="apple">
-        <RadioGroup.ItemInput />
-        <RadioGroup.ItemControl>
-          <RadioGroup.ItemIndicator />
-        </RadioGroup.ItemControl>
-        <RadioGroup.ItemLabel>Apple</RadioGroup.ItemLabel>
-      </RadioGroup.Item>
-      <RadioGroup.Item value="pear">
-        <RadioGroup.ItemInput />
-        <RadioGroup.ItemControl>
-          <RadioGroup.ItemIndicator />
-        </RadioGroup.ItemControl>
-        <RadioGroup.ItemLabel>Pear</RadioGroup.ItemLabel>
-      </RadioGroup.Item>
+      <RadioGroupLabel>Fruit</RadioGroupLabel>
+      <RadioGroupItem value="apple">
+        <RadioGroupItemInput />
+        <RadioGroupItemControl>
+          <RadioGroupItemIndicator />
+        </RadioGroupItemControl>
+        <RadioGroupItemLabel>Apple</RadioGroupItemLabel>
+      </RadioGroupItem>
+      <RadioGroupItem value="pear">
+        <RadioGroupItemInput />
+        <RadioGroupItemControl>
+          <RadioGroupItemIndicator />
+        </RadioGroupItemControl>
+        <RadioGroupItemLabel>Pear</RadioGroupItemLabel>
+      </RadioGroupItem>
     </RadioGroup>
   );
 }

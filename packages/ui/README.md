@@ -127,18 +127,27 @@ The registry item name matches the filename. The full list is in the root [`regi
 
 ```tsx
 import { Button } from "@/components/ui/button";
-import { Dialog } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogLabel,
+  DialogOverlay,
+  DialogPortal,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 <Dialog>
-  <Dialog.Trigger as={Button}>Open</Dialog.Trigger>
-  <Dialog.Portal>
-    <Dialog.Overlay />
-    <Dialog.Content>
-      <Dialog.Label>Title</Dialog.Label>
-      <Dialog.Description>Details</Dialog.Description>
-      <Dialog.Close>Close</Dialog.Close>
-    </Dialog.Content>
-  </Dialog.Portal>
+  <DialogTrigger as={Button}>Open</DialogTrigger>
+  <DialogPortal>
+    <DialogOverlay />
+    <DialogContent>
+      <DialogLabel>Title</DialogLabel>
+      <DialogDescription>Details</DialogDescription>
+      <DialogClose>Close</DialogClose>
+    </DialogContent>
+  </DialogPortal>
 </Dialog>;
 ```
 

@@ -2,14 +2,14 @@ import { Breadcrumbs as BreadcrumbsPrimitive } from "@kobalte/core/breadcrumbs";
 import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type BreadcrumbRootProps = ComponentProps<typeof BreadcrumbsPrimitive>;
+type BreadcrumbProps = ComponentProps<typeof BreadcrumbsPrimitive>;
 type BreadcrumbLinkProps = ComponentProps<typeof BreadcrumbsPrimitive.Link>;
 type BreadcrumbSeparatorProps = ComponentProps<typeof BreadcrumbsPrimitive.Separator>;
 
 const listClass =
   "flex flex-wrap items-center gap-1.5 text-xs/relaxed wrap-break-word text-muted-foreground";
 
-function BreadcrumbRoot(props: BreadcrumbRootProps) {
+export function Breadcrumb(props: BreadcrumbProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <BreadcrumbsPrimitive
@@ -97,11 +97,3 @@ export function BreadcrumbEllipsis(props: JSX.HTMLAttributes<HTMLSpanElement>) {
     </span>
   );
 }
-
-export const Breadcrumb = Object.assign(BreadcrumbRoot, {
-  List: BreadcrumbList,
-  Item: BreadcrumbItem,
-  Link: BreadcrumbLink,
-  Separator: BreadcrumbSeparator,
-  Ellipsis: BreadcrumbEllipsis,
-});

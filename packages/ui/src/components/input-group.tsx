@@ -3,7 +3,7 @@ import { splitProps } from "solid-js";
 import { Button, type ButtonVariant } from "./button";
 import { cn } from "@/lib/utils";
 
-function InputGroupRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {
+export function InputGroup(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <div
@@ -128,11 +128,3 @@ export function InputGroupTextarea(props: JSX.TextareaHTMLAttributes<HTMLTextAre
     />
   );
 }
-
-export const InputGroup = Object.assign(InputGroupRoot, {
-  Addon: InputGroupAddon,
-  Button: InputGroupButton,
-  Text: InputGroupText,
-  Input: InputGroupInput,
-  Textarea: InputGroupTextarea,
-});

@@ -2,13 +2,13 @@ import { Progress as ProgressPrimitive } from "@kobalte/core/progress";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type ProgressRootProps = ComponentProps<typeof ProgressPrimitive>;
+type ProgressProps = ComponentProps<typeof ProgressPrimitive>;
 type ProgressLabelProps = ComponentProps<typeof ProgressPrimitive.Label>;
 type ProgressValueLabelProps = ComponentProps<typeof ProgressPrimitive.ValueLabel>;
 type ProgressTrackProps = ComponentProps<typeof ProgressPrimitive.Track>;
 type ProgressFillProps = ComponentProps<typeof ProgressPrimitive.Fill>;
 
-function ProgressRoot(props: ProgressRootProps) {
+export function Progress(props: ProgressProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <ProgressPrimitive
@@ -68,10 +68,3 @@ export function ProgressFill(props: ProgressFillProps) {
     />
   );
 }
-
-export const Progress = Object.assign(ProgressRoot, {
-  Label: ProgressLabel,
-  ValueLabel: ProgressValueLabel,
-  Track: ProgressTrack,
-  Fill: ProgressFill,
-});

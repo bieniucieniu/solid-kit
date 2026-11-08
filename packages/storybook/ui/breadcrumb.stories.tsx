@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Breadcrumb } from "../../ui/src/components/breadcrumb";
+import {
+  Breadcrumb,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+} from "../../ui/src/components/breadcrumb";
 
 const meta = {
   title: "UI/Breadcrumb",
@@ -18,13 +22,13 @@ function BreadcrumbDemo() {
     <Breadcrumb separator="/">
       <ol>
         <li>
-          <Breadcrumb.Link href="/ui">UI</Breadcrumb.Link>
-          <Breadcrumb.Separator />
+          <BreadcrumbLink href="/ui">UI</BreadcrumbLink>
+          <BreadcrumbSeparator />
         </li>
         <li>
-          <Breadcrumb.Link href="/ui/breadcrumb" current>
+          <BreadcrumbLink href="/ui/breadcrumb" current>
             Breadcrumb
-          </Breadcrumb.Link>
+          </BreadcrumbLink>
         </li>
       </ol>
     </Breadcrumb>

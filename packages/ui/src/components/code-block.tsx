@@ -22,12 +22,12 @@ const codeBlockVariantClasses = {
     "border-destructive/30 bg-destructive/5 text-destructive *:data-[slot=code-block-footer]:border-destructive/20 *:data-[slot=code-block-header]:border-destructive/20 *:data-[slot=code-block-header]:text-destructive",
 };
 
-type CodeBlockRootProps = JSX.HTMLAttributes<HTMLDivElement> & {
+type CodeBlockProps = JSX.HTMLAttributes<HTMLDivElement> & {
   variant?: keyof typeof codeBlockVariantClasses;
   size?: "default" | "sm";
 };
 
-function CodeBlockRoot(props: CodeBlockRootProps) {
+export function CodeBlock(props: CodeBlockProps) {
   const [, rest] = splitProps(props, ["class", "ref", "variant", "size"]);
   return (
     <div
@@ -348,13 +348,3 @@ export function createHighlightedCode(
   // One element per line index, updated in place, so unchanged lines keep their DOM nodes.
   return indexArray(lines, (line) => <HighlightedTokens line={line()} />);
 }
-
-export const CodeBlock = Object.assign(CodeBlockRoot, {
-  Header: CodeBlockHeader,
-  Title: CodeBlockTitle,
-  Actions: CodeBlockActions,
-  CopyButton: CodeBlockCopyButton,
-  Content: CodeBlockContent,
-  Line: CodeBlockLine,
-  Footer: CodeBlockFooter,
-});

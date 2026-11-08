@@ -2,7 +2,7 @@ import { TextField as TextFieldPrimitive } from "@kobalte/core/text-field";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type InputRootProps = ComponentProps<typeof TextFieldPrimitive>;
+type InputProps = ComponentProps<typeof TextFieldPrimitive>;
 type InputLabelProps = ComponentProps<typeof TextFieldPrimitive.Label>;
 type InputControlProps = ComponentProps<typeof TextFieldPrimitive.Input>;
 type InputDescriptionProps = ComponentProps<typeof TextFieldPrimitive.Description>;
@@ -11,7 +11,7 @@ type InputErrorMessageProps = ComponentProps<typeof TextFieldPrimitive.ErrorMess
 const fieldClass =
   "h-7 w-full min-w-0 rounded-md border border-input bg-input/20 px-2 py-0.5 text-sm transition-colors outline-none file:inline-flex file:h-6 file:border-0 file:bg-transparent file:text-xs/relaxed file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-invalid:border-destructive data-invalid:ring-2 data-invalid:ring-destructive/20 md:text-xs/relaxed dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40";
 
-function InputRoot(props: InputRootProps) {
+export function Input(props: InputProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <TextFieldPrimitive
@@ -65,10 +65,3 @@ export function InputErrorMessage(props: InputErrorMessageProps) {
     />
   );
 }
-
-export const Input = Object.assign(InputRoot, {
-  Label: InputLabel,
-  Input: InputControl,
-  Description: InputDescription,
-  ErrorMessage: InputErrorMessage,
-});

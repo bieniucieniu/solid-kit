@@ -1,16 +1,16 @@
 import { DocsPage } from "~/components/preview";
 import { BreadcrumbDemo } from "~/demos/ui/breadcrumb";
 
-const snippet = `import { Breadcrumb } from "@solid-kit/ui";
+const snippet = `import { Breadcrumb, BreadcrumbLink, BreadcrumbSeparator } from "@solid-kit/ui";
 
 <Breadcrumb separator="/">
   <ol>
     <li>
-      <Breadcrumb.Link href="/ui">UI</Breadcrumb.Link>
-      <Breadcrumb.Separator />
+      <BreadcrumbLink href="/ui">UI</BreadcrumbLink>
+      <BreadcrumbSeparator />
     </li>
     <li>
-      <Breadcrumb.Link current>Breadcrumb</Breadcrumb.Link>
+      <BreadcrumbLink current>Breadcrumb</BreadcrumbLink>
     </li>
   </ol>
 </Breadcrumb>`;

@@ -1,12 +1,12 @@
 import { DocsPage } from "~/components/preview";
 import { TextareaDemo } from "~/demos/ui/textarea";
 
-const snippet = `import { Textarea } from "@solid-kit/ui";
+const snippet = `import { Textarea, TextareaControl, TextareaDescription, TextareaLabel } from "@solid-kit/ui";
 
 <Textarea value={value()} onChange={setValue}>
-  <Textarea.Label>Bio</Textarea.Label>
-  <Textarea.TextArea placeholder="A short note" />
-  <Textarea.Description>Shown on your profile.</Textarea.Description>
+  <TextareaLabel>Bio</TextareaLabel>
+  <TextareaControl placeholder="A short note" />
+  <TextareaDescription>Shown on your profile.</TextareaDescription>
 </Textarea>`;
 
 export default function TextareaPage() {

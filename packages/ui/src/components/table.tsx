@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 import { splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-function TableRoot(props: JSX.HTMLAttributes<HTMLTableElement>) {
+export function Table(props: JSX.HTMLAttributes<HTMLTableElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <div data-slot="table-container" class="relative w-full overflow-x-auto">
@@ -105,13 +105,3 @@ export function TableCaption(props: JSX.HTMLAttributes<HTMLTableCaptionElement>)
     />
   );
 }
-
-export const Table = Object.assign(TableRoot, {
-  Header: TableHeader,
-  Body: TableBody,
-  Footer: TableFooter,
-  Row: TableRow,
-  Head: TableHead,
-  Cell: TableCell,
-  Caption: TableCaption,
-});

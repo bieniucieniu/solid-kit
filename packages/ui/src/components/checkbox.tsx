@@ -2,14 +2,14 @@ import { Checkbox as CheckboxPrimitive, useCheckboxContext } from "@kobalte/core
 import { type ComponentProps, Show, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type CheckboxRootProps = ComponentProps<typeof CheckboxPrimitive>;
+type CheckboxProps = ComponentProps<typeof CheckboxPrimitive>;
 type CheckboxControlProps = ComponentProps<typeof CheckboxPrimitive.Control>;
 type CheckboxIndicatorProps = ComponentProps<typeof CheckboxPrimitive.Indicator>;
 type CheckboxLabelProps = ComponentProps<typeof CheckboxPrimitive.Label>;
 type CheckboxDescriptionProps = ComponentProps<typeof CheckboxPrimitive.Description>;
 type CheckboxErrorMessageProps = ComponentProps<typeof CheckboxPrimitive.ErrorMessage>;
 
-function CheckboxRoot(props: CheckboxRootProps) {
+export function Checkbox(props: CheckboxProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <CheckboxPrimitive
@@ -108,12 +108,3 @@ export function CheckboxInput(props: ComponentProps<typeof CheckboxPrimitive.Inp
   const [, rest] = splitProps(props, ["class", "ref"]);
   return <CheckboxPrimitive.Input ref={props.ref} class={cn("peer", props.class)} {...rest} />;
 }
-
-export const Checkbox = Object.assign(CheckboxRoot, {
-  Input: CheckboxInput,
-  Control: CheckboxControl,
-  Indicator: CheckboxIndicator,
-  Label: CheckboxLabel,
-  Description: CheckboxDescription,
-  ErrorMessage: CheckboxErrorMessage,
-});

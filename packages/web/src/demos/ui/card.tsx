@@ -1,4 +1,13 @@
-import { Button, Card } from "@solid-kit/ui";
+import {
+  Button,
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@solid-kit/ui";
 import { For } from "solid-js";
 
 const sizes = ["default", "sm"] as const;
@@ -9,19 +18,19 @@ export function CardDemo() {
       <For each={sizes}>
         {(size) => (
           <Card size={size}>
-            <Card.Header>
-              <Card.Title>Project ({size})</Card.Title>
-              <Card.Description>A short summary of the work.</Card.Description>
-              <Card.Action>
+            <CardHeader>
+              <CardTitle>Project ({size})</CardTitle>
+              <CardDescription>A short summary of the work.</CardDescription>
+              <CardAction>
                 <Button variant="ghost" size="sm">
                   Edit
                 </Button>
-              </Card.Action>
-            </Card.Header>
-            <Card.Content>Three open tasks.</Card.Content>
-            <Card.Footer>
+              </CardAction>
+            </CardHeader>
+            <CardContent>Three open tasks.</CardContent>
+            <CardFooter>
               <Button>Save</Button>
-            </Card.Footer>
+            </CardFooter>
           </Card>
         )}
       </For>

@@ -1,26 +1,34 @@
 import { DocsPage } from "~/components/preview";
 import { FieldDemo } from "~/demos/ui/field";
 
-const snippet = `import { Field } from "@solid-kit/ui";
+const snippet = `import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSet,
+} from "@solid-kit/ui";
 
 // orientation: "vertical" | "horizontal" | "responsive"
-<Field.Set>
-  <Field.Legend>Profile</Field.Legend>
-  <Field.Group>
+<FieldSet>
+  <FieldLegend>Profile</FieldLegend>
+  <FieldGroup>
     <Field>
-      <Field.Label for="city">City</Field.Label>
+      <FieldLabel for="city">City</FieldLabel>
       <input id="city" placeholder="Paris" />
-      <Field.Description>Where you work.</Field.Description>
+      <FieldDescription>Where you work.</FieldDescription>
     </Field>
     <Field orientation="horizontal">
-      <Field.Content>
-        <Field.Label for="public">Public profile</Field.Label>
-        <Field.Description>Anyone can see your name.</Field.Description>
-      </Field.Content>
+      <FieldContent>
+        <FieldLabel for="public">Public profile</FieldLabel>
+        <FieldDescription>Anyone can see your name.</FieldDescription>
+      </FieldContent>
       <Switch id="public">...</Switch>
     </Field>
-  </Field.Group>
-</Field.Set>`;
+  </FieldGroup>
+</FieldSet>`;
 
 export default function FieldPage() {
   return (

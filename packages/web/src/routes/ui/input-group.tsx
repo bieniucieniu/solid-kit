@@ -1,23 +1,30 @@
 import { DocsPage } from "~/components/preview";
 import { InputGroupDemo } from "~/demos/ui/input-group";
 
-const snippet = `import { InputGroup } from "@solid-kit/ui";
+const snippet = `import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "@solid-kit/ui";
 
 <InputGroup>
-  <InputGroup.Addon>
-    <InputGroup.Text>https://</InputGroup.Text>
-  </InputGroup.Addon>
-  <InputGroup.Input placeholder="example.com" />
-  <InputGroup.Addon align="inline-end">
-    <InputGroup.Button size="sm">Go</InputGroup.Button>
-  </InputGroup.Addon>
+  <InputGroupAddon>
+    <InputGroupText>https://</InputGroupText>
+  </InputGroupAddon>
+  <InputGroupInput placeholder="example.com" />
+  <InputGroupAddon align="inline-end">
+    <InputGroupButton size="sm">Go</InputGroupButton>
+  </InputGroupAddon>
 </InputGroup>
 
 <InputGroup>
-  <InputGroup.Textarea placeholder="Message" />
-  <InputGroup.Addon align="block-end">
-    <InputGroup.Button variant="default">Send</InputGroup.Button>
-  </InputGroup.Addon>
+  <InputGroupTextarea placeholder="Message" />
+  <InputGroupAddon align="block-end">
+    <InputGroupButton variant="default">Send</InputGroupButton>
+  </InputGroupAddon>
 </InputGroup>`;
 
 export default function InputGroupPage() {

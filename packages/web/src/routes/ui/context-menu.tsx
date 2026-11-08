@@ -1,18 +1,25 @@
 import { DocsPage } from "~/components/preview";
 import { ContextMenuDemo } from "~/demos/ui/context-menu";
 
-const snippet = `import { ContextMenu } from "@solid-kit/ui";
+const snippet = `import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuPortal,
+  ContextMenuSeparator,
+  ContextMenuTrigger,
+} from "@solid-kit/ui";
 
 <ContextMenu>
-  <ContextMenu.Trigger>Right click</ContextMenu.Trigger>
-  <ContextMenu.Portal>
-    <ContextMenu.Content>
-      <ContextMenu.Item>Back</ContextMenu.Item>
-      <ContextMenu.Item>Forward</ContextMenu.Item>
-      <ContextMenu.Separator />
-      <ContextMenu.Item variant="destructive">Delete</ContextMenu.Item>
-    </ContextMenu.Content>
-  </ContextMenu.Portal>
+  <ContextMenuTrigger>Right click</ContextMenuTrigger>
+  <ContextMenuPortal>
+    <ContextMenuContent>
+      <ContextMenuItem>Back</ContextMenuItem>
+      <ContextMenuItem>Forward</ContextMenuItem>
+      <ContextMenuSeparator />
+      <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
+    </ContextMenuContent>
+  </ContextMenuPortal>
 </ContextMenu>`;
 
 export default function ContextMenuPage() {

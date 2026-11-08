@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Collapsible } from "../../ui/src/components/collapsible";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "../../ui/src/components/collapsible";
 
 const meta = {
   title: "UI/Collapsible",
@@ -16,8 +20,8 @@ export const Default: Story = {
 function CollapsibleDemo() {
   return (
     <Collapsible>
-      <Collapsible.Trigger>Show notes</Collapsible.Trigger>
-      <Collapsible.Content>Notes stay hidden until you open them.</Collapsible.Content>
+      <CollapsibleTrigger>Show notes</CollapsibleTrigger>
+      <CollapsibleContent>Notes stay hidden until you open them.</CollapsibleContent>
     </Collapsible>
   );
 }

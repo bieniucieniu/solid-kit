@@ -1,29 +1,38 @@
 import { DocsPage } from "~/components/preview";
 import { CodeBlockDemo } from "~/demos/ui/code-block";
 
-const snippet = `import { CodeBlock, createHighlightedCode } from "@solid-kit/ui";
+const snippet = `import {
+  CodeBlock,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockHeader,
+  CodeBlockLine,
+  CodeBlockTitle,
+  createHighlightedCode,
+} from "@solid-kit/ui";
 import { For } from "solid-js";
 
 // CodeBlock variant: "default" | "destructive"   size: "default" | "sm"
-// CodeBlock.Content wrap, lineNumbers, startLine
-// CodeBlock.Line variant: "default" | "added" | "removed" | "highlighted"
+// CodeBlockContent wrap, lineNumbers, startLine
+// CodeBlockLine variant: "default" | "added" | "removed" | "highlighted"
 const lines = createHighlightedCode(() => code, () => "tsx");
 
 <CodeBlock>
-  <CodeBlock.Header>
-    <CodeBlock.Title>counter.tsx</CodeBlock.Title>
-    <CodeBlock.Actions>
-      <CodeBlock.CopyButton value={code} />
-    </CodeBlock.Actions>
-  </CodeBlock.Header>
-  <CodeBlock.Content lineNumbers>
-    <For each={lines()}>{(line) => <CodeBlock.Line>{line}</CodeBlock.Line>}</For>
-  </CodeBlock.Content>
+  <CodeBlockHeader>
+    <CodeBlockTitle>counter.tsx</CodeBlockTitle>
+    <CodeBlockActions>
+      <CodeBlockCopyButton value={code} />
+    </CodeBlockActions>
+  </CodeBlockHeader>
+  <CodeBlockContent lineNumbers>
+    <For each={lines()}>{(line) => <CodeBlockLine>{line}</CodeBlockLine>}</For>
+  </CodeBlockContent>
 </CodeBlock>
 
 // Plain text: pass a string and it is split into lines.
 <CodeBlock>
-  <CodeBlock.Content>{output}</CodeBlock.Content>
+  <CodeBlockContent>{output}</CodeBlockContent>
 </CodeBlock>`;
 
 export default function CodeBlockPage() {

@@ -25,6 +25,7 @@ export {
   DialogOverlay,
   DialogPortal,
   DialogTrigger,
+  useDialogContext,
 } from "./components/dialog";
 export {
   Tooltip,
@@ -32,6 +33,7 @@ export {
   TooltipContent,
   TooltipPortal,
   TooltipTrigger,
+  useTooltipContext,
 } from "./components/tooltip";
 export {
   Accordion,
@@ -119,6 +121,7 @@ export {
   ComboboxPortal,
   ComboboxSection,
   ComboboxTrigger,
+  useComboboxContext,
 } from "./components/combobox";
 export {
   ContextMenu,
@@ -141,6 +144,7 @@ export {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
+  useContextMenuContext,
 } from "./components/context-menu";
 export {
   Drawer,
@@ -153,6 +157,7 @@ export {
   DrawerPortal,
   DrawerTitle,
   DrawerTrigger,
+  useDrawerContext,
 } from "./components/drawer";
 export {
   DropdownMenu,
@@ -193,6 +198,7 @@ export {
   HoverCardContent,
   HoverCardPortal,
   HoverCardTrigger,
+  useHoverCardContext,
 } from "./components/hover-card";
 export {
   Input,
@@ -245,6 +251,7 @@ export {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
+  useMenubarContext,
 } from "./components/menubar";
 export { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from "./components/native-select";
 export {
@@ -275,6 +282,7 @@ export {
   PopoverPortal,
   PopoverTitle,
   PopoverTrigger,
+  usePopoverContext,
 } from "./components/popover";
 export {
   Progress,
@@ -314,6 +322,7 @@ export {
   SelectSection,
   SelectTrigger,
   SelectValue,
+  useSelectContext,
 } from "./components/select";
 export { Separator } from "./components/separator";
 export {
@@ -327,6 +336,7 @@ export {
   SheetPortal,
   SheetTitle,
   SheetTrigger,
+  useSheetContext,
 } from "./components/sheet";
 export { Skeleton } from "./components/skeleton";
 export {
@@ -377,6 +387,7 @@ export {
   ToastProgressTrack,
   ToastRegion,
   ToastTitle,
+  useToastContext,
 } from "./components/toast";
 export { toaster } from "./components/toast";
 export { Toggle, type ToggleSize, type ToggleVariant, toggleVariants } from "./components/toggle";

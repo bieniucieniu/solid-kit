@@ -1,4 +1,4 @@
-import { Tabs } from "@solid-kit/ui";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@solid-kit/ui";
 import { For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
@@ -11,26 +11,26 @@ export function TabsDemo() {
         {(variant) => (
           <VariantRow label={variant}>
             <Tabs defaultValue="account">
-              <Tabs.List variant={variant}>
-                <Tabs.Trigger value="account">Account</Tabs.Trigger>
-                <Tabs.Trigger value="password">Password</Tabs.Trigger>
-                <Tabs.Trigger value="team">Team</Tabs.Trigger>
-              </Tabs.List>
-              <Tabs.Content value="account">Account settings.</Tabs.Content>
-              <Tabs.Content value="password">Password settings.</Tabs.Content>
-              <Tabs.Content value="team">Team settings.</Tabs.Content>
+              <TabsList variant={variant}>
+                <TabsTrigger value="account">Account</TabsTrigger>
+                <TabsTrigger value="password">Password</TabsTrigger>
+                <TabsTrigger value="team">Team</TabsTrigger>
+              </TabsList>
+              <TabsContent value="account">Account settings.</TabsContent>
+              <TabsContent value="password">Password settings.</TabsContent>
+              <TabsContent value="team">Team settings.</TabsContent>
             </Tabs>
           </VariantRow>
         )}
       </For>
       <VariantRow label="Vertical">
         <Tabs defaultValue="account" orientation="vertical">
-          <Tabs.List>
-            <Tabs.Trigger value="account">Account</Tabs.Trigger>
-            <Tabs.Trigger value="password">Password</Tabs.Trigger>
-          </Tabs.List>
-          <Tabs.Content value="account">Account settings.</Tabs.Content>
-          <Tabs.Content value="password">Password settings.</Tabs.Content>
+          <TabsList>
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+          </TabsList>
+          <TabsContent value="account">Account settings.</TabsContent>
+          <TabsContent value="password">Password settings.</TabsContent>
         </Tabs>
       </VariantRow>
     </VariantStack>

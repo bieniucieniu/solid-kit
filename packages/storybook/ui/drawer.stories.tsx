@@ -1,5 +1,16 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Drawer } from "../../ui/src/components/drawer";
+import {
+  Drawer,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../../ui/src/components/drawer";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,19 +28,19 @@ export const Default: Story = {
 function DrawerDemo() {
   return (
     <Drawer>
-      <Drawer.Trigger as={Button}>Open</Drawer.Trigger>
-      <Drawer.Portal>
-        <Drawer.Overlay />
-        <Drawer.Content>
-          <Drawer.Header>
-            <Drawer.Title>Filters</Drawer.Title>
-            <Drawer.Description>Narrow the list.</Drawer.Description>
-          </Drawer.Header>
-          <Drawer.Footer>
-            <Drawer.CloseButton>Close</Drawer.CloseButton>
-          </Drawer.Footer>
-        </Drawer.Content>
-      </Drawer.Portal>
+      <DrawerTrigger as={Button}>Open</DrawerTrigger>
+      <DrawerPortal>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Filters</DrawerTitle>
+            <DrawerDescription>Narrow the list.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <DrawerCloseButton>Close</DrawerCloseButton>
+          </DrawerFooter>
+        </DrawerContent>
+      </DrawerPortal>
     </Drawer>
   );
 }

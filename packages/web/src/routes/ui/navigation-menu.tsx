@@ -1,40 +1,46 @@
 import { DocsPage } from "~/components/preview";
 import { NavigationMenuDemo } from "~/demos/ui/navigation-menu";
 
-const snippet = `import { NavigationMenu } from "@solid-kit/ui";
+const snippet = `import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuTrigger,
+} from "@solid-kit/ui";
 
 <NavigationMenu>
-  <NavigationMenu.Item>
-    <NavigationMenu.Trigger>Getting started</NavigationMenu.Trigger>
-    <NavigationMenu.Content class="grid w-96 grid-cols-2 gap-1">
-      <NavigationMenu.Link href="/" class="flex-col items-start gap-0.5">
+  <NavigationMenuItem>
+    <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+    <NavigationMenuContent class="grid w-96 grid-cols-2 gap-1">
+      <NavigationMenuLink href="/" class="flex-col items-start gap-0.5">
         <span class="font-medium">Introduction</span>
         <span class="text-muted-foreground">What solid-kit is.</span>
-      </NavigationMenu.Link>
-      <NavigationMenu.Link href="/ui" class="flex-col items-start gap-0.5">
+      </NavigationMenuLink>
+      <NavigationMenuLink href="/ui" class="flex-col items-start gap-0.5">
         <span class="font-medium">Installation</span>
         <span class="text-muted-foreground">Add components with the CLI.</span>
-      </NavigationMenu.Link>
-    </NavigationMenu.Content>
-  </NavigationMenu.Item>
-  <NavigationMenu.Item>
-    <NavigationMenu.Trigger>Components</NavigationMenu.Trigger>
-    <NavigationMenu.Content class="w-48">
-      <NavigationMenu.Link href="/ui/button">Button</NavigationMenu.Link>
-      <NavigationMenu.Link href="/ui/dialog">Dialog</NavigationMenu.Link>
-    </NavigationMenu.Content>
-  </NavigationMenu.Item>
-  <NavigationMenu.Item>
-    <NavigationMenu.Trigger>Packages</NavigationMenu.Trigger>
-    <NavigationMenu.Content class="w-72">
-      <NavigationMenu.Link href="/ui">@solid-kit/ui</NavigationMenu.Link>
-      <NavigationMenu.Link href="/">@solid-kit/tiptap</NavigationMenu.Link>
-    </NavigationMenu.Content>
-  </NavigationMenu.Item>
+      </NavigationMenuLink>
+    </NavigationMenuContent>
+  </NavigationMenuItem>
+  <NavigationMenuItem>
+    <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+    <NavigationMenuContent class="w-48">
+      <NavigationMenuLink href="/ui/button">Button</NavigationMenuLink>
+      <NavigationMenuLink href="/ui/dialog">Dialog</NavigationMenuLink>
+    </NavigationMenuContent>
+  </NavigationMenuItem>
+  <NavigationMenuItem>
+    <NavigationMenuTrigger>Packages</NavigationMenuTrigger>
+    <NavigationMenuContent class="w-72">
+      <NavigationMenuLink href="/ui">@solid-kit/ui</NavigationMenuLink>
+      <NavigationMenuLink href="/">@solid-kit/tiptap</NavigationMenuLink>
+    </NavigationMenuContent>
+  </NavigationMenuItem>
   {/* A Trigger with href outside an Item is a plain link. */}
-  <NavigationMenu.Trigger href="https://github.com/bieniucieniu/solid-kit">
+  <NavigationMenuTrigger href="https://github.com/bieniucieniu/solid-kit">
     GitHub
-  </NavigationMenu.Trigger>
+  </NavigationMenuTrigger>
 </NavigationMenu>`;
 
 export default function NavigationMenuPage() {

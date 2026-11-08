@@ -1,13 +1,19 @@
-import { Progress } from "@solid-kit/ui";
+import {
+  Progress,
+  ProgressFill,
+  ProgressLabel,
+  ProgressTrack,
+  ProgressValueLabel,
+} from "@solid-kit/ui";
 
 export function ProgressDemo() {
   return (
     <Progress value={64} class="max-w-xs">
-      <Progress.Label>Upload</Progress.Label>
-      <Progress.ValueLabel />
-      <Progress.Track>
-        <Progress.Fill />
-      </Progress.Track>
+      <ProgressLabel>Upload</ProgressLabel>
+      <ProgressValueLabel />
+      <ProgressTrack>
+        <ProgressFill />
+      </ProgressTrack>
     </Progress>
   );
 }

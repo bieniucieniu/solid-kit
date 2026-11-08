@@ -1,44 +1,57 @@
-import { Field, Switch } from "@solid-kit/ui";
+import {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSet,
+  Switch,
+  SwitchControl,
+  SwitchInput,
+  SwitchThumb,
+} from "@solid-kit/ui";
 
 const inputClass =
   "h-7 w-full rounded-md border border-input bg-input/20 px-2 text-xs/relaxed text-foreground outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 dark:bg-input/30";
 
 export function FieldDemo() {
   return (
-    <Field.Set class="w-full max-w-md">
-      <Field.Legend>Profile</Field.Legend>
-      <Field.Description>Each field below uses a different orientation.</Field.Description>
-      <Field.Group>
+    <FieldSet class="w-full max-w-md">
+      <FieldLegend>Profile</FieldLegend>
+      <FieldDescription>Each field below uses a different orientation.</FieldDescription>
+      <FieldGroup>
         <Field orientation="vertical">
-          <Field.Label for="field-city">City (vertical)</Field.Label>
+          <FieldLabel for="field-city">City (vertical)</FieldLabel>
           <input id="field-city" class={inputClass} placeholder="Paris" />
-          <Field.Description>Where you work.</Field.Description>
+          <FieldDescription>Where you work.</FieldDescription>
         </Field>
         <Field orientation="horizontal">
-          <Field.Content>
-            <Field.Label for="field-public">Public profile (horizontal)</Field.Label>
-            <Field.Description>Anyone can see your name.</Field.Description>
-          </Field.Content>
+          <FieldContent>
+            <FieldLabel for="field-public">Public profile (horizontal)</FieldLabel>
+            <FieldDescription>Anyone can see your name.</FieldDescription>
+          </FieldContent>
           <Switch id="field-public">
-            <Switch.Input />
-            <Switch.Control>
-              <Switch.Thumb />
-            </Switch.Control>
+            <SwitchInput />
+            <SwitchControl>
+              <SwitchThumb />
+            </SwitchControl>
           </Switch>
         </Field>
         <Field orientation="responsive">
-          <Field.Content>
-            <Field.Label for="field-name">Name (responsive)</Field.Label>
-            <Field.Description>Row on wide groups, column on narrow.</Field.Description>
-          </Field.Content>
+          <FieldContent>
+            <FieldLabel for="field-name">Name (responsive)</FieldLabel>
+            <FieldDescription>Row on wide groups, column on narrow.</FieldDescription>
+          </FieldContent>
           <input id="field-name" class={inputClass} placeholder="Ada Lovelace" />
         </Field>
         <Field orientation="vertical" data-invalid="true">
-          <Field.Label for="field-email">Email</Field.Label>
+          <FieldLabel for="field-email">Email</FieldLabel>
           <input id="field-email" class={inputClass} aria-invalid="true" value="ada@" />
-          <Field.Error>Enter a valid email.</Field.Error>
+          <FieldError>Enter a valid email.</FieldError>
         </Field>
-      </Field.Group>
-    </Field.Set>
+      </FieldGroup>
+    </FieldSet>
   );
 }

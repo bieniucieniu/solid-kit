@@ -1,4 +1,13 @@
-import { Button, Toast, toaster } from "@solid-kit/ui";
+import {
+  Button,
+  Toast,
+  ToastCloseButton,
+  ToastDescription,
+  toaster,
+  ToastList,
+  ToastRegion,
+  ToastTitle,
+} from "@solid-kit/ui";
 
 export function ToastDemo() {
   return (
@@ -8,18 +17,18 @@ export function ToastDemo() {
         onClick={() =>
           toaster.show((props) => (
             <Toast toastId={props.toastId} persistent>
-              <Toast.Title>Saved</Toast.Title>
-              <Toast.Description>Your changes are stored.</Toast.Description>
-              <Toast.CloseButton>Close</Toast.CloseButton>
+              <ToastTitle>Saved</ToastTitle>
+              <ToastDescription>Your changes are stored.</ToastDescription>
+              <ToastCloseButton>Close</ToastCloseButton>
             </Toast>
           ))
         }
       >
         Show toast
       </Button>
-      <Toast.Region>
-        <Toast.List />
-      </Toast.Region>
+      <ToastRegion>
+        <ToastList />
+      </ToastRegion>
     </>
   );
 }

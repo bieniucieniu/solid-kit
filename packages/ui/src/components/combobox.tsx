@@ -3,7 +3,7 @@ import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
 type ComboboxTriggerProps = ComponentProps<typeof ComboboxPrimitive.Trigger>;
-type ComboboxRootProps = ComponentProps<typeof ComboboxPrimitive>;
+type ComboboxProps = ComponentProps<typeof ComboboxPrimitive>;
 type ComboboxControlProps = ComponentProps<typeof ComboboxPrimitive.Control>;
 type ComboboxInputProps = ComponentProps<typeof ComboboxPrimitive.Input>;
 type ComboboxIconProps = ComponentProps<typeof ComboboxPrimitive.Icon>;
@@ -18,7 +18,7 @@ type ComboboxLabelProps = ComponentProps<typeof ComboboxPrimitive.Label>;
 type ComboboxDescriptionProps = ComponentProps<typeof ComboboxPrimitive.Description>;
 type ComboboxErrorMessageProps = ComponentProps<typeof ComboboxPrimitive.ErrorMessage>;
 
-function ComboboxRoot(props: ComboboxRootProps) {
+export function Combobox(props: ComboboxProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <ComboboxPrimitive
@@ -252,23 +252,4 @@ export const ComboboxPortal = ComboboxPrimitive.Portal;
 export const ComboboxArrow = ComboboxPrimitive.Arrow;
 export const ComboboxHiddenSelect = ComboboxPrimitive.HiddenSelect;
 
-export const Combobox = Object.assign(ComboboxRoot, {
-  Control: ComboboxControl,
-  Input: ComboboxInput,
-  Trigger: ComboboxTrigger,
-  Icon: ComboboxIcon,
-  Portal: ComboboxPortal,
-  Content: ComboboxContent,
-  Arrow: ComboboxArrow,
-  Listbox: ComboboxListbox,
-  Item: ComboboxItem,
-  ItemLabel: ComboboxItemLabel,
-  ItemDescription: ComboboxItemDescription,
-  ItemIndicator: ComboboxItemIndicator,
-  Section: ComboboxSection,
-  Label: ComboboxLabel,
-  Description: ComboboxDescription,
-  ErrorMessage: ComboboxErrorMessage,
-  HiddenSelect: ComboboxHiddenSelect,
-  useContext: useComboboxContext,
-});
+export { useComboboxContext };

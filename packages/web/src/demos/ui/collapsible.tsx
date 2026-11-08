@@ -1,10 +1,10 @@
-import { Collapsible } from "@solid-kit/ui";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@solid-kit/ui";
 
 export function CollapsibleDemo() {
   return (
     <Collapsible>
-      <Collapsible.Trigger>Show notes</Collapsible.Trigger>
-      <Collapsible.Content>Notes stay hidden until you open them.</Collapsible.Content>
+      <CollapsibleTrigger>Show notes</CollapsibleTrigger>
+      <CollapsibleContent>Notes stay hidden until you open them.</CollapsibleContent>
     </Collapsible>
   );
 }

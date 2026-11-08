@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Switch } from "../../ui/src/components/switch";
+import {
+  Switch,
+  SwitchControl,
+  SwitchInput,
+  SwitchLabel,
+  SwitchThumb,
+} from "../../ui/src/components/switch";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -19,11 +25,11 @@ function SwitchDemo() {
 
   return (
     <Switch checked={checked()} onChange={setChecked}>
-      <Switch.Input />
-      <Switch.Control>
-        <Switch.Thumb />
-      </Switch.Control>
-      <Switch.Label>Airplane mode</Switch.Label>
+      <SwitchInput />
+      <SwitchControl>
+        <SwitchThumb />
+      </SwitchControl>
+      <SwitchLabel>Airplane mode</SwitchLabel>
     </Switch>
   );
 }

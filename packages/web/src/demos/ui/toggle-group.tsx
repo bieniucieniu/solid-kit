@@ -1,4 +1,4 @@
-import { ToggleGroup, type ToggleSize, type ToggleVariant } from "@solid-kit/ui";
+import { ToggleGroup, ToggleGroupItem, type ToggleSize, type ToggleVariant } from "@solid-kit/ui";
 import { createSignal, For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
@@ -8,9 +8,9 @@ const sizes: ToggleSize[] = ["sm", "default", "lg"];
 function Items() {
   return (
     <>
-      <ToggleGroup.Item value="left">Left</ToggleGroup.Item>
-      <ToggleGroup.Item value="center">Center</ToggleGroup.Item>
-      <ToggleGroup.Item value="right">Right</ToggleGroup.Item>
+      <ToggleGroupItem value="left">Left</ToggleGroupItem>
+      <ToggleGroupItem value="center">Center</ToggleGroupItem>
+      <ToggleGroupItem value="right">Right</ToggleGroupItem>
     </>
   );
 }

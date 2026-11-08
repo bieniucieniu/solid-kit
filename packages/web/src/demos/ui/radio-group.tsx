@@ -1,4 +1,12 @@
-import { RadioGroup } from "@solid-kit/ui";
+import {
+  RadioGroup,
+  RadioGroupItem,
+  RadioGroupItemControl,
+  RadioGroupItemIndicator,
+  RadioGroupItemInput,
+  RadioGroupItemLabel,
+  RadioGroupLabel,
+} from "@solid-kit/ui";
 import { createSignal } from "solid-js";
 
 export function RadioGroupDemo() {
@@ -6,21 +14,21 @@ export function RadioGroupDemo() {
 
   return (
     <RadioGroup value={fruit()} onChange={setFruit}>
-      <RadioGroup.Label>Fruit</RadioGroup.Label>
-      <RadioGroup.Item value="apple">
-        <RadioGroup.ItemInput />
-        <RadioGroup.ItemControl>
-          <RadioGroup.ItemIndicator />
-        </RadioGroup.ItemControl>
-        <RadioGroup.ItemLabel>Apple</RadioGroup.ItemLabel>
-      </RadioGroup.Item>
-      <RadioGroup.Item value="pear">
-        <RadioGroup.ItemInput />
-        <RadioGroup.ItemControl>
-          <RadioGroup.ItemIndicator />
-        </RadioGroup.ItemControl>
-        <RadioGroup.ItemLabel>Pear</RadioGroup.ItemLabel>
-      </RadioGroup.Item>
+      <RadioGroupLabel>Fruit</RadioGroupLabel>
+      <RadioGroupItem value="apple">
+        <RadioGroupItemInput />
+        <RadioGroupItemControl>
+          <RadioGroupItemIndicator />
+        </RadioGroupItemControl>
+        <RadioGroupItemLabel>Apple</RadioGroupItemLabel>
+      </RadioGroupItem>
+      <RadioGroupItem value="pear">
+        <RadioGroupItemInput />
+        <RadioGroupItemControl>
+          <RadioGroupItemIndicator />
+        </RadioGroupItemControl>
+        <RadioGroupItemLabel>Pear</RadioGroupItemLabel>
+      </RadioGroupItem>
     </RadioGroup>
   );
 }

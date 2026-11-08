@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Empty } from "../../ui/src/components/empty";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from "../../ui/src/components/empty";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,13 +23,13 @@ export const Default: Story = {
 function EmptyDemo() {
   return (
     <Empty>
-      <Empty.Header>
-        <Empty.Title>No files</Empty.Title>
-        <Empty.Description>Upload one to get started.</Empty.Description>
-      </Empty.Header>
-      <Empty.Content>
+      <EmptyHeader>
+        <EmptyTitle>No files</EmptyTitle>
+        <EmptyDescription>Upload one to get started.</EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent>
         <Button type="button">Upload</Button>
-      </Empty.Content>
+      </EmptyContent>
     </Empty>
   );
 }

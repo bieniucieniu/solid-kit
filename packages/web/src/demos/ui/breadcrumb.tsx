@@ -1,17 +1,17 @@
-import { Breadcrumb } from "@solid-kit/ui";
+import { Breadcrumb, BreadcrumbLink, BreadcrumbSeparator } from "@solid-kit/ui";
 
 export function BreadcrumbDemo() {
   return (
     <Breadcrumb separator="/">
       <ol>
         <li>
-          <Breadcrumb.Link href="/ui">UI</Breadcrumb.Link>
-          <Breadcrumb.Separator />
+          <BreadcrumbLink href="/ui">UI</BreadcrumbLink>
+          <BreadcrumbSeparator />
         </li>
         <li>
-          <Breadcrumb.Link href="/ui/breadcrumb" current>
+          <BreadcrumbLink href="/ui/breadcrumb" current>
             Breadcrumb
-          </Breadcrumb.Link>
+          </BreadcrumbLink>
         </li>
       </ol>
     </Breadcrumb>

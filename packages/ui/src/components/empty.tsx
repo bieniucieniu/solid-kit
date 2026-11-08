@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 import { splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-function EmptyRoot(props: JSX.HTMLAttributes<HTMLDivElement>) {
+export function Empty(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <div
@@ -61,10 +61,3 @@ export function EmptyContent(props: JSX.HTMLAttributes<HTMLDivElement>) {
     />
   );
 }
-
-export const Empty = Object.assign(EmptyRoot, {
-  Header: EmptyHeader,
-  Title: EmptyTitle,
-  Description: EmptyDescription,
-  Content: EmptyContent,
-});

@@ -1,21 +1,29 @@
 import { DocsPage } from "~/components/preview";
 import { ItemDemo } from "~/demos/ui/item";
 
-const snippet = `import { Button, Item } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from "@solid-kit/ui";
 
 // variant: "default" | "outline" | "muted"   size: "default" | "sm" | "xs"
-// Item.Media variant: "default" | "icon" | "image"
+// ItemMedia variant: "default" | "icon" | "image"
 <Item variant="outline" size="sm">
-  <Item.Media variant="image">
+  <ItemMedia variant="image">
     <img src="https://github.com/solidjs.png" alt="Solid" />
-  </Item.Media>
-  <Item.Content>
-    <Item.Title>Ada Lovelace</Item.Title>
-    <Item.Description>Editor</Item.Description>
-  </Item.Content>
-  <Item.Actions>
+  </ItemMedia>
+  <ItemContent>
+    <ItemTitle>Ada Lovelace</ItemTitle>
+    <ItemDescription>Editor</ItemDescription>
+  </ItemContent>
+  <ItemActions>
     <Button variant="outline" size="sm">View</Button>
-  </Item.Actions>
+  </ItemActions>
 </Item>`;
 
 export default function ItemPage() {

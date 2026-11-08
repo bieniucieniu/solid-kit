@@ -1,4 +1,4 @@
-import { Switch } from "@solid-kit/ui";
+import { Switch, SwitchControl, SwitchInput, SwitchLabel, SwitchThumb } from "@solid-kit/ui";
 import { createSignal, For } from "solid-js";
 import { VariantRow } from "~/components/preview";
 
@@ -12,20 +12,20 @@ export function SwitchDemo() {
       <For each={sizes}>
         {(size) => (
           <Switch size={size} checked={checked()} onChange={setChecked}>
-            <Switch.Input />
-            <Switch.Control>
-              <Switch.Thumb />
-            </Switch.Control>
-            <Switch.Label>Airplane mode ({size})</Switch.Label>
+            <SwitchInput />
+            <SwitchControl>
+              <SwitchThumb />
+            </SwitchControl>
+            <SwitchLabel>Airplane mode ({size})</SwitchLabel>
           </Switch>
         )}
       </For>
       <Switch disabled>
-        <Switch.Input />
-        <Switch.Control>
-          <Switch.Thumb />
-        </Switch.Control>
-        <Switch.Label>Disabled</Switch.Label>
+        <SwitchInput />
+        <SwitchControl>
+          <SwitchThumb />
+        </SwitchControl>
+        <SwitchLabel>Disabled</SwitchLabel>
       </Switch>
     </VariantRow>
   );

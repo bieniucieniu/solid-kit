@@ -1,4 +1,11 @@
-import { Avatar } from "@solid-kit/ui";
+import {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImg,
+} from "@solid-kit/ui";
 import { For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
@@ -11,8 +18,8 @@ export function AvatarDemo() {
         <For each={sizes}>
           {(size) => (
             <Avatar size={size}>
-              <Avatar.Img src="https://github.com/solidjs.png" alt="Solid" />
-              <Avatar.Fallback>SJ</Avatar.Fallback>
+              <AvatarImg src="https://github.com/solidjs.png" alt="Solid" />
+              <AvatarFallback>SJ</AvatarFallback>
             </Avatar>
           )}
         </For>
@@ -21,30 +28,30 @@ export function AvatarDemo() {
         <For each={sizes}>
           {(size) => (
             <Avatar size={size}>
-              <Avatar.Fallback>AL</Avatar.Fallback>
+              <AvatarFallback>AL</AvatarFallback>
             </Avatar>
           )}
         </For>
       </VariantRow>
       <VariantRow label="Badge">
         <Avatar>
-          <Avatar.Fallback>AL</Avatar.Fallback>
-          <Avatar.Badge />
+          <AvatarFallback>AL</AvatarFallback>
+          <AvatarBadge />
         </Avatar>
       </VariantRow>
       <VariantRow label="Group">
-        <Avatar.Group>
+        <AvatarGroup>
           <Avatar>
-            <Avatar.Fallback>AL</Avatar.Fallback>
+            <AvatarFallback>AL</AvatarFallback>
           </Avatar>
           <Avatar>
-            <Avatar.Fallback>GH</Avatar.Fallback>
+            <AvatarFallback>GH</AvatarFallback>
           </Avatar>
           <Avatar>
-            <Avatar.Fallback>KJ</Avatar.Fallback>
+            <AvatarFallback>KJ</AvatarFallback>
           </Avatar>
-          <Avatar.GroupCount>+3</Avatar.GroupCount>
-        </Avatar.Group>
+          <AvatarGroupCount>+3</AvatarGroupCount>
+        </AvatarGroup>
       </VariantRow>
     </VariantStack>
   );

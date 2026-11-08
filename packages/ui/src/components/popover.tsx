@@ -3,7 +3,7 @@ import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type PopoverRootProps = ComponentProps<typeof PopoverPrimitive>;
+type PopoverProps = ComponentProps<typeof PopoverPrimitive>;
 type PopoverContentProps = ComponentProps<typeof PopoverPrimitive.Content>;
 type PopoverTitleProps = ComponentProps<typeof PopoverPrimitive.Title>;
 type PopoverDescriptionProps = ComponentProps<typeof PopoverPrimitive.Description>;
@@ -12,7 +12,7 @@ type PopoverCloseButtonProps = ComponentProps<typeof PopoverPrimitive.CloseButto
   size?: ButtonSize;
 };
 
-function PopoverRoot(props: PopoverRootProps) {
+export function Popover(props: PopoverProps) {
   return <PopoverPrimitive gutter={4} {...props} />;
 }
 
@@ -84,15 +84,4 @@ export const PopoverAnchor = PopoverPrimitive.Anchor;
 export const PopoverPortal = PopoverPrimitive.Portal;
 export const PopoverArrow = PopoverPrimitive.Arrow;
 
-export const Popover = Object.assign(PopoverRoot, {
-  Trigger: PopoverTrigger,
-  Anchor: PopoverAnchor,
-  Portal: PopoverPortal,
-  Content: PopoverContent,
-  Arrow: PopoverArrow,
-  Header: PopoverHeader,
-  Title: PopoverTitle,
-  Description: PopoverDescription,
-  CloseButton: PopoverCloseButton,
-  useContext: usePopoverContext,
-});
+export { usePopoverContext };

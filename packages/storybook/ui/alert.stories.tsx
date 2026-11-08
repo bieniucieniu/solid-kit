@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Alert } from "../../ui/src/components/alert";
+import { Alert, AlertDescription, AlertTitle } from "../../ui/src/components/alert";
 
 const meta = {
   title: "UI/Alert",
@@ -16,8 +16,8 @@ export const Default: Story = {
 function AlertDemo() {
   return (
     <Alert>
-      <Alert.Title>Heads up</Alert.Title>
-      <Alert.Description>You can change this later.</Alert.Description>
+      <AlertTitle>Heads up</AlertTitle>
+      <AlertDescription>You can change this later.</AlertDescription>
     </Alert>
   );
 }

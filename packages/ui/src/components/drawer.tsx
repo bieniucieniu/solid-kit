@@ -3,7 +3,7 @@ import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type DrawerRootProps = ComponentProps<typeof DrawerPrimitive>;
+type DrawerProps = ComponentProps<typeof DrawerPrimitive>;
 type DrawerOverlayProps = ComponentProps<typeof DrawerPrimitive.Overlay>;
 type DrawerContentProps = ComponentProps<typeof DrawerPrimitive.Content>;
 type DrawerTitleProps = ComponentProps<typeof DrawerPrimitive.Title>;
@@ -13,7 +13,7 @@ type DrawerCloseButtonProps = ComponentProps<typeof DrawerPrimitive.CloseButton>
   size?: ButtonSize;
 };
 
-function DrawerRoot(props: DrawerRootProps) {
+export function Drawer(props: DrawerProps) {
   return <DrawerPrimitive {...props} />;
 }
 
@@ -117,15 +117,4 @@ export function DrawerCloseButton(props: DrawerCloseButtonProps) {
 export const DrawerTrigger = DrawerPrimitive.Trigger;
 export const DrawerPortal = DrawerPrimitive.Portal;
 
-export const Drawer = Object.assign(DrawerRoot, {
-  Trigger: DrawerTrigger,
-  Portal: DrawerPortal,
-  Overlay: DrawerOverlay,
-  Content: DrawerContent,
-  Header: DrawerHeader,
-  Footer: DrawerFooter,
-  Title: DrawerTitle,
-  Description: DrawerDescription,
-  CloseButton: DrawerCloseButton,
-  useContext: useDialogContext,
-});
+export { useDialogContext as useDrawerContext };

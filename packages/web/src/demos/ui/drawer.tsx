@@ -1,25 +1,37 @@
-import { Button, Drawer } from "@solid-kit/ui";
+import {
+  Button,
+  Drawer,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@solid-kit/ui";
 
 export function DrawerDemo() {
   return (
     <Drawer>
-      <Drawer.Trigger as={Button} variant="outline">
+      <DrawerTrigger as={Button} variant="outline">
         Open
-      </Drawer.Trigger>
-      <Drawer.Portal>
-        <Drawer.Overlay />
-        <Drawer.Content>
-          <Drawer.Header>
-            <Drawer.Title>Filters</Drawer.Title>
-            <Drawer.Description>Narrow the list.</Drawer.Description>
-          </Drawer.Header>
+      </DrawerTrigger>
+      <DrawerPortal>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Filters</DrawerTitle>
+            <DrawerDescription>Narrow the list.</DrawerDescription>
+          </DrawerHeader>
           <p class="text-muted-foreground">Content placed directly in the drawer is padded.</p>
-          <Drawer.Footer>
-            <Drawer.CloseButton variant="default">Apply</Drawer.CloseButton>
-            <Drawer.CloseButton>Cancel</Drawer.CloseButton>
-          </Drawer.Footer>
-        </Drawer.Content>
-      </Drawer.Portal>
+          <DrawerFooter>
+            <DrawerCloseButton variant="default">Apply</DrawerCloseButton>
+            <DrawerCloseButton>Cancel</DrawerCloseButton>
+          </DrawerFooter>
+        </DrawerContent>
+      </DrawerPortal>
     </Drawer>
   );
 }

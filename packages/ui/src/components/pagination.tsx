@@ -3,7 +3,7 @@ import { type ComponentProps, splitProps } from "solid-js";
 import { buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type PaginationRootProps = ComponentProps<typeof PaginationPrimitive>;
+type PaginationProps = ComponentProps<typeof PaginationPrimitive>;
 type PaginationPreviousProps = ComponentProps<typeof PaginationPrimitive.Previous>;
 type PaginationNextProps = ComponentProps<typeof PaginationPrimitive.Next>;
 type PaginationItemProps = ComponentProps<typeof PaginationPrimitive.Item>;
@@ -17,7 +17,7 @@ const pageClass = buttonVariants({
 });
 const stepClass = buttonVariants({ variant: "ghost" });
 
-function PaginationRoot(props: PaginationRootProps) {
+export function Pagination(props: PaginationProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <PaginationPrimitive
@@ -113,11 +113,3 @@ export function PaginationEllipsis(props: PaginationEllipsisProps) {
 }
 
 export const PaginationItems = PaginationPrimitive.Items;
-
-export const Pagination = Object.assign(PaginationRoot, {
-  Previous: PaginationPrevious,
-  Items: PaginationItems,
-  Item: PaginationItem,
-  Ellipsis: PaginationEllipsis,
-  Next: PaginationNext,
-});

@@ -1,12 +1,12 @@
-import { Button, Tooltip } from "@solid-kit/ui";
+import { Button, Tooltip, TooltipContent, TooltipPortal, TooltipTrigger } from "@solid-kit/ui";
 
 export function TooltipDemo() {
   return (
     <Tooltip>
-      <Tooltip.Trigger as={Button}>Hover</Tooltip.Trigger>
-      <Tooltip.Portal>
-        <Tooltip.Content>Saved</Tooltip.Content>
-      </Tooltip.Portal>
+      <TooltipTrigger as={Button}>Hover</TooltipTrigger>
+      <TooltipPortal>
+        <TooltipContent>Saved</TooltipContent>
+      </TooltipPortal>
     </Tooltip>
   );
 }

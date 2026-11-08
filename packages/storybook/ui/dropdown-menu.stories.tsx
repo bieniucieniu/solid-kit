@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { DropdownMenu } from "../../ui/src/components/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../../ui/src/components/dropdown-menu";
 import { Button } from "../../ui/src/components/button";
 import { createSignal } from "solid-js";
 
@@ -21,17 +28,17 @@ function DropdownMenuDemo() {
   return (
     <div class="flex flex-col items-start gap-3">
       <DropdownMenu>
-        <DropdownMenu.Trigger as={Button}>Open</DropdownMenu.Trigger>
-        <DropdownMenu.Portal>
-          <DropdownMenu.Content>
-            <DropdownMenu.Item onSelect={() => setAction("Edit")}>Edit</DropdownMenu.Item>
-            <DropdownMenu.Item onSelect={() => setAction("Duplicate")}>Duplicate</DropdownMenu.Item>
-            <DropdownMenu.Separator />
-            <DropdownMenu.Item variant="destructive" onSelect={() => setAction("Delete")}>
+        <DropdownMenuTrigger as={Button}>Open</DropdownMenuTrigger>
+        <DropdownMenuPortal>
+          <DropdownMenuContent>
+            <DropdownMenuItem onSelect={() => setAction("Edit")}>Edit</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setAction("Duplicate")}>Duplicate</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem variant="destructive" onSelect={() => setAction("Delete")}>
               Delete
-            </DropdownMenu.Item>
-          </DropdownMenu.Content>
-        </DropdownMenu.Portal>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenuPortal>
       </DropdownMenu>
       <p class="text-sm text-muted-foreground">Action: {action()}</p>
     </div>

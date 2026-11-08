@@ -3,7 +3,7 @@ import { type ComponentProps, onCleanup, onMount, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type ToastRootProps = ComponentProps<typeof ToastPrimitive>;
+type ToastProps = ComponentProps<typeof ToastPrimitive>;
 type ToastRegionProps = ComponentProps<typeof ToastPrimitive.Region>;
 type ToastListProps = ComponentProps<typeof ToastPrimitive.List>;
 type ToastTitleProps = ComponentProps<typeof ToastPrimitive.Title>;
@@ -15,7 +15,7 @@ type ToastCloseButtonProps = ComponentProps<typeof ToastPrimitive.CloseButton> &
 type ToastProgressTrackProps = ComponentProps<typeof ToastPrimitive.ProgressTrack>;
 type ToastProgressFillProps = ComponentProps<typeof ToastPrimitive.ProgressFill>;
 
-function ToastRoot(props: ToastRootProps) {
+export function Toast(props: ToastProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <ToastPrimitive
@@ -191,16 +191,4 @@ export function ToastProgressFill(props: ToastProgressFillProps) {
   );
 }
 
-export { toaster };
-
-export const Toast = Object.assign(ToastRoot, {
-  Root: ToastRoot,
-  Region: ToastRegion,
-  List: ToastList,
-  Title: ToastTitle,
-  Description: ToastDescription,
-  CloseButton: ToastCloseButton,
-  ProgressTrack: ToastProgressTrack,
-  ProgressFill: ToastProgressFill,
-  useContext: useToastContext,
-});
+export { toaster, useToastContext };

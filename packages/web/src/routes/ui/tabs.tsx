@@ -1,16 +1,16 @@
 import { DocsPage } from "~/components/preview";
 import { TabsDemo } from "~/demos/ui/tabs";
 
-const snippet = `import { Tabs } from "@solid-kit/ui";
+const snippet = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@solid-kit/ui";
 
-// Tabs.List variant: "default" | "line"   Tabs orientation: "horizontal" | "vertical"
+// TabsList variant: "default" | "line"   Tabs orientation: "horizontal" | "vertical"
 <Tabs defaultValue="account">
-  <Tabs.List variant="line">
-    <Tabs.Trigger value="account">Account</Tabs.Trigger>
-    <Tabs.Trigger value="password">Password</Tabs.Trigger>
-  </Tabs.List>
-  <Tabs.Content value="account">Account settings.</Tabs.Content>
-  <Tabs.Content value="password">Password settings.</Tabs.Content>
+  <TabsList variant="line">
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">Account settings.</TabsContent>
+  <TabsContent value="password">Password settings.</TabsContent>
 </Tabs>`;
 
 export default function TabsPage() {

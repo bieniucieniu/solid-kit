@@ -2,13 +2,13 @@ import { Image as ImagePrimitive } from "@kobalte/core/image";
 import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type AvatarRootProps = ComponentProps<typeof ImagePrimitive> & {
+type AvatarProps = ComponentProps<typeof ImagePrimitive> & {
   size?: "default" | "sm" | "lg";
 };
 type AvatarImgProps = ComponentProps<typeof ImagePrimitive.Img>;
 type AvatarFallbackProps = ComponentProps<typeof ImagePrimitive.Fallback>;
 
-function AvatarRoot(props: AvatarRootProps) {
+export function Avatar(props: AvatarProps) {
   const [, rest] = splitProps(props, ["class", "ref", "size"]);
   return (
     <ImagePrimitive
@@ -98,11 +98,3 @@ export function AvatarGroupCount(props: JSX.HTMLAttributes<HTMLDivElement>) {
     />
   );
 }
-
-export const Avatar = Object.assign(AvatarRoot, {
-  Img: AvatarImg,
-  Fallback: AvatarFallback,
-  Badge: AvatarBadge,
-  Group: AvatarGroup,
-  GroupCount: AvatarGroupCount,
-});

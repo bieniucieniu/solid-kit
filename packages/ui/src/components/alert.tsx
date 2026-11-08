@@ -7,11 +7,11 @@ const alertVariantClasses = {
     "bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current",
 };
 
-type AlertRootProps = JSX.HTMLAttributes<HTMLDivElement> & {
+type AlertProps = JSX.HTMLAttributes<HTMLDivElement> & {
   variant?: keyof typeof alertVariantClasses;
 };
 
-function AlertRoot(props: AlertRootProps) {
+export function Alert(props: AlertProps) {
   const [, rest] = splitProps(props, ["class", "ref", "variant"]);
   return (
     <div
@@ -69,9 +69,3 @@ export function AlertAction(props: JSX.HTMLAttributes<HTMLDivElement>) {
     />
   );
 }
-
-export const Alert = Object.assign(AlertRoot, {
-  Title: AlertTitle,
-  Description: AlertDescription,
-  Action: AlertAction,
-});

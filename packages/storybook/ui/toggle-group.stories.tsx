@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { ToggleGroup } from "../../ui/src/components/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "../../ui/src/components/toggle-group";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -19,9 +19,9 @@ function ToggleGroupDemo() {
 
   return (
     <ToggleGroup value={value()} onChange={setValue}>
-      <ToggleGroup.Item value="left">Left</ToggleGroup.Item>
-      <ToggleGroup.Item value="center">Center</ToggleGroup.Item>
-      <ToggleGroup.Item value="right">Right</ToggleGroup.Item>
+      <ToggleGroupItem value="left">Left</ToggleGroupItem>
+      <ToggleGroupItem value="center">Center</ToggleGroupItem>
+      <ToggleGroupItem value="right">Right</ToggleGroupItem>
     </ToggleGroup>
   );
 }

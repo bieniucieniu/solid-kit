@@ -1,21 +1,30 @@
 import { DocsPage } from "~/components/preview";
 import { CardDemo } from "~/demos/ui/card";
 
-const snippet = `import { Button, Card } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@solid-kit/ui";
 
 // size: "default" | "sm"
 <Card size="sm">
-  <Card.Header>
-    <Card.Title>Project</Card.Title>
-    <Card.Description>A short summary of the work.</Card.Description>
-    <Card.Action>
+  <CardHeader>
+    <CardTitle>Project</CardTitle>
+    <CardDescription>A short summary of the work.</CardDescription>
+    <CardAction>
       <Button variant="ghost" size="sm">Edit</Button>
-    </Card.Action>
-  </Card.Header>
-  <Card.Content>Three open tasks.</Card.Content>
-  <Card.Footer>
+    </CardAction>
+  </CardHeader>
+  <CardContent>Three open tasks.</CardContent>
+  <CardFooter>
     <Button>Save</Button>
-  </Card.Footer>
+  </CardFooter>
 </Card>`;
 
 export default function CardPage() {

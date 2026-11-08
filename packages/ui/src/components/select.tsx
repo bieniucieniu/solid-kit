@@ -2,7 +2,7 @@ import { Select as SelectPrimitive, useSelectContext } from "@kobalte/core/selec
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type SelectRootProps = ComponentProps<typeof SelectPrimitive>;
+type SelectProps = ComponentProps<typeof SelectPrimitive>;
 type SelectTriggerProps = ComponentProps<typeof SelectPrimitive.Trigger>;
 type SelectValueProps = ComponentProps<typeof SelectPrimitive.Value>;
 type SelectIconProps = ComponentProps<typeof SelectPrimitive.Icon>;
@@ -17,7 +17,7 @@ type SelectLabelProps = ComponentProps<typeof SelectPrimitive.Label>;
 type SelectDescriptionProps = ComponentProps<typeof SelectPrimitive.Description>;
 type SelectErrorMessageProps = ComponentProps<typeof SelectPrimitive.ErrorMessage>;
 
-function SelectRoot(props: SelectRootProps) {
+export function Select(props: SelectProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <SelectPrimitive
@@ -240,22 +240,4 @@ export const SelectPortal = SelectPrimitive.Portal;
 export const SelectArrow = SelectPrimitive.Arrow;
 export const SelectHiddenSelect = SelectPrimitive.HiddenSelect;
 
-export const Select = Object.assign(SelectRoot, {
-  Trigger: SelectTrigger,
-  Value: SelectValue,
-  Icon: SelectIcon,
-  Portal: SelectPortal,
-  Content: SelectContent,
-  Arrow: SelectArrow,
-  Listbox: SelectListbox,
-  Item: SelectItem,
-  ItemLabel: SelectItemLabel,
-  ItemDescription: SelectItemDescription,
-  ItemIndicator: SelectItemIndicator,
-  Section: SelectSection,
-  Label: SelectLabel,
-  Description: SelectDescription,
-  ErrorMessage: SelectErrorMessage,
-  HiddenSelect: SelectHiddenSelect,
-  useContext: useSelectContext,
-});
+export { useSelectContext };

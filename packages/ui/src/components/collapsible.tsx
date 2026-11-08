@@ -2,11 +2,11 @@ import { Collapsible as CollapsiblePrimitive } from "@kobalte/core/collapsible";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type CollapsibleRootProps = ComponentProps<typeof CollapsiblePrimitive>;
+type CollapsibleProps = ComponentProps<typeof CollapsiblePrimitive>;
 type CollapsibleTriggerProps = ComponentProps<typeof CollapsiblePrimitive.Trigger>;
 type CollapsibleContentProps = ComponentProps<typeof CollapsiblePrimitive.Content>;
 
-function CollapsibleRoot(props: CollapsibleRootProps) {
+export function Collapsible(props: CollapsibleProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <CollapsiblePrimitive
@@ -57,8 +57,3 @@ export function CollapsibleContent(props: CollapsibleContentProps) {
     </CollapsiblePrimitive.Content>
   );
 }
-
-export const Collapsible = Object.assign(CollapsibleRoot, {
-  Trigger: CollapsibleTrigger,
-  Content: CollapsibleContent,
-});

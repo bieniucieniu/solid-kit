@@ -11,7 +11,7 @@ const checkItemClass =
 const subTriggerClass =
   "flex min-h-7 cursor-default items-center gap-2 rounded-md px-2 py-1 text-xs outline-hidden select-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-highlighted:**:text-accent-foreground data-expanded:bg-accent data-expanded:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5";
 
-type DropdownMenuRootProps = ComponentProps<typeof DropdownMenuPrimitive>;
+type DropdownMenuProps = ComponentProps<typeof DropdownMenuPrimitive>;
 type DropdownMenuContentProps = ComponentProps<typeof DropdownMenuPrimitive.Content>;
 type DropdownMenuItemProps = ComponentProps<typeof DropdownMenuPrimitive.Item> & {
   variant?: "default" | "destructive";
@@ -31,7 +31,7 @@ type DropdownMenuSubTriggerProps = ComponentProps<typeof DropdownMenuPrimitive.S
 type DropdownMenuSubContentProps = ComponentProps<typeof DropdownMenuPrimitive.SubContent>;
 type DropdownMenuSeparatorProps = ComponentProps<typeof DropdownMenuPrimitive.Separator>;
 
-function DropdownMenuRoot(props: DropdownMenuRootProps) {
+export function DropdownMenu(props: DropdownMenuProps) {
   return <DropdownMenuPrimitive gutter={4} {...props} />;
 }
 
@@ -244,25 +244,3 @@ export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 export const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 export const DropdownMenuArrow = DropdownMenuPrimitive.Arrow;
 export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
-
-export const DropdownMenu = Object.assign(DropdownMenuRoot, {
-  Trigger: DropdownMenuTrigger,
-  Portal: DropdownMenuPortal,
-  Content: DropdownMenuContent,
-  Arrow: DropdownMenuArrow,
-  Item: DropdownMenuItem,
-  ItemLabel: DropdownMenuItemLabel,
-  ItemDescription: DropdownMenuItemDescription,
-  ItemIndicator: DropdownMenuItemIndicator,
-  CheckboxItem: DropdownMenuCheckboxItem,
-  RadioGroup: DropdownMenuRadioGroup,
-  RadioItem: DropdownMenuRadioItem,
-  Group: DropdownMenuGroup,
-  GroupLabel: DropdownMenuGroupLabel,
-  Icon: DropdownMenuIcon,
-  Sub: DropdownMenuSub,
-  SubTrigger: DropdownMenuSubTrigger,
-  SubContent: DropdownMenuSubContent,
-  Separator: DropdownMenuSeparator,
-  Shortcut: DropdownMenuShortcut,
-});

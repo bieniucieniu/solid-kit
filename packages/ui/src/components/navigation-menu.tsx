@@ -2,8 +2,8 @@ import { NavigationMenu as NavigationMenuPrimitive } from "@kobalte/core/navigat
 import { type ComponentProps, type JSX, Show, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type NavigationMenuRootProps = ComponentProps<typeof NavigationMenuPrimitive> & {
-  /** Render the shared viewport panel. Set `false` to place `NavigationMenu.Viewport` yourself. */
+type NavigationMenuProps = ComponentProps<typeof NavigationMenuPrimitive> & {
+  /** Render the shared viewport panel. Set `false` to place `NavigationMenuViewport` yourself. */
   viewport?: boolean;
 };
 type NavigationMenuItemProps = ComponentProps<typeof NavigationMenuPrimitive.Menu>;
@@ -13,7 +13,7 @@ type NavigationMenuContentProps = ComponentProps<typeof NavigationMenuPrimitive.
 type NavigationMenuLinkProps = ComponentProps<typeof NavigationMenuPrimitive.Item>;
 type NavigationMenuViewportProps = ComponentProps<typeof NavigationMenuPrimitive.Viewport>;
 
-function NavigationMenuRoot(props: NavigationMenuRootProps) {
+export function NavigationMenu(props: NavigationMenuProps) {
   const [, rest] = splitProps(props, [
     "class",
     "ref",
@@ -133,11 +133,3 @@ export function NavigationMenuViewport(props: NavigationMenuViewportProps) {
     />
   );
 }
-
-export const NavigationMenu = Object.assign(NavigationMenuRoot, {
-  Item: NavigationMenuItem,
-  Trigger: NavigationMenuTrigger,
-  Content: NavigationMenuContent,
-  Link: NavigationMenuLink,
-  Viewport: NavigationMenuViewport,
-});

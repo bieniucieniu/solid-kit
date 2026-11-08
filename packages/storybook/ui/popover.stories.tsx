@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Popover } from "../../ui/src/components/popover";
+import {
+  Popover,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeader,
+  PopoverPortal,
+  PopoverTitle,
+  PopoverTrigger,
+} from "../../ui/src/components/popover";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,16 +26,16 @@ export const Default: Story = {
 function PopoverDemo() {
   return (
     <Popover>
-      <Popover.Trigger as={Button}>Open</Popover.Trigger>
-      <Popover.Portal>
-        <Popover.Content>
-          <Popover.Header>
-            <Popover.Title>Dimensions</Popover.Title>
-            <Popover.Description>Set the size of the frame.</Popover.Description>
-          </Popover.Header>
-          <Popover.CloseButton>Close</Popover.CloseButton>
-        </Popover.Content>
-      </Popover.Portal>
+      <PopoverTrigger as={Button}>Open</PopoverTrigger>
+      <PopoverPortal>
+        <PopoverContent>
+          <PopoverHeader>
+            <PopoverTitle>Dimensions</PopoverTitle>
+            <PopoverDescription>Set the size of the frame.</PopoverDescription>
+          </PopoverHeader>
+          <PopoverCloseButton>Close</PopoverCloseButton>
+        </PopoverContent>
+      </PopoverPortal>
     </Popover>
   );
 }

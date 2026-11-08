@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Input } from "../../ui/src/components/input";
+import { Input, InputControl, InputDescription, InputLabel } from "../../ui/src/components/input";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -19,9 +19,9 @@ function InputDemo() {
 
   return (
     <Input class="max-w-xs" value={value()} onChange={setValue}>
-      <Input.Label>Email</Input.Label>
-      <Input.Input type="email" placeholder="ada@example.com" />
-      <Input.Description>Used to sign in.</Input.Description>
+      <InputLabel>Email</InputLabel>
+      <InputControl type="email" placeholder="ada@example.com" />
+      <InputDescription>Used to sign in.</InputDescription>
     </Input>
   );
 }

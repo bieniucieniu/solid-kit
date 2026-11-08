@@ -1,17 +1,25 @@
 import { DocsPage } from "~/components/preview";
 import { DropdownMenuDemo } from "~/demos/ui/dropdown-menu";
 
-const snippet = `import { Button, DropdownMenu } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@solid-kit/ui";
 
 <DropdownMenu>
-  <DropdownMenu.Trigger as={Button}>Open</DropdownMenu.Trigger>
-  <DropdownMenu.Portal>
-    <DropdownMenu.Content>
-      <DropdownMenu.Item>Edit</DropdownMenu.Item>
-      <DropdownMenu.Separator />
-      <DropdownMenu.Item variant="destructive">Delete</DropdownMenu.Item>
-    </DropdownMenu.Content>
-  </DropdownMenu.Portal>
+  <DropdownMenuTrigger as={Button}>Open</DropdownMenuTrigger>
+  <DropdownMenuPortal>
+    <DropdownMenuContent>
+      <DropdownMenuItem>Edit</DropdownMenuItem>
+      <DropdownMenuSeparator />
+      <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenuPortal>
 </DropdownMenu>`;
 
 export default function DropdownMenuPage() {

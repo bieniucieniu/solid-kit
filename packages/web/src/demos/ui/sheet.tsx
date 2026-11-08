@@ -1,4 +1,16 @@
-import { Button, Sheet } from "@solid-kit/ui";
+import {
+  Button,
+  Sheet,
+  SheetCloseButton,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetOverlay,
+  SheetPortal,
+  SheetTitle,
+  SheetTrigger,
+} from "@solid-kit/ui";
 import { For } from "solid-js";
 
 const sides = ["top", "right", "bottom", "left"] as const;
@@ -9,23 +21,23 @@ export function SheetDemo() {
       <For each={sides}>
         {(side) => (
           <Sheet>
-            <Sheet.Trigger as={Button} variant="outline">
+            <SheetTrigger as={Button} variant="outline">
               Open {side}
-            </Sheet.Trigger>
-            <Sheet.Portal>
-              <Sheet.Overlay />
-              <Sheet.Content side={side}>
-                <Sheet.Header>
-                  <Sheet.Title>Settings</Sheet.Title>
-                  <Sheet.Description>Changes apply to this project.</Sheet.Description>
-                </Sheet.Header>
+            </SheetTrigger>
+            <SheetPortal>
+              <SheetOverlay />
+              <SheetContent side={side}>
+                <SheetHeader>
+                  <SheetTitle>Settings</SheetTitle>
+                  <SheetDescription>Changes apply to this project.</SheetDescription>
+                </SheetHeader>
                 <p class="text-muted-foreground">Content placed directly in the sheet is padded.</p>
-                <Sheet.Footer>
-                  <Sheet.CloseButton variant="default">Save</Sheet.CloseButton>
-                  <Sheet.CloseButton>Cancel</Sheet.CloseButton>
-                </Sheet.Footer>
-              </Sheet.Content>
-            </Sheet.Portal>
+                <SheetFooter>
+                  <SheetCloseButton variant="default">Save</SheetCloseButton>
+                  <SheetCloseButton>Cancel</SheetCloseButton>
+                </SheetFooter>
+              </SheetContent>
+            </SheetPortal>
           </Sheet>
         )}
       </For>

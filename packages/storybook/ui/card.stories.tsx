@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Card } from "../../ui/src/components/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../../ui/src/components/card";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,14 +24,14 @@ export const Default: Story = {
 function CardDemo() {
   return (
     <Card class="max-w-sm">
-      <Card.Header>
-        <Card.Title>Project</Card.Title>
-        <Card.Description>A short summary of the work.</Card.Description>
-      </Card.Header>
-      <Card.Content>Three open tasks.</Card.Content>
-      <Card.Footer>
+      <CardHeader>
+        <CardTitle>Project</CardTitle>
+        <CardDescription>A short summary of the work.</CardDescription>
+      </CardHeader>
+      <CardContent>Three open tasks.</CardContent>
+      <CardFooter>
         <Button type="button">Save</Button>
-      </Card.Footer>
+      </CardFooter>
     </Card>
   );
 }

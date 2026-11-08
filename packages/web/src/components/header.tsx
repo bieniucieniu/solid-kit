@@ -1,5 +1,15 @@
 import { A, useLocation, useNavigate } from "@solidjs/router";
-import { Button, ScrollArea, Sheet } from "@solid-kit/ui";
+import {
+  Button,
+  ScrollArea,
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetOverlay,
+  SheetPortal,
+  SheetTitle,
+  SheetTrigger,
+} from "@solid-kit/ui";
 import { createEffect, createSignal, For, on, Show } from "solid-js";
 import { SidebarNav } from "~/components/sidebar-nav";
 import { ThemeToggle } from "~/components/theme-toggle";
@@ -26,7 +36,7 @@ export function Header() {
         <Show when={currentPackage()}>
           {(pkg) => (
             <Sheet open={menuOpen()} onOpenChange={setMenuOpen}>
-              <Sheet.Trigger
+              <SheetTrigger
                 as={Button}
                 type="button"
                 variant="ghost"
@@ -45,18 +55,18 @@ export function Header() {
                 >
                   <path d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-              </Sheet.Trigger>
-              <Sheet.Portal>
-                <Sheet.Overlay />
-                <Sheet.Content side="left">
-                  <Sheet.Header>
-                    <Sheet.Title>{pkg().title}</Sheet.Title>
-                  </Sheet.Header>
+              </SheetTrigger>
+              <SheetPortal>
+                <SheetOverlay />
+                <SheetContent side="left">
+                  <SheetHeader>
+                    <SheetTitle>{pkg().title}</SheetTitle>
+                  </SheetHeader>
                   <ScrollArea class="-mx-3 min-h-0 flex-1 px-3">
                     <SidebarNav items={sidebars[pkg().id]} />
                   </ScrollArea>
-                </Sheet.Content>
-              </Sheet.Portal>
+                </SheetContent>
+              </SheetPortal>
             </Sheet>
           )}
         </Show>

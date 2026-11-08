@@ -50,7 +50,7 @@ export function ItemSeparator(props: JSX.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-function ItemRoot(
+export function Item(
   props: JSX.HTMLAttributes<HTMLDivElement> & {
     variant?: keyof typeof itemVariantClasses;
     size?: keyof typeof itemSizeClasses;
@@ -173,15 +173,3 @@ export function ItemFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {
     />
   );
 }
-
-export const Item = Object.assign(ItemRoot, {
-  Group: ItemGroup,
-  Separator: ItemSeparator,
-  Media: ItemMedia,
-  Content: ItemContent,
-  Title: ItemTitle,
-  Description: ItemDescription,
-  Actions: ItemActions,
-  Header: ItemHeader,
-  Footer: ItemFooter,
-});

@@ -1,15 +1,22 @@
-import { Button, Empty } from "@solid-kit/ui";
+import {
+  Button,
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from "@solid-kit/ui";
 
 export function EmptyDemo() {
   return (
     <Empty>
-      <Empty.Header>
-        <Empty.Title>No files</Empty.Title>
-        <Empty.Description>Upload one to get started.</Empty.Description>
-      </Empty.Header>
-      <Empty.Content>
+      <EmptyHeader>
+        <EmptyTitle>No files</EmptyTitle>
+        <EmptyDescription>Upload one to get started.</EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent>
         <Button type="button">Upload</Button>
-      </Empty.Content>
+      </EmptyContent>
     </Empty>
   );
 }

@@ -2,7 +2,7 @@ import type { JSX } from "solid-js";
 import { splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-function CardRoot(props: JSX.HTMLAttributes<HTMLDivElement> & { size?: "default" | "sm" }) {
+export function Card(props: JSX.HTMLAttributes<HTMLDivElement> & { size?: "default" | "sm" }) {
   const [, rest] = splitProps(props, ["class", "ref", "size"]);
   return (
     <div
@@ -95,12 +95,3 @@ export function CardFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {
     />
   );
 }
-
-export const Card = Object.assign(CardRoot, {
-  Header: CardHeader,
-  Title: CardTitle,
-  Description: CardDescription,
-  Action: CardAction,
-  Content: CardContent,
-  Footer: CardFooter,
-});

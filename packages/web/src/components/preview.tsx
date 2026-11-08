@@ -1,4 +1,14 @@
-import { CodeBlock, cn, createHighlightedCode } from "@solid-kit/ui";
+import {
+  cn,
+  CodeBlock,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockHeader,
+  CodeBlockLine,
+  CodeBlockTitle,
+  createHighlightedCode,
+} from "@solid-kit/ui";
 import { For, type JSX } from "solid-js";
 
 export function Preview(props: { children?: JSX.Element; class?: string }) {
@@ -76,18 +86,18 @@ export function CodeExample(props: {
   );
   return (
     <CodeBlock class={props.class}>
-      <CodeBlock.Header>
-        <CodeBlock.Title>
+      <CodeBlockHeader>
+        <CodeBlockTitle>
           <FileCodeIcon />
           {props.title ?? "Usage"}
-        </CodeBlock.Title>
-        <CodeBlock.Actions>
-          <CodeBlock.CopyButton value={props.code} />
-        </CodeBlock.Actions>
-      </CodeBlock.Header>
-      <CodeBlock.Content wrap={props.wrap} class="max-h-[32rem]">
-        <For each={lines()}>{(line) => <CodeBlock.Line>{line}</CodeBlock.Line>}</For>
-      </CodeBlock.Content>
+        </CodeBlockTitle>
+        <CodeBlockActions>
+          <CodeBlockCopyButton value={props.code} />
+        </CodeBlockActions>
+      </CodeBlockHeader>
+      <CodeBlockContent wrap={props.wrap} class="max-h-[32rem]">
+        <For each={lines()}>{(line) => <CodeBlockLine>{line}</CodeBlockLine>}</For>
+      </CodeBlockContent>
     </CodeBlock>
   );
 }

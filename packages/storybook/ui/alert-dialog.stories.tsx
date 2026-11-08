@@ -1,5 +1,16 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { AlertDialog } from "../../ui/src/components/alert-dialog";
+import {
+  AlertDialog,
+  AlertDialogCloseButton,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogPortal,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../../ui/src/components/alert-dialog";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
@@ -17,20 +28,20 @@ export const Default: Story = {
 function AlertDialogDemo() {
   return (
     <AlertDialog>
-      <AlertDialog.Trigger as={Button}>Delete</AlertDialog.Trigger>
-      <AlertDialog.Portal>
-        <AlertDialog.Overlay />
-        <AlertDialog.Content>
-          <AlertDialog.Header>
-            <AlertDialog.Title>Delete this file?</AlertDialog.Title>
-            <AlertDialog.Description>This cannot be undone.</AlertDialog.Description>
-          </AlertDialog.Header>
-          <AlertDialog.Footer>
-            <AlertDialog.CloseButton>Cancel</AlertDialog.CloseButton>
-            <AlertDialog.CloseButton variant="destructive">Delete</AlertDialog.CloseButton>
-          </AlertDialog.Footer>
-        </AlertDialog.Content>
-      </AlertDialog.Portal>
+      <AlertDialogTrigger as={Button}>Delete</AlertDialogTrigger>
+      <AlertDialogPortal>
+        <AlertDialogOverlay />
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete this file?</AlertDialogTitle>
+            <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCloseButton>Cancel</AlertDialogCloseButton>
+            <AlertDialogCloseButton variant="destructive">Delete</AlertDialogCloseButton>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialogPortal>
     </AlertDialog>
   );
 }

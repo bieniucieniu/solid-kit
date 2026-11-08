@@ -1,15 +1,15 @@
 import { DocsPage } from "~/components/preview";
 import { TooltipDemo } from "~/demos/ui/tooltip";
 
-const snippet = `import { Button, Tooltip } from "@solid-kit/ui";
+const snippet = `import { Button, Tooltip, TooltipContent, TooltipPortal, TooltipTrigger } from "@solid-kit/ui";
 
 <Tooltip>
-  <Tooltip.Trigger as={Button}>Hover</Tooltip.Trigger>
-  <Tooltip.Portal>
-    <Tooltip.Content>
+  <TooltipTrigger as={Button}>Hover</TooltipTrigger>
+  <TooltipPortal>
+    <TooltipContent>
       Saved
-    </Tooltip.Content>
-  </Tooltip.Portal>
+    </TooltipContent>
+  </TooltipPortal>
 </Tooltip>`;
 
 export default function TooltipPage() {

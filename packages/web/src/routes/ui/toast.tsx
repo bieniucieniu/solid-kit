@@ -1,25 +1,34 @@
 import { DocsPage } from "~/components/preview";
 import { ToastDemo } from "~/demos/ui/toast";
 
-const snippet = `import { Button, Toast, toaster } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  Toast,
+  ToastCloseButton,
+  ToastDescription,
+  toaster,
+  ToastList,
+  ToastRegion,
+  ToastTitle,
+} from "@solid-kit/ui";
 
 <Button
   type="button"
   onClick={() =>
     toaster.show((props) => (
       <Toast toastId={props.toastId}>
-        <Toast.Title>Saved</Toast.Title>
-        <Toast.Description>Your changes are stored.</Toast.Description>
-        <Toast.CloseButton>Close</Toast.CloseButton>
+        <ToastTitle>Saved</ToastTitle>
+        <ToastDescription>Your changes are stored.</ToastDescription>
+        <ToastCloseButton>Close</ToastCloseButton>
       </Toast>
     ))
   }
 >
   Show toast
 </Button>
-<Toast.Region>
-  <Toast.List />
-</Toast.Region>`;
+<ToastRegion>
+  <ToastList />
+</ToastRegion>`;
 
 export default function ToastPage() {
   return (

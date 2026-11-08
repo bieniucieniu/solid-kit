@@ -1,14 +1,14 @@
 import { DocsPage } from "~/components/preview";
 import { ToggleGroupDemo } from "~/demos/ui/toggle-group";
 
-const snippet = `import { ToggleGroup } from "@solid-kit/ui";
+const snippet = `import { ToggleGroup, ToggleGroupItem } from "@solid-kit/ui";
 
 // variant: "default" | "outline"   size: "sm" | "default" | "lg"
 // spacing: number (0 joins the items)   orientation: "horizontal" | "vertical"
 <ToggleGroup variant="outline" spacing={0} value={value()} onChange={setValue}>
-  <ToggleGroup.Item value="left">Left</ToggleGroup.Item>
-  <ToggleGroup.Item value="center">Center</ToggleGroup.Item>
-  <ToggleGroup.Item value="right">Right</ToggleGroup.Item>
+  <ToggleGroupItem value="left">Left</ToggleGroupItem>
+  <ToggleGroupItem value="center">Center</ToggleGroupItem>
+  <ToggleGroupItem value="right">Right</ToggleGroupItem>
 </ToggleGroup>`;
 
 export default function ToggleGroupPage() {

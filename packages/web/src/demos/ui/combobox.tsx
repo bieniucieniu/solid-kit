@@ -1,4 +1,14 @@
-import { Combobox } from "@solid-kit/ui";
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxControl,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemLabel,
+  ComboboxLabel,
+  ComboboxListbox,
+  ComboboxPortal,
+} from "@solid-kit/ui";
 import { createSignal } from "solid-js";
 
 const options = ["Apple", "Banana", "Orange"];
@@ -14,20 +24,20 @@ export function ComboboxDemo() {
       onChange={setValue}
       placeholder="Search fruit"
       itemComponent={(props) => (
-        <Combobox.Item item={props.item}>
-          <Combobox.ItemLabel>{props.item.rawValue}</Combobox.ItemLabel>
-        </Combobox.Item>
+        <ComboboxItem item={props.item}>
+          <ComboboxItemLabel>{props.item.rawValue}</ComboboxItemLabel>
+        </ComboboxItem>
       )}
     >
-      <Combobox.Label>Fruit</Combobox.Label>
-      <Combobox.Control>
-        <Combobox.Input />
-      </Combobox.Control>
-      <Combobox.Portal>
-        <Combobox.Content>
-          <Combobox.Listbox />
-        </Combobox.Content>
-      </Combobox.Portal>
+      <ComboboxLabel>Fruit</ComboboxLabel>
+      <ComboboxControl>
+        <ComboboxInput />
+      </ComboboxControl>
+      <ComboboxPortal>
+        <ComboboxContent>
+          <ComboboxListbox />
+        </ComboboxContent>
+      </ComboboxPortal>
     </Combobox>
   );
 }

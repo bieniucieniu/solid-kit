@@ -1,15 +1,15 @@
-import { Alert } from "@solid-kit/ui";
+import { Alert, AlertDescription, AlertTitle } from "@solid-kit/ui";
 
 export function AlertDemo() {
   return (
     <div class="grid w-full max-w-md gap-4">
       <Alert>
-        <Alert.Title>Heads up</Alert.Title>
-        <Alert.Description>You can change this later.</Alert.Description>
+        <AlertTitle>Heads up</AlertTitle>
+        <AlertDescription>You can change this later.</AlertDescription>
       </Alert>
       <Alert variant="destructive">
-        <Alert.Title>Payment failed</Alert.Title>
-        <Alert.Description>Check your card details and try again.</Alert.Description>
+        <AlertTitle>Payment failed</AlertTitle>
+        <AlertDescription>Check your card details and try again.</AlertDescription>
       </Alert>
     </div>
   );

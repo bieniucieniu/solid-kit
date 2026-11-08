@@ -2,13 +2,13 @@ import { Accordion as AccordionPrimitive } from "@kobalte/core/accordion";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type AccordionRootProps = ComponentProps<typeof AccordionPrimitive>;
+type AccordionProps = ComponentProps<typeof AccordionPrimitive>;
 type AccordionItemProps = ComponentProps<typeof AccordionPrimitive.Item>;
 type AccordionHeaderProps = ComponentProps<typeof AccordionPrimitive.Header>;
 type AccordionTriggerProps = ComponentProps<typeof AccordionPrimitive.Trigger>;
 type AccordionContentProps = ComponentProps<typeof AccordionPrimitive.Content>;
 
-function AccordionRoot(props: AccordionRootProps) {
+export function Accordion(props: AccordionProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <AccordionPrimitive
@@ -82,10 +82,3 @@ export function AccordionContent(props: AccordionContentProps) {
     </AccordionPrimitive.Content>
   );
 }
-
-export const Accordion = Object.assign(AccordionRoot, {
-  Item: AccordionItem,
-  Header: AccordionHeader,
-  Trigger: AccordionTrigger,
-  Content: AccordionContent,
-});

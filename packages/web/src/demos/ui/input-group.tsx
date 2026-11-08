@@ -1,4 +1,12 @@
-import { InputGroup, Kbd } from "@solid-kit/ui";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+  Kbd,
+} from "@solid-kit/ui";
 import { createSignal } from "solid-js";
 
 function SearchIcon() {
@@ -25,60 +33,60 @@ export function InputGroupDemo() {
   return (
     <div class="grid w-full max-w-sm gap-4">
       <InputGroup>
-        <InputGroup.Addon>
+        <InputGroupAddon>
           <SearchIcon />
-        </InputGroup.Addon>
-        <InputGroup.Input placeholder="Search..." />
-        <InputGroup.Addon align="inline-end">
+        </InputGroupAddon>
+        <InputGroupInput placeholder="Search..." />
+        <InputGroupAddon align="inline-end">
           <Kbd>⌘K</Kbd>
-        </InputGroup.Addon>
+        </InputGroupAddon>
       </InputGroup>
 
       <InputGroup>
-        <InputGroup.Addon>
-          <InputGroup.Text>https://</InputGroup.Text>
-        </InputGroup.Addon>
-        <InputGroup.Input
+        <InputGroupAddon>
+          <InputGroupText>https://</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput
           placeholder="example.com"
           value={url()}
           onInput={(event) => setUrl(event.currentTarget.value)}
         />
-        <InputGroup.Addon align="inline-end">
-          <InputGroup.Text>.com</InputGroup.Text>
-        </InputGroup.Addon>
+        <InputGroupAddon align="inline-end">
+          <InputGroupText>.com</InputGroupText>
+        </InputGroupAddon>
       </InputGroup>
 
       <InputGroup>
-        <InputGroup.Input placeholder="Invite by email" />
-        <InputGroup.Addon align="inline-end">
-          <InputGroup.Button size="icon-xs" aria-label="Search">
+        <InputGroupInput placeholder="Invite by email" />
+        <InputGroupAddon align="inline-end">
+          <InputGroupButton size="icon-xs" aria-label="Search">
             <SearchIcon />
-          </InputGroup.Button>
-          <InputGroup.Button variant="secondary" size="sm">
+          </InputGroupButton>
+          <InputGroupButton variant="secondary" size="sm">
             Invite
-          </InputGroup.Button>
-        </InputGroup.Addon>
+          </InputGroupButton>
+        </InputGroupAddon>
       </InputGroup>
 
       <InputGroup>
-        <InputGroup.Addon align="block-start" class="border-b">
-          <InputGroup.Text class="font-medium text-foreground">script.ts</InputGroup.Text>
-        </InputGroup.Addon>
-        <InputGroup.Input placeholder="console.log('hi')" />
+        <InputGroupAddon align="block-start" class="border-b">
+          <InputGroupText class="font-medium text-foreground">script.ts</InputGroupText>
+        </InputGroupAddon>
+        <InputGroupInput placeholder="console.log('hi')" />
       </InputGroup>
 
       <InputGroup>
-        <InputGroup.Textarea
+        <InputGroupTextarea
           placeholder="Ask, search or chat..."
           value={message()}
           onInput={(event) => setMessage(event.currentTarget.value)}
         />
-        <InputGroup.Addon align="block-end" class="border-t">
-          <InputGroup.Text>{message().length} / 280</InputGroup.Text>
-          <InputGroup.Button variant="default" size="xs" class="ml-auto">
+        <InputGroupAddon align="block-end" class="border-t">
+          <InputGroupText>{message().length} / 280</InputGroupText>
+          <InputGroupButton variant="default" size="xs" class="ml-auto">
             Send
-          </InputGroup.Button>
-        </InputGroup.Addon>
+          </InputGroupButton>
+        </InputGroupAddon>
       </InputGroup>
     </div>
   );

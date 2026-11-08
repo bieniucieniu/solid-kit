@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Pagination } from "../../ui/src/components/pagination";
+import {
+  Pagination,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationItems,
+  PaginationNext,
+  PaginationPrevious,
+} from "../../ui/src/components/pagination";
 import { createSignal } from "solid-js";
 
 const meta = {
@@ -23,12 +30,12 @@ function PaginationDemo() {
         count={10}
         page={page()}
         onPageChange={setPage}
-        itemComponent={(props) => <Pagination.Item page={props.page}>{props.page}</Pagination.Item>}
-        ellipsisComponent={() => <Pagination.Ellipsis />}
+        itemComponent={(props) => <PaginationItem page={props.page}>{props.page}</PaginationItem>}
+        ellipsisComponent={() => <PaginationEllipsis />}
       >
-        <Pagination.Previous />
-        <Pagination.Items />
-        <Pagination.Next />
+        <PaginationPrevious />
+        <PaginationItems />
+        <PaginationNext />
       </Pagination>
       <p class="text-sm text-muted-foreground">Page {page()}</p>
     </div>

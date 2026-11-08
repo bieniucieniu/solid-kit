@@ -1,15 +1,22 @@
 import { DocsPage } from "~/components/preview";
 import { SliderDemo } from "~/demos/ui/slider";
 
-const snippet = `import { Slider } from "@solid-kit/ui";
+const snippet = `import {
+  Slider,
+  SliderFill,
+  SliderLabel,
+  SliderThumb,
+  SliderTrack,
+  SliderValueLabel,
+} from "@solid-kit/ui";
 
 <Slider value={value()} onChange={setValue} minValue={0} maxValue={100}>
-  <Slider.Label>Volume</Slider.Label>
-  <Slider.ValueLabel />
-  <Slider.Track>
-    <Slider.Fill />
-    <Slider.Thumb />
-  </Slider.Track>
+  <SliderLabel>Volume</SliderLabel>
+  <SliderValueLabel />
+  <SliderTrack>
+    <SliderFill />
+    <SliderThumb />
+  </SliderTrack>
 </Slider>`;
 
 export default function SliderPage() {

@@ -1,14 +1,20 @@
 import { DocsPage } from "~/components/preview";
 import { CheckboxDemo } from "~/demos/ui/checkbox";
 
-const snippet = `import { Checkbox } from "@solid-kit/ui";
+const snippet = `import {
+  Checkbox,
+  CheckboxControl,
+  CheckboxIndicator,
+  CheckboxInput,
+  CheckboxLabel,
+} from "@solid-kit/ui";
 
 <Checkbox>
-  <Checkbox.Input />
-  <Checkbox.Control>
-    <Checkbox.Indicator />
-  </Checkbox.Control>
-  <Checkbox.Label>Accept terms</Checkbox.Label>
+  <CheckboxInput />
+  <CheckboxControl>
+    <CheckboxIndicator />
+  </CheckboxControl>
+  <CheckboxLabel>Accept terms</CheckboxLabel>
 </Checkbox>`;
 
 export default function CheckboxPage() {

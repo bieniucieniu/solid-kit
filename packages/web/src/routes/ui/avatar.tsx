@@ -1,20 +1,27 @@
 import { DocsPage } from "~/components/preview";
 import { AvatarDemo } from "~/demos/ui/avatar";
 
-const snippet = `import { Avatar } from "@solid-kit/ui";
+const snippet = `import {
+  Avatar,
+  AvatarBadge,
+  AvatarFallback,
+  AvatarGroup,
+  AvatarGroupCount,
+  AvatarImg,
+} from "@solid-kit/ui";
 
 // size: "sm" | "default" | "lg"
 <Avatar size="lg">
-  <Avatar.Img src="https://github.com/solidjs.png" alt="Solid" />
-  <Avatar.Fallback>SJ</Avatar.Fallback>
-  <Avatar.Badge />
+  <AvatarImg src="https://github.com/solidjs.png" alt="Solid" />
+  <AvatarFallback>SJ</AvatarFallback>
+  <AvatarBadge />
 </Avatar>
 
-<Avatar.Group>
-  <Avatar><Avatar.Fallback>AL</Avatar.Fallback></Avatar>
-  <Avatar><Avatar.Fallback>GH</Avatar.Fallback></Avatar>
-  <Avatar.GroupCount>+3</Avatar.GroupCount>
-</Avatar.Group>`;
+<AvatarGroup>
+  <Avatar><AvatarFallback>AL</AvatarFallback></Avatar>
+  <Avatar><AvatarFallback>GH</AvatarFallback></Avatar>
+  <AvatarGroupCount>+3</AvatarGroupCount>
+</AvatarGroup>`;
 
 export default function AvatarPage() {
   return (

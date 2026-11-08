@@ -1,18 +1,28 @@
 import { DocsPage } from "~/components/preview";
 import { DialogDemo } from "~/demos/ui/dialog";
 
-const snippet = `import { Button, Dialog } from "@solid-kit/ui";
+const snippet = `import {
+  Button,
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogLabel,
+  DialogOverlay,
+  DialogPortal,
+  DialogTrigger,
+} from "@solid-kit/ui";
 
 <Dialog>
-  <Dialog.Trigger as={Button}>Open</Dialog.Trigger>
-  <Dialog.Portal>
-    <Dialog.Overlay />
-    <Dialog.Content>
-      <Dialog.Label>Edit profile</Dialog.Label>
-      <Dialog.Description>Details</Dialog.Description>
-      <Dialog.Close>Close</Dialog.Close>
-    </Dialog.Content>
-  </Dialog.Portal>
+  <DialogTrigger as={Button}>Open</DialogTrigger>
+  <DialogPortal>
+    <DialogOverlay />
+    <DialogContent>
+      <DialogLabel>Edit profile</DialogLabel>
+      <DialogDescription>Details</DialogDescription>
+      <DialogClose>Close</DialogClose>
+    </DialogContent>
+  </DialogPortal>
 </Dialog>`;
 
 export default function DialogPage() {

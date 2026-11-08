@@ -1,21 +1,21 @@
 import { DocsPage } from "~/components/preview";
 import { TableDemo } from "~/demos/ui/table";
 
-const snippet = `import { Table } from "@solid-kit/ui";
+const snippet = `import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@solid-kit/ui";
 
 <Table>
-  <Table.Header>
-    <Table.Row>
-      <Table.Head>Name</Table.Head>
-      <Table.Head>Role</Table.Head>
-    </Table.Row>
-  </Table.Header>
-  <Table.Body>
-    <Table.Row>
-      <Table.Cell>Ada</Table.Cell>
-      <Table.Cell>Admin</Table.Cell>
-    </Table.Row>
-  </Table.Body>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Role</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Ada</TableCell>
+      <TableCell>Admin</TableCell>
+    </TableRow>
+  </TableBody>
 </Table>`;
 
 export default function TablePage() {

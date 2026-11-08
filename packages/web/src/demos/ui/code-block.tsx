@@ -1,4 +1,15 @@
-import { Button, CodeBlock, createHighlightedCode } from "@solid-kit/ui";
+import {
+  Button,
+  CodeBlock,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockFooter,
+  CodeBlockHeader,
+  CodeBlockLine,
+  CodeBlockTitle,
+  createHighlightedCode,
+} from "@solid-kit/ui";
 import { createSignal, For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
@@ -72,16 +83,16 @@ export function CodeBlockDemo() {
     <VariantStack class="max-w-xl">
       <VariantRow class="flex-col flex-nowrap items-stretch" label="Header, title and copy">
         <CodeBlock>
-          <CodeBlock.Header>
-            <CodeBlock.Title>
+          <CodeBlockHeader>
+            <CodeBlockTitle>
               <TerminalIcon />
               Terminal
-            </CodeBlock.Title>
-            <CodeBlock.Actions>
-              <CodeBlock.CopyButton value={buildOutput} />
-            </CodeBlock.Actions>
-          </CodeBlock.Header>
-          <CodeBlock.Content>{buildOutput}</CodeBlock.Content>
+            </CodeBlockTitle>
+            <CodeBlockActions>
+              <CodeBlockCopyButton value={buildOutput} />
+            </CodeBlockActions>
+          </CodeBlockHeader>
+          <CodeBlockContent>{buildOutput}</CodeBlockContent>
         </CodeBlock>
       </VariantRow>
 
@@ -90,12 +101,12 @@ export function CodeBlockDemo() {
         label="Syntax highlighting, line numbers, floating actions"
       >
         <CodeBlock>
-          <CodeBlock.Actions>
-            <CodeBlock.CopyButton value={component} />
-          </CodeBlock.Actions>
-          <CodeBlock.Content lineNumbers>
-            <For each={highlighted()}>{(line) => <CodeBlock.Line>{line}</CodeBlock.Line>}</For>
-          </CodeBlock.Content>
+          <CodeBlockActions>
+            <CodeBlockCopyButton value={component} />
+          </CodeBlockActions>
+          <CodeBlockContent lineNumbers>
+            <For each={highlighted()}>{(line) => <CodeBlockLine>{line}</CodeBlockLine>}</For>
+          </CodeBlockContent>
         </CodeBlock>
       </VariantRow>
 
@@ -104,34 +115,34 @@ export function CodeBlockDemo() {
         label="Highlighted lines, start line 12"
       >
         <CodeBlock>
-          <CodeBlock.Content lineNumbers startLine={12}>
-            <CodeBlock.Line>{"export function Counter() {"}</CodeBlock.Line>
-            <CodeBlock.Line variant="highlighted">
+          <CodeBlockContent lineNumbers startLine={12}>
+            <CodeBlockLine>{"export function Counter() {"}</CodeBlockLine>
+            <CodeBlockLine variant="highlighted">
               {"  const [count, setCount] = createSignal(0);"}
-            </CodeBlock.Line>
-            <CodeBlock.Line>{"  return <button>{count()}</button>;"}</CodeBlock.Line>
-            <CodeBlock.Line>{"}"}</CodeBlock.Line>
-          </CodeBlock.Content>
+            </CodeBlockLine>
+            <CodeBlockLine>{"  return <button>{count()}</button>;"}</CodeBlockLine>
+            <CodeBlockLine>{"}"}</CodeBlockLine>
+          </CodeBlockContent>
         </CodeBlock>
       </VariantRow>
 
       <VariantRow class="flex-col flex-nowrap items-stretch" label="Diff">
         <CodeBlock>
-          <CodeBlock.Content>
-            <CodeBlock.Line>{"const [count, setCount] = createSignal(0);"}</CodeBlock.Line>
-            <CodeBlock.Line variant="removed">
+          <CodeBlockContent>
+            <CodeBlockLine>{"const [count, setCount] = createSignal(0);"}</CodeBlockLine>
+            <CodeBlockLine variant="removed">
               {"useEffect(() => log(count), [count]);"}
-            </CodeBlock.Line>
-            <CodeBlock.Line variant="added">{"createEffect(() => log(count()));"}</CodeBlock.Line>
-          </CodeBlock.Content>
+            </CodeBlockLine>
+            <CodeBlockLine variant="added">{"createEffect(() => log(count()));"}</CodeBlockLine>
+          </CodeBlockContent>
         </CodeBlock>
       </VariantRow>
 
       <VariantRow class="flex-col flex-nowrap items-stretch" label="Wrap toggle">
         <CodeBlock>
-          <CodeBlock.Header>
-            <CodeBlock.Title>message.ts</CodeBlock.Title>
-            <CodeBlock.Actions>
+          <CodeBlockHeader>
+            <CodeBlockTitle>message.ts</CodeBlockTitle>
+            <CodeBlockActions>
               <Button
                 type="button"
                 variant="ghost"
@@ -143,22 +154,22 @@ export function CodeBlockDemo() {
               >
                 <WrapIcon />
               </Button>
-              <CodeBlock.CopyButton value={longLine} />
-            </CodeBlock.Actions>
-          </CodeBlock.Header>
-          <CodeBlock.Content wrap={wrap()}>{longLine}</CodeBlock.Content>
+              <CodeBlockCopyButton value={longLine} />
+            </CodeBlockActions>
+          </CodeBlockHeader>
+          <CodeBlockContent wrap={wrap()}>{longLine}</CodeBlockContent>
         </CodeBlock>
       </VariantRow>
 
       <VariantRow class="flex-col flex-nowrap items-stretch" label="Show more">
         <CodeBlock>
-          <CodeBlock.Content
+          <CodeBlockContent
             id="code-block-logs"
             class={expanded() ? undefined : "max-h-40 overflow-y-hidden"}
           >
             {logs}
-          </CodeBlock.Content>
-          <CodeBlock.Footer class="justify-center">
+          </CodeBlockContent>
+          <CodeBlockFooter class="justify-center">
             <Button
               type="button"
               variant="ghost"
@@ -169,29 +180,29 @@ export function CodeBlockDemo() {
             >
               {expanded() ? "Show less" : "Show more"}
             </Button>
-          </CodeBlock.Footer>
+          </CodeBlockFooter>
         </CodeBlock>
       </VariantRow>
 
       <VariantRow class="flex-col flex-nowrap items-stretch" label="Size sm">
         <CodeBlock size="sm">
-          <CodeBlock.Header>
-            <CodeBlock.Title>tool output</CodeBlock.Title>
-          </CodeBlock.Header>
-          <CodeBlock.Content>{`{ "status": "ok", "items": 3 }`}</CodeBlock.Content>
+          <CodeBlockHeader>
+            <CodeBlockTitle>tool output</CodeBlockTitle>
+          </CodeBlockHeader>
+          <CodeBlockContent>{`{ "status": "ok", "items": 3 }`}</CodeBlockContent>
         </CodeBlock>
       </VariantRow>
 
       <VariantRow class="flex-col flex-nowrap items-stretch" label="Destructive">
         <CodeBlock variant="destructive">
-          <CodeBlock.Header>
-            <CodeBlock.Title>Error</CodeBlock.Title>
-          </CodeBlock.Header>
-          <CodeBlock.Content>
+          <CodeBlockHeader>
+            <CodeBlockTitle>Error</CodeBlockTitle>
+          </CodeBlockHeader>
+          <CodeBlockContent>
             {
               "TypeError: Cannot read properties of undefined (reading 'map')\n    at List (list.tsx:12:18)"
             }
-          </CodeBlock.Content>
+          </CodeBlockContent>
         </CodeBlock>
       </VariantRow>
     </VariantStack>

@@ -2,7 +2,7 @@ import { RadioGroup as RadioGroupPrimitive } from "@kobalte/core/radio-group";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type RadioGroupRootProps = ComponentProps<typeof RadioGroupPrimitive>;
+type RadioGroupProps = ComponentProps<typeof RadioGroupPrimitive>;
 type RadioGroupLabelProps = ComponentProps<typeof RadioGroupPrimitive.Label>;
 type RadioGroupDescriptionProps = ComponentProps<typeof RadioGroupPrimitive.Description>;
 type RadioGroupErrorMessageProps = ComponentProps<typeof RadioGroupPrimitive.ErrorMessage>;
@@ -12,7 +12,7 @@ type RadioGroupItemIndicatorProps = ComponentProps<typeof RadioGroupPrimitive.It
 type RadioGroupItemLabelProps = ComponentProps<typeof RadioGroupPrimitive.ItemLabel>;
 type RadioGroupItemDescriptionProps = ComponentProps<typeof RadioGroupPrimitive.ItemDescription>;
 
-function RadioGroupRoot(props: RadioGroupRootProps) {
+export function RadioGroup(props: RadioGroupProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <RadioGroupPrimitive
@@ -126,15 +126,3 @@ export function RadioGroupItemInput(props: ComponentProps<typeof RadioGroupPrimi
     <RadioGroupPrimitive.ItemInput ref={props.ref} class={cn("peer", props.class)} {...rest} />
   );
 }
-
-export const RadioGroup = Object.assign(RadioGroupRoot, {
-  Label: RadioGroupLabel,
-  Description: RadioGroupDescription,
-  ErrorMessage: RadioGroupErrorMessage,
-  Item: RadioGroupItem,
-  ItemInput: RadioGroupItemInput,
-  ItemControl: RadioGroupItemControl,
-  ItemIndicator: RadioGroupItemIndicator,
-  ItemLabel: RadioGroupItemLabel,
-  ItemDescription: RadioGroupItemDescription,
-});

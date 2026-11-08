@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import { For } from "solid-js";
-import { NavigationMenu } from "../../ui/src/components/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuTrigger,
+} from "../../ui/src/components/navigation-menu";
 
 const meta = {
   title: "UI/NavigationMenu",
@@ -39,43 +45,43 @@ function NavigationMenuDemo() {
   return (
     <div class="min-h-64">
       <NavigationMenu>
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger>Getting started</NavigationMenu.Trigger>
-          <NavigationMenu.Content class="grid w-96 grid-cols-2 gap-1">
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuContent class="grid w-96 grid-cols-2 gap-1">
             <For each={gettingStarted}>
               {(item) => (
-                <NavigationMenu.Link href={item.href} class="flex-col items-start gap-0.5">
+                <NavigationMenuLink href={item.href} class="flex-col items-start gap-0.5">
                   <span class="font-medium">{item.title}</span>
                   <span class="text-muted-foreground">{item.description}</span>
-                </NavigationMenu.Link>
+                </NavigationMenuLink>
               )}
             </For>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger>Components</NavigationMenu.Trigger>
-          <NavigationMenu.Content class="w-48">
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuContent class="w-48">
             <For each={components}>
-              {(item) => <NavigationMenu.Link href={item.href}>{item.title}</NavigationMenu.Link>}
+              {(item) => <NavigationMenuLink href={item.href}>{item.title}</NavigationMenuLink>}
             </For>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger>Packages</NavigationMenu.Trigger>
-          <NavigationMenu.Content class="w-72">
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Packages</NavigationMenuTrigger>
+          <NavigationMenuContent class="w-72">
             <For each={packages}>
               {(item) => (
-                <NavigationMenu.Link href={item.href} class="flex-col items-start gap-0.5">
+                <NavigationMenuLink href={item.href} class="flex-col items-start gap-0.5">
                   <span class="font-medium">{item.title}</span>
                   <span class="text-muted-foreground">{item.description}</span>
-                </NavigationMenu.Link>
+                </NavigationMenuLink>
               )}
             </For>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
-        <NavigationMenu.Trigger href="https://github.com/bieniucieniu/solid-kit">
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuTrigger href="https://github.com/bieniucieniu/solid-kit">
           GitHub
-        </NavigationMenu.Trigger>
+        </NavigationMenuTrigger>
       </NavigationMenu>
     </div>
   );

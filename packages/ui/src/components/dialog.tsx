@@ -11,7 +11,7 @@ import { type JSX, Show, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-function DialogRoot(props: RootProps) {
+export function Dialog(props: RootProps) {
   return <DialogPrimitive {...props} />;
 }
 
@@ -145,15 +145,4 @@ export function DialogClose(
 export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogPortal = DialogPrimitive.Portal;
 
-export const Dialog = Object.assign(DialogRoot, {
-  Trigger: DialogTrigger,
-  Portal: DialogPortal,
-  Overlay: DialogOverlay,
-  Content: DialogContent,
-  Header: DialogHeader,
-  Footer: DialogFooter,
-  Label: DialogLabel,
-  Description: DialogDescription,
-  Close: DialogClose,
-  useContext: DialogPrimitive.useContext,
-});
+export const useDialogContext = DialogPrimitive.useContext;

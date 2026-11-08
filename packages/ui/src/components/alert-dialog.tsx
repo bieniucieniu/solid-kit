@@ -3,7 +3,7 @@ import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type AlertDialogRootProps = ComponentProps<typeof AlertDialogPrimitive>;
+type AlertDialogProps = ComponentProps<typeof AlertDialogPrimitive>;
 type AlertDialogOverlayProps = ComponentProps<typeof AlertDialogPrimitive.Overlay>;
 type AlertDialogContentProps = ComponentProps<typeof AlertDialogPrimitive.Content> & {
   size?: "default" | "sm";
@@ -15,7 +15,7 @@ type AlertDialogCloseButtonProps = ComponentProps<typeof AlertDialogPrimitive.Cl
   size?: ButtonSize;
 };
 
-function AlertDialogRoot(props: AlertDialogRootProps) {
+export function AlertDialog(props: AlertDialogProps) {
   return <AlertDialogPrimitive {...props} />;
 }
 
@@ -143,16 +143,3 @@ export function AlertDialogCloseButton(props: AlertDialogCloseButtonProps) {
 
 export const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 export const AlertDialogPortal = AlertDialogPrimitive.Portal;
-
-export const AlertDialog = Object.assign(AlertDialogRoot, {
-  Trigger: AlertDialogTrigger,
-  Portal: AlertDialogPortal,
-  Overlay: AlertDialogOverlay,
-  Content: AlertDialogContent,
-  Header: AlertDialogHeader,
-  Footer: AlertDialogFooter,
-  Media: AlertDialogMedia,
-  Title: AlertDialogTitle,
-  Description: AlertDialogDescription,
-  CloseButton: AlertDialogCloseButton,
-});

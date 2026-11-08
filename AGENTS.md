@@ -29,11 +29,11 @@ fix(toast): slide siblings when the stack reflows
 
 The agent that creates the branch is the type:
 
-| Agent | Type |
-| --- | --- |
-| Cursor | `cursor` |
-| Claude | `claude` |
-| Any other agent | `ai` |
+| Agent           | Type     |
+| --------------- | -------- |
+| Cursor          | `cursor` |
+| Claude          | `claude` |
+| Any other agent | `ai`     |
 
 Description is lowercase `a-z`, digits, and hyphens. Dots are for versions. No underscores, spaces, doubled hyphens, or a hyphen at either end.
 

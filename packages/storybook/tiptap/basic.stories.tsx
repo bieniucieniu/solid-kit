@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
-import { Tiptap, useEditor } from "../../tiptap/src";
+import { Tiptap, TiptapContent, useEditor } from "../../tiptap/src";
 import { MenuBar } from "./menu-bar";
 
 const meta = {
@@ -29,7 +29,7 @@ function BasicEditor() {
     <div class="tiptap-editor">
       <Tiptap editor={editor}>
         <MenuBar />
-        <Tiptap.Content class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+        <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
       </Tiptap>
     </div>
   );

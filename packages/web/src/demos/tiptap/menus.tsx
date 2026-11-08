@@ -1,7 +1,7 @@
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 import { Show } from "solid-js";
-import { Tiptap, useEditor } from "@solid-kit/tiptap";
+import { Tiptap, TiptapContent, useEditor } from "@solid-kit/tiptap";
 import { BubbleMenu, FloatingMenu } from "@solid-kit/tiptap/menus";
 import { MenuButton } from "./menu-bar";
 
@@ -61,7 +61,7 @@ export default function MenusEditor() {
             </>
           )}
         </Show>
-        <Tiptap.Content class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+        <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
       </Tiptap>
     </div>
   );

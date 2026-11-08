@@ -116,7 +116,7 @@ export type TiptapWrapperProps = {
 /**
  * Top-level provider component.
  */
-export function TiptapWrapper(props: TiptapWrapperProps) {
+export function Tiptap(props: TiptapWrapperProps) {
   const tiptapContextValue = {
     get editor() {
       const e = props.editor();
@@ -146,12 +146,5 @@ export function TiptapContent(props: Omit<EditorContentProps, "editor">) {
 
   return <EditorContent editor={ctx.editor} {...props} />;
 }
-
-/**
- * Root `Tiptap` component.
- */
-export const Tiptap = Object.assign(TiptapWrapper, {
-  Content: TiptapContent,
-});
 
 export default Tiptap;

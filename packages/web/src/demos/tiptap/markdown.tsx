@@ -1,7 +1,7 @@
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 import { Markdown } from "tiptap-markdown";
-import { Tiptap, useEditor, useTiptapState } from "@solid-kit/tiptap";
+import { Tiptap, TiptapContent, useEditor, useTiptapState } from "@solid-kit/tiptap";
 import { CodeExample } from "~/components/preview";
 import { MenuBar } from "./menu-bar";
 
@@ -32,7 +32,7 @@ You can **copy/paste** markdown here, or export the content as markdown!
       <div class="tiptap-editor">
         <Tiptap editor={editor}>
           <MenuBar />
-          <Tiptap.Content class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+          <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
         </Tiptap>
       </div>
       <CodeExample code={markdown()} language="markdown" title="Markdown output" wrap />

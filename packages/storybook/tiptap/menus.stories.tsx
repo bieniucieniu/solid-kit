@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 import { Show } from "solid-js";
-import { Tiptap, useEditor } from "../../tiptap/src";
+import { Tiptap, TiptapContent, useEditor } from "../../tiptap/src";
 import { BubbleMenu, FloatingMenu } from "../../tiptap/src/menus";
 import { MenuButton } from "./menu-bar";
 
@@ -74,7 +74,7 @@ function MenusEditor() {
             </>
           )}
         </Show>
-        <Tiptap.Content class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+        <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
       </Tiptap>
     </div>
   );

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
 import { Markdown } from "tiptap-markdown";
-import { Tiptap, useEditor, useTiptapState } from "../../tiptap/src";
+import { Tiptap, TiptapContent, useEditor, useTiptapState } from "../../tiptap/src";
 import { MenuBar } from "./menu-bar";
 
 const meta = {
@@ -44,7 +44,7 @@ You can **copy/paste** markdown here, or export the content as markdown!
       <div class="tiptap-editor">
         <Tiptap editor={editor}>
           <MenuBar />
-          <Tiptap.Content class="min-h-[300px] max-w-none p-6 focus:outline-none" />
+          <TiptapContent class="min-h-[300px] max-w-none p-6 focus:outline-none" />
         </Tiptap>
       </div>
       <div class="rounded-lg border border-dashed border-border bg-muted p-6">

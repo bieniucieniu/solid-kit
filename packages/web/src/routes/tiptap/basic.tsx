@@ -4,7 +4,7 @@ import { DocsPage } from "~/components/preview";
 const BasicEditor = clientOnly(() => import("~/demos/tiptap/basic"));
 
 const snippet = `import StarterKit from "@tiptap/starter-kit";
-import { Tiptap, useEditor } from "@solid-kit/tiptap";
+import { Tiptap, TiptapContent, useEditor } from "@solid-kit/tiptap";
 
 const editor = useEditor(() => ({
   extensions: [StarterKit],
@@ -12,7 +12,7 @@ const editor = useEditor(() => ({
 }));
 
 <Tiptap editor={editor}>
-  <Tiptap.Content />
+  <TiptapContent />
 </Tiptap>`;
 
 export default function BasicPage() {

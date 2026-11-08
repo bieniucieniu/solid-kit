@@ -1,35 +1,15 @@
-import { clientOnly } from "@solidjs/start";
-import { DocsPage } from "~/components/preview";
+import { PackageIndex } from "~/components/package-index";
+import { sidebars } from "~/nav";
 
-const CanvasDemo = clientOnly(() => import("~/demos/xyflow/canvas"));
+const pages = sidebars.xyflow.slice(1);
 
-const snippet = `import { Flow, Handle, Position, createFlow } from "@solid-kit/xyflow";
-import { Background, Controls } from "@solid-kit/xyflow/panels";
-import "@solid-kit/xyflow/style.css";
-
-const flow = createFlow(() => ({
-  nodes: [
-    { id: "1", type: "text", position: { x: 0, y: 0 }, data: { label: "Send" } },
-    { id: "2", type: "text", position: { x: 0, y: 120 }, data: { label: "Receive" } },
-  ],
-  edges: [{ id: "e1-2", source: "1", target: "2" }],
-  fitView: true,
-}));
-
-<Flow flow={flow}>
-  <Background />
-  <Controls />
-</Flow>`;
-
-export default function XYFlowPage() {
+export default function XYFlowIndex() {
   return (
-    <DocsPage
-      title="Canvas"
-      description="Nodes, edges, background, and controls."
-      snippet={snippet}
-      previewClass="p-0"
-    >
-      <CanvasDemo fallback={<div class="h-96" />} />
-    </DocsPage>
+    <PackageIndex
+      title="XYFlow"
+      description="A canvas for nodes and edges. The store owns the graph."
+      snippet={'import { Flow, Handle, createFlow } from "@solid-kit/xyflow";'}
+      pages={pages}
+    />
   );
 }

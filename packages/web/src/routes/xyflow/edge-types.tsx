@@ -1,0 +1,38 @@
+import { clientOnly } from "@solidjs/start";
+import { DocsPage } from "~/components/preview";
+
+const EdgeTypesDemo = clientOnly(() => import("~/demos/xyflow/edge-types"));
+
+const snippet = `import { Badge } from "@solid-kit/ui";
+import { BaseEdge, createFlow, getBezierPath, type EdgeComponentProps } from "@solid-kit/xyflow";
+
+function LabeledEdge(props: EdgeComponentProps) {
+  const geometry = () => getBezierPath(props);
+  return (
+    <>
+      <BaseEdge path={geometry()[0]} />
+      <foreignObject x={geometry()[1] - 50} y={geometry()[2] - 12} width={100} height={24}>
+        <Badge variant="outline">{props.edge.label}</Badge>
+      </foreignObject>
+    </>
+  );
+}
+
+const flow = createFlow(() => ({
+  nodes,
+  edges: [{ id: "e", type: "labeled", source: "a", target: "b", label: "bezier" }],
+  edgeTypes: { labeled: LabeledEdge },
+}));`;
+
+export default function EdgeTypesPage() {
+  return (
+    <DocsPage
+      title="Edge types"
+      description="A custom edge that draws bezier, straight, step, and smooth step paths with a label."
+      snippet={snippet}
+      previewClass="p-0"
+    >
+      <EdgeTypesDemo fallback={<div class="h-96" />} />
+    </DocsPage>
+  );
+}

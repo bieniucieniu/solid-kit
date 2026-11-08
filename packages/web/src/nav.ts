@@ -100,7 +100,14 @@ export const sidebars: Record<PackageId, NavItem[]> = {
     { title: "Presence", href: "/motion/presence" },
     { title: "List", href: "/motion/list" },
   ],
-  xyflow: [{ title: "Canvas", href: "/xyflow" }],
+  xyflow: [
+    { title: "Overview", href: "/xyflow" },
+    { title: "Canvas", href: "/xyflow/canvas" },
+    { title: "Custom nodes", href: "/xyflow/custom-nodes" },
+    { title: "Connecting", href: "/xyflow/connecting" },
+    { title: "Edge types", href: "/xyflow/edge-types" },
+    { title: "Interaction", href: "/xyflow/interaction" },
+  ],
   tiptap: [
     { title: "Overview", href: "/tiptap" },
     { title: "Basic", href: "/tiptap/basic" },

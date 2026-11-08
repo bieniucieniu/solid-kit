@@ -1,26 +1,46 @@
-import { Flow, Handle, Position, createFlow, type FlowNode } from "@solid-kit/xyflow";
+import { Flow, Position, createFlow } from "@solid-kit/xyflow";
 import { Background, Controls } from "@solid-kit/xyflow/panels";
 import "@solid-kit/xyflow/style.css";
-
-function TextNode(props: { node: FlowNode }) {
-  return (
-    <>
-      <Handle type="target" position={Position.Left} />
-      <span>{typeof props.node.data.label === "string" ? props.node.data.label : ""}</span>
-      <Handle type="source" position={Position.Right} />
-    </>
-  );
-}
 
 export default function CanvasDemo() {
   const flow = createFlow(() => ({
     nodes: [
-      { id: "1", type: "text", position: { x: 0, y: 0 }, data: { label: "Send" } },
-      { id: "2", type: "text", position: { x: 0, y: 120 }, data: { label: "Receive" } },
+      {
+        id: "start",
+        type: "input",
+        position: { x: 0, y: 80 },
+        sourcePosition: Position.Right,
+        data: { label: "Order placed" },
+      },
+      {
+        id: "pay",
+        position: { x: 220, y: 0 },
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
+        data: { label: "Take payment" },
+      },
+      {
+        id: "pack",
+        position: { x: 220, y: 160 },
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
+        data: { label: "Pack items" },
+      },
+      {
+        id: "ship",
+        type: "output",
+        position: { x: 440, y: 80 },
+        targetPosition: Position.Left,
+        data: { label: "Shipped" },
+      },
     ],
-    edges: [{ id: "e1-2", source: "1", target: "2" }],
+    edges: [
+      { id: "start-pay", source: "start", target: "pay", animated: true },
+      { id: "start-pack", source: "start", target: "pack" },
+      { id: "pay-ship", source: "pay", target: "ship" },
+      { id: "pack-ship", source: "pack", target: "ship" },
+    ],
     fitView: true,
-    nodeTypes: { text: TextNode },
   }));
 
   return (

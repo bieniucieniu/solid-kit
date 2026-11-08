@@ -23,15 +23,6 @@
   }
 }
 
-.xy-flow__node-text {
-  padding: 10px 16px;
-  border: 1px solid var(--foreground);
-  border-radius: 3px;
-  background: var(--background);
-  font: 12px sans-serif;
-  text-align: center;
-}
-
 .tiptap-editor {
   overflow: hidden;
   border: 1px solid var(--border);

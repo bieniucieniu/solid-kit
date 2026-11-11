@@ -188,7 +188,7 @@ export function CalendarCellTrigger(
       data-slot="calendar-cell-trigger"
       data-outside={outside() ? "" : undefined}
       class={cn(
-        "inline-flex size-7 items-center justify-center rounded-md text-xs font-normal tabular-nums transition-colors outline-none select-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 data-today:bg-muted data-today:font-medium data-outside:text-muted-foreground data-disabled:pointer-events-none data-disabled:opacity-50 data-in-range:rounded-none data-in-range:bg-transparent data-in-range:data-today:bg-transparent data-selected:bg-primary data-selected:text-primary-foreground data-selected:hover:bg-primary/90 data-in-range:data-selected:bg-transparent data-in-range:data-selected:text-foreground data-range-start:rounded-md data-range-start:bg-primary! data-range-start:text-primary-foreground! data-range-end:rounded-md data-range-end:bg-primary! data-range-end:text-primary-foreground!",
+        "inline-flex size-7 items-center justify-center rounded-md text-xs font-normal tabular-nums transition-colors outline-none select-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30 data-today:font-medium data-outside:text-muted-foreground data-disabled:pointer-events-none data-disabled:opacity-50 data-selected:bg-primary data-selected:text-primary-foreground data-selected:hover:bg-primary/90 [&[data-today]:not([data-selected])]:bg-muted [&[data-in-range]:not([data-range-start]):not([data-range-end])]:rounded-none [&[data-in-range]:not([data-range-start]):not([data-range-end])]:bg-transparent [&[data-in-range]:not([data-range-start]):not([data-range-end])]:text-foreground",
         props.class,
       )}
       {...rest}

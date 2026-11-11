@@ -25,6 +25,7 @@ RUN pnpm install --frozen-lockfile --filter web...
 
 # --- 2. Build web (invalidates when sources change) ---
 COPY packages/ui ./packages/ui
+COPY packages/m3 ./packages/m3
 COPY packages/motion ./packages/motion
 COPY packages/xyflow ./packages/xyflow
 COPY packages/tiptap ./packages/tiptap

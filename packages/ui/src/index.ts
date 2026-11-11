@@ -76,6 +76,18 @@ export {
 } from "./components/breadcrumb";
 export { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "./components/button-group";
 export {
+  Calendar,
+  CalendarCell,
+  CalendarCellTrigger,
+  CalendarHeadCell,
+  CalendarLabel,
+  CalendarNav,
+  type CalendarProps,
+  CalendarRoot,
+  CalendarTable,
+  useCalendarContext,
+} from "./components/calendar";
+export {
   Card,
   CardAction,
   CardContent,
@@ -216,6 +228,14 @@ export {
   InputGroupTextarea,
 } from "./components/input-group";
 export {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPInput,
+  InputOTPSeparator,
+  InputOTPSlot,
+  useInputOTPContext,
+} from "./components/input-otp";
+export {
   Item,
   ItemActions,
   ItemContent,
@@ -303,6 +323,13 @@ export {
   RadioGroupItemLabel,
   RadioGroupLabel,
 } from "./components/radio-group";
+export {
+  Resizable,
+  ResizableHandle,
+  ResizablePanel,
+  useResizableContext,
+  useResizablePanelContext,
+} from "./components/resizable";
 export { ScrollArea } from "./components/scroll-area";
 export {
   Select,

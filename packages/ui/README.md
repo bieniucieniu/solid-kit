@@ -71,7 +71,7 @@ The same tokens live in [`src/theme.css`](src/theme.css).
 
 ## Primitives
 
-`dialog` uses `@corvu/dialog`. `tooltip` uses `@corvu/tooltip`. `checkbox` uses `@kobalte/core/checkbox`. New components use `@kobalte/core`. Markup components are styled HTML.
+`dialog` uses `@corvu/dialog`. `tooltip` uses `@corvu/tooltip`. `calendar`, `input-otp`, and `resizable` use corvu's `@corvu/calendar`, `@corvu/otp-field`, and `@corvu/resizable`, because Kobalte has no primitive for them. `checkbox` uses `@kobalte/core/checkbox`. New components use `@kobalte/core`. Markup components are styled HTML.
 
 The registry item name matches the filename. The full list is in the root [`registry.json`](../../registry.json).
 
@@ -89,6 +89,7 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `badge`           | styled HTML                   |
 | `breadcrumb`      | `@kobalte/core/breadcrumbs`   |
 | `button-group`    | styled HTML                   |
+| `calendar`        | `@corvu/calendar`             |
 | `card`            | styled HTML                   |
 | `collapsible`     | `@kobalte/core/collapsible`   |
 | `combobox`        | `@kobalte/core/combobox`      |
@@ -100,6 +101,7 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `hover-card`      | `@kobalte/core/hover-card`    |
 | `input`           | `@kobalte/core/text-field`    |
 | `input-group`     | styled HTML                   |
+| `input-otp`       | `@corvu/otp-field`            |
 | `item`            | styled HTML                   |
 | `kbd`             | styled HTML                   |
 | `label`           | styled HTML                   |
@@ -110,6 +112,7 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `popover`         | `@kobalte/core/popover`       |
 | `progress`        | `@kobalte/core/progress`      |
 | `radio-group`     | `@kobalte/core/radio-group`   |
+| `resizable`       | `@corvu/resizable`            |
 | `scroll-area`     | styled HTML                   |
 | `select`          | `@kobalte/core/select`        |
 | `separator`       | `@kobalte/core/separator`     |

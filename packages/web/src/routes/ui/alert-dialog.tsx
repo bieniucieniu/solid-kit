@@ -3,14 +3,14 @@ import { AlertDialogDemo } from "~/demos/ui/alert-dialog";
 
 const snippet = `import {
   AlertDialog,
-  AlertDialogCloseButton,
+  AlertDialogClose,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
+  AlertDialogLabel,
   AlertDialogOverlay,
   AlertDialogPortal,
-  AlertDialogTitle,
   AlertDialogTrigger,
   Button,
 } from "@solid-kit/ui";
@@ -22,12 +22,12 @@ const snippet = `import {
     <AlertDialogOverlay />
     <AlertDialogContent size="sm">
       <AlertDialogHeader>
-        <AlertDialogTitle>Delete this file?</AlertDialogTitle>
+        <AlertDialogLabel>Delete this file?</AlertDialogLabel>
         <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <AlertDialogCloseButton>Cancel</AlertDialogCloseButton>
-        <AlertDialogCloseButton variant="destructive">Delete</AlertDialogCloseButton>
+        <AlertDialogClose>Cancel</AlertDialogClose>
+        <AlertDialogClose variant="destructive">Delete</AlertDialogClose>
       </AlertDialogFooter>
     </AlertDialogContent>
   </AlertDialogPortal>

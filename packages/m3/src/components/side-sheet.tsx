@@ -1,29 +1,28 @@
-import { Dialog as DialogPrimitive } from "@kobalte/core/dialog";
-import { type ComponentProps, type JSX, splitProps } from "solid-js";
+import DialogPrimitive, {
+  type CloseProps,
+  type ContentProps,
+  type DescriptionProps,
+  type DynamicProps,
+  type LabelProps,
+  type OverlayProps,
+  type RootProps,
+} from "@corvu/dialog";
+import { type JSX, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type SideSheetProps = ComponentProps<typeof DialogPrimitive>;
-type SideSheetOverlayProps = ComponentProps<typeof DialogPrimitive.Overlay>;
-type SideSheetContentProps = ComponentProps<typeof DialogPrimitive.Content> & {
-  side?: "start" | "end";
-};
-type SideSheetTitleProps = ComponentProps<typeof DialogPrimitive.Title>;
-type SideSheetDescriptionProps = ComponentProps<typeof DialogPrimitive.Description>;
-type SideSheetCloseProps = ComponentProps<typeof DialogPrimitive.CloseButton>;
-
-/** Modal side sheet (Kobalte dialog). */
-export function SideSheet(props: SideSheetProps) {
+/** Modal side sheet (corvu dialog). */
+export function SideSheet(props: RootProps) {
   return <DialogPrimitive {...props} />;
 }
 
-export function SideSheetOverlay(props: SideSheetOverlayProps) {
+export function SideSheetOverlay(props: DynamicProps<"div", OverlayProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <DialogPrimitive.Overlay
       ref={props.ref}
       data-slot="side-sheet-overlay"
       class={cn(
-        "fixed inset-0 z-50 bg-scrim/32 data-expanded:animate-in data-expanded:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 z-50 bg-scrim/32 data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
         props.class,
       )}
       {...rest}
@@ -32,19 +31,21 @@ export function SideSheetOverlay(props: SideSheetOverlayProps) {
 }
 
 const sideClasses = {
-  end: "right-0 rounded-s-large data-expanded:slide-in-from-right data-closed:slide-out-to-right",
-  start: "left-0 rounded-e-large data-expanded:slide-in-from-left data-closed:slide-out-to-left",
+  end: "right-0 rounded-s-large data-open:slide-in-from-right data-closed:slide-out-to-right",
+  start: "left-0 rounded-e-large data-open:slide-in-from-left data-closed:slide-out-to-left",
 };
 
 /** Up to 400px wide, 16px corners on the inner edge. */
-export function SideSheetContent(props: SideSheetContentProps) {
+export function SideSheetContent(
+  props: DynamicProps<"div", ContentProps> & { side?: "start" | "end" },
+) {
   const [, rest] = splitProps(props, ["class", "ref", "side"]);
   return (
     <DialogPrimitive.Content
       ref={props.ref}
       data-slot="side-sheet-content"
       class={cn(
-        "fixed inset-y-0 z-50 flex w-[calc(100%-3.5rem)] max-w-100 flex-col bg-surface-container-low text-on-surface shadow-level-1 outline-none data-expanded:animate-in data-expanded:duration-500 data-expanded:ease-default-spatial data-closed:animate-out data-closed:duration-200",
+        "fixed inset-y-0 z-50 flex w-[calc(100%-3.5rem)] max-w-100 flex-col bg-surface-container-low text-on-surface shadow-level-1 outline-none data-open:animate-in data-open:duration-500 data-open:ease-default-spatial data-closed:animate-out data-closed:duration-200",
         sideClasses[props.side ?? "end"],
         props.class,
       )}
@@ -65,10 +66,10 @@ export function SideSheetHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-export function SideSheetTitle(props: SideSheetTitleProps) {
+export function SideSheetTitle(props: DynamicProps<"h2", LabelProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <DialogPrimitive.Title
+    <DialogPrimitive.Label
       ref={props.ref}
       data-slot="side-sheet-title"
       class={cn("flex-1 typescale-title-large text-on-surface-variant", props.class)}
@@ -77,7 +78,7 @@ export function SideSheetTitle(props: SideSheetTitleProps) {
   );
 }
 
-export function SideSheetDescription(props: SideSheetDescriptionProps) {
+export function SideSheetDescription(props: DynamicProps<"p", DescriptionProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <DialogPrimitive.Description
@@ -118,10 +119,10 @@ export function SideSheetActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
 }
 
 /** Icon close button for the header. Shows a close icon unless given children. */
-export function SideSheetClose(props: SideSheetCloseProps) {
+export function SideSheetClose(props: DynamicProps<"button", CloseProps>) {
   const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
-    <DialogPrimitive.CloseButton
+    <DialogPrimitive.Close
       ref={props.ref}
       data-slot="side-sheet-close"
       aria-label="Close"
@@ -136,9 +137,10 @@ export function SideSheetClose(props: SideSheetCloseProps) {
           <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
         </svg>
       )}
-    </DialogPrimitive.CloseButton>
+    </DialogPrimitive.Close>
   );
 }
 
 export const SideSheetTrigger = DialogPrimitive.Trigger;
 export const SideSheetPortal = DialogPrimitive.Portal;
+export const useSideSheetContext = DialogPrimitive.useContext;

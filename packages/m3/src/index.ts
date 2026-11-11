@@ -183,6 +183,7 @@ export {
   BottomSheetPortal,
   BottomSheetTitle,
   BottomSheetTrigger,
+  useBottomSheetContext,
 } from "./components/bottom-sheet";
 export {
   SideSheet,
@@ -196,6 +197,7 @@ export {
   SideSheetPortal,
   SideSheetTitle,
   SideSheetTrigger,
+  useSideSheetContext,
 } from "./components/side-sheet";
 export {
   Menu,
@@ -314,6 +316,7 @@ export {
   NavigationDrawerItemBadge,
   NavigationDrawerItemLabel,
   type NavigationDrawerItemProps,
+  useModalNavigationDrawerContext,
 } from "./components/navigation-drawer";
 export {
   applyScheme,

@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import {
   Drawer,
-  DrawerCloseButton,
+  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
+  DrawerLabel,
   DrawerOverlay,
   DrawerPortal,
-  DrawerTitle,
   DrawerTrigger,
 } from "../../ui/src/components/drawer";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
   title: "UI/Drawer",
-  component: Drawer,
-} satisfies Meta<typeof Drawer>;
+  component: DrawerDemo,
+} satisfies Meta<typeof DrawerDemo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -33,11 +33,11 @@ function DrawerDemo() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>Filters</DrawerTitle>
+            <DrawerLabel>Filters</DrawerLabel>
             <DrawerDescription>Narrow the list.</DrawerDescription>
           </DrawerHeader>
           <DrawerFooter>
-            <DrawerCloseButton>Close</DrawerCloseButton>
+            <DrawerClose>Close</DrawerClose>
           </DrawerFooter>
         </DrawerContent>
       </DrawerPortal>

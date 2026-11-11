@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import {
   Popover,
-  PopoverCloseButton,
+  PopoverClose,
   PopoverContent,
   PopoverDescription,
   PopoverHeader,
+  PopoverLabel,
   PopoverPortal,
-  PopoverTitle,
   PopoverTrigger,
 } from "../../ui/src/components/popover";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
   title: "UI/Popover",
-  component: Popover,
-} satisfies Meta<typeof Popover>;
+  component: PopoverDemo,
+} satisfies Meta<typeof PopoverDemo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -30,10 +30,10 @@ function PopoverDemo() {
       <PopoverPortal>
         <PopoverContent>
           <PopoverHeader>
-            <PopoverTitle>Dimensions</PopoverTitle>
+            <PopoverLabel>Dimensions</PopoverLabel>
             <PopoverDescription>Set the size of the frame.</PopoverDescription>
           </PopoverHeader>
-          <PopoverCloseButton>Close</PopoverCloseButton>
+          <PopoverClose>Close</PopoverClose>
         </PopoverContent>
       </PopoverPortal>
     </Popover>

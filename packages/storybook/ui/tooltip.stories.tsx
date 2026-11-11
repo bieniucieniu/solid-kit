@@ -9,8 +9,8 @@ import { Button } from "../../ui/src/components/button";
 
 const meta = {
   title: "UI/Tooltip",
-  component: Tooltip,
-} satisfies Meta<typeof Tooltip>;
+  component: TooltipDemo,
+} satisfies Meta<typeof TooltipDemo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

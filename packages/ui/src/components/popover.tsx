@@ -1,28 +1,28 @@
-import { Popover as PopoverPrimitive, usePopoverContext } from "@kobalte/core/popover";
-import { type ComponentProps, type JSX, splitProps } from "solid-js";
+import PopoverPrimitive, {
+  type CloseProps,
+  type ContentProps,
+  type DescriptionProps,
+  type DynamicProps,
+  type LabelProps,
+  type RootProps,
+} from "@corvu/popover";
+import { type JSX, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type PopoverProps = ComponentProps<typeof PopoverPrimitive>;
-type PopoverContentProps = ComponentProps<typeof PopoverPrimitive.Content>;
-type PopoverTitleProps = ComponentProps<typeof PopoverPrimitive.Title>;
-type PopoverDescriptionProps = ComponentProps<typeof PopoverPrimitive.Description>;
-type PopoverCloseButtonProps = ComponentProps<typeof PopoverPrimitive.CloseButton> & {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-};
-
-export function Popover(props: PopoverProps) {
-  return <PopoverPrimitive gutter={4} {...props} />;
+/** Floating panel anchored to its trigger. Sits 4px off the anchor, flips and shifts to stay in view. */
+export function Popover(props: RootProps) {
+  return <PopoverPrimitive floatingOptions={{ offset: 4, flip: true, shift: true }} {...props} />;
 }
 
-export function PopoverContent(props: PopoverContentProps) {
+export function PopoverContent(props: DynamicProps<"div", ContentProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <PopoverPrimitive.Content
       ref={props.ref}
+      data-slot="popover-content"
       class={cn(
-        "z-50 flex w-72 origin-(--kb-popover-content-transform-origin) flex-col gap-4 rounded-lg bg-popover p-2.5 text-xs text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-hidden data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+        "z-50 flex w-72 flex-col gap-4 rounded-lg bg-popover p-2.5 text-xs text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-hidden data-[placement^=bottom]:slide-in-from-top-2 data-[placement^=left]:slide-in-from-right-2 data-[placement^=right]:slide-in-from-left-2 data-[placement^=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
         props.class,
       )}
       {...rest}
@@ -42,33 +42,38 @@ export function PopoverHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-export function PopoverTitle(props: PopoverTitleProps) {
+export function PopoverLabel(props: DynamicProps<"h2", LabelProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <PopoverPrimitive.Title
+    <PopoverPrimitive.Label
       ref={props.ref}
+      data-slot="popover-title"
       class={cn("text-sm font-medium", props.class)}
       {...rest}
     />
   );
 }
 
-export function PopoverDescription(props: PopoverDescriptionProps) {
+export function PopoverDescription(props: DynamicProps<"p", DescriptionProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <PopoverPrimitive.Description
       ref={props.ref}
+      data-slot="popover-description"
       class={cn("text-muted-foreground", props.class)}
       {...rest}
     />
   );
 }
 
-export function PopoverCloseButton(props: PopoverCloseButtonProps) {
+export function PopoverClose(
+  props: DynamicProps<"button", CloseProps> & { variant?: ButtonVariant; size?: ButtonSize },
+) {
   const [, rest] = splitProps(props, ["class", "ref", "variant", "size"]);
   return (
-    <PopoverPrimitive.CloseButton
+    <PopoverPrimitive.Close
       ref={props.ref}
+      data-slot="popover-close"
       class={buttonVariants({
         variant: props.variant ?? "outline",
         size: props.size,
@@ -84,4 +89,4 @@ export const PopoverAnchor = PopoverPrimitive.Anchor;
 export const PopoverPortal = PopoverPrimitive.Portal;
 export const PopoverArrow = PopoverPrimitive.Arrow;
 
-export { usePopoverContext };
+export const usePopoverContext = PopoverPrimitive.useContext;

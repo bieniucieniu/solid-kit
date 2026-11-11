@@ -5,9 +5,9 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
+  SheetLabel,
   SheetOverlay,
   SheetPortal,
-  SheetTitle,
   SheetTrigger,
 } from "@solid-kit/ui";
 import { createEffect, createSignal, For, on, Show } from "solid-js";
@@ -60,7 +60,7 @@ export function Header() {
                 <SheetOverlay />
                 <SheetContent side="left">
                   <SheetHeader>
-                    <SheetTitle>{pkg().title}</SheetTitle>
+                    <SheetLabel>{pkg().title}</SheetLabel>
                   </SheetHeader>
                   <ScrollArea class="-mx-3 min-h-0 flex-1 px-3">
                     <SidebarNav items={sidebars[pkg().id]} />

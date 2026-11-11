@@ -20,6 +20,8 @@
     "./tokens.css": "./src/tokens.css"
   },
   "dependencies": {
+    "@corvu/dialog": "^0.2.4",
+    "@corvu/drawer": "^0.2.4",
     "@kobalte/core": "^0.13.14",
     "@material/material-color-utilities": "^0.4.0",
     "clsx": "^2.1.1",

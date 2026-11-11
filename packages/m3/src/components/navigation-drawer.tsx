@@ -1,5 +1,10 @@
-import { Dialog as DialogPrimitive } from "@kobalte/core/dialog";
-import { type ComponentProps, type JSX, splitProps, type ValidComponent } from "solid-js";
+import DrawerPrimitive, {
+  type ContentProps,
+  type DynamicProps,
+  type OverlayProps,
+  type RootProps,
+} from "@corvu/drawer";
+import { type JSX, splitProps, type ValidComponent } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import { cn } from "@/lib/utils";
 
@@ -99,38 +104,43 @@ export function NavigationDrawerDivider(props: JSX.HTMLAttributes<HTMLHRElement>
   );
 }
 
-type ModalNavigationDrawerProps = ComponentProps<typeof DialogPrimitive>;
-type ModalNavigationDrawerOverlayProps = ComponentProps<typeof DialogPrimitive.Overlay>;
-type ModalNavigationDrawerContentProps = ComponentProps<typeof DialogPrimitive.Content>;
-
-/** Modal drawer that slides in from the start edge over a scrim (Kobalte dialog). */
-export function ModalNavigationDrawer(props: ModalNavigationDrawerProps) {
-  return <DialogPrimitive {...props} />;
+/**
+ * Modal drawer that slides in from the start edge over a scrim (corvu drawer). Swipe toward the
+ * edge to dismiss.
+ */
+export function ModalNavigationDrawer(props: Omit<RootProps, "side">) {
+  return <DrawerPrimitive {...props} side="left" />;
 }
 
-export function ModalNavigationDrawerOverlay(props: ModalNavigationDrawerOverlayProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+/** The scrim. Fades with how far the drawer is open, so it tracks a drag. */
+export function ModalNavigationDrawerOverlay(props: DynamicProps<"div", OverlayProps>) {
+  const [, rest] = splitProps(props, ["class", "ref", "style"]);
+  const context = DrawerPrimitive.useContext(props.contextId);
   return (
-    <DialogPrimitive.Overlay
+    <DrawerPrimitive.Overlay
       ref={props.ref}
       data-slot="modal-navigation-drawer-overlay"
       class={cn(
-        "fixed inset-0 z-50 bg-scrim/32 data-expanded:animate-in data-expanded:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 z-50 bg-scrim/32 data-transitioning:transition-opacity data-opening:duration-500 data-closing:duration-200 data-snapping:duration-300 data-transitioning:ease-default-effects",
         props.class,
       )}
+      style={{
+        opacity: Math.min(context.openPercentage(), 1),
+        ...(typeof props.style === "object" ? props.style : {}),
+      }}
       {...rest}
     />
   );
 }
 
-export function ModalNavigationDrawerContent(props: ModalNavigationDrawerContentProps) {
+export function ModalNavigationDrawerContent(props: DynamicProps<"div", ContentProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <DialogPrimitive.Content
+    <DrawerPrimitive.Content
       ref={props.ref}
       data-slot="modal-navigation-drawer-content"
       class={cn(
-        "fixed inset-y-0 left-0 z-50 flex w-90 max-w-[calc(100%-3.5rem)] flex-col gap-0.5 overflow-y-auto rounded-e-large bg-surface-container-low p-3 text-on-surface-variant shadow-level-1 outline-none data-expanded:animate-in data-expanded:slide-in-from-left data-expanded:duration-500 data-expanded:ease-default-spatial data-closed:animate-out data-closed:slide-out-to-left data-closed:duration-200",
+        "fixed inset-y-0 left-0 z-50 flex w-90 max-w-[calc(100%-3.5rem)] flex-col gap-0.5 overflow-y-auto rounded-e-large bg-surface-container-low p-3 text-on-surface-variant shadow-level-1 outline-none data-transitioning:transition-transform data-opening:duration-500 data-closing:duration-200 data-snapping:duration-300 data-transitioning:ease-default-spatial",
         props.class,
       )}
       {...rest}
@@ -138,7 +148,8 @@ export function ModalNavigationDrawerContent(props: ModalNavigationDrawerContent
   );
 }
 
-export const ModalNavigationDrawerTrigger = DialogPrimitive.Trigger;
-export const ModalNavigationDrawerPortal = DialogPrimitive.Portal;
-export const ModalNavigationDrawerClose = DialogPrimitive.CloseButton;
-export const ModalNavigationDrawerTitle = DialogPrimitive.Title;
+export const ModalNavigationDrawerTrigger = DrawerPrimitive.Trigger;
+export const ModalNavigationDrawerPortal = DrawerPrimitive.Portal;
+export const ModalNavigationDrawerClose = DrawerPrimitive.Close;
+export const ModalNavigationDrawerTitle = DrawerPrimitive.Label;
+export const useModalNavigationDrawerContext = DrawerPrimitive.useContext;

@@ -83,7 +83,7 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `checkbox`        | `@kobalte/core/checkbox`      |
 | `accordion`       | `@kobalte/core/accordion`     |
 | `alert`           | `@kobalte/core/alert`         |
-| `alert-dialog`    | `@kobalte/core/alert-dialog`  |
+| `alert-dialog`    | `@corvu/dialog`               |
 | `aspect-ratio`    | styled HTML                   |
 | `avatar`          | `@kobalte/core/image`         |
 | `badge`           | styled HTML                   |
@@ -94,7 +94,7 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `collapsible`     | `@kobalte/core/collapsible`   |
 | `combobox`        | `@kobalte/core/combobox`      |
 | `context-menu`    | `@kobalte/core/context-menu`  |
-| `drawer`          | `@kobalte/core/dialog`        |
+| `drawer`          | `@corvu/drawer`               |
 | `dropdown-menu`   | `@kobalte/core/dropdown-menu` |
 | `empty`           | styled HTML                   |
 | `field`           | styled HTML                   |
@@ -109,14 +109,14 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `native-select`   | styled HTML                   |
 | `navigation-menu` | `@kobalte/core/popover`       |
 | `pagination`      | `@kobalte/core/pagination`    |
-| `popover`         | `@kobalte/core/popover`       |
+| `popover`         | `@corvu/popover`              |
 | `progress`        | `@kobalte/core/progress`      |
 | `radio-group`     | `@kobalte/core/radio-group`   |
 | `resizable`       | `@corvu/resizable`            |
 | `scroll-area`     | styled HTML                   |
 | `select`          | `@kobalte/core/select`        |
 | `separator`       | `@kobalte/core/separator`     |
-| `sheet`           | `@kobalte/core/dialog`        |
+| `sheet`           | `@corvu/dialog`               |
 | `skeleton`        | `@kobalte/core/skeleton`      |
 | `slider`          | `@kobalte/core/slider`        |
 | `spinner`         | styled HTML                   |

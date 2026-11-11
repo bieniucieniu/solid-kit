@@ -197,6 +197,12 @@ importers:
 
   packages/m3:
     dependencies:
+      '@corvu/dialog':
+        specifier: ^0.2.4
+        version: 0.2.4(solid-js@1.9.17)
+      '@corvu/drawer':
+        specifier: ^0.2.4
+        version: 0.2.4(solid-js@1.9.17)
       '@kobalte/core':
         specifier: ^0.13.14
         version: 0.13.14(solid-js@1.9.17)
@@ -351,9 +357,15 @@ importers:
       '@corvu/dialog':
         specifier: ^0.2.4
         version: 0.2.4(solid-js@1.9.17)
+      '@corvu/drawer':
+        specifier: ^0.2.4
+        version: 0.2.4(solid-js@1.9.17)
       '@corvu/otp-field':
         specifier: ^0.1.4
         version: 0.1.4(solid-js@1.9.17)
+      '@corvu/popover':
+        specifier: ^0.2.0
+        version: 0.2.0(solid-js@1.9.17)
       '@corvu/resizable':
         specifier: ^0.2.5
         version: 0.2.5(solid-js@1.9.17)
@@ -661,8 +673,18 @@ packages:
     peerDependencies:
       solid-js: ^1.8
 
+  '@corvu/drawer@0.2.4':
+    resolution: {integrity: sha512-7jQoGZ8ROB9CmXam2nMY2wEskU3IoFwZQywkF/7vrBc/edGsPv7mOVQ1GN6G+4nd7nrMZ3UtqHAhmRh9V0azlw==}
+    peerDependencies:
+      solid-js: ^1.8
+
   '@corvu/otp-field@0.1.4':
     resolution: {integrity: sha512-3eG7OoUt6CfVqGujIYfqImdrhGR/s4DpKr5ZQT10zzw3nawIlcwVpqoHTam0v4cgv+NXXvl6I8DoA3J+WgW2YA==}
+    peerDependencies:
+      solid-js: ^1.8
+
+  '@corvu/popover@0.2.0':
+    resolution: {integrity: sha512-zynRWyRV7mk2uX7t/COQL4OEa6H6FBgOxxlXLQJ1BV8hTiBJwmfAN/yB/9jy+zlp0G9vp64E8VdsNn6gxUEUEQ==}
     peerDependencies:
       solid-js: ^1.8
 
@@ -673,6 +695,11 @@ packages:
 
   '@corvu/tooltip@0.2.2':
     resolution: {integrity: sha512-gyOBJ43GNAecDtmWc68A5YJvifXWwK0VZZdTOcFbX0rVQUA2ihBMltRE4oj7/lKidg2gXALjmFr71Blt5s3YuQ==}
+    peerDependencies:
+      solid-js: ^1.8
+
+  '@corvu/utils@0.3.2':
+    resolution: {integrity: sha512-ZWlyWEE8qV9+CB9OAyo2bTrZGXQN9ZeM+JfYv89zoR+lRACKTDuoOZEdiyL8Uc7U5dUSH1uTqKhTTnaHWb+wZA==}
     peerDependencies:
       solid-js: ^1.8
 
@@ -2088,6 +2115,11 @@ packages:
     peerDependencies:
       solid-js: ^1.6.12
 
+  '@solid-primitives/memo@1.5.1':
+    resolution: {integrity: sha512-VDPrkl9epp0tbby9MvsqphGFCYCtDRC5J8FKzTqHbQiG5hhR8n6xv4MfjhTW231IaBxxPHLxS43EE8c5Q23mSQ==}
+    peerDependencies:
+      solid-js: ^1.6.12
+
   '@solid-primitives/props@3.2.4':
     resolution: {integrity: sha512-MXXdvi2TSB6d+0N6ueA/HP1j/Kh9SEc4WdF1ZDMLwPagxW6pIHHSS9xbRO0RjqSVpNP4j0nxCWT1hx3CkJNhNA==}
     peerDependencies:
@@ -2105,6 +2137,11 @@ packages:
 
   '@solid-primitives/rootless@1.5.4':
     resolution: {integrity: sha512-TOIZa1VUfVJ+9nkCcRajw3U4t9vBOP1HxX1WHNTbXq32mXwlqTvUnC4CRIilohcryBkT9u2ZkhUDSHRTaGp55g==}
+    peerDependencies:
+      solid-js: ^1.6.12
+
+  '@solid-primitives/scheduled@1.5.3':
+    resolution: {integrity: sha512-oNwLE6E6lxJAWrc8QXuwM0k2oU1BnANnkChwMw82aK1j3+mWGJkG1IFe5gCwbV+afYmjI76t9JJV3md/8tLw+g==}
     peerDependencies:
       solid-js: ^1.6.12
 
@@ -4302,6 +4339,11 @@ packages:
     peerDependencies:
       solid-js: ^1.3
 
+  solid-transition-size@0.1.4:
+    resolution: {integrity: sha512-ocHVnbfy23CgfaH4cEUR/AFg0Y3CEL8Oh3n9Qv8OHFJgPh+zkmERKZQfi/xH5XvxDCizg8VjPrVUhiHB1Gza8g==}
+    peerDependencies:
+      solid-js: ^1.8
+
   solid-use@0.9.1:
     resolution: {integrity: sha512-UwvXDVPlrrbj/9ewG9ys5uL2IO4jSiwys2KPzK4zsnAcmEl7iDafZWW1Mo4BSEWOmQCGK6IvpmGHo1aou8iOFw==}
     engines: {node: '>=10'}
@@ -4970,9 +5012,24 @@ snapshots:
       solid-presence: 0.2.0(solid-js@1.9.17)
       solid-prevent-scroll: 0.1.11(solid-js@1.9.17)
 
+  '@corvu/drawer@0.2.4(solid-js@1.9.17)':
+    dependencies:
+      '@corvu/dialog': 0.2.4(solid-js@1.9.17)
+      '@corvu/utils': 0.4.2(solid-js@1.9.17)
+      '@solid-primitives/memo': 1.5.1(solid-js@1.9.17)
+      solid-js: 1.9.17
+      solid-transition-size: 0.1.4(solid-js@1.9.17)
+
   '@corvu/otp-field@0.1.4(solid-js@1.9.17)':
     dependencies:
       '@corvu/utils': 0.4.2(solid-js@1.9.17)
+      solid-js: 1.9.17
+
+  '@corvu/popover@0.2.0(solid-js@1.9.17)':
+    dependencies:
+      '@corvu/dialog': 0.2.4(solid-js@1.9.17)
+      '@corvu/utils': 0.3.2(solid-js@1.9.17)
+      '@floating-ui/dom': 1.8.0
       solid-js: 1.9.17
 
   '@corvu/resizable@0.2.5(solid-js@1.9.17)':
@@ -4987,6 +5044,11 @@ snapshots:
       solid-dismissible: 0.1.1(solid-js@1.9.17)
       solid-js: 1.9.17
       solid-presence: 0.2.0(solid-js@1.9.17)
+
+  '@corvu/utils@0.3.2(solid-js@1.9.17)':
+    dependencies:
+      '@floating-ui/dom': 1.8.0
+      solid-js: 1.9.17
 
   '@corvu/utils@0.4.2(solid-js@1.9.17)':
     dependencies:
@@ -5889,6 +5951,12 @@ snapshots:
       '@solid-primitives/utils': 6.4.1(solid-js@1.9.17)
       solid-js: 1.9.17
 
+  '@solid-primitives/memo@1.5.1(solid-js@1.9.17)':
+    dependencies:
+      '@solid-primitives/scheduled': 1.5.3(solid-js@1.9.17)
+      '@solid-primitives/utils': 6.4.1(solid-js@1.9.17)
+      solid-js: 1.9.17
+
   '@solid-primitives/props@3.2.4(solid-js@1.9.17)':
     dependencies:
       '@solid-primitives/utils': 6.4.1(solid-js@1.9.17)
@@ -5910,6 +5978,10 @@ snapshots:
   '@solid-primitives/rootless@1.5.4(solid-js@1.9.17)':
     dependencies:
       '@solid-primitives/utils': 6.4.1(solid-js@1.9.17)
+      solid-js: 1.9.17
+
+  '@solid-primitives/scheduled@1.5.3(solid-js@1.9.17)':
+    dependencies:
       solid-js: 1.9.17
 
   '@solid-primitives/static-store@0.1.4(solid-js@1.9.17)':
@@ -8048,6 +8120,11 @@ snapshots:
     dependencies:
       '@babel/generator': 7.29.8
       '@babel/types': 7.29.11
+      solid-js: 1.9.17
+
+  solid-transition-size@0.1.4(solid-js@1.9.17):
+    dependencies:
+      '@corvu/utils': 0.3.2(solid-js@1.9.17)
       solid-js: 1.9.17
 
   solid-use@0.9.1(solid-js@1.9.17):

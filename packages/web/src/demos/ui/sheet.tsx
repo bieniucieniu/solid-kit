@@ -1,14 +1,14 @@
 import {
   Button,
   Sheet,
-  SheetCloseButton,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
+  SheetLabel,
   SheetOverlay,
   SheetPortal,
-  SheetTitle,
   SheetTrigger,
 } from "@solid-kit/ui";
 import { For } from "solid-js";
@@ -28,13 +28,13 @@ export function SheetDemo() {
               <SheetOverlay />
               <SheetContent side={side}>
                 <SheetHeader>
-                  <SheetTitle>Settings</SheetTitle>
+                  <SheetLabel>Settings</SheetLabel>
                   <SheetDescription>Changes apply to this project.</SheetDescription>
                 </SheetHeader>
                 <p class="text-muted-foreground">Content placed directly in the sheet is padded.</p>
                 <SheetFooter>
-                  <SheetCloseButton variant="default">Save</SheetCloseButton>
-                  <SheetCloseButton>Cancel</SheetCloseButton>
+                  <SheetClose variant="default">Save</SheetClose>
+                  <SheetClose>Cancel</SheetClose>
                 </SheetFooter>
               </SheetContent>
             </SheetPortal>

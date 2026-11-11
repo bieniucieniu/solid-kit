@@ -1,6 +1,6 @@
 # `@solid-kit/m3`
 
-Material 3 Expressive components for Solid, delivered through the [shadcn CLI](https://ui.shadcn.com/docs/registry). Same API as [`@solid-kit/ui`](../ui/README.md): compound parts with flat names (`Dialog`, `DialogTrigger`, `DialogContent`), `variant` / `size` props, `xxxVariants()` class helpers, `data-slot` attributes, and Kobalte primitives. The look follows [m3.material.io](https://m3.material.io).
+Material 3 Expressive components for Solid, delivered through the [shadcn CLI](https://ui.shadcn.com/docs/registry). Same API as [`@solid-kit/ui`](../ui/README.md): compound parts with flat names (`Dialog`, `DialogTrigger`, `DialogContent`), `variant` / `size` props, `xxxVariants()` class helpers, `data-slot` attributes, and Kobalte or corvu primitives. The look follows [m3.material.io](https://m3.material.io).
 
 Install into an app. The CLI copies the source and rewrites `@/lib/utils`.
 
@@ -76,9 +76,9 @@ console.log(await schemeCss({ seed: "#006A6A", variant: "vibrant" })); // paste 
 | `m3-card`              | `Card` (elevated, filled, outlined), `CardMedia`, `CardHeader`, ...                                                                                                                  | styled HTML                                         |
 | `m3-list`              | `List`, `ListItem`, `ListItemLeading`, `ListItemContent`, `ListItemHeadline`, ...                                                                                                    | styled HTML                                         |
 | `m3-divider`           | `Divider`                                                                                                                                                                            | `@kobalte/core/separator`                           |
-| `m3-dialog`            | `Dialog`, `DialogContent` (`fullScreen`), `DialogIcon`, `DialogHeadline`, `DialogActions`, `DialogClose`, ...                                                                        | `@kobalte/core/dialog`                              |
-| `m3-bottom-sheet`      | `BottomSheet`, `BottomSheetContent`, `BottomSheetDragHandle`, ...                                                                                                                    | `@kobalte/core/dialog`                              |
-| `m3-side-sheet`        | `SideSheet`, `SideSheetContent`, `SideSheetHeader`, `SideSheetActions`, ...                                                                                                          | `@kobalte/core/dialog`                              |
+| `m3-dialog`            | `Dialog`, `DialogContent` (`fullScreen`), `DialogIcon`, `DialogHeadline`, `DialogActions`, `DialogClose`, ...                                                                        | `@corvu/dialog`                                     |
+| `m3-bottom-sheet`      | `BottomSheet`, `BottomSheetContent`, `BottomSheetDragHandle`, ...                                                                                                                    | `@corvu/drawer`                                     |
+| `m3-side-sheet`        | `SideSheet`, `SideSheetContent`, `SideSheetHeader`, `SideSheetActions`, ...                                                                                                          | `@corvu/dialog`                                     |
 | `m3-menu`              | `Menu`, `MenuContent`, `MenuItem`, `MenuCheckboxItem`, `MenuRadioItem`, `MenuSub`, ...                                                                                               | `@kobalte/core/dropdown-menu`                       |
 | `m3-tooltip`           | `Tooltip*`, `RichTooltip*`                                                                                                                                                           | `@kobalte/core/tooltip`, `@kobalte/core/hover-card` |
 | `m3-snackbar`          | `Snackbar`, `SnackbarRegion`, `SnackbarMessage`, `SnackbarAction`, `snackbar.show()`                                                                                                 | `@kobalte/core/toast` (own region)                  |
@@ -90,9 +90,9 @@ console.log(await schemeCss({ seed: "#006A6A", variant: "vibrant" })); // paste 
 | `m3-tabs`              | `Tabs` (primary, secondary), `TabsList`, `TabsTrigger`, `TabsIndicator`, `TabsContent`                                                                                               | `@kobalte/core/tabs`                                |
 | `m3-navigation-bar`    | `NavigationBar`, `NavigationBarItem`, `NavigationBarIcon`, `NavigationBarLabel`                                                                                                      | styled HTML                                         |
 | `m3-navigation-rail`   | `NavigationRail` (`expanded`), `NavigationRailHeader`, `NavigationRailItem`, ...                                                                                                     | styled HTML                                         |
-| `m3-navigation-drawer` | `NavigationDrawer`, `NavigationDrawerItem`, `ModalNavigationDrawer*`                                                                                                                 | styled HTML, `@kobalte/core/dialog`                 |
+| `m3-navigation-drawer` | `NavigationDrawer`, `NavigationDrawerItem`, `ModalNavigationDrawer*`                                                                                                                 | styled HTML, `@corvu/drawer`                        |
 
-Not built yet: date and time pickers (Kobalte has no calendar), carousel, and the bottom sheet's drag-to-dismiss.
+Not built yet: date and time pickers (Kobalte has no calendar) and carousel.
 
 ```tsx
 import { Button } from "@/components/m3/button";

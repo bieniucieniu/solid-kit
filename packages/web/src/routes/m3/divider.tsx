@@ -1,0 +1,21 @@
+import { DocsPage } from "~/components/preview";
+import { DividerDemo } from "~/demos/m3/divider";
+
+const snippet = `import { Divider } from "@solid-kit/m3";
+
+// inset: "none" | "start" | "middle"
+<Divider inset="middle" />
+<Divider orientation="vertical" />`;
+
+export default function DividerPage() {
+  return (
+    <DocsPage
+      title="Divider"
+      description="A thin line between groups of content."
+      snippet={snippet}
+      previewClass="bg-surface text-on-surface"
+    >
+      <DividerDemo />
+    </DocsPage>
+  );
+}

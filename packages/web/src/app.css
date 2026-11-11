@@ -1,6 +1,8 @@
 @import "@solid-kit/ui/theme.css";
+@import "@solid-kit/m3/tokens.css";
 @source ".";
 @source "../../ui/src";
+@source "../../m3/src";
 
 :root {
   --header-height: 2.5rem;

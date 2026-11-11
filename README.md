@@ -11,6 +11,7 @@ SolidJS packages. The workspace root is private and does not export library code
 | `@solid-kit/motion`           | `motion`, `AnimatePresence`, `useMotionValue`, `useSpring` |
 
 UI registry (shadcn CLI, Tailwind 4): [`packages/ui`](packages/ui/README.md).
+Material 3 Expressive registry on the same API: [`packages/m3`](packages/m3/README.md).
 
 `@solid-kit/tiptap` follows the public API of [`@tiptap/react`](https://tiptap.dev/docs/editor/getting-started/install/react).
 

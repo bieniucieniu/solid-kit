@@ -16,5 +16,5 @@
       "@/*": ["../ui/src/*"]
     }
   },
-  "include": [".storybook", "ui", "motion", "tiptap", "xyflow"]
+  "include": [".storybook", "ui", "m3", "motion", "tiptap", "xyflow"]
 }

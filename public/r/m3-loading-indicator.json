@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "m3-loading-indicator",
+  "title": "M3 Loading indicator",
+  "description": "Expressive morphing loading indicator.",
+  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "files": [
+    {
+      "path": "packages/m3/src/components/loading-indicator.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport interface LoadingIndicatorProps extends JSX.HTMLAttributes<HTMLSpanElement> {\n  /** Put the shape on a primary-container circle. */\n  contained?: boolean;\n}\n\n/**\n * Indeterminate wait of under five seconds: a shape that morphs and turns. Give it an\n * `aria-label`.\n */\nexport function LoadingIndicator(props: LoadingIndicatorProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\", \"contained\"]);\n  return (\n    <span\n      ref={props.ref}\n      role=\"progressbar\"\n      aria-busy=\"true\"\n      data-slot=\"loading-indicator\"\n      data-contained={props.contained ? \"\" : undefined}\n      class={cn(\n        \"group/loading inline-flex size-12 shrink-0 items-center justify-center rounded-full data-contained:bg-primary-container\",\n        props.class,\n      )}\n      {...rest}\n    >\n      <span class=\"size-9.5 animate-m3-morph bg-primary group-data-contained/loading:size-8 group-data-contained/loading:bg-on-primary-container motion-reduce:animate-none\" />\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@components/m3/loading-indicator.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

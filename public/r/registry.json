@@ -521,8 +521,8 @@
     {
       "name": "accordion",
       "title": "Accordion",
-      "description": "Accordion. Styled wrapper around @kobalte/core/accordion.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Accordion. Styled wrapper around @corvu/accordion.",
+      "dependencies": ["@corvu/accordion"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
@@ -667,8 +667,8 @@
     {
       "name": "collapsible",
       "title": "Collapsible",
-      "description": "Collapsible. Styled wrapper around @kobalte/core/collapsible.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Collapsible. Styled wrapper around @corvu/disclosure.",
+      "dependencies": ["@corvu/disclosure"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
@@ -1565,8 +1565,8 @@
     {
       "name": "m3-tooltip",
       "title": "M3 Tooltip",
-      "description": "Plain tooltip (@kobalte/core/tooltip) and rich tooltip (@kobalte/core/hover-card).",
-      "dependencies": ["@kobalte/core"],
+      "description": "Plain tooltip (@corvu/tooltip) and rich tooltip (@kobalte/core/hover-card).",
+      "dependencies": ["@corvu/tooltip", "@kobalte/core"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
       "files": [
         {

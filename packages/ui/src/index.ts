@@ -40,7 +40,10 @@ export {
   AccordionContent,
   AccordionHeader,
   AccordionItem,
+  type AccordionProps,
   AccordionTrigger,
+  useAccordionContext,
+  useAccordionItemContext,
 } from "./components/accordion";
 export { Alert, AlertAction, AlertDescription, AlertTitle } from "./components/alert";
 export {
@@ -114,7 +117,13 @@ export {
   highlightCode,
   resolveLanguage,
 } from "./lib/highlighter";
-export { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./components/collapsible";
+export {
+  Collapsible,
+  CollapsibleContent,
+  type CollapsibleProps,
+  CollapsibleTrigger,
+  useCollapsibleContext,
+} from "./components/collapsible";
 export {
   Combobox,
   ComboboxArrow,

@@ -1,28 +1,48 @@
-import { Collapsible as CollapsiblePrimitive } from "@kobalte/core/collapsible";
-import { type ComponentProps, splitProps } from "solid-js";
+import DisclosurePrimitive, {
+  type ContentProps,
+  type DynamicProps,
+  type RootProps,
+  type TriggerProps,
+} from "@corvu/disclosure";
+import { type JSX, mergeProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type CollapsibleProps = ComponentProps<typeof CollapsiblePrimitive>;
-type CollapsibleTriggerProps = ComponentProps<typeof CollapsiblePrimitive.Trigger>;
-type CollapsibleContentProps = ComponentProps<typeof CollapsiblePrimitive.Content>;
+const rootKeys = [
+  "expanded",
+  "onExpandedChange",
+  "initialExpanded",
+  "collapseBehavior",
+  "preventInitialContentAnimation",
+  "onContentPresentChange",
+  "disclosureId",
+  "contextId",
+] as const;
 
+export type CollapsibleProps = Omit<RootProps, "children"> &
+  Omit<JSX.HTMLAttributes<HTMLDivElement>, "children"> & { children?: JSX.Element };
+
+/** Corvu's disclosure root renders no element, so this wraps the parts in a `div`. */
 export function Collapsible(props: CollapsibleProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [root, , rest] = splitProps(
+    mergeProps({ preventInitialContentAnimation: true }, props),
+    rootKeys,
+    ["class", "ref", "children"],
+  );
   return (
-    <CollapsiblePrimitive
-      ref={props.ref}
-      data-slot="collapsible"
-      class={cn("data-disabled:opacity-50", props.class)}
-      {...rest}
-    />
+    <DisclosurePrimitive {...root}>
+      <div ref={props.ref} data-slot="collapsible" class={props.class} {...rest}>
+        {props.children}
+      </div>
+    </DisclosurePrimitive>
   );
 }
 
-export function CollapsibleTrigger(props: CollapsibleTriggerProps) {
+export function CollapsibleTrigger(props: DynamicProps<"button", TriggerProps>) {
   const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
-    <CollapsiblePrimitive.Trigger
+    <DisclosurePrimitive.Trigger
       ref={props.ref}
+      data-slot="collapsible-trigger"
       class={cn(
         "group/collapsible-trigger inline-flex items-center gap-2 rounded-md text-xs/relaxed font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:opacity-50",
         props.class,
@@ -40,20 +60,26 @@ export function CollapsibleTrigger(props: CollapsibleTriggerProps) {
       >
         <path d="m6 9 6 6 6-6" />
       </svg>
-    </CollapsiblePrimitive.Trigger>
+    </DisclosurePrimitive.Trigger>
   );
 }
 
-export function CollapsibleContent(props: CollapsibleContentProps) {
+/**
+ * tw-animate-css reads the panel height from a primitive's CSS variable; corvu's is mapped onto
+ * the one its `collapsible-*` keyframes check first.
+ */
+export function CollapsibleContent(props: DynamicProps<"div", ContentProps>) {
   const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
-    <CollapsiblePrimitive.Content
+    <DisclosurePrimitive.Content
       ref={props.ref}
       data-slot="collapsible-content"
-      class="overflow-hidden text-xs/relaxed data-expanded:animate-collapsible-down data-closed:animate-collapsible-up"
+      class="overflow-hidden text-xs/relaxed [--radix-collapsible-content-height:var(--corvu-disclosure-content-height)] data-expanded:animate-collapsible-down data-collapsed:animate-collapsible-up"
       {...rest}
     >
       <div class={cn("pt-2", props.class)}>{props.children}</div>
-    </CollapsiblePrimitive.Content>
+    </DisclosurePrimitive.Content>
   );
 }
+
+export const useCollapsibleContext = DisclosurePrimitive.useContext;

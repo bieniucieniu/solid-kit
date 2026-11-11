@@ -203,6 +203,9 @@ importers:
       '@corvu/drawer':
         specifier: ^0.2.4
         version: 0.2.4(solid-js@1.9.17)
+      '@corvu/tooltip':
+        specifier: ^0.2.2
+        version: 0.2.2(solid-js@1.9.17)
       '@kobalte/core':
         specifier: ^0.13.14
         version: 0.13.14(solid-js@1.9.17)
@@ -351,12 +354,18 @@ importers:
 
   packages/ui:
     dependencies:
+      '@corvu/accordion':
+        specifier: ^0.2.5
+        version: 0.2.5(solid-js@1.9.17)
       '@corvu/calendar':
         specifier: ^0.1.2
         version: 0.1.2(solid-js@1.9.17)
       '@corvu/dialog':
         specifier: ^0.2.4
         version: 0.2.4(solid-js@1.9.17)
+      '@corvu/disclosure':
+        specifier: ^0.2.2
+        version: 0.2.2(solid-js@1.9.17)
       '@corvu/drawer':
         specifier: ^0.2.4
         version: 0.2.4(solid-js@1.9.17)
@@ -663,6 +672,11 @@ packages:
   '@blazediff/core@1.10.0':
     resolution: {integrity: sha512-AOQff0zgR7cGsZL+4E7hVkmujoPUpm0J9xzWGWZj5wCjd3gmxESXAPfKyuzs93VdpQNFhHlBhfOjrcZ+XTERtQ==}
 
+  '@corvu/accordion@0.2.5':
+    resolution: {integrity: sha512-oBZKDZZNN5mirmilSzWSrY+7PQGHQbXAlWm1SOvG1AAsIeX5osUdQnKjH0XzlkkAxCLKHb41178W4YNNPqH0PA==}
+    peerDependencies:
+      solid-js: ^1.8
+
   '@corvu/calendar@0.1.2':
     resolution: {integrity: sha512-Vbdns1iNNI0WTIwDZS7m9pHWtr/YTz7yrisXhHUCfl4mxDvb9W8MMmun651wiEjhL7+OrcNbbl2kTOmYSFIf4g==}
     peerDependencies:
@@ -670,6 +684,11 @@ packages:
 
   '@corvu/dialog@0.2.4':
     resolution: {integrity: sha512-n54vJq+fOy8GVrnYBdJpD6JXNuyx7LOeMrRxwzAvZnYGpW8+AA12tnb/P/2emJj/HjOO5otheGKb0breshdFlA==}
+    peerDependencies:
+      solid-js: ^1.8
+
+  '@corvu/disclosure@0.2.2':
+    resolution: {integrity: sha512-d2E9zS0w9peeOiBDc8/ZcqS56ZeOIiKJcwMFpLjuhlfrtVAepwyhbwFHNQTb48VeRHW8amfrGliymT//VQFF9g==}
     peerDependencies:
       solid-js: ^1.8
 
@@ -4319,6 +4338,11 @@ packages:
   solid-js@1.9.17:
     resolution: {integrity: sha512-4GAmLOWPfNV8H9Jfn2LSFTpNEG6jiOKPiwd5lnLGQtehHaX6l3TOLzJqQ7mqwB/3k1Yy3zyumFVopmc/tm34ow==}
 
+  solid-list@0.3.0:
+    resolution: {integrity: sha512-t4hx/F/l8Vmq+ib9HtZYl7Z9F1eKxq3eKJTXlvcm7P7yI4Z8O7QSOOEVHb/K6DD7M0RxzVRobK/BS5aSfLRwKg==}
+    peerDependencies:
+      solid-js: ^1.8
+
   solid-presence@0.2.0:
     resolution: {integrity: sha512-YM92o+jvpzX3XGaD4rLYmq/Kc2ZVh47GSCLEufHBFQQIurvZTs8SoGJxO8BJGNDxBKdcS8F3dYhW1SDXp4BNjA==}
     peerDependencies:
@@ -4998,6 +5022,13 @@ snapshots:
 
   '@blazediff/core@1.10.0': {}
 
+  '@corvu/accordion@0.2.5(solid-js@1.9.17)':
+    dependencies:
+      '@corvu/disclosure': 0.2.2(solid-js@1.9.17)
+      '@corvu/utils': 0.4.2(solid-js@1.9.17)
+      solid-js: 1.9.17
+      solid-list: 0.3.0(solid-js@1.9.17)
+
   '@corvu/calendar@0.1.2(solid-js@1.9.17)':
     dependencies:
       '@corvu/utils': 0.4.2(solid-js@1.9.17)
@@ -5011,6 +5042,12 @@ snapshots:
       solid-js: 1.9.17
       solid-presence: 0.2.0(solid-js@1.9.17)
       solid-prevent-scroll: 0.1.11(solid-js@1.9.17)
+
+  '@corvu/disclosure@0.2.2(solid-js@1.9.17)':
+    dependencies:
+      '@corvu/utils': 0.4.2(solid-js@1.9.17)
+      solid-js: 1.9.17
+      solid-presence: 0.2.0(solid-js@1.9.17)
 
   '@corvu/drawer@0.2.4(solid-js@1.9.17)':
     dependencies:
@@ -8096,6 +8133,11 @@ snapshots:
       csstype: 3.2.3
       seroval: 1.6.12
       seroval-plugins: 1.6.12(seroval@1.6.12)
+
+  solid-list@0.3.0(solid-js@1.9.17):
+    dependencies:
+      '@corvu/utils': 0.4.2(solid-js@1.9.17)
+      solid-js: 1.9.17
 
   solid-presence@0.2.0(solid-js@1.9.17):
     dependencies:

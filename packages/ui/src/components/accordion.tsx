@@ -1,45 +1,78 @@
-import { Accordion as AccordionPrimitive } from "@kobalte/core/accordion";
-import { type ComponentProps, splitProps } from "solid-js";
+import AccordionPrimitive, {
+  type ContentProps,
+  type DynamicProps,
+  type ItemProps,
+  type RootProps,
+  type TriggerProps,
+} from "@corvu/accordion";
+import { type JSX, mergeProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type AccordionProps = ComponentProps<typeof AccordionPrimitive>;
-type AccordionItemProps = ComponentProps<typeof AccordionPrimitive.Item>;
-type AccordionHeaderProps = ComponentProps<typeof AccordionPrimitive.Header>;
-type AccordionTriggerProps = ComponentProps<typeof AccordionPrimitive.Trigger>;
-type AccordionContentProps = ComponentProps<typeof AccordionPrimitive.Content>;
+const rootKeys = [
+  "multiple",
+  "value",
+  "onValueChange",
+  "initialValue",
+  "collapsible",
+  "disabled",
+  "orientation",
+  "loop",
+  "textDirection",
+  "collapseBehavior",
+  "preventInitialContentAnimation",
+  "contextId",
+] as const;
 
+export type AccordionProps = Omit<RootProps, "children"> &
+  Omit<JSX.HTMLAttributes<HTMLDivElement>, "children"> & { children?: JSX.Element };
+
+/** Corvu's root renders no element, so the bordered frame is a wrapping `div`. */
 export function Accordion(props: AccordionProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+  const [root, , rest] = splitProps(
+    mergeProps({ preventInitialContentAnimation: true }, props),
+    rootKeys,
+    ["class", "ref", "children"],
+  );
   return (
-    <AccordionPrimitive
-      ref={props.ref}
-      class={cn("flex w-full flex-col overflow-hidden rounded-md border", props.class)}
-      {...rest}
-    />
+    <AccordionPrimitive {...root}>
+      <div
+        ref={props.ref}
+        data-slot="accordion"
+        class={cn("flex w-full flex-col overflow-hidden rounded-md border", props.class)}
+        {...rest}
+      >
+        {props.children}
+      </div>
+    </AccordionPrimitive>
   );
 }
 
-export function AccordionItem(props: AccordionItemProps) {
+export function AccordionItem(props: DynamicProps<"div", ItemProps<"div">>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <AccordionPrimitive.Item
+      as="div"
       ref={props.ref}
-      class={cn("not-last:border-b data-expanded:bg-muted/50", props.class)}
+      data-slot="accordion-item"
+      class={cn("not-last:border-b has-data-expanded:bg-muted/50", props.class)}
       {...rest}
     />
   );
 }
 
-export function AccordionHeader(props: AccordionHeaderProps) {
+export function AccordionHeader(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
-  return <AccordionPrimitive.Header ref={props.ref} class={cn("flex", props.class)} {...rest} />;
+  return (
+    <h3 ref={props.ref} data-slot="accordion-header" class={cn("flex", props.class)} {...rest} />
+  );
 }
 
-export function AccordionTrigger(props: AccordionTriggerProps) {
+export function AccordionTrigger(props: DynamicProps<"button", TriggerProps>) {
   const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
     <AccordionPrimitive.Trigger
       ref={props.ref}
+      data-slot="accordion-trigger"
       class={cn(
         "group/accordion-trigger relative flex flex-1 items-start justify-between gap-6 border border-transparent p-2 text-left text-xs/relaxed font-medium transition-all outline-none hover:underline focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:opacity-50",
         props.class,
@@ -62,13 +95,17 @@ export function AccordionTrigger(props: AccordionTriggerProps) {
   );
 }
 
-export function AccordionContent(props: AccordionContentProps) {
+/**
+ * tw-animate-css reads the panel height from a primitive's CSS variable; corvu's is mapped onto
+ * the one its `accordion-*` keyframes check first.
+ */
+export function AccordionContent(props: DynamicProps<"div", ContentProps>) {
   const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
     <AccordionPrimitive.Content
       ref={props.ref}
       data-slot="accordion-content"
-      class="overflow-hidden px-2 text-xs/relaxed data-expanded:animate-accordion-down data-closed:animate-accordion-up"
+      class="overflow-hidden px-2 text-xs/relaxed [--radix-accordion-content-height:var(--corvu-disclosure-content-height)] data-expanded:animate-accordion-down data-collapsed:animate-accordion-up"
       {...rest}
     >
       <div
@@ -82,3 +119,6 @@ export function AccordionContent(props: AccordionContentProps) {
     </AccordionPrimitive.Content>
   );
 }
+
+export const useAccordionContext = AccordionPrimitive.useContext;
+export const useAccordionItemContext = AccordionPrimitive.useItemContext;

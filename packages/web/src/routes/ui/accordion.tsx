@@ -9,7 +9,7 @@ const snippet = `import {
   AccordionTrigger,
 } from "@solid-kit/ui";
 
-<Accordion collapsible defaultValue={["one"]}>
+<Accordion initialValue="one">
   <AccordionItem value="one">
     <AccordionHeader>
       <AccordionTrigger>Is it accessible?</AccordionTrigger>

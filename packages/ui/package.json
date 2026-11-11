@@ -19,8 +19,10 @@
     "./theme.css": "./src/theme.css"
   },
   "dependencies": {
+    "@corvu/accordion": "^0.2.5",
     "@corvu/calendar": "^0.1.2",
     "@corvu/dialog": "^0.2.4",
+    "@corvu/disclosure": "^0.2.2",
     "@corvu/drawer": "^0.2.4",
     "@corvu/otp-field": "^0.1.4",
     "@corvu/popover": "^0.2.0",

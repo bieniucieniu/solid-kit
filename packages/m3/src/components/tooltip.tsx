@@ -1,26 +1,39 @@
+import TooltipPrimitive, {
+  type ContentProps,
+  type DynamicProps,
+  type RootProps,
+} from "@corvu/tooltip";
 import { HoverCard as HoverCardPrimitive } from "@kobalte/core/hover-card";
-import { Tooltip as TooltipPrimitive, useTooltipContext } from "@kobalte/core/tooltip";
 import { type ComponentProps, type JSX, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
-type TooltipProps = ComponentProps<typeof TooltipPrimitive>;
-type TooltipContentProps = ComponentProps<typeof TooltipPrimitive.Content>;
 type RichTooltipProps = ComponentProps<typeof HoverCardPrimitive>;
 type RichTooltipContentProps = ComponentProps<typeof HoverCardPrimitive.Content>;
 
-/** Plain tooltip: a short label on hover or focus. */
-export function Tooltip(props: TooltipProps) {
-  return <TooltipPrimitive gutter={4} openDelay={500} {...props} />;
+/**
+ * Plain tooltip: a short label on hover or focus (corvu tooltip). Tooltips share one group, so
+ * moving between nearby triggers within 300ms skips the open delay.
+ */
+export function Tooltip(props: RootProps) {
+  return (
+    <TooltipPrimitive
+      floatingOptions={{ offset: 4, flip: true, shift: true }}
+      openDelay={500}
+      skipDelayDuration={300}
+      group
+      {...props}
+    />
+  );
 }
 
-export function TooltipContent(props: TooltipContentProps) {
+export function TooltipContent(props: DynamicProps<"div", ContentProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <TooltipPrimitive.Content
       ref={props.ref}
       data-slot="tooltip-content"
       class={cn(
-        "z-50 flex min-h-6 max-w-50 origin-(--kb-tooltip-content-transform-origin) items-center rounded-extra-small bg-inverse-surface px-2 py-1 typescale-body-small text-inverse-on-surface data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+        "z-50 flex min-h-6 max-w-50 items-center rounded-extra-small bg-inverse-surface px-2 py-1 typescale-body-small text-inverse-on-surface data-[placement^=bottom]:slide-in-from-top-1 data-[placement^=left]:slide-in-from-right-1 data-[placement^=right]:slide-in-from-left-1 data-[placement^=top]:slide-in-from-bottom-1 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
         props.class,
       )}
       {...rest}
@@ -88,8 +101,9 @@ export function RichTooltipActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
+export const TooltipAnchor = TooltipPrimitive.Anchor;
 export const TooltipTrigger = TooltipPrimitive.Trigger;
 export const TooltipPortal = TooltipPrimitive.Portal;
 export const RichTooltipTrigger = HoverCardPrimitive.Trigger;
 export const RichTooltipPortal = HoverCardPrimitive.Portal;
-export { useTooltipContext };
+export const useTooltipContext = TooltipPrimitive.useContext;

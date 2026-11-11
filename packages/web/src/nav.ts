@@ -1,4 +1,4 @@
-export type PackageId = "ui" | "motion" | "xyflow" | "tiptap";
+export type PackageId = "ui" | "m3" | "motion" | "xyflow" | "tiptap";
 
 export type NavItem = {
   title: string;
@@ -18,6 +18,12 @@ export const packages: PackageNav[] = [
     title: "UI",
     href: "/ui",
     description: "Buttons, form controls, overlays, and layout.",
+  },
+  {
+    id: "m3",
+    title: "Material 3",
+    href: "/m3",
+    description: "Material 3 Expressive components on the same API as UI.",
   },
   {
     id: "motion",
@@ -90,6 +96,43 @@ export const sidebars: Record<PackageId, NavItem[]> = {
     { title: "Toggle", href: "/ui/toggle" },
     { title: "Toggle group", href: "/ui/toggle-group" },
     { title: "Tooltip", href: "/ui/tooltip" },
+  ],
+  m3: [
+    { title: "Overview", href: "/m3" },
+    { title: "Foundations", href: "/m3/foundations" },
+    { title: "Color scheme", href: "/m3/color-scheme" },
+    { title: "Button", href: "/m3/button" },
+    { title: "Icon button", href: "/m3/icon-button" },
+    { title: "FAB", href: "/m3/fab" },
+    { title: "FAB menu", href: "/m3/fab-menu" },
+    { title: "Button group", href: "/m3/button-group" },
+    { title: "Segmented button", href: "/m3/segmented-button" },
+    { title: "Split button", href: "/m3/split-button" },
+    { title: "Checkbox", href: "/m3/checkbox" },
+    { title: "Radio group", href: "/m3/radio-group" },
+    { title: "Switch", href: "/m3/switch" },
+    { title: "Slider", href: "/m3/slider" },
+    { title: "Chips", href: "/m3/chip" },
+    { title: "Text field", href: "/m3/text-field" },
+    { title: "Search", href: "/m3/search" },
+    { title: "Card", href: "/m3/card" },
+    { title: "List", href: "/m3/list" },
+    { title: "Divider", href: "/m3/divider" },
+    { title: "Dialog", href: "/m3/dialog" },
+    { title: "Bottom sheet", href: "/m3/bottom-sheet" },
+    { title: "Side sheet", href: "/m3/side-sheet" },
+    { title: "Menu", href: "/m3/menu" },
+    { title: "Tooltip", href: "/m3/tooltip" },
+    { title: "Snackbar", href: "/m3/snackbar" },
+    { title: "Badge", href: "/m3/badge" },
+    { title: "Progress", href: "/m3/progress" },
+    { title: "Loading indicator", href: "/m3/loading-indicator" },
+    { title: "App bar", href: "/m3/app-bar" },
+    { title: "Toolbar", href: "/m3/toolbar" },
+    { title: "Tabs", href: "/m3/tabs" },
+    { title: "Navigation bar", href: "/m3/navigation-bar" },
+    { title: "Navigation rail", href: "/m3/navigation-rail" },
+    { title: "Navigation drawer", href: "/m3/navigation-drawer" },
   ],
   motion: [
     { title: "Overview", href: "/motion" },

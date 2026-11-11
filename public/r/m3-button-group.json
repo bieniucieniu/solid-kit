@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "m3-button-group",
+  "title": "M3 Button group",
+  "description": "Standard and connected button groups. Children take the group's size.",
+  "registryDependencies": [
+    "bieniucieniu/solid-kit/utils",
+    "bieniucieniu/solid-kit/m3-theme",
+    "bieniucieniu/solid-kit/m3-button"
+  ],
+  "files": [
+    {
+      "path": "packages/m3/src/components/button-group.tsx",
+      "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { type ButtonGroupVariant, ButtonGroupContext, type ButtonSize } from \"./button\";\nimport { cn } from \"@/lib/utils\";\n\n/** Space between buttons in a standard group, per size. */\nconst standardGapClasses = {\n  xs: \"gap-4.5\",\n  sm: \"gap-3\",\n  md: \"gap-2\",\n  lg: \"gap-2\",\n  xl: \"gap-2\",\n};\n\nexport interface ButtonGroupProps extends JSX.HTMLAttributes<HTMLDivElement> {\n  variant?: ButtonGroupVariant;\n  size?: ButtonSize;\n}\n\n/**\n * Groups Button, ToggleButton, IconButton, and ToggleIconButton. Children take the group's size.\n * `connected` joins them with small inner corners; a selected toggle becomes fully round.\n */\nexport function ButtonGroup(props: ButtonGroupProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\", \"variant\", \"size\"]);\n  return (\n    <ButtonGroupContext.Provider\n      value={{\n        get variant() {\n          return props.variant ?? \"standard\";\n        },\n        get size() {\n          return props.size;\n        },\n      }}\n    >\n      <div\n        ref={props.ref}\n        role=\"group\"\n        data-slot=\"button-group\"\n        data-variant={props.variant ?? \"standard\"}\n        class={cn(\n          \"inline-flex items-center\",\n          props.variant === \"connected\" ? \"gap-0.5\" : standardGapClasses[props.size ?? \"sm\"],\n          props.class,\n        )}\n        {...rest}\n      />\n    </ButtonGroupContext.Provider>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "@components/m3/button-group.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -6,7 +6,7 @@ import { mergeConfig } from "vite";
 const repoRoot = fileURLToPath(new URL("../../..", import.meta.url));
 
 const config = {
-  stories: ["../{ui,motion,tiptap,xyflow}/**/*.stories.@(ts|tsx)"],
+  stories: ["../{ui,m3,motion,tiptap,xyflow}/**/*.stories.@(ts|tsx)"],
   framework: "storybook-solidjs-vite",
   async viteFinal(viteConfig) {
     return mergeConfig(viteConfig, {

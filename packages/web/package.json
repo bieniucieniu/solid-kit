@@ -9,6 +9,7 @@
     "preview": "vp preview"
   },
   "dependencies": {
+    "@solid-kit/m3": "workspace:*",
     "@solid-kit/motion": "workspace:*",
     "@solid-kit/tiptap": "workspace:*",
     "@solid-kit/ui": "workspace:*",

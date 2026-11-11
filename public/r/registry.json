@@ -551,8 +551,8 @@
     {
       "name": "alert-dialog",
       "title": "Alert Dialog",
-      "description": "Alert Dialog. Styled wrapper around @kobalte/core/alert-dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Alert Dialog. Styled wrapper around @corvu/dialog with role=\"alertdialog\".",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -636,6 +636,21 @@
       "type": "registry:ui"
     },
     {
+      "name": "calendar",
+      "title": "Calendar",
+      "description": "Date grid with single, multiple, and range selection. Styled wrapper around @corvu/calendar.",
+      "dependencies": ["@corvu/calendar"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/calendar.tsx",
+          "type": "registry:ui",
+          "target": "@ui/calendar.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "card",
       "title": "Card",
       "description": "Card with header, title, description, content, and footer.",
@@ -697,8 +712,8 @@
     {
       "name": "drawer",
       "title": "Drawer",
-      "description": "Drawer. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Drag-to-dismiss drawer with snap points. Styled wrapper around @corvu/drawer.",
+      "dependencies": ["@corvu/drawer"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -792,6 +807,21 @@
           "path": "packages/ui/src/components/input-group.tsx",
           "type": "registry:ui",
           "target": "@ui/input-group.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "input-otp",
+      "title": "Input OTP",
+      "description": "One-time code input with per-character slots. Styled wrapper around @corvu/otp-field.",
+      "dependencies": ["@corvu/otp-field"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/input-otp.tsx",
+          "type": "registry:ui",
+          "target": "@ui/input-otp.tsx"
         }
       ],
       "type": "registry:ui"
@@ -900,8 +930,8 @@
     {
       "name": "popover",
       "title": "Popover",
-      "description": "Popover. Styled wrapper around @kobalte/core/popover.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Popover. Styled wrapper around @corvu/popover.",
+      "dependencies": ["@corvu/popover"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -938,6 +968,21 @@
           "path": "packages/ui/src/components/radio-group.tsx",
           "type": "registry:ui",
           "target": "@ui/radio-group.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "resizable",
+      "title": "Resizable",
+      "description": "Resizable panel groups with drag and keyboard handles. Styled wrapper around @corvu/resizable.",
+      "dependencies": ["@corvu/resizable"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
+      "files": [
+        {
+          "path": "packages/ui/src/components/resizable.tsx",
+          "type": "registry:ui",
+          "target": "@ui/resizable.tsx"
         }
       ],
       "type": "registry:ui"
@@ -989,8 +1034,8 @@
     {
       "name": "sheet",
       "title": "Sheet",
-      "description": "Sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Sheet. Styled wrapper around @corvu/dialog.",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -1456,8 +1501,8 @@
     {
       "name": "m3-dialog",
       "title": "M3 Dialog",
-      "description": "Basic and full-screen dialog. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Basic and full-screen dialog. Styled wrapper around @corvu/dialog.",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": [
         "bieniucieniu/solid-kit/utils",
         "bieniucieniu/solid-kit/m3-theme",
@@ -1475,8 +1520,8 @@
     {
       "name": "m3-bottom-sheet",
       "title": "M3 Bottom sheet",
-      "description": "Modal bottom sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Modal bottom sheet with drag-to-dismiss. Styled wrapper around @corvu/drawer.",
+      "dependencies": ["@corvu/drawer"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
       "files": [
         {
@@ -1490,8 +1535,8 @@
     {
       "name": "m3-side-sheet",
       "title": "M3 Side sheet",
-      "description": "Modal side sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Modal side sheet. Styled wrapper around @corvu/dialog.",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
       "files": [
         {
@@ -1665,7 +1710,7 @@
       "name": "m3-navigation-drawer",
       "title": "M3 Navigation drawer",
       "description": "Standard and modal navigation drawers.",
-      "dependencies": ["@kobalte/core"],
+      "dependencies": ["@corvu/drawer"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
       "files": [
         {

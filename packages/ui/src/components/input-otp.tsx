@@ -12,7 +12,7 @@ export function InputOTP(props: DynamicProps<"div", RootProps<"div">>) {
     <OtpFieldPrimitive
       ref={props.ref}
       data-slot="input-otp"
-      class={cn("relative flex items-center gap-2 has-disabled:opacity-50", props.class)}
+      class={cn("relative flex w-fit items-center gap-2 has-disabled:opacity-50", props.class)}
       {...rest}
     />
   );

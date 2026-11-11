@@ -1,34 +1,29 @@
-import { Dialog as DialogPrimitive, useDialogContext } from "@kobalte/core/dialog";
-import { type ComponentProps, type JSX, splitProps } from "solid-js";
+import DialogPrimitive, {
+  type CloseProps,
+  type ContentProps,
+  type DescriptionProps,
+  type DynamicProps,
+  type LabelProps,
+  type OverlayProps,
+  type RootProps,
+} from "@corvu/dialog";
+import { type JSX, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type DialogProps = ComponentProps<typeof DialogPrimitive>;
-type DialogOverlayProps = ComponentProps<typeof DialogPrimitive.Overlay>;
-type DialogContentProps = ComponentProps<typeof DialogPrimitive.Content> & {
-  /** Fill the window: no corners, surface background, header row at the top. */
-  fullScreen?: boolean;
-};
-type DialogHeadlineProps = ComponentProps<typeof DialogPrimitive.Title>;
-type DialogDescriptionProps = ComponentProps<typeof DialogPrimitive.Description>;
-type DialogCloseProps = ComponentProps<typeof DialogPrimitive.CloseButton> & {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-};
-
-export function Dialog(props: DialogProps) {
+export function Dialog(props: RootProps) {
   return <DialogPrimitive {...props} />;
 }
 
 /** The scrim: 32% scrim color over the page. */
-export function DialogOverlay(props: DialogOverlayProps) {
+export function DialogOverlay(props: DynamicProps<"div", OverlayProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <DialogPrimitive.Overlay
       ref={props.ref}
       data-slot="dialog-overlay"
       class={cn(
-        "fixed inset-0 z-50 bg-scrim/32 data-expanded:animate-in data-expanded:fade-in-0 data-expanded:duration-200 data-closed:animate-out data-closed:fade-out-0 data-closed:duration-150",
+        "fixed inset-0 z-50 bg-scrim/32 data-open:animate-in data-open:fade-in-0 data-open:duration-200 data-closed:animate-out data-closed:fade-out-0 data-closed:duration-150",
         props.class,
       )}
       {...rest}
@@ -36,7 +31,12 @@ export function DialogOverlay(props: DialogOverlayProps) {
   );
 }
 
-export function DialogContent(props: DialogContentProps) {
+export function DialogContent(
+  props: DynamicProps<"div", ContentProps> & {
+    /** Fill the window: no corners, surface background, header row at the top. */
+    fullScreen?: boolean;
+  },
+) {
   const [, rest] = splitProps(props, ["class", "ref", "fullScreen"]);
   return (
     <DialogPrimitive.Content
@@ -46,8 +46,8 @@ export function DialogContent(props: DialogContentProps) {
       class={cn(
         "group/dialog fixed z-50 flex flex-col text-on-surface outline-none",
         props.fullScreen
-          ? "inset-0 bg-surface data-expanded:animate-in data-expanded:slide-in-from-bottom-8 data-expanded:fade-in-0 data-expanded:duration-300 data-closed:animate-out data-closed:fade-out-0 data-closed:slide-out-to-bottom-8 data-closed:duration-200"
-          : "top-1/2 left-1/2 max-h-[calc(100%-3rem)] w-[calc(100%-3rem)] max-w-140 min-w-70 -translate-x-1/2 -translate-y-1/2 gap-4 overflow-y-auto rounded-extra-large bg-surface-container-high p-6 shadow-level-3 medium:w-auto data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-90 data-expanded:slide-in-from-top-4 data-expanded:duration-300 data-expanded:ease-default-spatial data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-closed:duration-150",
+          ? "inset-0 bg-surface data-open:animate-in data-open:slide-in-from-bottom-8 data-open:fade-in-0 data-open:duration-300 data-closed:animate-out data-closed:fade-out-0 data-closed:slide-out-to-bottom-8 data-closed:duration-200"
+          : "top-1/2 left-1/2 max-h-[calc(100%-3rem)] w-[calc(100%-3rem)] max-w-140 min-w-70 -translate-x-1/2 -translate-y-1/2 gap-4 overflow-y-auto rounded-extra-large bg-surface-container-high p-6 shadow-level-3 medium:w-auto data-open:animate-in data-open:fade-in-0 data-open:zoom-in-90 data-open:slide-in-from-top-4 data-open:duration-300 data-open:ease-default-spatial data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-closed:duration-150",
         props.class,
       )}
       {...rest}
@@ -87,10 +87,10 @@ export function DialogHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-export function DialogHeadline(props: DialogHeadlineProps) {
+export function DialogHeadline(props: DynamicProps<"h2", LabelProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <DialogPrimitive.Title
+    <DialogPrimitive.Label
       ref={props.ref}
       data-slot="dialog-headline"
       class={cn(
@@ -102,7 +102,7 @@ export function DialogHeadline(props: DialogHeadlineProps) {
   );
 }
 
-export function DialogDescription(props: DialogDescriptionProps) {
+export function DialogDescription(props: DynamicProps<"p", DescriptionProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <DialogPrimitive.Description
@@ -146,10 +146,12 @@ export function DialogActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
 }
 
 /** Closes the dialog. A text button by default. */
-export function DialogClose(props: DialogCloseProps) {
+export function DialogClose(
+  props: DynamicProps<"button", CloseProps> & { variant?: ButtonVariant; size?: ButtonSize },
+) {
   const [, rest] = splitProps(props, ["class", "ref", "variant", "size"]);
   return (
-    <DialogPrimitive.CloseButton
+    <DialogPrimitive.Close
       ref={props.ref}
       data-slot="dialog-close"
       class={buttonVariants({
@@ -164,5 +166,5 @@ export function DialogClose(props: DialogCloseProps) {
 
 export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogPortal = DialogPrimitive.Portal;
-export const DialogCloseButton = DialogPrimitive.CloseButton;
-export { useDialogContext };
+export const DialogCloseButton = DialogPrimitive.Close;
+export const useDialogContext = DialogPrimitive.useContext;

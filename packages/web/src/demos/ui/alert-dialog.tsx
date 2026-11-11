@@ -1,13 +1,13 @@
 import {
   AlertDialog,
-  AlertDialogCloseButton,
+  AlertDialogClose,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
+  AlertDialogLabel,
   AlertDialogOverlay,
   AlertDialogPortal,
-  AlertDialogTitle,
   AlertDialogTrigger,
   Button,
 } from "@solid-kit/ui";
@@ -28,12 +28,12 @@ export function AlertDialogDemo() {
               <AlertDialogOverlay />
               <AlertDialogContent size={size}>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Delete this file?</AlertDialogTitle>
+                  <AlertDialogLabel>Delete this file?</AlertDialogLabel>
                   <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCloseButton>Cancel</AlertDialogCloseButton>
-                  <AlertDialogCloseButton variant="destructive">Delete</AlertDialogCloseButton>
+                  <AlertDialogClose>Cancel</AlertDialogClose>
+                  <AlertDialogClose variant="destructive">Delete</AlertDialogClose>
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialogPortal>

@@ -236,8 +236,8 @@
       "name": "alert-dialog",
       "type": "registry:ui",
       "title": "Alert Dialog",
-      "description": "Alert Dialog. Styled wrapper around @kobalte/core/alert-dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Alert Dialog. Styled wrapper around @corvu/dialog with role=\"alertdialog\".",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -397,8 +397,8 @@
       "name": "drawer",
       "type": "registry:ui",
       "title": "Drawer",
-      "description": "Drawer. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Drag-to-dismiss drawer with snap points. Styled wrapper around @corvu/drawer.",
+      "dependencies": ["@corvu/drawer"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -615,8 +615,8 @@
       "name": "popover",
       "type": "registry:ui",
       "title": "Popover",
-      "description": "Popover. Styled wrapper around @kobalte/core/popover.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Popover. Styled wrapper around @corvu/popover.",
+      "dependencies": ["@corvu/popover"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -719,8 +719,8 @@
       "name": "sheet",
       "type": "registry:ui",
       "title": "Sheet",
-      "description": "Sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Sheet. Styled wrapper around @corvu/dialog.",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
@@ -1186,8 +1186,8 @@
       "name": "m3-dialog",
       "type": "registry:ui",
       "title": "M3 Dialog",
-      "description": "Basic and full-screen dialog. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Basic and full-screen dialog. Styled wrapper around @corvu/dialog.",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": [
         "bieniucieniu/solid-kit/utils",
         "bieniucieniu/solid-kit/m3-theme",
@@ -1205,8 +1205,8 @@
       "name": "m3-bottom-sheet",
       "type": "registry:ui",
       "title": "M3 Bottom sheet",
-      "description": "Modal bottom sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Modal bottom sheet with drag-to-dismiss. Styled wrapper around @corvu/drawer.",
+      "dependencies": ["@corvu/drawer"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
       "files": [
         {
@@ -1220,8 +1220,8 @@
       "name": "m3-side-sheet",
       "type": "registry:ui",
       "title": "M3 Side sheet",
-      "description": "Modal side sheet. Styled wrapper around @kobalte/core/dialog.",
-      "dependencies": ["@kobalte/core"],
+      "description": "Modal side sheet. Styled wrapper around @corvu/dialog.",
+      "dependencies": ["@corvu/dialog"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
       "files": [
         {
@@ -1395,7 +1395,7 @@
       "type": "registry:ui",
       "title": "M3 Navigation drawer",
       "description": "Standard and modal navigation drawers.",
-      "dependencies": ["@kobalte/core"],
+      "dependencies": ["@corvu/drawer"],
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
       "files": [
         {

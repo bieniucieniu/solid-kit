@@ -1,50 +1,60 @@
-import { Dialog as DrawerPrimitive, useDialogContext } from "@kobalte/core/dialog";
-import { type ComponentProps, type JSX, splitProps } from "solid-js";
+import DrawerPrimitive, {
+  type CloseProps,
+  type ContentProps,
+  type DescriptionProps,
+  type DynamicProps,
+  type LabelProps,
+  type OverlayProps,
+  type RootProps,
+} from "@corvu/drawer";
+import { type JSX, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type DrawerProps = ComponentProps<typeof DrawerPrimitive>;
-type DrawerOverlayProps = ComponentProps<typeof DrawerPrimitive.Overlay>;
-type DrawerContentProps = ComponentProps<typeof DrawerPrimitive.Content>;
-type DrawerTitleProps = ComponentProps<typeof DrawerPrimitive.Title>;
-type DrawerDescriptionProps = ComponentProps<typeof DrawerPrimitive.Description>;
-type DrawerCloseButtonProps = ComponentProps<typeof DrawerPrimitive.CloseButton> & {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-};
-
-export function Drawer(props: DrawerProps) {
+/** Drag-to-dismiss panel. `side` defaults to `bottom`; `snapPoints` adds resting heights. */
+export function Drawer(props: RootProps) {
   return <DrawerPrimitive {...props} />;
 }
 
-export function DrawerOverlay(props: DrawerOverlayProps) {
-  const [, rest] = splitProps(props, ["class", "ref"]);
+/** Fades with the drawer's open percentage, so it tracks a drag. */
+export function DrawerOverlay(props: DynamicProps<"div", OverlayProps>) {
+  const [, rest] = splitProps(props, ["class", "ref", "style"]);
+  const context = DrawerPrimitive.useContext(props.contextId);
   return (
     <DrawerPrimitive.Overlay
       ref={props.ref}
       data-slot="drawer-overlay"
       class={cn(
-        "fixed inset-0 z-50 bg-black/80 duration-500 supports-backdrop-filter:backdrop-blur-xs data-expanded:animate-in data-expanded:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 z-50 bg-black/80 supports-backdrop-filter:backdrop-blur-xs data-transitioning:transition-opacity data-transitioning:duration-500 data-transitioning:ease-[cubic-bezier(0.32,0.72,0,1)]",
         props.class,
       )}
+      style={{
+        opacity: context.openPercentage(),
+        ...(typeof props.style === "object" ? props.style : {}),
+      }}
       {...rest}
     />
   );
 }
 
-export function DrawerContent(props: DrawerContentProps) {
+export function DrawerContent(props: DynamicProps<"div", ContentProps>) {
   const [, rest] = splitProps(props, ["class", "ref", "children"]);
   return (
     <DrawerPrimitive.Content
       ref={props.ref}
       data-slot="drawer-content"
       class={cn(
-        "group/drawer-content fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto max-h-[80vh] flex-col gap-4 rounded-t-xl border-t border-border bg-popover px-4 pb-4 text-xs/relaxed text-popover-foreground duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] outline-none data-expanded:animate-in data-expanded:slide-in-from-bottom data-closed:animate-out data-closed:slide-out-to-bottom",
+        "group/drawer-content fixed z-50 flex h-auto flex-col gap-4 bg-popover px-4 pb-4 text-xs/relaxed text-popover-foreground outline-none after:absolute after:bg-inherit data-transitioning:transition-transform data-transitioning:duration-500 data-transitioning:ease-[cubic-bezier(0.32,0.72,0,1)]",
+        "data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:mt-24 data-[side=bottom]:max-h-[80vh] data-[side=bottom]:rounded-t-xl data-[side=bottom]:border-t data-[side=bottom]:after:inset-x-0 data-[side=bottom]:after:top-full data-[side=bottom]:after:h-1/2",
+        "data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:mb-24 data-[side=top]:max-h-[80vh] data-[side=top]:rounded-b-xl data-[side=top]:border-b data-[side=top]:pt-4 data-[side=top]:after:inset-x-0 data-[side=top]:after:bottom-full data-[side=top]:after:h-1/2",
+        "data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:w-3/4 data-[side=left]:rounded-r-xl data-[side=left]:border-r data-[side=left]:pt-4 data-[side=left]:sm:max-w-sm data-[side=left]:after:inset-y-0 data-[side=left]:after:right-full data-[side=left]:after:w-1/2",
+        "data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:w-3/4 data-[side=right]:rounded-l-xl data-[side=right]:border-l data-[side=right]:pt-4 data-[side=right]:sm:max-w-sm data-[side=right]:after:inset-y-0 data-[side=right]:after:left-full data-[side=right]:after:w-1/2",
+        "border-border",
         props.class,
       )}
       {...rest}
     >
-      <div class="mx-auto mt-3 h-1.5 w-[100px] shrink-0 rounded-full bg-muted" />
+      <div class="mx-auto mt-3 hidden h-1.5 w-[100px] shrink-0 rounded-full bg-muted group-data-[side=bottom]/drawer-content:block" />
       {props.children}
     </DrawerPrimitive.Content>
   );
@@ -74,10 +84,10 @@ export function DrawerFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-export function DrawerTitle(props: DrawerTitleProps) {
+export function DrawerLabel(props: DynamicProps<"h2", LabelProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <DrawerPrimitive.Title
+    <DrawerPrimitive.Label
       ref={props.ref}
       data-slot="drawer-title"
       class={cn("text-sm font-medium text-foreground", props.class)}
@@ -86,7 +96,7 @@ export function DrawerTitle(props: DrawerTitleProps) {
   );
 }
 
-export function DrawerDescription(props: DrawerDescriptionProps) {
+export function DrawerDescription(props: DynamicProps<"p", DescriptionProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <DrawerPrimitive.Description
@@ -98,10 +108,12 @@ export function DrawerDescription(props: DrawerDescriptionProps) {
   );
 }
 
-export function DrawerCloseButton(props: DrawerCloseButtonProps) {
+export function DrawerClose(
+  props: DynamicProps<"button", CloseProps> & { variant?: ButtonVariant; size?: ButtonSize },
+) {
   const [, rest] = splitProps(props, ["class", "ref", "variant", "size"]);
   return (
-    <DrawerPrimitive.CloseButton
+    <DrawerPrimitive.Close
       ref={props.ref}
       data-slot="drawer-close"
       class={buttonVariants({
@@ -117,4 +129,4 @@ export function DrawerCloseButton(props: DrawerCloseButtonProps) {
 export const DrawerTrigger = DrawerPrimitive.Trigger;
 export const DrawerPortal = DrawerPrimitive.Portal;
 
-export { useDialogContext as useDrawerContext };
+export const useDrawerContext = DrawerPrimitive.useContext;

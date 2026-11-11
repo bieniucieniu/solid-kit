@@ -1,32 +1,29 @@
-import { AlertDialog as AlertDialogPrimitive } from "@kobalte/core/alert-dialog";
-import { type ComponentProps, type JSX, splitProps } from "solid-js";
+import AlertDialogPrimitive, {
+  type CloseProps,
+  type ContentProps,
+  type DescriptionProps,
+  type DynamicProps,
+  type LabelProps,
+  type OverlayProps,
+  type RootProps,
+} from "@corvu/dialog";
+import { type JSX, splitProps } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
 import { cn } from "@/lib/utils";
 
-type AlertDialogProps = ComponentProps<typeof AlertDialogPrimitive>;
-type AlertDialogOverlayProps = ComponentProps<typeof AlertDialogPrimitive.Overlay>;
-type AlertDialogContentProps = ComponentProps<typeof AlertDialogPrimitive.Content> & {
-  size?: "default" | "sm";
-};
-type AlertDialogTitleProps = ComponentProps<typeof AlertDialogPrimitive.Title>;
-type AlertDialogDescriptionProps = ComponentProps<typeof AlertDialogPrimitive.Description>;
-type AlertDialogCloseButtonProps = ComponentProps<typeof AlertDialogPrimitive.CloseButton> & {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-};
-
-export function AlertDialog(props: AlertDialogProps) {
-  return <AlertDialogPrimitive {...props} />;
+/** A dialog that needs an answer: `role="alertdialog"`, and an outside click does not close it. */
+export function AlertDialog(props: RootProps) {
+  return <AlertDialogPrimitive role="alertdialog" closeOnOutsidePointer={false} {...props} />;
 }
 
-export function AlertDialogOverlay(props: AlertDialogOverlayProps) {
+export function AlertDialogOverlay(props: DynamicProps<"div", OverlayProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <AlertDialogPrimitive.Overlay
       ref={props.ref}
       data-slot="alert-dialog-overlay"
       class={cn(
-        "fixed inset-0 z-50 bg-black/80 duration-100 supports-backdrop-filter:backdrop-blur-xs data-expanded:animate-in data-expanded:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+        "fixed inset-0 z-50 bg-black/80 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
         props.class,
       )}
       {...rest}
@@ -34,7 +31,9 @@ export function AlertDialogOverlay(props: AlertDialogOverlayProps) {
   );
 }
 
-export function AlertDialogContent(props: AlertDialogContentProps) {
+export function AlertDialogContent(
+  props: DynamicProps<"div", ContentProps> & { size?: "default" | "sm" },
+) {
   const [, rest] = splitProps(props, ["class", "ref", "size"]);
   return (
     <AlertDialogPrimitive.Content
@@ -42,7 +41,7 @@ export function AlertDialogContent(props: AlertDialogContentProps) {
       data-slot="alert-dialog-content"
       data-size={props.size ?? "default"}
       class={cn(
-        "group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-3 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none data-[size=default]:max-w-xs data-[size=sm]:max-w-64 data-[size=default]:sm:max-w-sm data-expanded:animate-in data-expanded:fade-in-0 data-expanded:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+        "group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full -translate-x-1/2 -translate-y-1/2 gap-3 rounded-xl bg-popover p-4 text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none data-[size=default]:max-w-xs data-[size=sm]:max-w-64 data-[size=default]:sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
         props.class,
       )}
       {...rest}
@@ -95,10 +94,10 @@ export function AlertDialogMedia(props: JSX.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-export function AlertDialogTitle(props: AlertDialogTitleProps) {
+export function AlertDialogLabel(props: DynamicProps<"h2", LabelProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
-    <AlertDialogPrimitive.Title
+    <AlertDialogPrimitive.Label
       ref={props.ref}
       data-slot="alert-dialog-title"
       class={cn(
@@ -110,7 +109,7 @@ export function AlertDialogTitle(props: AlertDialogTitleProps) {
   );
 }
 
-export function AlertDialogDescription(props: AlertDialogDescriptionProps) {
+export function AlertDialogDescription(props: DynamicProps<"p", DescriptionProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <AlertDialogPrimitive.Description
@@ -125,10 +124,12 @@ export function AlertDialogDescription(props: AlertDialogDescriptionProps) {
   );
 }
 
-export function AlertDialogCloseButton(props: AlertDialogCloseButtonProps) {
+export function AlertDialogClose(
+  props: DynamicProps<"button", CloseProps> & { variant?: ButtonVariant; size?: ButtonSize },
+) {
   const [, rest] = splitProps(props, ["class", "ref", "variant", "size"]);
   return (
-    <AlertDialogPrimitive.CloseButton
+    <AlertDialogPrimitive.Close
       ref={props.ref}
       data-slot="alert-dialog-close"
       class={buttonVariants({
@@ -143,3 +144,5 @@ export function AlertDialogCloseButton(props: AlertDialogCloseButtonProps) {
 
 export const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 export const AlertDialogPortal = AlertDialogPrimitive.Portal;
+
+export const useAlertDialogContext = AlertDialogPrimitive.useContext;

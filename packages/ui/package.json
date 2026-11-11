@@ -21,7 +21,9 @@
   "dependencies": {
     "@corvu/calendar": "^0.1.2",
     "@corvu/dialog": "^0.2.4",
+    "@corvu/drawer": "^0.2.4",
     "@corvu/otp-field": "^0.1.4",
+    "@corvu/popover": "^0.2.0",
     "@corvu/resizable": "^0.2.5",
     "@corvu/tooltip": "^0.2.2",
     "@kobalte/core": "^0.13.14",

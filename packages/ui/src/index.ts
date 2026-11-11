@@ -45,16 +45,17 @@ export {
 export { Alert, AlertAction, AlertDescription, AlertTitle } from "./components/alert";
 export {
   AlertDialog,
-  AlertDialogCloseButton,
+  AlertDialogClose,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
+  AlertDialogLabel,
   AlertDialogMedia,
   AlertDialogOverlay,
   AlertDialogPortal,
-  AlertDialogTitle,
   AlertDialogTrigger,
+  useAlertDialogContext,
 } from "./components/alert-dialog";
 export { AspectRatio } from "./components/aspect-ratio";
 export {
@@ -160,14 +161,14 @@ export {
 } from "./components/context-menu";
 export {
   Drawer,
-  DrawerCloseButton,
+  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
+  DrawerLabel,
   DrawerOverlay,
   DrawerPortal,
-  DrawerTitle,
   DrawerTrigger,
   useDrawerContext,
 } from "./components/drawer";
@@ -295,12 +296,12 @@ export {
   Popover,
   PopoverAnchor,
   PopoverArrow,
-  PopoverCloseButton,
+  PopoverClose,
   PopoverContent,
   PopoverDescription,
   PopoverHeader,
+  PopoverLabel,
   PopoverPortal,
-  PopoverTitle,
   PopoverTrigger,
   usePopoverContext,
 } from "./components/popover";
@@ -354,14 +355,14 @@ export {
 export { Separator } from "./components/separator";
 export {
   Sheet,
-  SheetCloseButton,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
+  SheetLabel,
   SheetOverlay,
   SheetPortal,
-  SheetTitle,
   SheetTrigger,
   useSheetContext,
 } from "./components/sheet";

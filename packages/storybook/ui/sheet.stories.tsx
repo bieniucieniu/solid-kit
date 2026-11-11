@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import {
   Sheet,
-  SheetCloseButton,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
+  SheetLabel,
   SheetOverlay,
   SheetPortal,
-  SheetTitle,
   SheetTrigger,
 } from "../../ui/src/components/sheet";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
   title: "UI/Sheet",
-  component: Sheet,
-} satisfies Meta<typeof Sheet>;
+  component: SheetDemo,
+} satisfies Meta<typeof SheetDemo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -33,11 +33,11 @@ function SheetDemo() {
         <SheetOverlay />
         <SheetContent>
           <SheetHeader>
-            <SheetTitle>Settings</SheetTitle>
+            <SheetLabel>Settings</SheetLabel>
             <SheetDescription>Changes apply to this project.</SheetDescription>
           </SheetHeader>
           <SheetFooter>
-            <SheetCloseButton>Close</SheetCloseButton>
+            <SheetClose>Close</SheetClose>
           </SheetFooter>
         </SheetContent>
       </SheetPortal>

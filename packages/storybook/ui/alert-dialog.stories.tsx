@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import {
   AlertDialog,
-  AlertDialogCloseButton,
+  AlertDialogClose,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
+  AlertDialogLabel,
   AlertDialogOverlay,
   AlertDialogPortal,
-  AlertDialogTitle,
   AlertDialogTrigger,
 } from "../../ui/src/components/alert-dialog";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {
   title: "UI/AlertDialog",
-  component: AlertDialog,
-} satisfies Meta<typeof AlertDialog>;
+  component: AlertDialogDemo,
+} satisfies Meta<typeof AlertDialogDemo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -33,12 +33,12 @@ function AlertDialogDemo() {
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete this file?</AlertDialogTitle>
+            <AlertDialogLabel>Delete this file?</AlertDialogLabel>
             <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCloseButton>Cancel</AlertDialogCloseButton>
-            <AlertDialogCloseButton variant="destructive">Delete</AlertDialogCloseButton>
+            <AlertDialogClose>Cancel</AlertDialogClose>
+            <AlertDialogClose variant="destructive">Delete</AlertDialogClose>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialogPortal>

@@ -4,11 +4,11 @@ import { PopoverDemo } from "~/demos/ui/popover";
 const snippet = `import {
   Button,
   Popover,
-  PopoverCloseButton,
+  PopoverClose,
   PopoverContent,
   PopoverDescription,
+  PopoverLabel,
   PopoverPortal,
-  PopoverTitle,
   PopoverTrigger,
 } from "@solid-kit/ui";
 
@@ -16,9 +16,9 @@ const snippet = `import {
   <PopoverTrigger as={Button}>Open</PopoverTrigger>
   <PopoverPortal>
     <PopoverContent>
-      <PopoverTitle>Dimensions</PopoverTitle>
+      <PopoverLabel>Dimensions</PopoverLabel>
       <PopoverDescription>Set the size of the frame.</PopoverDescription>
-      <PopoverCloseButton>Close</PopoverCloseButton>
+      <PopoverClose>Close</PopoverClose>
     </PopoverContent>
   </PopoverPortal>
 </Popover>`;

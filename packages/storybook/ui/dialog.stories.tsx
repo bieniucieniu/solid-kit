@@ -15,8 +15,8 @@ import { Button } from "../../ui/src/components/button";
 
 const meta = {
   title: "UI/Dialog",
-  component: Dialog,
-} satisfies Meta<typeof Dialog>;
+  component: DialogDemo,
+} satisfies Meta<typeof DialogDemo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

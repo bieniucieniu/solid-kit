@@ -1,11 +1,11 @@
 import {
   Button,
   Popover,
-  PopoverCloseButton,
+  PopoverClose,
   PopoverContent,
   PopoverDescription,
+  PopoverLabel,
   PopoverPortal,
-  PopoverTitle,
   PopoverTrigger,
 } from "@solid-kit/ui";
 
@@ -15,9 +15,9 @@ export function PopoverDemo() {
       <PopoverTrigger as={Button}>Open</PopoverTrigger>
       <PopoverPortal>
         <PopoverContent>
-          <PopoverTitle>Dimensions</PopoverTitle>
+          <PopoverLabel>Dimensions</PopoverLabel>
           <PopoverDescription>Set the size of the frame.</PopoverDescription>
-          <PopoverCloseButton>Close</PopoverCloseButton>
+          <PopoverClose>Close</PopoverClose>
         </PopoverContent>
       </PopoverPortal>
     </Popover>

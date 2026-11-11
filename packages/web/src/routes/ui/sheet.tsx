@@ -4,14 +4,14 @@ import { SheetDemo } from "~/demos/ui/sheet";
 const snippet = `import {
   Button,
   Sheet,
-  SheetCloseButton,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
+  SheetLabel,
   SheetOverlay,
   SheetPortal,
-  SheetTitle,
   SheetTrigger,
 } from "@solid-kit/ui";
 
@@ -22,11 +22,11 @@ const snippet = `import {
     <SheetOverlay />
     <SheetContent side="left">
       <SheetHeader>
-        <SheetTitle>Settings</SheetTitle>
+        <SheetLabel>Settings</SheetLabel>
         <SheetDescription>Changes apply to this project.</SheetDescription>
       </SheetHeader>
       <SheetFooter>
-        <SheetCloseButton>Close</SheetCloseButton>
+        <SheetClose>Close</SheetClose>
       </SheetFooter>
     </SheetContent>
   </SheetPortal>

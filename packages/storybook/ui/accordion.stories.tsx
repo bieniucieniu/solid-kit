@@ -21,7 +21,7 @@ export const Default: Story = {
 
 function AccordionDemo() {
   return (
-    <Accordion collapsible defaultValue={["one"]} class="max-w-md">
+    <Accordion initialValue="one" class="max-w-md">
       <AccordionItem value="one">
         <AccordionHeader>
           <AccordionTrigger>Is it accessible?</AccordionTrigger>

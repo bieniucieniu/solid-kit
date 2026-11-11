@@ -81,7 +81,7 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `dialog`          | `@corvu/dialog`               |
 | `tooltip`         | `@corvu/tooltip`              |
 | `checkbox`        | `@kobalte/core/checkbox`      |
-| `accordion`       | `@kobalte/core/accordion`     |
+| `accordion`       | `@corvu/accordion`            |
 | `alert`           | `@kobalte/core/alert`         |
 | `alert-dialog`    | `@corvu/dialog`               |
 | `aspect-ratio`    | styled HTML                   |
@@ -91,7 +91,7 @@ The registry item name matches the filename. The full list is in the root [`regi
 | `button-group`    | styled HTML                   |
 | `calendar`        | `@corvu/calendar`             |
 | `card`            | styled HTML                   |
-| `collapsible`     | `@kobalte/core/collapsible`   |
+| `collapsible`     | `@corvu/disclosure`           |
 | `combobox`        | `@kobalte/core/combobox`      |
 | `context-menu`    | `@kobalte/core/context-menu`  |
 | `drawer`          | `@corvu/drawer`               |

@@ -229,6 +229,7 @@ export {
   RichTooltipSupportingText,
   RichTooltipTrigger,
   Tooltip,
+  TooltipAnchor,
   TooltipContent,
   TooltipPortal,
   TooltipTrigger,

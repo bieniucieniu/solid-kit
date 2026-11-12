@@ -1499,6 +1499,20 @@
       "type": "registry:ui"
     },
     {
+      "name": "m3-scroll-area",
+      "title": "M3 Scroll area",
+      "description": "Scroll container with a thin outline-colored scrollbar.",
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "files": [
+        {
+          "path": "packages/m3/src/components/scroll-area.tsx",
+          "type": "registry:ui",
+          "target": "@components/m3/scroll-area.tsx"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
       "name": "m3-dialog",
       "title": "M3 Dialog",
       "description": "Basic and full-screen dialog. Styled wrapper around @corvu/dialog.",
@@ -1522,7 +1536,11 @@
       "title": "M3 Bottom sheet",
       "description": "Modal bottom sheet with drag-to-dismiss. Styled wrapper around @corvu/drawer.",
       "dependencies": ["@corvu/drawer"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": [
+        "bieniucieniu/solid-kit/utils",
+        "bieniucieniu/solid-kit/m3-theme",
+        "bieniucieniu/solid-kit/m3-scroll-area"
+      ],
       "files": [
         {
           "path": "packages/m3/src/components/bottom-sheet.tsx",

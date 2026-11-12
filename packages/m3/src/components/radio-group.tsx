@@ -76,7 +76,10 @@ export function RadioGroupItem(props: RadioGroupItemProps) {
   );
 }
 
-/** The 20px ring. Its state layer is a 40px circle. */
+/**
+ * The 20px ring. Its state layer is a 40px circle. Ignores the pointer while disabled: Kobalte's
+ * control selects its item on click and checks only the group's `disabled`, not the item's.
+ */
 export function RadioGroupItemControl(props: RadioGroupItemControlProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
@@ -84,7 +87,7 @@ export function RadioGroupItemControl(props: RadioGroupItemControlProps) {
       ref={props.ref}
       data-slot="radio-group-item-control"
       class={cn(
-        "relative m-2.5 flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-on-surface-variant state-layer motion-fast [--state-layer-color:var(--md-sys-color-on-surface)] [--state-layer-inset:-12px] peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-secondary peer-focus-visible:before:opacity-10 data-checked:border-primary data-checked:[--state-layer-color:var(--md-sys-color-primary)] data-invalid:border-error data-disabled:border-on-surface/38",
+        "relative m-2.5 flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-on-surface-variant state-layer motion-fast [--state-layer-color:var(--md-sys-color-on-surface)] [--state-layer-inset:-12px] peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-secondary peer-focus-visible:before:opacity-10 data-checked:border-primary data-checked:[--state-layer-color:var(--md-sys-color-primary)] data-invalid:border-error data-disabled:pointer-events-none data-disabled:border-on-surface/38",
         props.class,
       )}
       {...rest}

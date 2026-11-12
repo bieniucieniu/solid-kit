@@ -70,13 +70,17 @@ export function RadioGroupItem(props: RadioGroupItemProps) {
   );
 }
 
+/**
+ * Ignores the pointer while disabled: Kobalte's control selects its item on click and checks only
+ * the group's `disabled`, not the item's.
+ */
 export function RadioGroupItemControl(props: RadioGroupItemControlProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
     <RadioGroupPrimitive.ItemControl
       ref={props.ref}
       class={cn(
-        "relative flex aspect-square size-4 shrink-0 items-center justify-center rounded-full border border-input outline-none peer-focus-visible:border-ring peer-focus-visible:ring-3 peer-focus-visible:ring-ring/50 data-invalid:border-destructive data-invalid:ring-3 data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
+        "relative flex aspect-square size-4 shrink-0 items-center justify-center rounded-full border border-input outline-none data-disabled:pointer-events-none peer-focus-visible:border-ring peer-focus-visible:ring-3 peer-focus-visible:ring-ring/50 data-invalid:border-destructive data-invalid:ring-3 data-invalid:ring-destructive/20 dark:bg-input/30 dark:data-invalid:border-destructive/50 dark:data-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
         props.class,
       )}
       {...rest}

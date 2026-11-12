@@ -2,9 +2,16 @@ import { cleanup, render } from "@solidjs/testing-library";
 import { afterEach, beforeEach, expect } from "vite-plus/test";
 import { page, type Locator } from "vite-plus/test/browser";
 import { Background, Controls } from "@solid-kit/xyflow/panels";
-import { Flow, Handle, Position, createFlow, type FlowNode, type FlowStore } from "../index";
-import type { FlowOptions } from "../types";
-import "../style.css";
+import {
+  Flow,
+  Handle,
+  Position,
+  createFlow,
+  type FlowNode,
+  type FlowStore,
+} from "../components/xyflow/index";
+import type { FlowOptions } from "../lib/xyflow/types";
+import "../components/xyflow/style.css";
 
 export type ElementAssertion = {
   toBeVisible: () => Promise<void>;

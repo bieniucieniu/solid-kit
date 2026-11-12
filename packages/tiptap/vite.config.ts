@@ -13,7 +13,7 @@ export default defineConfig({
         neverBundle: [/^[^./]/],
       },
       platform: "browser",
-      entry: ["src/index.ts", "src/node-view.ts"],
+      entry: ["src/components/tiptap/index.ts", "src/components/tiptap/node-view.ts"],
       outputOptions: { dir: "dist" },
     },
     {
@@ -26,7 +26,7 @@ export default defineConfig({
         neverBundle: [/^[^./]/],
       },
       platform: "browser",
-      entry: ["src/menus/index.ts"],
+      entry: ["src/components/tiptap/menus/index.ts"],
       outputOptions: { dir: "dist/menus" },
     },
   ],

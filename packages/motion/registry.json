@@ -9,54 +9,54 @@
       "dependencies": ["motion@^14.9.0", "solid-js@^1.9.0"],
       "files": [
         {
-          "path": "src/index.ts",
-          "type": "registry:file",
+          "path": "src/components/motion/index.ts",
+          "type": "registry:component",
           "target": "@components/motion/index.ts"
         },
         {
-          "path": "src/context.tsx",
-          "type": "registry:file",
+          "path": "src/components/motion/context.tsx",
+          "type": "registry:component",
           "target": "@components/motion/context.tsx"
         },
         {
-          "path": "src/hooks.ts",
-          "type": "registry:file",
-          "target": "@components/motion/hooks.ts"
+          "path": "src/lib/motion/hooks.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/hooks.ts"
         },
         {
-          "path": "src/motion.tsx",
-          "type": "registry:file",
+          "path": "src/components/motion/motion.tsx",
+          "type": "registry:component",
           "target": "@components/motion/motion.tsx"
         },
         {
-          "path": "src/presence.tsx",
-          "type": "registry:file",
+          "path": "src/components/motion/presence.tsx",
+          "type": "registry:component",
           "target": "@components/motion/presence.tsx"
         },
         {
-          "path": "src/resolve.ts",
-          "type": "registry:file",
-          "target": "@components/motion/resolve.ts"
+          "path": "src/lib/utils/motion/resolve.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/motion/resolve.ts"
         },
         {
-          "path": "src/schedule.ts",
-          "type": "registry:file",
-          "target": "@components/motion/schedule.ts"
+          "path": "src/lib/motion/schedule.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/schedule.ts"
         },
         {
-          "path": "src/state.ts",
-          "type": "registry:file",
-          "target": "@components/motion/state.ts"
+          "path": "src/lib/motion/state.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/state.ts"
         },
         {
-          "path": "src/target-style.ts",
-          "type": "registry:file",
-          "target": "@components/motion/target-style.ts"
+          "path": "src/lib/utils/motion/target-style.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/motion/target-style.ts"
         },
         {
-          "path": "src/types.ts",
-          "type": "registry:file",
-          "target": "@components/motion/types.ts"
+          "path": "src/lib/motion/types.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/types.ts"
         }
       ]
     }

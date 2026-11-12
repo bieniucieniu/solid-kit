@@ -14,44 +14,44 @@
       ],
       "files": [
         {
-          "path": "src/index.ts",
-          "type": "registry:file",
+          "path": "src/components/tiptap/index.ts",
+          "type": "registry:component",
           "target": "@components/tiptap/index.ts"
         },
         {
-          "path": "src/Context.tsx",
-          "type": "registry:file",
+          "path": "src/components/tiptap/Context.tsx",
+          "type": "registry:component",
           "target": "@components/tiptap/Context.tsx"
         },
         {
-          "path": "src/EditorContent.tsx",
-          "type": "registry:file",
+          "path": "src/components/tiptap/EditorContent.tsx",
+          "type": "registry:component",
           "target": "@components/tiptap/EditorContent.tsx"
         },
         {
-          "path": "src/Tiptap.tsx",
-          "type": "registry:file",
+          "path": "src/components/tiptap/Tiptap.tsx",
+          "type": "registry:component",
           "target": "@components/tiptap/Tiptap.tsx"
         },
         {
-          "path": "src/types.ts",
-          "type": "registry:file",
-          "target": "@components/tiptap/types.ts"
+          "path": "src/lib/tiptap/types.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/types.ts"
         },
         {
-          "path": "src/useEditor.ts",
-          "type": "registry:file",
-          "target": "@components/tiptap/useEditor.ts"
+          "path": "src/lib/tiptap/useEditor.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/useEditor.ts"
         },
         {
-          "path": "src/useEditorState.ts",
-          "type": "registry:file",
+          "path": "src/components/tiptap/useEditorState.ts",
+          "type": "registry:component",
           "target": "@components/tiptap/useEditorState.ts"
         },
         {
-          "path": "src/editor.ts",
-          "type": "registry:file",
-          "target": "@components/tiptap/editor.ts"
+          "path": "src/lib/tiptap/editor.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/editor.ts"
         }
       ]
     },
@@ -69,24 +69,24 @@
       "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
       "files": [
         {
-          "path": "src/menus/index.ts",
-          "type": "registry:file",
+          "path": "src/components/tiptap/menus/index.ts",
+          "type": "registry:component",
           "target": "@components/tiptap/menus/index.ts"
         },
         {
-          "path": "src/menus/BubbleMenu.tsx",
-          "type": "registry:file",
+          "path": "src/components/tiptap/menus/BubbleMenu.tsx",
+          "type": "registry:component",
           "target": "@components/tiptap/menus/BubbleMenu.tsx"
         },
         {
-          "path": "src/menus/FloatingMenu.tsx",
-          "type": "registry:file",
+          "path": "src/components/tiptap/menus/FloatingMenu.tsx",
+          "type": "registry:component",
           "target": "@components/tiptap/menus/FloatingMenu.tsx"
         },
         {
-          "path": "src/menus/getAutoPluginKey.ts",
-          "type": "registry:file",
-          "target": "@components/tiptap/menus/getAutoPluginKey.ts"
+          "path": "src/lib/utils/tiptap/getAutoPluginKey.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/tiptap/getAutoPluginKey.ts"
         }
       ],
       "docs": "Import from \"@/components/tiptap/menus\"."
@@ -100,39 +100,39 @@
       "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
       "files": [
         {
-          "path": "src/node-view.ts",
-          "type": "registry:file",
+          "path": "src/components/tiptap/node-view.ts",
+          "type": "registry:component",
           "target": "@components/tiptap/node-view.ts"
         },
         {
-          "path": "src/NodeViewContent.tsx",
-          "type": "registry:file",
+          "path": "src/components/tiptap/NodeViewContent.tsx",
+          "type": "registry:component",
           "target": "@components/tiptap/NodeViewContent.tsx"
         },
         {
-          "path": "src/NodeViewWrapper.tsx",
-          "type": "registry:file",
+          "path": "src/components/tiptap/NodeViewWrapper.tsx",
+          "type": "registry:component",
           "target": "@components/tiptap/NodeViewWrapper.tsx"
         },
         {
-          "path": "src/SolidMarkViewRenderer.tsx",
-          "type": "registry:file",
-          "target": "@components/tiptap/SolidMarkViewRenderer.tsx"
+          "path": "src/lib/tiptap/SolidMarkViewRenderer.tsx",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/SolidMarkViewRenderer.tsx"
         },
         {
-          "path": "src/SolidNodeViewRenderer.tsx",
-          "type": "registry:file",
-          "target": "@components/tiptap/SolidNodeViewRenderer.tsx"
+          "path": "src/lib/tiptap/SolidNodeViewRenderer.tsx",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/SolidNodeViewRenderer.tsx"
         },
         {
-          "path": "src/SolidRenderer.tsx",
-          "type": "registry:file",
-          "target": "@components/tiptap/SolidRenderer.tsx"
+          "path": "src/lib/tiptap/SolidRenderer.tsx",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/SolidRenderer.tsx"
         },
         {
-          "path": "src/useSolidNodeView.ts",
-          "type": "registry:file",
-          "target": "@components/tiptap/useSolidNodeView.ts"
+          "path": "src/lib/tiptap/useSolidNodeView.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/useSolidNodeView.ts"
         }
       ],
       "docs": "Import from \"@/components/tiptap/node-view\"."

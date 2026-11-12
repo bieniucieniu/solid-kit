@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "paths": {
       "~/*": ["./src/*"],
-      "@/*": ["../ui/src/*"]
+      "@/*": ["../ui/src/*"],
+      "#/*": ["../motion/src/*", "../tiptap/src/*", "../xyflow/src/*"]
     }
   },
   "include": ["src"]

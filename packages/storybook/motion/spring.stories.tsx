@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { MotionConfig, motion, useMotionValue, useSpring } from "../../motion/src";
+import {
+  MotionConfig,
+  motion,
+  useMotionValue,
+  useSpring,
+} from "../../motion/src/components/motion";
 import { Button } from "../../ui/src/components/button";
 
 const meta = {

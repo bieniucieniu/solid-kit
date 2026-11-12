@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Flow, Position, createFlow } from "../../xyflow/src";
-import { Background, Controls } from "../../xyflow/src/panels";
-import "../../xyflow/src/style.css";
+import { Flow, Position, createFlow } from "../../xyflow/src/components/xyflow";
+import { Background, Controls } from "../../xyflow/src/components/xyflow/panels";
+import "../../xyflow/src/components/xyflow/style.css";
 
 const meta = {
   title: "Xyflow/Canvas",

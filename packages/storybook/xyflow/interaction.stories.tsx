@@ -6,10 +6,16 @@ import {
   SwitchLabel,
   SwitchThumb,
 } from "../../ui/src/components/switch";
-import { Flow, Position, createFlow, type FlowEdge, type FlowNode } from "../../xyflow/src";
-import { Background, Controls } from "../../xyflow/src/panels";
+import {
+  Flow,
+  Position,
+  createFlow,
+  type FlowEdge,
+  type FlowNode,
+} from "../../xyflow/src/components/xyflow";
+import { Background, Controls } from "../../xyflow/src/components/xyflow/panels";
 import { type Accessor, For, createSignal, type Setter } from "solid-js";
-import "../../xyflow/src/style.css";
+import "../../xyflow/src/components/xyflow/style.css";
 
 const meta = {
   title: "Xyflow/Interaction",

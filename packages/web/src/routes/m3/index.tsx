@@ -1,4 +1,4 @@
-import { PackageIndex } from "~/components/package-index";
+import { PackageIndex } from "~/components/package-index-m3";
 import { sidebars } from "~/nav";
 
 const pages = sidebars.m3.slice(1);

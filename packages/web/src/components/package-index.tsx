@@ -11,7 +11,7 @@ export function PackageIndex(props: {
 }) {
   return (
     <DocsPage title={props.title} description={props.description} snippet={props.snippet}>
-      <ul class="grid gap-3">
+      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         <For each={props.pages}>
           {(item) => (
             <li>

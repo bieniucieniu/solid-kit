@@ -3,7 +3,7 @@
   "name": "m3-list",
   "title": "M3 List",
   "description": "List with one-, two-, and three-line items.",
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/list.tsx",

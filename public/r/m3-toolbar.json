@@ -3,7 +3,7 @@
   "name": "m3-toolbar",
   "title": "M3 Toolbar",
   "description": "Docked and floating toolbars.",
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/toolbar.tsx",

@@ -4,7 +4,7 @@
   "title": "M3 Snackbar",
   "description": "Snackbar in its own toast region. Styled wrapper around @kobalte/core/toast.",
   "dependencies": ["@kobalte/core"],
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/snackbar.tsx",

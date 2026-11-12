@@ -6,17 +6,19 @@ Install into an app. The CLI copies the source and rewrites `@/lib/utils`.
 
 ## Install
 
-Set up `components.json` as in the [`ui` README](../ui/README.md#install) (Solid has no `shadcn init`). Then:
+In a Vite app with Tailwind CSS 4 (`src/index.css` starts with `@import "tailwindcss";`) and an `@/*` path alias:
 
 ```bash
-pnpm dlx shadcn@latest add bieniucieniu/solid-kit/m3-theme
+pnpm dlx shadcn@latest init bieniucieniu/solid-kit/m3
 pnpm dlx shadcn@latest add bieniucieniu/solid-kit/m3-button
 pnpm dlx shadcn@latest add bieniucieniu/solid-kit/m3-dialog
 ```
 
-Items are named `m3-<component>` and install into `components/m3/`, so they can sit next to `ui` components. Each one pulls in `utils` and `m3-theme`.
+`init` with `m3` writes `components.json`, adds `utils` and `m3-theme`, and skips shadcn's default React style. It stops if `components.json` already exists. In that case, or where `init` finds no supported framework, set up `components.json` as in the [`ui` README](../ui/README.md#install) and run `shadcn add bieniucieniu/solid-kit/m3-theme` instead.
 
-`m3-theme` copies `m3-tokens.css` next to your Tailwind CSS file (`src/index.css`), imports it, and points `--primary` / `--secondary` at the M3 scheme.
+Items are named `m3-<component>` and install into `components/m3/`, so they can sit next to `ui` components. Each one pulls in `utils`. The theme installs once, at init. Later component installs do not touch the tokens, so tuned values in `m3-tokens.css` and `src/index.css` stay.
+
+`m3-theme` copies `m3-tokens.css` next to your Tailwind CSS file (`src/index.css`), imports it, and points `--primary` / `--secondary` at the M3 scheme. Adding it again resets `--primary`, `--secondary`, and the `body` classes in `src/index.css`, and with `--overwrite` replaces `m3-tokens.css`.
 
 Inside this repo, import the package directly:
 

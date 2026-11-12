@@ -4,7 +4,7 @@
   "title": "M3 Progress",
   "description": "Linear (flat or wavy) and circular progress. Styled wrapper around @kobalte/core/progress.",
   "dependencies": ["@kobalte/core"],
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/progress.tsx",

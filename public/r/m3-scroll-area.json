@@ -3,7 +3,7 @@
   "name": "m3-scroll-area",
   "title": "M3 Scroll area",
   "description": "Scroll container with a thin outline-colored scrollbar.",
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/scroll-area.tsx",

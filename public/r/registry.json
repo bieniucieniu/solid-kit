@@ -1222,6 +1222,33 @@
       "type": "registry:item"
     },
     {
+      "extends": "none",
+      "name": "m3",
+      "title": "M3 init",
+      "description": "shadcn init for a Solid + Tailwind CSS 4 app: writes components.json, adds cn and the M3 theme. Skips the default React style.",
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "type": "registry:base",
+      "config": {
+        "style": "base",
+        "rsc": false,
+        "tsx": true,
+        "tailwind": {
+          "config": "",
+          "css": "src/index.css",
+          "baseColor": "neutral",
+          "cssVariables": true,
+          "prefix": ""
+        },
+        "aliases": {
+          "components": "@/components",
+          "utils": "@/lib/utils",
+          "ui": "@/components/ui",
+          "lib": "@/lib",
+          "hooks": "@/hooks"
+        }
+      }
+    },
+    {
       "name": "m3-scheme",
       "title": "M3 dynamic color",
       "description": "Generate an M3 color scheme from a seed color with material-color-utilities (loaded on first use).",
@@ -1240,7 +1267,7 @@
       "title": "M3 Button",
       "description": "Expressive button: elevated, filled, tonal, outlined, text; sizes xs to xl; round or square; toggle variant.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/button.tsx",
@@ -1255,11 +1282,7 @@
       "title": "M3 Icon button",
       "description": "Icon button: standard, filled, tonal, outlined; five sizes, three widths; toggle variant.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/m3-theme",
-        "bieniucieniu/solid-kit/m3-button"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
           "path": "packages/m3/src/components/icon-button.tsx",
@@ -1273,7 +1296,7 @@
       "name": "m3-fab",
       "title": "M3 FAB",
       "description": "Floating action button and extended FAB in three sizes and six colors.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/fab.tsx",
@@ -1288,7 +1311,7 @@
       "title": "M3 FAB menu",
       "description": "FAB that opens a menu of related actions. Styled wrapper around @kobalte/core/dropdown-menu.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/fab-menu.tsx",
@@ -1302,11 +1325,7 @@
       "name": "m3-button-group",
       "title": "M3 Button group",
       "description": "Standard and connected button groups. Children take the group's size.",
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/m3-theme",
-        "bieniucieniu/solid-kit/m3-button"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
           "path": "packages/m3/src/components/button-group.tsx",
@@ -1321,7 +1340,7 @@
       "title": "M3 Segmented button",
       "description": "Segmented button. Styled wrapper around @kobalte/core/toggle-group.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/segmented-button.tsx",
@@ -1336,11 +1355,7 @@
       "title": "M3 Split button",
       "description": "Main action joined to a menu trigger. Use with m3-menu.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/m3-theme",
-        "bieniucieniu/solid-kit/m3-button"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
           "path": "packages/m3/src/components/split-button.tsx",
@@ -1355,7 +1370,7 @@
       "title": "M3 Checkbox",
       "description": "Checkbox. Styled wrapper around @kobalte/core/checkbox.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/checkbox.tsx",
@@ -1370,7 +1385,7 @@
       "title": "M3 Radio group",
       "description": "Radio group. Styled wrapper around @kobalte/core/radio-group.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/radio-group.tsx",
@@ -1385,7 +1400,7 @@
       "title": "M3 Switch",
       "description": "Switch with an optional icon handle. Styled wrapper around @kobalte/core/switch.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/switch.tsx",
@@ -1400,7 +1415,7 @@
       "title": "M3 Slider",
       "description": "Expressive slider with a bar handle. Styled wrapper around @kobalte/core/slider.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/slider.tsx",
@@ -1415,7 +1430,7 @@
       "title": "M3 Chips",
       "description": "Assist, filter, input, and suggestion chips.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/chip.tsx",
@@ -1430,7 +1445,7 @@
       "title": "M3 Text field",
       "description": "Filled and outlined text field with a floating label. Styled wrapper around @kobalte/core/text-field.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/text-field.tsx",
@@ -1445,7 +1460,7 @@
       "title": "M3 Search",
       "description": "Search bar with docked results. Styled wrapper around @kobalte/core/search.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/search.tsx",
@@ -1459,7 +1474,7 @@
       "name": "m3-card",
       "title": "M3 Card",
       "description": "Elevated, filled, and outlined cards.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/card.tsx",
@@ -1473,7 +1488,7 @@
       "name": "m3-list",
       "title": "M3 List",
       "description": "List with one-, two-, and three-line items.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/list.tsx",
@@ -1488,7 +1503,7 @@
       "title": "M3 Divider",
       "description": "Divider. Styled wrapper around @kobalte/core/separator.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/divider.tsx",
@@ -1502,7 +1517,7 @@
       "name": "m3-scroll-area",
       "title": "M3 Scroll area",
       "description": "Scroll container with a thin outline-colored scrollbar.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/scroll-area.tsx",
@@ -1517,11 +1532,7 @@
       "title": "M3 Dialog",
       "description": "Basic and full-screen dialog. Styled wrapper around @corvu/dialog.",
       "dependencies": ["@corvu/dialog"],
-      "registryDependencies": [
-        "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/m3-theme",
-        "bieniucieniu/solid-kit/m3-button"
-      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
           "path": "packages/m3/src/components/dialog.tsx",
@@ -1538,7 +1549,6 @@
       "dependencies": ["@corvu/drawer"],
       "registryDependencies": [
         "bieniucieniu/solid-kit/utils",
-        "bieniucieniu/solid-kit/m3-theme",
         "bieniucieniu/solid-kit/m3-scroll-area"
       ],
       "files": [
@@ -1555,7 +1565,7 @@
       "title": "M3 Side sheet",
       "description": "Modal side sheet. Styled wrapper around @corvu/dialog.",
       "dependencies": ["@corvu/dialog"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/side-sheet.tsx",
@@ -1570,7 +1580,7 @@
       "title": "M3 Menu",
       "description": "Menu with submenus and selectable items. Styled wrapper around @kobalte/core/dropdown-menu.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/menu.tsx",
@@ -1585,7 +1595,7 @@
       "title": "M3 Tooltip",
       "description": "Plain tooltip (@corvu/tooltip) and rich tooltip (@kobalte/core/hover-card).",
       "dependencies": ["@corvu/tooltip", "@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/tooltip.tsx",
@@ -1600,7 +1610,7 @@
       "title": "M3 Snackbar",
       "description": "Snackbar in its own toast region. Styled wrapper around @kobalte/core/toast.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/snackbar.tsx",
@@ -1614,7 +1624,7 @@
       "name": "m3-badge",
       "title": "M3 Badge",
       "description": "Small dot and large count badges.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/badge.tsx",
@@ -1629,7 +1639,7 @@
       "title": "M3 Progress",
       "description": "Linear (flat or wavy) and circular progress. Styled wrapper around @kobalte/core/progress.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/progress.tsx",
@@ -1643,7 +1653,7 @@
       "name": "m3-loading-indicator",
       "title": "M3 Loading indicator",
       "description": "Expressive morphing loading indicator.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/loading-indicator.tsx",
@@ -1657,7 +1667,7 @@
       "name": "m3-app-bar",
       "title": "M3 App bar",
       "description": "Small, medium, and large top app bars.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/app-bar.tsx",
@@ -1671,7 +1681,7 @@
       "name": "m3-toolbar",
       "title": "M3 Toolbar",
       "description": "Docked and floating toolbars.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/toolbar.tsx",
@@ -1686,7 +1696,7 @@
       "title": "M3 Tabs",
       "description": "Primary and secondary tabs. Styled wrapper around @kobalte/core/tabs.",
       "dependencies": ["@kobalte/core"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/tabs.tsx",
@@ -1700,7 +1710,7 @@
       "name": "m3-navigation-bar",
       "title": "M3 Navigation bar",
       "description": "Bottom navigation bar, stacked or inline items.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/navigation-bar.tsx",
@@ -1714,7 +1724,7 @@
       "name": "m3-navigation-rail",
       "title": "M3 Navigation rail",
       "description": "Collapsed and expanded navigation rail.",
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/navigation-rail.tsx",
@@ -1729,7 +1739,7 @@
       "title": "M3 Navigation drawer",
       "description": "Standard and modal navigation drawers.",
       "dependencies": ["@corvu/drawer"],
-      "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+      "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
           "path": "packages/m3/src/components/navigation-drawer.tsx",

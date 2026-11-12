@@ -4,7 +4,7 @@
   "title": "M3 Menu",
   "description": "Menu with submenus and selectable items. Styled wrapper around @kobalte/core/dropdown-menu.",
   "dependencies": ["@kobalte/core"],
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/menu.tsx",

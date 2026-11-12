@@ -3,7 +3,7 @@
   "name": "m3-navigation-bar",
   "title": "M3 Navigation bar",
   "description": "Bottom navigation bar, stacked or inline items.",
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/navigation-bar.tsx",

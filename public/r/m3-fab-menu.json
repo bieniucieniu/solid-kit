@@ -4,7 +4,7 @@
   "title": "M3 FAB menu",
   "description": "FAB that opens a menu of related actions. Styled wrapper around @kobalte/core/dropdown-menu.",
   "dependencies": ["@kobalte/core"],
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/fab-menu.tsx",

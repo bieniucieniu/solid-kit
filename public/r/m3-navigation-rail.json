@@ -3,7 +3,7 @@
   "name": "m3-navigation-rail",
   "title": "M3 Navigation rail",
   "description": "Collapsed and expanded navigation rail.",
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/navigation-rail.tsx",

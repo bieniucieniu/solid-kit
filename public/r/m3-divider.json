@@ -4,7 +4,7 @@
   "title": "M3 Divider",
   "description": "Divider. Styled wrapper around @kobalte/core/separator.",
   "dependencies": ["@kobalte/core"],
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/divider.tsx",

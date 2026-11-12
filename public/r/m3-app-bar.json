@@ -3,7 +3,7 @@
   "name": "m3-app-bar",
   "title": "M3 App bar",
   "description": "Small, medium, and large top app bars.",
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/app-bar.tsx",

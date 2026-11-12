@@ -3,7 +3,7 @@
   "name": "m3-card",
   "title": "M3 Card",
   "description": "Elevated, filled, and outlined cards.",
-  "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-theme"],
+  "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
       "path": "packages/m3/src/components/card.tsx",

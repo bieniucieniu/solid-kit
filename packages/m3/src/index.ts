@@ -157,6 +157,7 @@ export {
   ListItemTrailing,
 } from "./components/list";
 export { Divider } from "./components/divider";
+export { ScrollArea } from "./components/scroll-area";
 export {
   Dialog,
   DialogActions,
@@ -175,6 +176,7 @@ export {
 } from "./components/dialog";
 export {
   BottomSheet,
+  BottomSheetBody,
   BottomSheetClose,
   BottomSheetContent,
   BottomSheetDescription,

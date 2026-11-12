@@ -7,6 +7,7 @@ import DrawerPrimitive, {
   type RootProps,
 } from "@corvu/drawer";
 import { type JSX, splitProps } from "solid-js";
+import { ScrollArea } from "./scroll-area";
 import { cn } from "@/lib/utils";
 
 /**
@@ -38,7 +39,11 @@ export function BottomSheetOverlay(props: DynamicProps<"div", OverlayProps>) {
   );
 }
 
-/** Up to 640px wide, centered, with 28px top corners. */
+/**
+ * Up to 640px wide, centered, with 28px top corners. It does not scroll itself: the fill
+ * below it (shown when the sheet is dragged up past its height) would become scrollable
+ * space. Put long content in `BottomSheetBody`.
+ */
 export function BottomSheetContent(props: DynamicProps<"div", ContentProps>) {
   const [, rest] = splitProps(props, ["class", "ref"]);
   return (
@@ -46,7 +51,7 @@ export function BottomSheetContent(props: DynamicProps<"div", ContentProps>) {
       ref={props.ref}
       data-slot="bottom-sheet-content"
       class={cn(
-        "fixed inset-x-0 bottom-0 z-50 mx-auto flex max-h-[calc(100%-4.5rem)] w-full max-w-160 flex-col overflow-y-auto rounded-t-extra-large bg-surface-container-low px-4 pb-6 text-on-surface shadow-level-1 outline-none after:absolute after:inset-x-0 after:top-full after:h-1/2 after:bg-inherit data-transitioning:transition-transform data-opening:duration-500 data-closing:duration-200 data-snapping:duration-300 data-transitioning:ease-default-spatial medium:mt-18",
+        "fixed inset-x-0 bottom-0 z-50 mx-auto flex max-h-[calc(100%-4.5rem)] w-full max-w-160 flex-col rounded-t-extra-large bg-surface-container-low px-4 pb-6 text-on-surface shadow-level-1 outline-none after:absolute after:inset-x-0 after:top-full after:h-1/2 after:bg-inherit data-transitioning:transition-transform data-opening:duration-500 data-closing:duration-200 data-snapping:duration-300 data-transitioning:ease-default-spatial medium:mt-18",
         props.class,
       )}
       {...rest}
@@ -90,6 +95,23 @@ export function BottomSheetDescription(props: DynamicProps<"p", DescriptionProps
       ref={props.ref}
       data-slot="bottom-sheet-description"
       class={cn("px-2 typescale-body-medium text-on-surface-variant", props.class)}
+      {...rest}
+    />
+  );
+}
+
+/**
+ * The scrolling region. Takes the height left under the handle and title, and reaches the
+ * sheet's side and bottom edges so the scrollbar sits at the edge. Dragging down starts
+ * closing the sheet only once it is scrolled to the top.
+ */
+export function BottomSheetBody(props: JSX.HTMLAttributes<HTMLDivElement>) {
+  const [, rest] = splitProps(props, ["class", "ref"]);
+  return (
+    <ScrollArea
+      ref={props.ref}
+      data-slot="bottom-sheet-body"
+      class={cn("-mx-4 -mb-6 min-h-0 flex-1 px-4 pb-6", props.class)}
       {...rest}
     />
   );

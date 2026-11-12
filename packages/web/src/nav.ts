@@ -121,6 +121,7 @@ export const sidebars: Record<PackageId, NavItem[]> = {
     { title: "Card", href: "/m3/card" },
     { title: "List", href: "/m3/list" },
     { title: "Divider", href: "/m3/divider" },
+    { title: "Scroll area", href: "/m3/scroll-area" },
     { title: "Dialog", href: "/m3/dialog" },
     { title: "Bottom sheet", href: "/m3/bottom-sheet" },
     { title: "Side sheet", href: "/m3/side-sheet" },

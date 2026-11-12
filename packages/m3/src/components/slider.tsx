@@ -1,4 +1,4 @@
-import { Slider as SliderPrimitive } from "@kobalte/core/slider";
+import { Slider as SliderPrimitive, useSliderContext } from "@kobalte/core/slider";
 import { type ComponentProps, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
@@ -81,9 +81,15 @@ export function SliderErrorMessage(props: SliderErrorMessageProps) {
  */
 export function SliderTrack(props: SliderTrackProps) {
   const [, rest] = splitProps(props, ["class", "ref"]);
+  const context = useSliderContext();
   return (
     <SliderPrimitive.Track
-      ref={props.ref}
+      // Kobalte's Track registers itself through its own ref, and a passed ref replaces it.
+      // Without the registration, pointer down on the track throws and the thumbs never drag.
+      ref={(el: HTMLDivElement) => {
+        context.registerTrack(el);
+        (props.ref as ((el: HTMLDivElement) => void) | undefined)?.(el);
+      }}
       data-slot="slider-track"
       class={cn(
         "relative my-3.5 grow cursor-pointer rounded-full bg-secondary-container after:absolute after:size-1 after:rounded-full after:bg-on-secondary-container data-[orientation=horizontal]:h-4 data-[orientation=horizontal]:w-full data-[orientation=horizontal]:after:top-1/2 data-[orientation=horizontal]:after:right-1.5 data-[orientation=horizontal]:after:-translate-y-1/2 data-[orientation=vertical]:mx-3.5 data-[orientation=vertical]:my-0 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-4 data-[orientation=vertical]:after:top-1.5 data-[orientation=vertical]:after:left-1/2 data-[orientation=vertical]:after:-translate-x-1/2 group-data-disabled/slider:cursor-not-allowed group-data-disabled/slider:bg-on-surface/12 group-data-disabled/slider:after:bg-on-surface/38",

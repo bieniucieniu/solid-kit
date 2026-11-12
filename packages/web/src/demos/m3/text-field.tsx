@@ -21,7 +21,7 @@ export function TextFieldDemo() {
     <DemoStack>
       <For each={variants}>
         {(variant) => (
-          <DemoRow label={variant} class="grid gap-6 medium:grid-cols-2">
+          <DemoRow label={variant} class="grid items-start gap-6 medium:grid-cols-2">
             <TextField variant={variant}>
               <TextFieldContainer>
                 <TextFieldLabel>Name</TextFieldLabel>

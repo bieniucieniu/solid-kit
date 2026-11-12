@@ -22,9 +22,9 @@ import {
   createFlow,
   useFlow,
   type NodeComponentProps,
-} from "../../xyflow/src";
-import { Background, Controls } from "../../xyflow/src/panels";
-import "../../xyflow/src/style.css";
+} from "../../xyflow/src/components/xyflow";
+import { Background, Controls } from "../../xyflow/src/components/xyflow/panels";
+import "../../xyflow/src/components/xyflow/style.css";
 
 const meta = {
   title: "Xyflow/Custom nodes",

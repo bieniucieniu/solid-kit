@@ -16,7 +16,7 @@ export default defineConfig({
         neverBundle: [/^[^./]/],
       },
       platform: "browser",
-      entry: ["src/index.ts"],
+      entry: ["src/components/motion/index.ts"],
       outputOptions: { dir: "dist" },
     },
   ],

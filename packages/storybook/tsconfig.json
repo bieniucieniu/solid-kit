@@ -13,7 +13,8 @@
     "noEmit": true,
     "isolatedModules": true,
     "paths": {
-      "@/*": ["../ui/src/*"]
+      "@/*": ["../ui/src/*"],
+      "#/*": ["../motion/src/*", "../tiptap/src/*", "../xyflow/src/*"]
     }
   },
   "include": [".storybook", "ui", "m3", "motion", "tiptap", "xyflow"]

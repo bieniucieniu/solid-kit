@@ -10,18 +10,21 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "imports": {
+    "#/*": "./src/*"
+  },
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "import": "./src/index.ts",
-      "default": "./src/index.ts"
+      "types": "./src/components/xyflow/index.ts",
+      "import": "./src/components/xyflow/index.ts",
+      "default": "./src/components/xyflow/index.ts"
     },
     "./panels": {
-      "types": "./src/panels.ts",
-      "import": "./src/panels.ts",
-      "default": "./src/panels.ts"
+      "types": "./src/components/xyflow/panels.ts",
+      "import": "./src/components/xyflow/panels.ts",
+      "default": "./src/components/xyflow/panels.ts"
     },
-    "./style.css": "./src/style.css"
+    "./style.css": "./src/components/xyflow/style.css"
   },
   "scripts": {
     "build": "vp pack",

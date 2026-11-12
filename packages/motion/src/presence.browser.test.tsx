@@ -2,7 +2,7 @@ import { cleanup, render } from "@solidjs/testing-library";
 import { createSignal } from "solid-js";
 import { afterEach, describe, expect, test } from "vite-plus/test";
 import { page, userEvent } from "vite-plus/test/browser";
-import { AnimatePresence, motion } from "./index";
+import { AnimatePresence, motion } from "./components/motion/index";
 
 type ElementAssertion = {
   toBeVisible: () => Promise<void>;

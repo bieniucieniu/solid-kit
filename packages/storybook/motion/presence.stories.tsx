@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { AnimatePresence, MotionConfig, motion } from "../../motion/src";
+import { AnimatePresence, MotionConfig, motion } from "../../motion/src/components/motion";
 import { Button } from "../../ui/src/components/button";
 import { createSignal } from "solid-js";
 

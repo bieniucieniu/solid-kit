@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
 import Placeholder from "@tiptap/extension-placeholder";
 import StarterKit from "@tiptap/starter-kit";
-import { Tiptap, TiptapContent, useEditor } from "../../tiptap/src";
+import { Tiptap, TiptapContent, useEditor } from "../../tiptap/src/components/tiptap";
 import { MenuBar } from "./menu-bar";
 
 const meta = {

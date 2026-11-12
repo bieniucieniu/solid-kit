@@ -1,9 +1,12 @@
 import { ToggleButton as ToggleButtonPrimitive } from "@kobalte/core/toggle-button";
-import { type ComponentProps, type JSX, splitProps } from "solid-js";
+import { type ComponentProps, type JSX, Show, splitProps } from "solid-js";
 import { cn } from "@/lib/utils";
 
+// Text nodes are invisible to selectors, so an icon next to plain text is both :first-child and
+// :last-child. A lone icon counts as leading; a trailing icon needs an element before it (a leading
+// icon, or the text wrapped in a span).
 const chipBase =
-  "group/chip relative inline-flex h-8 shrink-0 cursor-pointer items-center gap-2 rounded-small px-4 typescale-label-large whitespace-nowrap select-none state-layer focus-ring motion-fast disabled:pointer-events-none disabled:text-on-surface/38 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4.5 has-[>svg:first-child]:pl-2 has-[>svg:last-child]:pr-2";
+  "group/chip relative inline-flex h-8 shrink-0 cursor-pointer items-center gap-2 rounded-small px-4 typescale-label-large whitespace-nowrap select-none state-layer focus-ring motion-fast disabled:pointer-events-none disabled:text-on-surface/38 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4.5 has-[>svg:first-child]:pl-2 has-[>svg:last-child:not(:first-child)]:pr-2";
 
 /** Flat chips have an outline; elevated chips have a fill and a level-1 shadow instead. */
 function surface(elevated: boolean | undefined) {
@@ -51,12 +54,7 @@ export function SuggestionChip(props: ChipProps) {
 
 function CheckIcon() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-      class="-ml-2 hidden size-4.5 group-data-pressed/chip:block"
-    >
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-4.5">
       <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
     </svg>
   );
@@ -66,7 +64,7 @@ type FilterChipProps = ComponentProps<typeof ToggleButtonPrimitive> & { elevated
 
 /**
  * A chip that toggles a filter (Kobalte toggle button: `pressed` / `onChange`). Shows a check
- * mark while selected.
+ * mark while selected; the chip's start padding drops to 8px to make room for it.
  */
 export function FilterChip(props: FilterChipProps) {
   const [, rest] = splitProps(props, ["class", "ref", "elevated", "children"]);
@@ -77,16 +75,21 @@ export function FilterChip(props: FilterChipProps) {
       class={cn(
         chipBase,
         surface(props.elevated),
-        "text-on-surface-variant data-pressed:border-transparent data-pressed:bg-secondary-container data-pressed:pl-4 data-pressed:text-on-secondary-container",
+        "text-on-surface-variant data-pressed:border-transparent data-pressed:bg-secondary-container data-pressed:text-on-secondary-container",
         props.class,
       )}
       {...rest}
     >
-      <>
-        <CheckIcon />
-        {/* Plain children only; the check mark is prepended, so a render function is not supported. */}
-        {props.children as JSX.Element}
-      </>
+      {(state) => (
+        <>
+          {/* Mounted only while pressed: a hidden icon would still match the start-padding rule. */}
+          <Show when={state.pressed()}>
+            <CheckIcon />
+          </Show>
+          {/* Plain children only; the check mark is prepended, so a render function is not supported. */}
+          {props.children as JSX.Element}
+        </>
+      )}
     </ToggleButtonPrimitive>
   );
 }

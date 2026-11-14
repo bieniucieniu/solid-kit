@@ -10,9 +10,10 @@ import {
 } from "solid-js";
 
 const isSSR = typeof window === "undefined";
-const isDev =
-  //@ts-expect-error
-  typeof process !== "undefined" && process.env.NODE_ENV !== "production";
+// Read `process` through globalThis so this type-checks with and without @types/node.
+const nodeEnv = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process
+  ?.env;
+const isDev = nodeEnv !== undefined && nodeEnv.NODE_ENV !== "production";
 const isNext = isSSR || Boolean(typeof window !== "undefined" && (window as any).next);
 
 export type UseEditorOptions = Partial<EditorOptions> & {

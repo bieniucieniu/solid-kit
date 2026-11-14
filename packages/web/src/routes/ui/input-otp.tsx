@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { InputOTPDemo } from "~/demos/ui/input-otp";
+import source from "~/demos/ui/input-otp.tsx?raw";
 
 const snippet = `import {
   InputOTP,
@@ -30,6 +31,8 @@ export default function InputOTPPage() {
       title="Input OTP"
       description="A one-time code input with a slot per character."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/input-otp.tsx"
     >
       <InputOTPDemo />
     </DocsPage>

@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/xyflow/custom-nodes.tsx?raw";
 
 const CustomNodesDemo = clientOnly(() => import("~/demos/xyflow/custom-nodes"));
 
@@ -63,6 +64,8 @@ export default function CustomNodesPage() {
       title="Custom nodes"
       description="Nodes built from ui cards, with named handles and state the node updates itself."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/xyflow/custom-nodes.tsx"
       previewClass="p-0"
     >
       <CustomNodesDemo fallback={<div class="h-96" />} />

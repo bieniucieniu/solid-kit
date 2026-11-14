@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { LoadingIndicatorDemo } from "~/demos/m3/loading-indicator";
+import source from "~/demos/m3/loading-indicator.tsx?raw";
 
 const snippet = `import { LoadingIndicator } from "@solid-kit/m3";
 
@@ -12,6 +13,8 @@ export default function LoadingIndicatorPage() {
       title="Loading indicator"
       description="A morphing shape for waits under five seconds."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/loading-indicator.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <LoadingIndicatorDemo />

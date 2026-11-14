@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ProgressDemo } from "~/demos/ui/progress";
+import source from "~/demos/ui/progress.tsx?raw";
 
 const snippet = `import {
   Progress,
@@ -19,7 +20,13 @@ const snippet = `import {
 
 export default function ProgressPage() {
   return (
-    <DocsPage title="Progress" description="A bar that shows completion." snippet={snippet}>
+    <DocsPage
+      title="Progress"
+      description="A bar that shows completion."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/progress.tsx"
+    >
       <ProgressDemo />
     </DocsPage>
   );

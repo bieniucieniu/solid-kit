@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ItemDemo } from "~/demos/ui/item";
+import source from "~/demos/ui/item.tsx?raw";
 
 const snippet = `import {
   Button,
@@ -28,7 +29,13 @@ const snippet = `import {
 
 export default function ItemPage() {
   return (
-    <DocsPage title="Item" description="A row with media, text, and actions." snippet={snippet}>
+    <DocsPage
+      title="Item"
+      description="A row with media, text, and actions."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/item.tsx"
+    >
       <ItemDemo />
     </DocsPage>
   );

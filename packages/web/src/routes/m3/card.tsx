@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { CardDemo } from "~/demos/m3/card";
+import source from "~/demos/m3/card.tsx?raw";
 
 const snippet = `import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@solid-kit/m3";
 
@@ -19,6 +20,8 @@ export default function CardPage() {
       title="Card"
       description="Elevated, filled, and outlined containers for one subject."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/card.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <CardDemo />

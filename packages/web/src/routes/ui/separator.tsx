@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { SeparatorDemo } from "~/demos/ui/separator";
+import source from "~/demos/ui/separator.tsx?raw";
 
 const snippet = `import { Separator } from "@solid-kit/ui";
 
@@ -13,7 +14,13 @@ const snippet = `import { Separator } from "@solid-kit/ui";
 
 export default function SeparatorPage() {
   return (
-    <DocsPage title="Separator" description="A line between sections." snippet={snippet}>
+    <DocsPage
+      title="Separator"
+      description="A line between sections."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/separator.tsx"
+    >
       <SeparatorDemo />
     </DocsPage>
   );

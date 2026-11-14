@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { NavigationRailDemo } from "~/demos/m3/navigation-rail";
+import source from "~/demos/m3/navigation-rail.tsx?raw";
 
 const snippet = `import { NavigationRail, NavigationRailHeader, NavigationRailIcon, NavigationRailItem, NavigationRailLabel } from "@solid-kit/m3";
 
@@ -20,6 +21,8 @@ export default function NavigationRailPage() {
       title="Navigation rail"
       description="Collapsed and expanded side navigation for medium and larger windows."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/navigation-rail.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <NavigationRailDemo />

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { SheetDemo } from "~/demos/ui/sheet";
+import source from "~/demos/ui/sheet.tsx?raw";
 
 const snippet = `import {
   Button,
@@ -34,7 +35,13 @@ const snippet = `import {
 
 export default function SheetPage() {
   return (
-    <DocsPage title="Sheet" description="A panel that slides in from the right." snippet={snippet}>
+    <DocsPage
+      title="Sheet"
+      description="A panel that slides in from the right."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/sheet.tsx"
+    >
       <SheetDemo />
     </DocsPage>
   );

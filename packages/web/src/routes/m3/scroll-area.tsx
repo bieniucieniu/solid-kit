@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ScrollAreaDemo } from "~/demos/m3/scroll-area";
+import source from "~/demos/m3/scroll-area.tsx?raw";
 
 const snippet = `import { ScrollArea } from "@solid-kit/m3";
 
@@ -13,6 +14,8 @@ export default function ScrollAreaPage() {
       title="Scroll area"
       description="A box that scrolls its content, with a thin outline-colored scrollbar."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/scroll-area.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <ScrollAreaDemo />

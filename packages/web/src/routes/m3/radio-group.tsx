@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { RadioGroupDemo } from "~/demos/m3/radio-group";
+import source from "~/demos/m3/radio-group.tsx?raw";
 
 const snippet = `import { RadioGroup, RadioGroupItem, RadioGroupItemControl, RadioGroupItemIndicator, RadioGroupItemInput, RadioGroupItemLabel, RadioGroupLabel } from "@solid-kit/m3";
 
@@ -18,6 +19,8 @@ export default function RadioGroupPage() {
       title="Radio group"
       description="Select one option from a set."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/radio-group.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <RadioGroupDemo />

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { TabsDemo } from "~/demos/ui/tabs";
+import source from "~/demos/ui/tabs.tsx?raw";
 
 const snippet = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@solid-kit/ui";
 
@@ -15,7 +16,13 @@ const snippet = `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@soli
 
 export default function TabsPage() {
   return (
-    <DocsPage title="Tabs" description="Switch between panels." snippet={snippet}>
+    <DocsPage
+      title="Tabs"
+      description="Switch between panels."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/tabs.tsx"
+    >
       <TabsDemo />
     </DocsPage>
   );

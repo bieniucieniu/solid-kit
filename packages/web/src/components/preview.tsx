@@ -8,8 +8,12 @@ import {
   CodeBlockLine,
   CodeBlockTitle,
   createHighlightedCode,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
 } from "@solid-kit/ui";
-import { For, type JSX } from "solid-js";
+import { For, type JSX, Show } from "solid-js";
 
 export function Preview(props: { children?: JSX.Element; class?: string }) {
   return (
@@ -38,6 +42,12 @@ export function DocsPage(props: {
   title: string;
   description: string;
   snippet: string;
+  /**
+   * The demo file's contents, loaded with `import source from "~/demos/<pkg>/<name>.tsx?raw"`.
+   * When set, the preview gets a Code tab that shows it.
+   */
+  source?: string;
+  sourceTitle?: string;
   previewClass?: string;
   children: JSX.Element;
 }) {
@@ -47,7 +57,25 @@ export function DocsPage(props: {
         <h1 class="text-3xl font-semibold tracking-tight text-foreground">{props.title}</h1>
         <p class="text-muted-foreground">{props.description}</p>
       </header>
-      <Preview class={props.previewClass}>{props.children}</Preview>
+      <Show
+        when={props.source}
+        fallback={<Preview class={props.previewClass}>{props.children}</Preview>}
+      >
+        {(source) => (
+          <Tabs defaultValue="preview">
+            <TabsList variant="line">
+              <TabsTrigger value="preview">Preview</TabsTrigger>
+              <TabsTrigger value="code">Code</TabsTrigger>
+            </TabsList>
+            <TabsContent value="preview" class="text-base">
+              <Preview class={props.previewClass}>{props.children}</Preview>
+            </TabsContent>
+            <TabsContent value="code" class="text-base">
+              <CodeExample code={source()} title={props.sourceTitle ?? "Source"} />
+            </TabsContent>
+          </Tabs>
+        )}
+      </Show>
       <CodeExample code={props.snippet} />
     </article>
   );

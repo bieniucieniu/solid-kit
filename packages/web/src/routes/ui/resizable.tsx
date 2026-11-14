@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ResizableDemo } from "~/demos/ui/resizable";
+import source from "~/demos/ui/resizable.tsx?raw";
 
 const snippet = `import { Resizable, ResizableHandle, ResizablePanel } from "@solid-kit/ui";
 
@@ -21,6 +22,8 @@ export default function ResizablePage() {
       title="Resizable"
       description="Panel groups resized by dragging or with the keyboard."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/resizable.tsx"
     >
       <ResizableDemo />
     </DocsPage>

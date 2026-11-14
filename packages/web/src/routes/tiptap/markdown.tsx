@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/tiptap/markdown.tsx?raw";
 
 const MarkdownEditor = clientOnly(() => import("~/demos/tiptap/markdown"));
 
@@ -18,6 +19,8 @@ export default function MarkdownPage() {
       title="Markdown"
       description="Edit rich text and read markdown output."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/tiptap/markdown.tsx"
     >
       <MarkdownEditor fallback={<div class="min-h-[300px]" />} />
     </DocsPage>

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { AlertDialogDemo } from "~/demos/ui/alert-dialog";
+import source from "~/demos/ui/alert-dialog.tsx?raw";
 
 const snippet = `import {
   AlertDialog,
@@ -39,6 +40,8 @@ export default function AlertDialogPage() {
       title="Alert dialog"
       description="A modal that asks for confirmation."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/alert-dialog.tsx"
     >
       <AlertDialogDemo />
     </DocsPage>

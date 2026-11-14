@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { TableDemo } from "~/demos/ui/table";
+import source from "~/demos/ui/table.tsx?raw";
 
 const snippet = `import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@solid-kit/ui";
 
@@ -20,7 +21,13 @@ const snippet = `import { Table, TableBody, TableCell, TableHead, TableHeader, T
 
 export default function TablePage() {
   return (
-    <DocsPage title="Table" description="Rows and columns of data." snippet={snippet}>
+    <DocsPage
+      title="Table"
+      description="Rows and columns of data."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/table.tsx"
+    >
       <TableDemo />
     </DocsPage>
   );

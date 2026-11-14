@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ButtonGroupDemo } from "~/demos/m3/button-group";
+import source from "~/demos/m3/button-group.tsx?raw";
 
 const snippet = `import { ButtonGroup, ToggleButton } from "@solid-kit/m3";
 
@@ -14,6 +15,8 @@ export default function ButtonGroupPage() {
       title="Button group"
       description="Standard or connected groups of buttons and toggles. Children take the group's size."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/button-group.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <ButtonGroupDemo />

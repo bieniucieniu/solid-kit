@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { FieldDemo } from "~/demos/ui/field";
+import source from "~/demos/ui/field.tsx?raw";
 
 const snippet = `import {
   Field,
@@ -36,6 +37,8 @@ export default function FieldPage() {
       title="Field"
       description="A label and description around a control."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/field.tsx"
     >
       <FieldDemo />
     </DocsPage>

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { SideSheetDemo } from "~/demos/m3/side-sheet";
+import source from "~/demos/m3/side-sheet.tsx?raw";
 
 const snippet = `import { SideSheet, SideSheetActions, SideSheetBody, SideSheetClose, SideSheetContent, SideSheetHeader, SideSheetOverlay, SideSheetPortal, SideSheetTitle, SideSheetTrigger } from "@solid-kit/m3";
 
@@ -24,6 +25,8 @@ export default function SideSheetPage() {
       title="Side sheet"
       description="A modal sheet anchored to the side of the screen."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/side-sheet.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <SideSheetDemo />

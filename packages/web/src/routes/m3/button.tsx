@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ButtonDemo } from "~/demos/m3/button";
+import source from "~/demos/m3/button.tsx?raw";
 
 const snippet = `import { Button, ToggleButton } from "@solid-kit/m3";
 
@@ -16,6 +17,8 @@ export default function ButtonPage() {
       title="Button"
       description="Expressive buttons in five colors and five sizes. Corners morph on press."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/button.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <ButtonDemo />

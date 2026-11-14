@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/xyflow/connecting.tsx?raw";
 
 const ConnectingDemo = clientOnly(() => import("~/demos/xyflow/connecting"));
 
@@ -29,6 +30,8 @@ export default function ConnectingPage() {
       title="Connecting"
       description="Drag between handles to add edges, and change the graph from a toolbar."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/xyflow/connecting.tsx"
       previewClass="p-0"
     >
       <ConnectingDemo fallback={<div class="h-96" />} />

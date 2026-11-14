@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { TextareaDemo } from "~/demos/ui/textarea";
+import source from "~/demos/ui/textarea.tsx?raw";
 
 const snippet = `import { Textarea, TextareaControl, TextareaDescription, TextareaLabel } from "@solid-kit/ui";
 
@@ -11,7 +12,13 @@ const snippet = `import { Textarea, TextareaControl, TextareaDescription, Textar
 
 export default function TextareaPage() {
   return (
-    <DocsPage title="Textarea" description="A labeled multiline field." snippet={snippet}>
+    <DocsPage
+      title="Textarea"
+      description="A labeled multiline field."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/textarea.tsx"
+    >
       <TextareaDemo />
     </DocsPage>
   );

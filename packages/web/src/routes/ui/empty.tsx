@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { EmptyDemo } from "~/demos/ui/empty";
+import source from "~/demos/ui/empty.tsx?raw";
 
 const snippet = `import {
   Button,
@@ -26,6 +27,8 @@ export default function EmptyPage() {
       title="Empty"
       description="A placeholder when there is nothing to show."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/empty.tsx"
     >
       <EmptyDemo />
     </DocsPage>

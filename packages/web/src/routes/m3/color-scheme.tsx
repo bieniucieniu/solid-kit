@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ColorSchemeDemo } from "~/demos/m3/color-scheme";
+import source from "~/demos/m3/color-scheme.tsx?raw";
 
 const snippet = `import { applyScheme, createScheme, schemeCss } from "@solid-kit/m3";
 
@@ -15,6 +16,8 @@ export default function ColorSchemePage() {
       title="Color scheme"
       description="Generate a light or dark scheme from a seed color at runtime."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/color-scheme.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <ColorSchemeDemo />

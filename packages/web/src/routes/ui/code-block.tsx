@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { CodeBlockDemo } from "~/demos/ui/code-block";
+import source from "~/demos/ui/code-block.tsx?raw";
 
 const snippet = `import {
   CodeBlock,
@@ -41,6 +42,8 @@ export default function CodeBlockPage() {
       title="Code block"
       description="Code with a title bar, copy button, line numbers, diffs, and Shiki syntax highlighting."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/code-block.tsx"
     >
       <CodeBlockDemo />
     </DocsPage>

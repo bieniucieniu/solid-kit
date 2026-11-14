@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { BadgeDemo } from "~/demos/ui/badge";
+import source from "~/demos/ui/badge.tsx?raw";
 
 const snippet = `import { Badge } from "@solid-kit/ui";
 
@@ -9,7 +10,13 @@ const snippet = `import { Badge } from "@solid-kit/ui";
 
 export default function BadgePage() {
   return (
-    <DocsPage title="Badge" description="A small status label." snippet={snippet}>
+    <DocsPage
+      title="Badge"
+      description="A small status label."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/badge.tsx"
+    >
       <BadgeDemo />
     </DocsPage>
   );

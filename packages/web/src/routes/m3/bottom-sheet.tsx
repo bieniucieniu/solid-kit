@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { BottomSheetDemo } from "~/demos/m3/bottom-sheet";
+import source from "~/demos/m3/bottom-sheet.tsx?raw";
 
 const snippet = `import { BottomSheet, BottomSheetBody, BottomSheetContent, BottomSheetDragHandle, BottomSheetOverlay, BottomSheetPortal, BottomSheetTitle, BottomSheetTrigger } from "@solid-kit/m3";
 
@@ -21,6 +22,8 @@ export default function BottomSheetPage() {
       title="Bottom sheet"
       description="A modal sheet anchored to the bottom of the screen."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/bottom-sheet.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <BottomSheetDemo />

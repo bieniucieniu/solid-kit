@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { TabsDemo } from "~/demos/m3/tabs";
+import source from "~/demos/m3/tabs.tsx?raw";
 
 const snippet = `import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@solid-kit/m3";
 
@@ -20,6 +21,8 @@ export default function TabsPage() {
       title="Tabs"
       description="Primary and secondary tabs."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/tabs.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <TabsDemo />

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ToastDemo } from "~/demos/ui/toast";
+import source from "~/demos/ui/toast.tsx?raw";
 
 const snippet = `import {
   Button,
@@ -32,7 +33,13 @@ const snippet = `import {
 
 export default function ToastPage() {
   return (
-    <DocsPage title="Toast" description="A short message that appears on demand." snippet={snippet}>
+    <DocsPage
+      title="Toast"
+      description="A short message that appears on demand."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/toast.tsx"
+    >
       <ToastDemo />
     </DocsPage>
   );

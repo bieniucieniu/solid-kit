@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { InputGroupDemo } from "~/demos/ui/input-group";
+import source from "~/demos/ui/input-group.tsx?raw";
 
 const snippet = `import {
   InputGroup,
@@ -33,6 +34,8 @@ export default function InputGroupPage() {
       title="Input group"
       description="An input with extra content beside it."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/input-group.tsx"
     >
       <InputGroupDemo />
     </DocsPage>

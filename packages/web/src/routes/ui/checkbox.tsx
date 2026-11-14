@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { CheckboxDemo } from "~/demos/ui/checkbox";
+import source from "~/demos/ui/checkbox.tsx?raw";
 
 const snippet = `import {
   Checkbox,
@@ -19,7 +20,13 @@ const snippet = `import {
 
 export default function CheckboxPage() {
   return (
-    <DocsPage title="Checkbox" description="A labeled checkbox." snippet={snippet}>
+    <DocsPage
+      title="Checkbox"
+      description="A labeled checkbox."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/checkbox.tsx"
+    >
       <CheckboxDemo />
     </DocsPage>
   );

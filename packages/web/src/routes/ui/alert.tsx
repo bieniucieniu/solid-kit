@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { AlertDemo } from "~/demos/ui/alert";
+import source from "~/demos/ui/alert.tsx?raw";
 
 const snippet = `import { Alert, AlertDescription, AlertTitle } from "@solid-kit/ui";
 
@@ -11,7 +12,13 @@ const snippet = `import { Alert, AlertDescription, AlertTitle } from "@solid-kit
 
 export default function AlertPage() {
   return (
-    <DocsPage title="Alert" description="A short status message." snippet={snippet}>
+    <DocsPage
+      title="Alert"
+      description="A short status message."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/alert.tsx"
+    >
       <AlertDemo />
     </DocsPage>
   );

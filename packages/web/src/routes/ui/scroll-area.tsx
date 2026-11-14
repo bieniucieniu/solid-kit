@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ScrollAreaDemo } from "~/demos/ui/scroll-area";
+import source from "~/demos/ui/scroll-area.tsx?raw";
 
 const snippet = `import { ScrollArea } from "@solid-kit/ui";
 
@@ -10,7 +11,13 @@ const snippet = `import { ScrollArea } from "@solid-kit/ui";
 
 export default function ScrollAreaPage() {
   return (
-    <DocsPage title="Scroll area" description="A box that scrolls its content." snippet={snippet}>
+    <DocsPage
+      title="Scroll area"
+      description="A box that scrolls its content."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/scroll-area.tsx"
+    >
       <ScrollAreaDemo />
     </DocsPage>
   );

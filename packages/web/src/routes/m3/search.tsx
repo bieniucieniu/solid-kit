@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { SearchDemo } from "~/demos/m3/search";
+import source from "~/demos/m3/search.tsx?raw";
 
 const snippet = `import { Search, SearchContent, SearchControl, SearchInput, SearchItem, SearchItemLabel, SearchListbox, SearchPortal } from "@solid-kit/m3";
 
@@ -28,6 +29,8 @@ export default function SearchPage() {
       title="Search"
       description="A search bar with a docked results view."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/search.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <SearchDemo />

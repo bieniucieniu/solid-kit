@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ToolbarDemo } from "~/demos/m3/toolbar";
+import source from "~/demos/m3/toolbar.tsx?raw";
 
 const snippet = `import { Toolbar } from "@solid-kit/m3";
 
@@ -15,6 +16,8 @@ export default function ToolbarPage() {
       title="Toolbar"
       description="Docked and floating toolbars for frequent actions."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/toolbar.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <ToolbarDemo />

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { DrawerDemo } from "~/demos/ui/drawer";
+import source from "~/demos/ui/drawer.tsx?raw";
 
 const snippet = `import {
   Button,
@@ -37,6 +38,8 @@ export default function DrawerPage() {
       title="Drawer"
       description="A panel that slides in from an edge. Drag it back to dismiss."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/drawer.tsx"
     >
       <DrawerDemo />
     </DocsPage>

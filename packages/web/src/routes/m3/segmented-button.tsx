@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { SegmentedButtonDemo } from "~/demos/m3/segmented-button";
+import source from "~/demos/m3/segmented-button.tsx?raw";
 
 const snippet = `import { SegmentedButton, SegmentedButtonIcon, SegmentedButtonItem } from "@solid-kit/m3";
 
@@ -17,6 +18,8 @@ export default function SegmentedButtonPage() {
       title="Segmented button"
       description="Select one or several options in an outlined row."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/segmented-button.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <SegmentedButtonDemo />

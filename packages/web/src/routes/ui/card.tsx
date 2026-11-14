@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { CardDemo } from "~/demos/ui/card";
+import source from "~/demos/ui/card.tsx?raw";
 
 const snippet = `import {
   Button,
@@ -33,6 +34,8 @@ export default function CardPage() {
       title="Card"
       description="A bordered block with a header and footer."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/card.tsx"
     >
       <CardDemo />
     </DocsPage>

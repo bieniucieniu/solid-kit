@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { AppBarDemo } from "~/demos/m3/app-bar";
+import source from "~/demos/m3/app-bar.tsx?raw";
 
 const snippet = `import { AppBar, AppBarHeadline, AppBarLeading, AppBarSubtitle, AppBarTitle, AppBarTrailing } from "@solid-kit/m3";
 
@@ -19,6 +20,8 @@ export default function AppBarPage() {
       title="App bar"
       description="Small, medium, and large top app bars."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/app-bar.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <AppBarDemo />

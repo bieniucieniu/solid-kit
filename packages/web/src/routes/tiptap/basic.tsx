@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/tiptap/basic.tsx?raw";
 
 const BasicEditor = clientOnly(() => import("~/demos/tiptap/basic"));
 
@@ -21,6 +22,8 @@ export default function BasicPage() {
       title="Basic"
       description="Starter kit editor with a formatting toolbar."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/tiptap/basic.tsx"
     >
       <BasicEditor fallback={<div class="min-h-[300px]" />} />
     </DocsPage>

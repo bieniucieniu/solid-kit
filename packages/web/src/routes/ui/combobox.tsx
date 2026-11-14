@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ComboboxDemo } from "~/demos/ui/combobox";
+import source from "~/demos/ui/combobox.tsx?raw";
 
 const snippet = `import {
   Combobox,
@@ -35,7 +36,13 @@ const snippet = `import {
 
 export default function ComboboxPage() {
   return (
-    <DocsPage title="Combobox" description="A text field with a filtered list." snippet={snippet}>
+    <DocsPage
+      title="Combobox"
+      description="A text field with a filtered list."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/combobox.tsx"
+    >
       <ComboboxDemo />
     </DocsPage>
   );

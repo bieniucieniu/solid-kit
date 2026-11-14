@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { AccordionDemo } from "~/demos/ui/accordion";
+import source from "~/demos/ui/accordion.tsx?raw";
 
 const snippet = `import {
   Accordion,
@@ -24,6 +25,8 @@ export default function AccordionPage() {
       title="Accordion"
       description="Expand and collapse stacked sections."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/accordion.tsx"
     >
       <AccordionDemo />
     </DocsPage>

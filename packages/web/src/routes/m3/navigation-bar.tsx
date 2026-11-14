@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { NavigationBarDemo } from "~/demos/m3/navigation-bar";
+import source from "~/demos/m3/navigation-bar.tsx?raw";
 
 const snippet = `import { NavigationBar, NavigationBarIcon, NavigationBarItem, NavigationBarLabel } from "@solid-kit/m3";
 
@@ -17,6 +18,8 @@ export default function NavigationBarPage() {
       title="Navigation bar"
       description="Bottom navigation for compact and medium windows."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/navigation-bar.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <NavigationBarDemo />

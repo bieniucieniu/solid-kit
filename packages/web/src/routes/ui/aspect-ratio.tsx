@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { AspectRatioDemo } from "~/demos/ui/aspect-ratio";
+import source from "~/demos/ui/aspect-ratio.tsx?raw";
 
 const snippet = `import { AspectRatio } from "@solid-kit/ui";
 
@@ -11,6 +12,8 @@ export default function AspectRatioPage() {
       title="Aspect ratio"
       description="A box that keeps a width to height ratio."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/aspect-ratio.tsx"
     >
       <AspectRatioDemo />
     </DocsPage>

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ChipDemo } from "~/demos/m3/chip";
+import source from "~/demos/m3/chip.tsx?raw";
 
 const snippet = `import { AssistChip, ChipSet, FilterChip, InputChip, InputChipRemove, SuggestionChip } from "@solid-kit/m3";
 
@@ -16,6 +17,8 @@ export default function ChipPage() {
       title="Chips"
       description="Assist, filter, input, and suggestion chips."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/chip.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <ChipDemo />

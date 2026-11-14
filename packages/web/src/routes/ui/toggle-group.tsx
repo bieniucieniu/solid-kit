@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ToggleGroupDemo } from "~/demos/ui/toggle-group";
+import source from "~/demos/ui/toggle-group.tsx?raw";
 
 const snippet = `import { ToggleGroup, ToggleGroupItem } from "@solid-kit/ui";
 
@@ -13,7 +14,13 @@ const snippet = `import { ToggleGroup, ToggleGroupItem } from "@solid-kit/ui";
 
 export default function ToggleGroupPage() {
   return (
-    <DocsPage title="Toggle group" description="A set of toggle buttons." snippet={snippet}>
+    <DocsPage
+      title="Toggle group"
+      description="A set of toggle buttons."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/toggle-group.tsx"
+    >
       <ToggleGroupDemo />
     </DocsPage>
   );

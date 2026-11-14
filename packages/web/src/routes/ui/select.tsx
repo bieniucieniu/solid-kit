@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { SelectDemo } from "~/demos/ui/select";
+import source from "~/demos/ui/select.tsx?raw";
 
 const snippet = `import {
   Select,
@@ -35,7 +36,13 @@ const snippet = `import {
 
 export default function SelectPage() {
   return (
-    <DocsPage title="Select" description="A list of options in a popup." snippet={snippet}>
+    <DocsPage
+      title="Select"
+      description="A list of options in a popup."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/select.tsx"
+    >
       <SelectDemo />
     </DocsPage>
   );

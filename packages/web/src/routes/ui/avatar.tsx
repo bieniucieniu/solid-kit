@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { AvatarDemo } from "~/demos/ui/avatar";
+import source from "~/demos/ui/avatar.tsx?raw";
 
 const snippet = `import {
   Avatar,
@@ -25,7 +26,13 @@ const snippet = `import {
 
 export default function AvatarPage() {
   return (
-    <DocsPage title="Avatar" description="An image with a fallback." snippet={snippet}>
+    <DocsPage
+      title="Avatar"
+      description="An image with a fallback."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/avatar.tsx"
+    >
       <AvatarDemo />
     </DocsPage>
   );

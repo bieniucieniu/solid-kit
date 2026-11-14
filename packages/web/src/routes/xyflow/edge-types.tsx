@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/xyflow/edge-types.tsx?raw";
 
 const EdgeTypesDemo = clientOnly(() => import("~/demos/xyflow/edge-types"));
 
@@ -30,6 +31,8 @@ export default function EdgeTypesPage() {
       title="Edge types"
       description="A custom edge that draws bezier, straight, step, and smooth step paths with a label."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/xyflow/edge-types.tsx"
       previewClass="p-0"
     >
       <EdgeTypesDemo fallback={<div class="h-96" />} />

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { FabDemo } from "~/demos/m3/fab";
+import source from "~/demos/m3/fab.tsx?raw";
 
 const snippet = `import { ExtendedFab, Fab } from "@solid-kit/m3";
 
@@ -14,6 +15,8 @@ export default function FabPage() {
       title="FAB"
       description="Floating action buttons for the screen's primary action, in three sizes and six colors."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/fab.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <FabDemo />

@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { ButtonDemo } from "~/demos/ui/button";
+import source from "~/demos/ui/button.tsx?raw";
 
 const snippet = `import { Button } from "@solid-kit/ui";
 
@@ -11,7 +12,13 @@ const snippet = `import { Button } from "@solid-kit/ui";
 
 export default function ButtonPage() {
   return (
-    <DocsPage title="Button" description="Primary action button." snippet={snippet}>
+    <DocsPage
+      title="Button"
+      description="Primary action button."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/button.tsx"
+    >
       <ButtonDemo />
     </DocsPage>
   );

@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/motion/spring.tsx?raw";
 
 const SpringDemo = clientOnly(() => import("~/demos/motion/spring"));
 
@@ -12,7 +13,13 @@ const springX = useSpring(x, () => ({ stiffness: 220, damping: 18 }));
 
 export default function SpringPage() {
   return (
-    <DocsPage title="Spring" description="Spring a motion value toward a target." snippet={snippet}>
+    <DocsPage
+      title="Spring"
+      description="Spring a motion value toward a target."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/motion/spring.tsx"
+    >
       <SpringDemo fallback={<div class="h-16" />} />
     </DocsPage>
   );

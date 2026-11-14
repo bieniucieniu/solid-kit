@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/xyflow/canvas.tsx?raw";
 
 const CanvasDemo = clientOnly(() => import("~/demos/xyflow/canvas"));
 
@@ -39,6 +40,8 @@ export default function CanvasPage() {
       title="Canvas"
       description="Built-in input, default, and output nodes with an animated edge."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/xyflow/canvas.tsx"
       previewClass="p-0"
     >
       <CanvasDemo fallback={<div class="h-96" />} />

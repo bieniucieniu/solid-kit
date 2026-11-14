@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/motion/presence.tsx?raw";
 
 const PresenceDemo = clientOnly(() => import("~/demos/motion/presence"));
 
@@ -19,6 +20,8 @@ export default function PresencePage() {
       title="Presence"
       description="Enter and exit when the panel toggles."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/motion/presence.tsx"
     >
       <PresenceDemo fallback={<div class="h-16" />} />
     </DocsPage>

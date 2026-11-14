@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { MenubarDemo } from "~/demos/ui/menubar";
+import source from "~/demos/ui/menubar.tsx?raw";
 
 const snippet = `import {
   Menubar,
@@ -27,7 +28,13 @@ const snippet = `import {
 
 export default function MenubarPage() {
   return (
-    <DocsPage title="Menubar" description="A horizontal bar of menus." snippet={snippet}>
+    <DocsPage
+      title="Menubar"
+      description="A horizontal bar of menus."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/menubar.tsx"
+    >
       <MenubarDemo />
     </DocsPage>
   );

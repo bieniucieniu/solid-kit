@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { NavigationMenuDemo } from "~/demos/ui/navigation-menu";
+import source from "~/demos/ui/navigation-menu.tsx?raw";
 
 const snippet = `import {
   NavigationMenu,
@@ -49,6 +50,8 @@ export default function NavigationMenuPage() {
       title="Navigation menu"
       description="A nav bar whose dropdowns open on hover and share one sliding viewport."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/navigation-menu.tsx"
     >
       <NavigationMenuDemo />
     </DocsPage>

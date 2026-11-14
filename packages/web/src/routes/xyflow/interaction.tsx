@@ -1,5 +1,6 @@
 import { clientOnly } from "@solidjs/start";
 import { DocsPage } from "~/components/preview";
+import source from "~/demos/xyflow/interaction.tsx?raw";
 
 const InteractionDemo = clientOnly(() => import("~/demos/xyflow/interaction"));
 
@@ -24,6 +25,8 @@ export default function InteractionPage() {
       title="Interaction"
       description="Turn dragging, connecting, selection, and grid snapping on and off."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/xyflow/interaction.tsx"
       previewClass="p-0"
     >
       <InteractionDemo fallback={<div class="h-96" />} />

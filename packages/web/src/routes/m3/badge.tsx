@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { BadgeDemo } from "~/demos/m3/badge";
+import source from "~/demos/m3/badge.tsx?raw";
 
 const snippet = `import { Badge, BadgeAnchor } from "@solid-kit/m3";
 
@@ -15,6 +16,8 @@ export default function BadgePage() {
       title="Badge"
       description="Counts and status dots on icons and navigation items."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/badge.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <BadgeDemo />

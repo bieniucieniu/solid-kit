@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { FoundationsDemo } from "~/demos/m3/foundations";
+import source from "~/demos/m3/foundations.tsx?raw";
 
 const snippet = `/* app.css */
 @import "@solid-kit/m3/theme.css";
@@ -23,6 +24,8 @@ export default function FoundationsPage() {
       title="Foundations"
       description="Color roles, type scale, shape, and elevation tokens as Tailwind utilities."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/m3/foundations.tsx"
       previewClass="bg-surface text-on-surface"
     >
       <FoundationsDemo />

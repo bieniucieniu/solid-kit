@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { DialogDemo } from "~/demos/ui/dialog";
+import source from "~/demos/ui/dialog.tsx?raw";
 
 const snippet = `import {
   Button,
@@ -31,6 +32,8 @@ export default function DialogPage() {
       title="Dialog"
       description="Modal dialog with overlay, title, and close."
       snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/dialog.tsx"
     >
       <DialogDemo />
     </DocsPage>

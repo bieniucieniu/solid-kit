@@ -1,5 +1,6 @@
 import { DocsPage } from "~/components/preview";
 import { BreadcrumbDemo } from "~/demos/ui/breadcrumb";
+import source from "~/demos/ui/breadcrumb.tsx?raw";
 
 const snippet = `import { Breadcrumb, BreadcrumbLink, BreadcrumbSeparator } from "@solid-kit/ui";
 
@@ -17,7 +18,13 @@ const snippet = `import { Breadcrumb, BreadcrumbLink, BreadcrumbSeparator } from
 
 export default function BreadcrumbPage() {
   return (
-    <DocsPage title="Breadcrumb" description="The path back to parent pages." snippet={snippet}>
+    <DocsPage
+      title="Breadcrumb"
+      description="The path back to parent pages."
+      snippet={snippet}
+      source={source}
+      sourceTitle="demos/ui/breadcrumb.tsx"
+    >
       <BreadcrumbDemo />
     </DocsPage>
   );

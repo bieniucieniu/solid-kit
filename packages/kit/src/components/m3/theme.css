@@ -1,0 +1,23 @@
+/* ui-sdk adds its base CSS to this layer. Declared first so the Tailwind layers win. */
+@layer ui-sdk;
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root,
+.dark {
+  --primary: var(--md-sys-color-primary);
+  --secondary: var(--md-sys-color-secondary);
+}
+
+@layer base {
+  * {
+    @apply border-outline-variant;
+  }
+  body {
+    @apply bg-surface text-on-surface typescale-body-medium;
+  }
+}

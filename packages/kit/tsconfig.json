@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "jsxImportSource": "@solidjs/web",
+    "types": ["vite/client"],
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "paths": {
+      "#/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}

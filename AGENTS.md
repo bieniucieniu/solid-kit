@@ -47,13 +47,13 @@ ai/drawer-bottom-sheet
 
 # Repository layout
 
-pnpm workspace. Root `solid-kit` is private and exports nothing. Each library is `packages/<name>` with its own `package.json` and public exports. `@solid-kit/tiptap` is one package. Add the next library as another folder under `packages/`. Do not re-export a package from the root.
+pnpm workspace. Root `solid-kit` is private and exports nothing. The Solid 1.9 libraries live in `packages/1.9/<name>` (`@solid-kit/ui`, `m3`, `motion`, `xyflow`, `tiptap`), each with its own `package.json` and public exports. They are frozen on 1.9 and feed `packages/web` and `packages/storybook`. Do not re-export a package from the root.
 
 # Package Development: Solid
 
 Peer dependency is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. Write Solid 1.9 only.
 
-Match the public behavior of [Tiptap React](https://github.com/ueberdosis/tiptap/tree/main/packages/react). Implement it with the patterns already in `packages/tiptap/src`. Copying React component bodies, hooks, or JSX is a bug.
+Match the public behavior of [Tiptap React](https://github.com/ueberdosis/tiptap/tree/main/packages/react). Implement it with the patterns already in `packages/1.9/tiptap/src`. Copying React component bodies, hooks, or JSX is a bug.
 
 A component function runs once. Updates come from signals read in JSX, `createMemo`, or `createEffect`. There is no re-render and no dependency array.
 

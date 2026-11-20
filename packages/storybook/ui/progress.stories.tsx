@@ -5,7 +5,7 @@ import {
   ProgressLabel,
   ProgressTrack,
   ProgressValueLabel,
-} from "../../ui/src/components/progress";
+} from "../../1.9/ui/src/components/progress";
 
 const meta = {
   title: "UI/Progress",

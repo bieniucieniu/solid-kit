@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { MotionConfig, motion } from "../../motion/src/components/motion";
+import { MotionConfig, motion } from "../../1.9/motion/src/components/motion";
 
 const meta = {
   title: "Motion/Drag",

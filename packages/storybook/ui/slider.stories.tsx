@@ -6,7 +6,7 @@ import {
   SliderThumb,
   SliderTrack,
   SliderValueLabel,
-} from "../../ui/src/components/slider";
+} from "../../1.9/ui/src/components/slider";
 import { createSignal } from "solid-js";
 
 const meta = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Skeleton } from "../../ui/src/components/skeleton";
+import { Skeleton } from "../../1.9/ui/src/components/skeleton";
 
 const meta = {
   title: "UI/Skeleton",

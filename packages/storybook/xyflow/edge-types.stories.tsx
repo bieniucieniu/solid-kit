@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Badge } from "../../ui/src/components/badge";
+import { Badge } from "../../1.9/ui/src/components/badge";
 import {
   BaseEdge,
   Flow,
@@ -11,9 +11,9 @@ import {
   type EdgeComponentProps,
   type FlowEdge,
   type FlowNode,
-} from "../../xyflow/src/components/xyflow";
-import { Background, Controls } from "../../xyflow/src/components/xyflow/panels";
-import "../../xyflow/src/components/xyflow/style.css";
+} from "../../1.9/xyflow/src/components/xyflow";
+import { Background, Controls } from "../../1.9/xyflow/src/components/xyflow/panels";
+import "../../1.9/xyflow/src/components/xyflow/style.css";
 
 const meta = {
   title: "Xyflow/Edge types",

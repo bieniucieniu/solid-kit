@@ -1,10 +1,10 @@
 @import "@solid-kit/ui/theme.css";
 @import "@solid-kit/m3/tokens.css";
-@source "../../ui/src";
-@source "../../m3/src";
-@source "../../motion/src";
-@source "../../tiptap/src";
-@source "../../xyflow/src";
+@source "../../1.9/ui/src";
+@source "../../1.9/m3/src";
+@source "../../1.9/motion/src";
+@source "../../1.9/tiptap/src";
+@source "../../1.9/xyflow/src";
 @source "../../web/src";
 @source "../ui";
 @source "../m3";

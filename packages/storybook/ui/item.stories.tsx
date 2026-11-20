@@ -6,8 +6,8 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "../../ui/src/components/item";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/item";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/Item",

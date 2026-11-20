@@ -9,7 +9,7 @@ import {
   SelectPortal,
   SelectTrigger,
   SelectValue,
-} from "../../ui/src/components/select";
+} from "../../1.9/ui/src/components/select";
 import { createSignal } from "solid-js";
 
 const meta = {

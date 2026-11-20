@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Resizable, ResizableHandle, ResizablePanel } from "../../ui/src/components/resizable";
+import { Resizable, ResizableHandle, ResizablePanel } from "../../1.9/ui/src/components/resizable";
 
 const meta = {
   title: "UI/Resizable",

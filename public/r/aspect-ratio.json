@@ -6,7 +6,7 @@
   "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
-      "path": "packages/ui/src/components/aspect-ratio.tsx",
+      "path": "packages/1.9/ui/src/components/aspect-ratio.tsx",
       "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\ntype AspectRatioProps = JSX.HTMLAttributes<HTMLDivElement> & {\n  ratio?: string;\n};\n\nexport function AspectRatio(props: AspectRatioProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\", \"ratio\", \"style\"]);\n  return (\n    <div\n      ref={props.ref}\n      class={cn(\"relative w-full\", props.class)}\n      {...rest}\n      style={{\n        ...(props.style && typeof props.style === \"object\" ? props.style : {}),\n        \"aspect-ratio\": props.ratio ?? \"1 / 1\",\n      }}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/aspect-ratio.tsx"

@@ -6,7 +6,7 @@ import {
   MenubarMenu,
   MenubarPortal,
   MenubarTrigger,
-} from "../../ui/src/components/menubar";
+} from "../../1.9/ui/src/components/menubar";
 
 const meta = {
   title: "UI/Menubar",

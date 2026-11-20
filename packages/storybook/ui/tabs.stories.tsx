@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../ui/src/components/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../1.9/ui/src/components/tabs";
 
 const meta = {
   title: "UI/Tabs",

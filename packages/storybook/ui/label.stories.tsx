@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Label } from "../../ui/src/components/label";
+import { Label } from "../../1.9/ui/src/components/label";
 
 const meta = {
   title: "UI/Label",

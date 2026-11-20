@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Avatar, AvatarFallback, AvatarImg } from "../../ui/src/components/avatar";
+import { Avatar, AvatarFallback, AvatarImg } from "../../1.9/ui/src/components/avatar";
 
 const meta = {
   title: "UI/Avatar",

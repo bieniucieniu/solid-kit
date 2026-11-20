@@ -6,8 +6,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../ui/src/components/card";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/card";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/Card",

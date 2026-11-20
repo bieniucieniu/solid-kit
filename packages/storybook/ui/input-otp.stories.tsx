@@ -5,7 +5,7 @@ import {
   InputOTPInput,
   InputOTPSeparator,
   InputOTPSlot,
-} from "../../ui/src/components/input-otp";
+} from "../../1.9/ui/src/components/input-otp";
 import { createSignal } from "solid-js";
 
 const meta = {

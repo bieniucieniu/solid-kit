@@ -5,8 +5,8 @@ import {
   EmptyDescription,
   EmptyHeader,
   EmptyTitle,
-} from "../../ui/src/components/empty";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/empty";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/Empty",

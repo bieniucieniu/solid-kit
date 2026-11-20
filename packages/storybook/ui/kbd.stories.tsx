@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Kbd } from "../../ui/src/components/kbd";
+import { Kbd } from "../../1.9/ui/src/components/kbd";
 
 const meta = {
   title: "UI/Kbd",

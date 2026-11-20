@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Spinner } from "../../ui/src/components/spinner";
+import { Spinner } from "../../1.9/ui/src/components/spinner";
 
 const meta = {
   title: "UI/Spinner",

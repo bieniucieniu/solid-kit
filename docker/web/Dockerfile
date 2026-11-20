@@ -21,14 +21,15 @@ RUN corepack enable && corepack prepare pnpm@12.16.1 --activate
 # --- 1. Install deps (invalidates when manifests / lockfile change) ---
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY --parents packages/*/package.json ./
+COPY --parents packages/1.9/*/package.json ./
 RUN pnpm install --frozen-lockfile --filter web...
 
 # --- 2. Build web (invalidates when sources change) ---
-COPY packages/ui ./packages/ui
-COPY packages/m3 ./packages/m3
-COPY packages/motion ./packages/motion
-COPY packages/xyflow ./packages/xyflow
-COPY packages/tiptap ./packages/tiptap
+COPY packages/1.9/ui ./packages/1.9/ui
+COPY packages/1.9/m3 ./packages/1.9/m3
+COPY packages/1.9/motion ./packages/1.9/motion
+COPY packages/1.9/xyflow ./packages/1.9/xyflow
+COPY packages/1.9/tiptap ./packages/1.9/tiptap
 COPY packages/web ./packages/web
 RUN pnpm --filter web build
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { ScrollArea } from "../../ui/src/components/scroll-area";
+import { ScrollArea } from "../../1.9/ui/src/components/scroll-area";
 
 const meta = {
   title: "UI/ScrollArea",

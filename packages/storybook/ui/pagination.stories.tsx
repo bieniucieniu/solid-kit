@@ -6,7 +6,7 @@ import {
   PaginationItems,
   PaginationNext,
   PaginationPrevious,
-} from "../../ui/src/components/pagination";
+} from "../../1.9/ui/src/components/pagination";
 import { createSignal } from "solid-js";
 
 const meta = {

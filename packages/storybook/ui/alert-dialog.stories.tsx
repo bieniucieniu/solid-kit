@@ -10,8 +10,8 @@ import {
   AlertDialogOverlay,
   AlertDialogPortal,
   AlertDialogTrigger,
-} from "../../ui/src/components/alert-dialog";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/alert-dialog";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/AlertDialog",

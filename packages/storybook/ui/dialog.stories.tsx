@@ -10,8 +10,8 @@ import {
   DialogOverlay,
   DialogPortal,
   DialogTrigger,
-} from "../../ui/src/components/dialog";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/dialog";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/Dialog",

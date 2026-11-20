@@ -3,7 +3,7 @@ import {
   Breadcrumb,
   BreadcrumbLink,
   BreadcrumbSeparator,
-} from "../../ui/src/components/breadcrumb";
+} from "../../1.9/ui/src/components/breadcrumb";
 
 const meta = {
   title: "UI/Breadcrumb",

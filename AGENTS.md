@@ -47,11 +47,11 @@ ai/drawer-bottom-sheet
 
 # Repository layout
 
-pnpm workspace. Root `solid-kit` is private and exports nothing. The Solid 1.9 libraries live in `packages/1.9/<name>` (`@solid-kit/ui`, `m3`, `motion`, `xyflow`, `tiptap`), each with its own `package.json` and public exports. They are frozen on 1.9 and feed `packages/web` and `packages/storybook`. Do not re-export a package from the root.
+pnpm workspace. Root `solid-kit` is private and exports nothing. `packages/kit` (`@solid-kit/kit`) is the main package: the Solid 2.0 rewrite of all five libraries, one subpath each (`./ui`, `./m3`, `./motion`, `./xyflow`, `./tiptap`). Its rules are in [packages/kit/AGENTS.md](packages/kit/AGENTS.md). The Solid 1.9 libraries live in `packages/1.9/<name>` (`@solid-kit/ui`, `m3`, `motion`, `xyflow`, `tiptap`), each with its own `package.json` and public exports. They are frozen on 1.9 and feed `packages/web` and `packages/storybook`. Do not re-export a package from the root.
 
-# Package Development: Solid
+# Package Development: Solid 1.9 (`packages/1.9/**`, `packages/web`, `packages/storybook`)
 
-Peer dependency is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. Write Solid 1.9 only.
+Peer dependency is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. Write Solid 1.9 only in these folders. `packages/kit` is Solid 2.0 and follows [packages/kit/AGENTS.md](packages/kit/AGENTS.md).
 
 Match the public behavior of [Tiptap React](https://github.com/ueberdosis/tiptap/tree/main/packages/react). Implement it with the patterns already in `packages/1.9/tiptap/src`. Copying React component bodies, hooks, or JSX is a bug.
 
@@ -123,9 +123,9 @@ export function NodeViewWrapper(props: NodeViewWrapperProps) {
 }
 ```
 
-## Solid 2.0-rc — do not write it here
+## Solid 2.0 — not in the 1.9 folders
 
-2.0 RC (August 2026) is a different API. This package still typechecks as 1.9. Guides: [v2.solidjs.com](https://v2.solidjs.com), [migration](https://github.com/solidjs/solid/blob/next/documentation/solid-2.0/MIGRATION.md), [RC post](https://www.solidjs.com/blog/solid-2-0-rc-the-big-reveal).
+Solid 2.0 is a different API. The 1.9 packages, web, and storybook still typecheck as 1.9; only `packages/kit` is 2.0. Guides: [v2.solidjs.com](https://v2.solidjs.com), [migration](https://github.com/solidjs/solid/blob/next/documentation/solid-2.0/MIGRATION.md), [RC post](https://www.solidjs.com/blog/solid-2-0-rc-the-big-reveal).
 
 | If you reach for this (2.0)                                           | Stay on this (1.9)                                                          |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------------- |

@@ -1,4 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
+
+export type { ClassValue };
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -22,3 +24,11 @@ export function partClass<State>(
       typeof extra === "function" ? extra(state) : extra,
     );
 }
+
+/**
+ * Enter and exit motion for anchored popups (popover, tooltip, menus). ui-sdk sets
+ * `data-starting-style` on the first frame and `data-ending-style` while closing, and waits for
+ * the transition before it unmounts.
+ */
+export const popupMotion =
+  "origin-(--transform-origin) transition-[opacity,scale] duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0";

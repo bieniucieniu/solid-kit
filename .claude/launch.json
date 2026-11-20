@@ -8,6 +8,12 @@
       "port": 3000
     },
     {
+      "name": "kit-playground",
+      "runtimeExecutable": "devenv",
+      "runtimeArgs": ["shell", "--", "pnpm", "--filter", "kit-playground", "dev"],
+      "port": 3100
+    },
+    {
       "name": "storybook",
       "runtimeExecutable": "devenv",
       "runtimeArgs": ["shell", "--", "pnpm", "--filter", "storybook", "dev", "--no-open"],

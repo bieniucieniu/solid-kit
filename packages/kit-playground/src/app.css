@@ -1,0 +1,40 @@
+/* The ui theme declares `@layer ui-sdk;` first and imports Tailwind. */
+@import "@solid-kit/kit/ui/theme.css";
+@import "@solid-kit/kit/m3/tokens.css";
+@import "@solid-kit/kit/xyflow/style.css";
+@source "../../kit/src";
+@source ".";
+
+.ProseMirror {
+  min-height: 10rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.ProseMirror > * + * {
+  margin-top: 0.75em;
+}
+
+.ProseMirror h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.xy-flow {
+  --xy-node-color: var(--card-foreground);
+  --xy-node-background-color: var(--card);
+  --xy-node-border: 1px solid var(--border);
+  --xy-node-border-radius: var(--radius-md);
+  --xy-edge-stroke: var(--muted-foreground);
+  --xy-background-pattern-dots-color: var(--border);
+  --xy-handle-background-color: var(--foreground);
+  --xy-handle-border-color: var(--background);
+  --xy-controls-button-background-color: var(--background);
+  --xy-controls-button-background-color-hover: var(--muted);
+  --xy-controls-button-color: var(--foreground);
+  --xy-controls-button-color-hover: var(--foreground);
+  --xy-controls-button-border-color: var(--border);
+  --xy-controls-box-shadow: 0 0 0 1px var(--border);
+}

@@ -9,7 +9,7 @@ import {
   outlineWidthClass,
   useButtonGroupStyle,
 } from "./button";
-import { type ClassValue, cn, partClass } from "#/lib/utils";
+import { type ClassValue, cn, partClass } from "#kit/lib/utils";
 
 const iconButtonBase =
   "group/icon-button relative inline-flex shrink-0 cursor-pointer items-center justify-center select-none state-layer focus-ring motion-fast disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0";

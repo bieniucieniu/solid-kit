@@ -5,7 +5,7 @@ import {
   CollapsibleTrigger as CollapsibleTriggerPrimitive,
 } from "@ui-sdk/solid/collapsible";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export function Collapsible(props: ComponentProps<typeof CollapsiblePrimitive>) {
   return <CollapsiblePrimitive {...props} />;

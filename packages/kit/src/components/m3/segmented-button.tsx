@@ -4,7 +4,7 @@ import {
 } from "@ui-sdk/solid/toggle";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 type SegmentedButtonProps = ComponentProps<typeof ToggleGroupPrimitive>;
 type SegmentedButtonItemProps = ComponentProps<typeof ToggleGroupItemPrimitive>;

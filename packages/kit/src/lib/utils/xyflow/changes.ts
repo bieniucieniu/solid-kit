@@ -1,5 +1,5 @@
 import type { EdgeChange, NodeChange, NodeSelectionChange } from "@xyflow/system";
-import type { FlowEdge, FlowNode } from "#/lib/xyflow/types";
+import type { FlowEdge, FlowNode } from "#kit/lib/xyflow/types";
 
 function applyChanges<T extends { id: string }>(
   changes: Array<{ id?: string; type: string; index?: number; item?: T }>,

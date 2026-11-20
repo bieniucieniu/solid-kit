@@ -18,14 +18,14 @@ Run tooling through devenv: `devenv shell -- vp check packages/kit`, `devenv she
 
 - `solid-js` and `@solidjs/web` `^2.0.3`. `jsxImportSource` is `@solidjs/web`. The Vite plugin is `@solidjs/vite-plugin`.
 - `ui` and `m3` are built on [`@ui-sdk/solid`](https://github.com/vercel-labs/ui) and `@ui-sdk/core`, pinned to one beta. Never import Kobalte or corvu. The docs ship in `node_modules/@ui-sdk/solid/docs/` (`components/<name>.md`, `styling-and-animation.md`, `popups.md`). Read the component's doc before wrapping it.
-- Internal imports use `#/…` (`package.json` `imports`). Shared `cn` and `partClass` live in `src/lib/utils.ts`.
+- Internal imports use `#kit/…` (`package.json` `imports`). Shared `cn` and `partClass` live in `src/lib/utils.ts`.
 
 ## Wrapping a ui-sdk part
 
 ```tsx
 import { DialogContent as DialogContentPrimitive } from "@ui-sdk/solid/dialog";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export function DialogContent(props: ComponentProps<typeof DialogContentPrimitive>) {
   const rest = omit(props, "class");

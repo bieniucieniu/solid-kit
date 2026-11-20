@@ -1,6 +1,6 @@
 import type { JSX } from "@solidjs/web";
 import { omit } from "solid-js";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 type AspectRatioProps = JSX.HTMLAttributes<HTMLDivElement> & {
   ratio?: string;

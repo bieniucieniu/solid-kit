@@ -19,7 +19,7 @@ import {
   createMenuItemIndicator,
   createMenuRadioItem,
 } from "./menu-parts";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export { MenuSub as MenubarSub } from "@ui-sdk/solid/menu";
 

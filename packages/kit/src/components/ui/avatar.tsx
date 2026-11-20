@@ -5,7 +5,7 @@ import {
   AvatarImage as AvatarImagePrimitive,
 } from "@ui-sdk/solid/avatar";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 type AvatarProps = ComponentProps<typeof AvatarPrimitive> & {
   size?: "default" | "sm" | "lg";

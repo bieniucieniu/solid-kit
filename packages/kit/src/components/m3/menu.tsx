@@ -16,7 +16,7 @@ import {
 } from "@ui-sdk/solid/menu";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 const surfaceClass =
   "z-50 flex max-h-(--available-height) min-w-28 max-w-70 origin-(--transform-origin) flex-col gap-0.5 overflow-y-auto rounded-large bg-surface-container p-1 text-on-surface shadow-level-2 outline-none transition-[opacity,scale] duration-150 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0";

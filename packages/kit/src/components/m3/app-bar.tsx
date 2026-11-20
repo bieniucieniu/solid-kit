@@ -1,6 +1,6 @@
 import { type JSX } from "@solidjs/web";
 import { omit } from "solid-js";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 /**
  * small: one 64px row. medium / large: the headline moves to its own row under the icons, in

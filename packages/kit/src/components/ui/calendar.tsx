@@ -11,7 +11,7 @@ import {
 } from "@ui-sdk/solid/calendar";
 import { type ComponentProps, For, omit } from "solid-js";
 import { buttonVariants } from "./button";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export {
   CalendarMonthSelect,

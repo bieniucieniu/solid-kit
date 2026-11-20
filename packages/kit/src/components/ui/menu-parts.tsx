@@ -16,7 +16,7 @@ import {
   MenuSubTrigger as MenuSubTriggerPrimitive,
 } from "@ui-sdk/solid/menu";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass, popupMotion } from "#/lib/utils";
+import { cn, partClass, popupMotion } from "#kit/lib/utils";
 
 // Styled ui-sdk Menu parts, shared by DropdownMenu, ContextMenu and Menubar. Each of those
 // files re-exports them under its own names.

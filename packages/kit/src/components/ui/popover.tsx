@@ -10,7 +10,7 @@ import {
 } from "@ui-sdk/solid/popover";
 import { type ComponentProps, omit } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
-import { cn, partClass, popupMotion } from "#/lib/utils";
+import { cn, partClass, popupMotion } from "#kit/lib/utils";
 
 export { createPopoverController } from "@ui-sdk/solid/popover";
 

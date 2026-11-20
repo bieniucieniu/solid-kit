@@ -6,7 +6,7 @@ import {
   TabsTab as TabsTabPrimitive,
 } from "@ui-sdk/solid/tabs";
 import { type ComponentProps, createContext, omit, useContext } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export type TabsVariant = "primary" | "secondary";
 

@@ -3,8 +3,8 @@ import { type JSX } from "@solidjs/web";
 import { Show, createEffect, createMemo, createSignal, onSettled, untrack } from "solid-js";
 import { dynamic } from "@solidjs/web";
 import { NodeIdContext, useFlow } from "../context";
-import { cx } from "#/lib/utils/xyflow/cx";
-import type { FlowNode } from "#/lib/xyflow/types";
+import { cx } from "#kit/lib/utils/xyflow/cx";
+import type { FlowNode } from "#kit/lib/xyflow/types";
 import { builtinNodeTypes } from "./Nodes";
 
 export function NodeView(props: { node: FlowNode; resizeObserver: ResizeObserver }) {

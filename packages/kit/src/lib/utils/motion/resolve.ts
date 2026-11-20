@@ -1,6 +1,6 @@
 import { isMotionValue } from "motion";
 import type { MotionValue } from "motion";
-import type { MotionStyle } from "#/lib/motion/types";
+import type { MotionStyle } from "#kit/lib/motion/types";
 import type {
   Animatable,
   Target,
@@ -9,7 +9,7 @@ import type {
   Transition,
   VariantLabels,
   Variants,
-} from "#/lib/motion/types";
+} from "#kit/lib/motion/types";
 
 export function isLabel(value: unknown): value is VariantLabels {
   if (typeof value === "string") return true;

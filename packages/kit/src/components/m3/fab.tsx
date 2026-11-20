@@ -1,6 +1,6 @@
 import { type JSX } from "@solidjs/web";
 import { omit } from "solid-js";
-import { type ClassValue, cn } from "#/lib/utils";
+import { type ClassValue, cn } from "#kit/lib/utils";
 
 const fabBase =
   "group/fab relative inline-flex shrink-0 cursor-pointer items-center justify-center select-none state-layer focus-ring motion-fast shadow-level-3 hover:shadow-level-4 disabled:pointer-events-none disabled:bg-on-surface/10 disabled:text-on-surface/38 disabled:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0";

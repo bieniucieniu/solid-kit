@@ -10,7 +10,7 @@ import {
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, omit } from "solid-js";
 import { ScrollArea } from "./scroll-area";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 /**
  * Modal bottom sheet (ui-sdk drawer). Drag down to dismiss. Pass `snapPoints` (for example

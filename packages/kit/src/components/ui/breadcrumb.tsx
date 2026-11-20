@@ -1,6 +1,6 @@
 import type { JSX } from "@solidjs/web";
 import { omit } from "solid-js";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 // ui-sdk has no breadcrumb part. A breadcrumb is a `nav` landmark with a list of links, so
 // plain elements carry it.

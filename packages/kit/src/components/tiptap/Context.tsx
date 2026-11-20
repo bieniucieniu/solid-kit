@@ -3,8 +3,8 @@ import { type ComponentProps, type JSX } from "@solidjs/web";
 import { createContext, omit, useContext } from "solid-js";
 
 import { EditorContent } from "./EditorContent";
-import type { UseEditorOptions } from "#/lib/tiptap/useEditor";
-import { useEditor } from "#/lib/tiptap/useEditor";
+import type { UseEditorOptions } from "#kit/lib/tiptap/useEditor";
+import { useEditor } from "#kit/lib/tiptap/useEditor";
 
 export type EditorContextValue = {
   get editor(): Editor | null;

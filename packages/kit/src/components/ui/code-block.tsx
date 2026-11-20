@@ -14,8 +14,8 @@ import {
   Show,
 } from "solid-js";
 import { Button, type ButtonProps } from "./button";
-import { type HighlightedLine, highlightCode } from "#/lib/highlighter";
-import { cn } from "#/lib/utils";
+import { type HighlightedLine, highlightCode } from "#kit/lib/highlighter";
+import { cn } from "#kit/lib/utils";
 
 const codeBlockVariantClasses = {
   default: "border-border bg-muted/30 text-foreground",

@@ -18,7 +18,7 @@ import {
   ComboboxTrigger as ComboboxTriggerPrimitive,
 } from "@ui-sdk/solid/combobox";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass, popupMotion } from "#/lib/utils";
+import { cn, partClass, popupMotion } from "#kit/lib/utils";
 
 function CheckIcon() {
   return (

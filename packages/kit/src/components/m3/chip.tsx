@@ -1,7 +1,7 @@
 import { Toggle as ToggleButtonPrimitive } from "@ui-sdk/solid/toggle";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, Show, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 // Text nodes are invisible to selectors, so an icon next to plain text is both :first-child and
 // :last-child. A lone icon counts as leading; a trailing icon needs an element before it (a leading

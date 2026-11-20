@@ -1,6 +1,6 @@
 import { Position } from "@xyflow/system";
 import { Handle } from "./Handle";
-import type { NodeComponentProps } from "#/lib/xyflow/types";
+import type { NodeComponentProps } from "#kit/lib/xyflow/types";
 
 export function DefaultNode(props: NodeComponentProps) {
   return (

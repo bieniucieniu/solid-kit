@@ -6,7 +6,7 @@ import {
   ProgressValue as ProgressValuePrimitive,
 } from "@ui-sdk/solid/progress";
 import { type ComponentProps, Show, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 /** Linear progress. ui-sdk progress: `value` (null while indeterminate), `min`, `max`. */
 export function Progress(props: ComponentProps<typeof ProgressPrimitive>) {

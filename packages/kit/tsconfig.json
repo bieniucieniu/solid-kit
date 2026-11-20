@@ -14,7 +14,7 @@
     "declaration": true,
     "isolatedModules": true,
     "paths": {
-      "#/*": ["./src/*"]
+      "#kit/*": ["./src/*"]
     }
   },
   "include": ["src"]

@@ -1,6 +1,6 @@
 import { Separator as SeparatorPrimitive } from "@ui-sdk/solid/separator";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 const insetClasses = {
   none: "",

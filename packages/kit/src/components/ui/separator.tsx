@@ -1,6 +1,6 @@
 import { Separator as SeparatorPrimitive } from "@ui-sdk/solid/separator";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export function Separator(props: ComponentProps<typeof SeparatorPrimitive>) {
   const rest = omit(props, "class");

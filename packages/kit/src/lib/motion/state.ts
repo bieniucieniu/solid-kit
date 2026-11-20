@@ -9,7 +9,7 @@ import {
   sameMotionValues,
   stripTarget,
   transitionFor,
-} from "#/lib/utils/motion/resolve";
+} from "#kit/lib/utils/motion/resolve";
 import type {
   AnimationControls,
   AnimationRunner,

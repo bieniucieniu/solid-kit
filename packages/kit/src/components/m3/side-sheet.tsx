@@ -9,7 +9,7 @@ import {
 } from "@ui-sdk/solid/dialog";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 /** Modal side sheet (ui-sdk dialog). */
 export function SideSheet(props: ComponentProps<typeof DialogRootPrimitive>) {

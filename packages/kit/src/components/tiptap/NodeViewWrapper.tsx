@@ -2,7 +2,7 @@ import { type ComponentProps, type JSX } from "@solidjs/web";
 import { omit } from "solid-js";
 import { dynamic } from "@solidjs/web";
 
-import { useSolidNodeView } from "#/lib/tiptap/useSolidNodeView";
+import { useSolidNodeView } from "#kit/lib/tiptap/useSolidNodeView";
 
 export interface NodeViewWrapperProps extends ComponentProps<"div"> {
   as?: keyof JSX.IntrinsicElements | (string & {});

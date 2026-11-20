@@ -7,7 +7,7 @@ import {
   AccordionTrigger as AccordionTriggerPrimitive,
 } from "@ui-sdk/solid/accordion";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 /** The value is always an array of open item values. Pass `multiple` to open several at once. */
 export function Accordion(props: ComponentProps<typeof AccordionPrimitive>) {

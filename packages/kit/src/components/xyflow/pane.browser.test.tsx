@@ -7,7 +7,7 @@ import {
   mountFlow,
   nodes,
   viewportTransform,
-} from "#/testing/xyflow/mount";
+} from "#kit/testing/xyflow/mount";
 
 function pane(view: Locator) {
   const found = view.element().querySelector(".xy-flow__pane");

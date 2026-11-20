@@ -7,7 +7,7 @@ import {
   mountFlow,
   nodeTransform,
   nodes,
-} from "#/testing/xyflow/mount";
+} from "#kit/testing/xyflow/mount";
 
 describe("nodes", () => {
   installFlowBrowser();

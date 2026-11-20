@@ -40,7 +40,7 @@ import {
   applyEdgeChanges,
   applyNodeChanges,
   getSelectionChanges,
-} from "#/lib/utils/xyflow/changes";
+} from "#kit/lib/utils/xyflow/changes";
 import type { FlowEdge, FlowNode, FlowOptions } from "./types";
 
 const onError = createDevWarn("xyflow", "https://reactflow.dev/");

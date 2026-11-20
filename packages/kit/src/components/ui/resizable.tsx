@@ -5,7 +5,7 @@ import {
   ResizablePanel as ResizablePanelPrimitive,
 } from "@ui-sdk/solid/resizable";
 import { type ComponentProps, Show, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export { createResizableController } from "@ui-sdk/solid/resizable";
 

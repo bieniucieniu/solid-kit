@@ -1,7 +1,7 @@
 import { type JSX, type ValidComponent } from "@solidjs/web";
 import { omit } from "solid-js";
 import { dynamic } from "@solidjs/web";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 type ListProps = JSX.HTMLAttributes<HTMLElement> & { as?: ValidComponent };
 

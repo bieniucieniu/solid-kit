@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vite-plus/test";
 import { userEvent } from "vite-plus/test/browser";
-import { element, installFlowBrowser, mountFlow, nodes } from "#/testing/xyflow/mount";
+import { element, installFlowBrowser, mountFlow, nodes } from "#kit/testing/xyflow/mount";
 
 const edge = { id: "e1-2", source: "1", target: "2" };
 

@@ -1,7 +1,7 @@
 import { type JSX, type ValidComponent } from "@solidjs/web";
 import { createContext, omit, useContext } from "solid-js";
 import { dynamic } from "@solidjs/web";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 const NavigationRailContext = createContext<{ expanded: boolean }>({ expanded: false });
 

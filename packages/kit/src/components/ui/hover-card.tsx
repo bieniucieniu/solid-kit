@@ -5,7 +5,7 @@ import {
   HoverCardTrigger as HoverCardTriggerPrimitive,
 } from "@ui-sdk/solid/hover-card";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass, popupMotion } from "#/lib/utils";
+import { partClass, popupMotion } from "#kit/lib/utils";
 
 export function HoverCard(props: ComponentProps<typeof HoverCardPrimitive>) {
   return <HoverCardPrimitive {...props} />;

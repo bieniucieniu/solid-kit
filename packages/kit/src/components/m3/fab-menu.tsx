@@ -6,7 +6,7 @@ import {
 } from "@ui-sdk/solid/menu";
 import type { JSX } from "@solidjs/web";
 import { type ComponentProps, createContext, omit, useContext } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export type FabMenuColor = "primary" | "secondary" | "tertiary";
 

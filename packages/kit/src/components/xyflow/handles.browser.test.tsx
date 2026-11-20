@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vite-plus/test";
 import type { Locator } from "vite-plus/test/browser";
 import { Position } from "./index";
-import { TextNode, element, installFlowBrowser, mountFlow } from "#/testing/xyflow/mount";
+import { TextNode, element, installFlowBrowser, mountFlow } from "#kit/testing/xyflow/mount";
 
 const tolerance = 2;
 

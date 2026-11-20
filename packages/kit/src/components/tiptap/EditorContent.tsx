@@ -5,7 +5,7 @@ import type {
   ContentComponent,
   ContentRenderer,
   EditorWithContentComponent,
-} from "#/lib/tiptap/editor";
+} from "#kit/lib/tiptap/editor";
 
 export interface EditorContentProps extends ComponentProps<"div"> {
   editor: Editor | null;

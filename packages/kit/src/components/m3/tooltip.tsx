@@ -10,7 +10,7 @@ import {
   TooltipTrigger as TooltipTriggerPrimitive,
 } from "@ui-sdk/solid/tooltip";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 const motion =
   "origin-(--transform-origin) transition-[opacity,scale] duration-150 data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0";

@@ -14,7 +14,7 @@ import {
   SelectValue as SelectValuePrimitive,
 } from "@ui-sdk/solid/select";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass, popupMotion } from "#/lib/utils";
+import { cn, partClass, popupMotion } from "#kit/lib/utils";
 
 export { createSelectController } from "@ui-sdk/solid/select";
 

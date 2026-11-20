@@ -6,7 +6,7 @@ import {
   ProgressValue as ProgressValuePrimitive,
 } from "@ui-sdk/solid/progress";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export function Progress(props: ComponentProps<typeof ProgressPrimitive>) {
   const rest = omit(props, "class");

@@ -6,8 +6,8 @@ import {
   DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../../ui/src/components/dropdown-menu";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/dropdown-menu";
+import { Button } from "../../1.9/ui/src/components/button";
 import { createSignal } from "solid-js";
 
 const meta = {

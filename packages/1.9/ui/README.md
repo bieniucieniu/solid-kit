@@ -73,7 +73,7 @@ The same tokens live in [`src/theme.css`](src/theme.css).
 
 `dialog` uses `@corvu/dialog`. `tooltip` uses `@corvu/tooltip`. `calendar`, `input-otp`, and `resizable` use corvu's `@corvu/calendar`, `@corvu/otp-field`, and `@corvu/resizable`, because Kobalte has no primitive for them. `checkbox` uses `@kobalte/core/checkbox`. New components use `@kobalte/core`. Markup components are styled HTML.
 
-The registry item name matches the filename. The full list is in the root [`registry.json`](../../registry.json).
+The registry item name matches the filename. The full list is in the root [`registry.json`](../../../registry.json).
 
 | Item              | Primitive                     |
 | ----------------- | ----------------------------- |

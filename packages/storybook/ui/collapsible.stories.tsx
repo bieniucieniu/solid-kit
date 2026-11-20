@@ -3,7 +3,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../../ui/src/components/collapsible";
+} from "../../1.9/ui/src/components/collapsible";
 
 const meta = {
   title: "UI/Collapsible",

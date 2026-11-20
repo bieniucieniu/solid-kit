@@ -7,7 +7,7 @@ import {
   TiptapContent,
   useEditor,
   useTiptapState,
-} from "../../tiptap/src/components/tiptap";
+} from "../../1.9/tiptap/src/components/tiptap";
 import { MenuBar } from "./menu-bar";
 
 const meta = {

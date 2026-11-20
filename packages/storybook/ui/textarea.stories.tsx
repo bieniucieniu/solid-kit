@@ -4,7 +4,7 @@ import {
   TextareaControl,
   TextareaDescription,
   TextareaLabel,
-} from "../../ui/src/components/textarea";
+} from "../../1.9/ui/src/components/textarea";
 import { createSignal } from "solid-js";
 
 const meta = {

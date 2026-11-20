@@ -5,7 +5,7 @@ import {
   ContextMenuItem,
   ContextMenuPortal,
   ContextMenuTrigger,
-} from "../../ui/src/components/context-menu";
+} from "../../1.9/ui/src/components/context-menu";
 import { createSignal } from "solid-js";
 
 const meta = {

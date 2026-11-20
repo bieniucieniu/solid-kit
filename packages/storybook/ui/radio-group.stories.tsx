@@ -7,7 +7,7 @@ import {
   RadioGroupItemInput,
   RadioGroupItemLabel,
   RadioGroupLabel,
-} from "../../ui/src/components/radio-group";
+} from "../../1.9/ui/src/components/radio-group";
 import { createSignal } from "solid-js";
 
 const meta = {

@@ -10,7 +10,7 @@ import {
   ComboboxListbox,
   ComboboxPortal,
   ComboboxTrigger,
-} from "../../ui/src/components/combobox";
+} from "../../1.9/ui/src/components/combobox";
 import { createSignal } from "solid-js";
 
 const meta = {

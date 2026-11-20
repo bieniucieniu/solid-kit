@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { ButtonGroup } from "../../ui/src/components/button-group";
-import { Button } from "../../ui/src/components/button";
+import { ButtonGroup } from "../../1.9/ui/src/components/button-group";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/ButtonGroup",

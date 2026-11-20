@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Field, FieldDescription, FieldLabel } from "../../ui/src/components/field";
+import { Field, FieldDescription, FieldLabel } from "../../1.9/ui/src/components/field";
 
 const meta = {
   title: "UI/Field",

@@ -5,7 +5,7 @@ import {
   SwitchInput,
   SwitchLabel,
   SwitchThumb,
-} from "../../ui/src/components/switch";
+} from "../../1.9/ui/src/components/switch";
 import { createSignal } from "solid-js";
 
 const meta = {

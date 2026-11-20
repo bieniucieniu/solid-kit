@@ -1,8 +1,8 @@
 import { For, type JSX, Show } from "solid-js";
-import { Button } from "../../ui/src/components/button";
-import { ButtonGroup } from "../../ui/src/components/button-group";
-import { Toggle } from "../../ui/src/components/toggle";
-import { useTiptap, useTiptapState } from "../../tiptap/src/components/tiptap";
+import { Button } from "../../1.9/ui/src/components/button";
+import { ButtonGroup } from "../../1.9/ui/src/components/button-group";
+import { Toggle } from "../../1.9/ui/src/components/toggle";
+import { useTiptap, useTiptapState } from "../../1.9/tiptap/src/components/tiptap";
 
 const inactive = {
   isBold: false,

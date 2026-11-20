@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Separator } from "../../ui/src/components/separator";
+import { Separator } from "../../1.9/ui/src/components/separator";
 
 const meta = {
   title: "UI/Separator",

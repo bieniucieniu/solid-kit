@@ -13,7 +13,7 @@ const config = {
       plugins: [tailwindcss()],
       resolve: {
         alias: {
-          "@": fileURLToPath(new URL("../../ui/src", import.meta.url)),
+          "@": fileURLToPath(new URL("../../1.9/ui/src", import.meta.url)),
         },
       },
       server: {

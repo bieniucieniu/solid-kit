@@ -100,7 +100,7 @@
       "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
-          "path": "packages/ui/src/lib/utils.ts",
+          "path": "packages/1.9/ui/src/lib/utils.ts",
           "type": "registry:lib",
           "target": "@lib/utils.ts"
         }
@@ -114,7 +114,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/button.tsx",
+          "path": "packages/1.9/ui/src/components/button.tsx",
           "type": "registry:ui",
           "target": "@ui/button.tsx"
         }
@@ -129,7 +129,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/dialog.tsx",
+          "path": "packages/1.9/ui/src/components/dialog.tsx",
           "type": "registry:ui",
           "target": "@ui/dialog.tsx"
         }
@@ -144,7 +144,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/tooltip.tsx",
+          "path": "packages/1.9/ui/src/components/tooltip.tsx",
           "type": "registry:ui",
           "target": "@ui/tooltip.tsx"
         }
@@ -163,7 +163,7 @@
       ],
       "files": [
         {
-          "path": "packages/ui/src/lib/highlighter.ts",
+          "path": "packages/1.9/ui/src/lib/highlighter.ts",
           "type": "registry:lib",
           "target": "@lib/highlighter.ts"
         }
@@ -181,7 +181,7 @@
       ],
       "files": [
         {
-          "path": "packages/ui/src/components/code-block.tsx",
+          "path": "packages/1.9/ui/src/components/code-block.tsx",
           "type": "registry:ui",
           "target": "@ui/code-block.tsx"
         }
@@ -196,7 +196,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/checkbox.tsx",
+          "path": "packages/1.9/ui/src/components/checkbox.tsx",
           "type": "registry:ui",
           "target": "@ui/checkbox.tsx"
         }
@@ -211,7 +211,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/accordion.tsx",
+          "path": "packages/1.9/ui/src/components/accordion.tsx",
           "type": "registry:ui",
           "target": "@ui/accordion.tsx"
         }
@@ -226,7 +226,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/alert.tsx",
+          "path": "packages/1.9/ui/src/components/alert.tsx",
           "type": "registry:ui",
           "target": "@ui/alert.tsx"
         }
@@ -241,7 +241,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/alert-dialog.tsx",
+          "path": "packages/1.9/ui/src/components/alert-dialog.tsx",
           "type": "registry:ui",
           "target": "@ui/alert-dialog.tsx"
         }
@@ -255,7 +255,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/aspect-ratio.tsx",
+          "path": "packages/1.9/ui/src/components/aspect-ratio.tsx",
           "type": "registry:ui",
           "target": "@ui/aspect-ratio.tsx"
         }
@@ -270,7 +270,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/avatar.tsx",
+          "path": "packages/1.9/ui/src/components/avatar.tsx",
           "type": "registry:ui",
           "target": "@ui/avatar.tsx"
         }
@@ -284,7 +284,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/badge.tsx",
+          "path": "packages/1.9/ui/src/components/badge.tsx",
           "type": "registry:ui",
           "target": "@ui/badge.tsx"
         }
@@ -299,7 +299,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/breadcrumb.tsx",
+          "path": "packages/1.9/ui/src/components/breadcrumb.tsx",
           "type": "registry:ui",
           "target": "@ui/breadcrumb.tsx"
         }
@@ -313,7 +313,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/button-group.tsx",
+          "path": "packages/1.9/ui/src/components/button-group.tsx",
           "type": "registry:ui",
           "target": "@ui/button-group.tsx"
         }
@@ -328,7 +328,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/calendar.tsx",
+          "path": "packages/1.9/ui/src/components/calendar.tsx",
           "type": "registry:ui",
           "target": "@ui/calendar.tsx"
         }
@@ -342,7 +342,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/card.tsx",
+          "path": "packages/1.9/ui/src/components/card.tsx",
           "type": "registry:ui",
           "target": "@ui/card.tsx"
         }
@@ -357,7 +357,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/collapsible.tsx",
+          "path": "packages/1.9/ui/src/components/collapsible.tsx",
           "type": "registry:ui",
           "target": "@ui/collapsible.tsx"
         }
@@ -372,7 +372,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/combobox.tsx",
+          "path": "packages/1.9/ui/src/components/combobox.tsx",
           "type": "registry:ui",
           "target": "@ui/combobox.tsx"
         }
@@ -387,7 +387,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/context-menu.tsx",
+          "path": "packages/1.9/ui/src/components/context-menu.tsx",
           "type": "registry:ui",
           "target": "@ui/context-menu.tsx"
         }
@@ -402,7 +402,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/drawer.tsx",
+          "path": "packages/1.9/ui/src/components/drawer.tsx",
           "type": "registry:ui",
           "target": "@ui/drawer.tsx"
         }
@@ -417,7 +417,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/dropdown-menu.tsx",
+          "path": "packages/1.9/ui/src/components/dropdown-menu.tsx",
           "type": "registry:ui",
           "target": "@ui/dropdown-menu.tsx"
         }
@@ -431,7 +431,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/empty.tsx",
+          "path": "packages/1.9/ui/src/components/empty.tsx",
           "type": "registry:ui",
           "target": "@ui/empty.tsx"
         }
@@ -445,7 +445,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/field.tsx",
+          "path": "packages/1.9/ui/src/components/field.tsx",
           "type": "registry:ui",
           "target": "@ui/field.tsx"
         }
@@ -460,7 +460,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/hover-card.tsx",
+          "path": "packages/1.9/ui/src/components/hover-card.tsx",
           "type": "registry:ui",
           "target": "@ui/hover-card.tsx"
         }
@@ -475,7 +475,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/input.tsx",
+          "path": "packages/1.9/ui/src/components/input.tsx",
           "type": "registry:ui",
           "target": "@ui/input.tsx"
         }
@@ -489,7 +489,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/input-group.tsx",
+          "path": "packages/1.9/ui/src/components/input-group.tsx",
           "type": "registry:ui",
           "target": "@ui/input-group.tsx"
         }
@@ -504,7 +504,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/input-otp.tsx",
+          "path": "packages/1.9/ui/src/components/input-otp.tsx",
           "type": "registry:ui",
           "target": "@ui/input-otp.tsx"
         }
@@ -518,7 +518,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/item.tsx",
+          "path": "packages/1.9/ui/src/components/item.tsx",
           "type": "registry:ui",
           "target": "@ui/item.tsx"
         }
@@ -532,7 +532,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/kbd.tsx",
+          "path": "packages/1.9/ui/src/components/kbd.tsx",
           "type": "registry:ui",
           "target": "@ui/kbd.tsx"
         }
@@ -546,7 +546,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/label.tsx",
+          "path": "packages/1.9/ui/src/components/label.tsx",
           "type": "registry:ui",
           "target": "@ui/label.tsx"
         }
@@ -561,7 +561,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/menubar.tsx",
+          "path": "packages/1.9/ui/src/components/menubar.tsx",
           "type": "registry:ui",
           "target": "@ui/menubar.tsx"
         }
@@ -575,7 +575,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/native-select.tsx",
+          "path": "packages/1.9/ui/src/components/native-select.tsx",
           "type": "registry:ui",
           "target": "@ui/native-select.tsx"
         }
@@ -590,7 +590,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/navigation-menu.tsx",
+          "path": "packages/1.9/ui/src/components/navigation-menu.tsx",
           "type": "registry:ui",
           "target": "@ui/navigation-menu.tsx"
         }
@@ -605,7 +605,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/pagination.tsx",
+          "path": "packages/1.9/ui/src/components/pagination.tsx",
           "type": "registry:ui",
           "target": "@ui/pagination.tsx"
         }
@@ -620,7 +620,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/popover.tsx",
+          "path": "packages/1.9/ui/src/components/popover.tsx",
           "type": "registry:ui",
           "target": "@ui/popover.tsx"
         }
@@ -635,7 +635,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/progress.tsx",
+          "path": "packages/1.9/ui/src/components/progress.tsx",
           "type": "registry:ui",
           "target": "@ui/progress.tsx"
         }
@@ -650,7 +650,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/radio-group.tsx",
+          "path": "packages/1.9/ui/src/components/radio-group.tsx",
           "type": "registry:ui",
           "target": "@ui/radio-group.tsx"
         }
@@ -665,7 +665,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/resizable.tsx",
+          "path": "packages/1.9/ui/src/components/resizable.tsx",
           "type": "registry:ui",
           "target": "@ui/resizable.tsx"
         }
@@ -679,7 +679,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/scroll-area.tsx",
+          "path": "packages/1.9/ui/src/components/scroll-area.tsx",
           "type": "registry:ui",
           "target": "@ui/scroll-area.tsx"
         }
@@ -694,7 +694,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/select.tsx",
+          "path": "packages/1.9/ui/src/components/select.tsx",
           "type": "registry:ui",
           "target": "@ui/select.tsx"
         }
@@ -709,7 +709,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/separator.tsx",
+          "path": "packages/1.9/ui/src/components/separator.tsx",
           "type": "registry:ui",
           "target": "@ui/separator.tsx"
         }
@@ -724,7 +724,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/sheet.tsx",
+          "path": "packages/1.9/ui/src/components/sheet.tsx",
           "type": "registry:ui",
           "target": "@ui/sheet.tsx"
         }
@@ -739,7 +739,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/skeleton.tsx",
+          "path": "packages/1.9/ui/src/components/skeleton.tsx",
           "type": "registry:ui",
           "target": "@ui/skeleton.tsx"
         }
@@ -754,7 +754,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/slider.tsx",
+          "path": "packages/1.9/ui/src/components/slider.tsx",
           "type": "registry:ui",
           "target": "@ui/slider.tsx"
         }
@@ -768,7 +768,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/spinner.tsx",
+          "path": "packages/1.9/ui/src/components/spinner.tsx",
           "type": "registry:ui",
           "target": "@ui/spinner.tsx"
         }
@@ -783,7 +783,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/switch.tsx",
+          "path": "packages/1.9/ui/src/components/switch.tsx",
           "type": "registry:ui",
           "target": "@ui/switch.tsx"
         }
@@ -797,7 +797,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/table.tsx",
+          "path": "packages/1.9/ui/src/components/table.tsx",
           "type": "registry:ui",
           "target": "@ui/table.tsx"
         }
@@ -812,7 +812,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/tabs.tsx",
+          "path": "packages/1.9/ui/src/components/tabs.tsx",
           "type": "registry:ui",
           "target": "@ui/tabs.tsx"
         }
@@ -827,7 +827,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/textarea.tsx",
+          "path": "packages/1.9/ui/src/components/textarea.tsx",
           "type": "registry:ui",
           "target": "@ui/textarea.tsx"
         }
@@ -842,7 +842,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/button"],
       "files": [
         {
-          "path": "packages/ui/src/components/toast.tsx",
+          "path": "packages/1.9/ui/src/components/toast.tsx",
           "type": "registry:ui",
           "target": "@ui/toast.tsx"
         }
@@ -857,7 +857,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/ui/src/components/toggle.tsx",
+          "path": "packages/1.9/ui/src/components/toggle.tsx",
           "type": "registry:ui",
           "target": "@ui/toggle.tsx"
         }
@@ -872,7 +872,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/toggle"],
       "files": [
         {
-          "path": "packages/ui/src/components/toggle-group.tsx",
+          "path": "packages/1.9/ui/src/components/toggle-group.tsx",
           "type": "registry:ui",
           "target": "@ui/toggle-group.tsx"
         }
@@ -886,7 +886,7 @@
       "devDependencies": ["tw-animate-css"],
       "files": [
         {
-          "path": "packages/m3/src/tokens.css",
+          "path": "packages/1.9/m3/src/tokens.css",
           "type": "registry:file",
           "target": "~/src/m3-tokens.css"
         }
@@ -940,7 +940,7 @@
       "dependencies": ["@material/material-color-utilities"],
       "files": [
         {
-          "path": "packages/m3/src/lib/scheme.ts",
+          "path": "packages/1.9/m3/src/lib/scheme.ts",
           "type": "registry:lib",
           "target": "@lib/m3-scheme.ts"
         }
@@ -955,7 +955,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/button.tsx",
+          "path": "packages/1.9/m3/src/components/button.tsx",
           "type": "registry:ui",
           "target": "@components/m3/button.tsx"
         }
@@ -970,7 +970,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
-          "path": "packages/m3/src/components/icon-button.tsx",
+          "path": "packages/1.9/m3/src/components/icon-button.tsx",
           "type": "registry:ui",
           "target": "@components/m3/icon-button.tsx"
         }
@@ -984,7 +984,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/fab.tsx",
+          "path": "packages/1.9/m3/src/components/fab.tsx",
           "type": "registry:ui",
           "target": "@components/m3/fab.tsx"
         }
@@ -999,7 +999,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/fab-menu.tsx",
+          "path": "packages/1.9/m3/src/components/fab-menu.tsx",
           "type": "registry:ui",
           "target": "@components/m3/fab-menu.tsx"
         }
@@ -1013,7 +1013,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
-          "path": "packages/m3/src/components/button-group.tsx",
+          "path": "packages/1.9/m3/src/components/button-group.tsx",
           "type": "registry:ui",
           "target": "@components/m3/button-group.tsx"
         }
@@ -1028,7 +1028,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/segmented-button.tsx",
+          "path": "packages/1.9/m3/src/components/segmented-button.tsx",
           "type": "registry:ui",
           "target": "@components/m3/segmented-button.tsx"
         }
@@ -1043,7 +1043,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
-          "path": "packages/m3/src/components/split-button.tsx",
+          "path": "packages/1.9/m3/src/components/split-button.tsx",
           "type": "registry:ui",
           "target": "@components/m3/split-button.tsx"
         }
@@ -1058,7 +1058,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/checkbox.tsx",
+          "path": "packages/1.9/m3/src/components/checkbox.tsx",
           "type": "registry:ui",
           "target": "@components/m3/checkbox.tsx"
         }
@@ -1073,7 +1073,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/radio-group.tsx",
+          "path": "packages/1.9/m3/src/components/radio-group.tsx",
           "type": "registry:ui",
           "target": "@components/m3/radio-group.tsx"
         }
@@ -1088,7 +1088,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/switch.tsx",
+          "path": "packages/1.9/m3/src/components/switch.tsx",
           "type": "registry:ui",
           "target": "@components/m3/switch.tsx"
         }
@@ -1103,7 +1103,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/slider.tsx",
+          "path": "packages/1.9/m3/src/components/slider.tsx",
           "type": "registry:ui",
           "target": "@components/m3/slider.tsx"
         }
@@ -1118,7 +1118,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/chip.tsx",
+          "path": "packages/1.9/m3/src/components/chip.tsx",
           "type": "registry:ui",
           "target": "@components/m3/chip.tsx"
         }
@@ -1133,7 +1133,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/text-field.tsx",
+          "path": "packages/1.9/m3/src/components/text-field.tsx",
           "type": "registry:ui",
           "target": "@components/m3/text-field.tsx"
         }
@@ -1148,7 +1148,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/search.tsx",
+          "path": "packages/1.9/m3/src/components/search.tsx",
           "type": "registry:ui",
           "target": "@components/m3/search.tsx"
         }
@@ -1162,7 +1162,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/card.tsx",
+          "path": "packages/1.9/m3/src/components/card.tsx",
           "type": "registry:ui",
           "target": "@components/m3/card.tsx"
         }
@@ -1176,7 +1176,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/list.tsx",
+          "path": "packages/1.9/m3/src/components/list.tsx",
           "type": "registry:ui",
           "target": "@components/m3/list.tsx"
         }
@@ -1191,7 +1191,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/divider.tsx",
+          "path": "packages/1.9/m3/src/components/divider.tsx",
           "type": "registry:ui",
           "target": "@components/m3/divider.tsx"
         }
@@ -1205,7 +1205,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/scroll-area.tsx",
+          "path": "packages/1.9/m3/src/components/scroll-area.tsx",
           "type": "registry:ui",
           "target": "@components/m3/scroll-area.tsx"
         }
@@ -1220,7 +1220,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils", "bieniucieniu/solid-kit/m3-button"],
       "files": [
         {
-          "path": "packages/m3/src/components/dialog.tsx",
+          "path": "packages/1.9/m3/src/components/dialog.tsx",
           "type": "registry:ui",
           "target": "@components/m3/dialog.tsx"
         }
@@ -1238,7 +1238,7 @@
       ],
       "files": [
         {
-          "path": "packages/m3/src/components/bottom-sheet.tsx",
+          "path": "packages/1.9/m3/src/components/bottom-sheet.tsx",
           "type": "registry:ui",
           "target": "@components/m3/bottom-sheet.tsx"
         }
@@ -1253,7 +1253,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/side-sheet.tsx",
+          "path": "packages/1.9/m3/src/components/side-sheet.tsx",
           "type": "registry:ui",
           "target": "@components/m3/side-sheet.tsx"
         }
@@ -1268,7 +1268,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/menu.tsx",
+          "path": "packages/1.9/m3/src/components/menu.tsx",
           "type": "registry:ui",
           "target": "@components/m3/menu.tsx"
         }
@@ -1283,7 +1283,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/tooltip.tsx",
+          "path": "packages/1.9/m3/src/components/tooltip.tsx",
           "type": "registry:ui",
           "target": "@components/m3/tooltip.tsx"
         }
@@ -1298,7 +1298,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/snackbar.tsx",
+          "path": "packages/1.9/m3/src/components/snackbar.tsx",
           "type": "registry:ui",
           "target": "@components/m3/snackbar.tsx"
         }
@@ -1312,7 +1312,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/badge.tsx",
+          "path": "packages/1.9/m3/src/components/badge.tsx",
           "type": "registry:ui",
           "target": "@components/m3/badge.tsx"
         }
@@ -1327,7 +1327,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/progress.tsx",
+          "path": "packages/1.9/m3/src/components/progress.tsx",
           "type": "registry:ui",
           "target": "@components/m3/progress.tsx"
         }
@@ -1341,7 +1341,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/loading-indicator.tsx",
+          "path": "packages/1.9/m3/src/components/loading-indicator.tsx",
           "type": "registry:ui",
           "target": "@components/m3/loading-indicator.tsx"
         }
@@ -1355,7 +1355,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/app-bar.tsx",
+          "path": "packages/1.9/m3/src/components/app-bar.tsx",
           "type": "registry:ui",
           "target": "@components/m3/app-bar.tsx"
         }
@@ -1369,7 +1369,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/toolbar.tsx",
+          "path": "packages/1.9/m3/src/components/toolbar.tsx",
           "type": "registry:ui",
           "target": "@components/m3/toolbar.tsx"
         }
@@ -1384,7 +1384,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/tabs.tsx",
+          "path": "packages/1.9/m3/src/components/tabs.tsx",
           "type": "registry:ui",
           "target": "@components/m3/tabs.tsx"
         }
@@ -1398,7 +1398,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/navigation-bar.tsx",
+          "path": "packages/1.9/m3/src/components/navigation-bar.tsx",
           "type": "registry:ui",
           "target": "@components/m3/navigation-bar.tsx"
         }
@@ -1412,7 +1412,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/navigation-rail.tsx",
+          "path": "packages/1.9/m3/src/components/navigation-rail.tsx",
           "type": "registry:ui",
           "target": "@components/m3/navigation-rail.tsx"
         }
@@ -1427,7 +1427,7 @@
       "registryDependencies": ["bieniucieniu/solid-kit/utils"],
       "files": [
         {
-          "path": "packages/m3/src/components/navigation-drawer.tsx",
+          "path": "packages/1.9/m3/src/components/navigation-drawer.tsx",
           "type": "registry:ui",
           "target": "@components/m3/navigation-drawer.tsx"
         }
@@ -1435,8 +1435,8 @@
     }
   ],
   "include": [
-    "packages/motion/registry.json",
-    "packages/tiptap/registry.json",
-    "packages/xyflow/registry.json"
+    "packages/1.9/motion/registry.json",
+    "packages/1.9/tiptap/registry.json",
+    "packages/1.9/xyflow/registry.json"
   ]
 }

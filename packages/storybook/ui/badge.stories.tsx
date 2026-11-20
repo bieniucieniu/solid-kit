@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Badge } from "../../ui/src/components/badge";
+import { Badge } from "../../1.9/ui/src/components/badge";
 
 const meta = {
   title: "UI/Badge",

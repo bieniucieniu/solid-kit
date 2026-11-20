@@ -8,8 +8,8 @@ import {
   PopoverLabel,
   PopoverPortal,
   PopoverTrigger,
-} from "../../ui/src/components/popover";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/popover";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/Popover",

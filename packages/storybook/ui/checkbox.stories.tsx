@@ -5,7 +5,7 @@ import {
   CheckboxIndicator,
   CheckboxInput,
   CheckboxLabel,
-} from "../../ui/src/components/checkbox";
+} from "../../1.9/ui/src/components/checkbox";
 import { createSignal } from "solid-js";
 
 const meta = {

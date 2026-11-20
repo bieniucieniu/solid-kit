@@ -6,7 +6,7 @@
   "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
-      "path": "packages/ui/src/components/label.tsx",
+      "path": "packages/1.9/ui/src/components/label.tsx",
       "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function Label(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <label\n      ref={props.ref}\n      class={cn(\n        \"flex items-center gap-2 text-xs/relaxed leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/label.tsx"

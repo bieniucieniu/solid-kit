@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Alert, AlertDescription, AlertTitle } from "../../ui/src/components/alert";
+import { Alert, AlertDescription, AlertTitle } from "../../1.9/ui/src/components/alert";
 
 const meta = {
   title: "UI/Alert",

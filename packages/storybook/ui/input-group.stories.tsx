@@ -6,7 +6,7 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
-} from "../../ui/src/components/input-group";
+} from "../../1.9/ui/src/components/input-group";
 import { createSignal } from "solid-js";
 
 const meta = {

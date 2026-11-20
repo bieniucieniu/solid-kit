@@ -10,8 +10,8 @@ import {
   SheetOverlay,
   SheetPortal,
   SheetTrigger,
-} from "../../ui/src/components/sheet";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/sheet";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/Sheet",

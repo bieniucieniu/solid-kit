@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Toggle } from "../../ui/src/components/toggle";
+import { Toggle } from "../../1.9/ui/src/components/toggle";
 import { createSignal } from "solid-js";
 
 const meta = {

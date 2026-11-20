@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Badge } from "../../ui/src/components/badge";
+import { Badge } from "../../1.9/ui/src/components/badge";
 import {
   Card,
   CardAction,
@@ -7,14 +7,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../../ui/src/components/card";
+} from "../../1.9/ui/src/components/card";
 import {
   Switch,
   SwitchControl,
   SwitchInput,
   SwitchLabel,
   SwitchThumb,
-} from "../../ui/src/components/switch";
+} from "../../1.9/ui/src/components/switch";
 import {
   Flow,
   Handle,
@@ -22,9 +22,9 @@ import {
   createFlow,
   useFlow,
   type NodeComponentProps,
-} from "../../xyflow/src/components/xyflow";
-import { Background, Controls } from "../../xyflow/src/components/xyflow/panels";
-import "../../xyflow/src/components/xyflow/style.css";
+} from "../../1.9/xyflow/src/components/xyflow";
+import { Background, Controls } from "../../1.9/xyflow/src/components/xyflow/panels";
+import "../../1.9/xyflow/src/components/xyflow/style.css";
 
 const meta = {
   title: "Xyflow/Custom nodes",

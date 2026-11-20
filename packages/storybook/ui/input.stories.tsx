@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Input, InputControl, InputDescription, InputLabel } from "../../ui/src/components/input";
+import {
+  Input,
+  InputControl,
+  InputDescription,
+  InputLabel,
+} from "../../1.9/ui/src/components/input";
 import { createSignal } from "solid-js";
 
 const meta = {

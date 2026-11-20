@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { Button } from "../../ui/src/components/button";
+import { Button } from "../../1.9/ui/src/components/button";
 import { createSignal } from "solid-js";
 
 const meta = {

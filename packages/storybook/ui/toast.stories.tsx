@@ -7,8 +7,8 @@ import {
   ToastList,
   ToastRegion,
   ToastTitle,
-} from "../../ui/src/components/toast";
-import { Button } from "../../ui/src/components/button";
+} from "../../1.9/ui/src/components/toast";
+import { Button } from "../../1.9/ui/src/components/button";
 
 const meta = {
   title: "UI/Toast",

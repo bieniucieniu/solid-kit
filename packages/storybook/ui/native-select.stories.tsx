@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "storybook-solidjs-vite";
-import { NativeSelect } from "../../ui/src/components/native-select";
+import { NativeSelect } from "../../1.9/ui/src/components/native-select";
 import { createSignal } from "solid-js";
 
 const meta = {

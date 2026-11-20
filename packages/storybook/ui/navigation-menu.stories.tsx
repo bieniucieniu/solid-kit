@@ -6,7 +6,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuTrigger,
-} from "../../ui/src/components/navigation-menu";
+} from "../../1.9/ui/src/components/navigation-menu";
 
 const meta = {
   title: "UI/NavigationMenu",

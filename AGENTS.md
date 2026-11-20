@@ -47,7 +47,7 @@ ai/drawer-bottom-sheet
 
 # Repository layout
 
-pnpm workspace. Root `solid-kit` is private and exports nothing. `packages/kit` (`@solid-kit/kit`) is the main package: the Solid 2.0 rewrite of all five libraries, one subpath each (`./ui`, `./m3`, `./motion`, `./xyflow`, `./tiptap`). Its rules are in [packages/kit/AGENTS.md](packages/kit/AGENTS.md). The Solid 1.9 libraries live in `packages/1.9/<name>` (`@solid-kit/ui`, `m3`, `motion`, `xyflow`, `tiptap`), each with its own `package.json` and public exports. They are frozen on 1.9 and feed `packages/web` and `packages/storybook`. Do not re-export a package from the root.
+pnpm workspace. Root `solid-kit` is private and exports nothing. `packages/kit` (`@solid-kit/kit`) is the main package: the Solid 2.0 rewrite of all five libraries, one subpath each (`./ui`, `./m3`, `./motion`, `./xyflow`, `./tiptap`). Its rules are in [packages/kit/AGENTS.md](packages/kit/AGENTS.md). `packages/kit-playground` is a client-only Solid 2.0 app that renders it (`kit-playground` in `.claude/launch.json`). The Solid 1.9 libraries live in `packages/1.9/<name>` (`@solid-kit/ui`, `m3`, `motion`, `xyflow`, `tiptap`), each with its own `package.json` and public exports. They are frozen on 1.9 and feed `packages/web` and `packages/storybook`. Do not re-export a package from the root.
 
 # Package Development: Solid 1.9 (`packages/1.9/**`, `packages/web`, `packages/storybook`)
 

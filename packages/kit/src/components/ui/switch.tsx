@@ -4,7 +4,7 @@ import {
   SwitchThumb as SwitchThumbPrimitive,
 } from "@ui-sdk/solid/switch";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 type SwitchProps = ComponentProps<typeof SwitchPrimitive> & { size?: "sm" | "default" };
 

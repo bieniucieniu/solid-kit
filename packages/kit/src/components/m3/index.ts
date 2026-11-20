@@ -32,4 +32,4 @@ export * from "./tabs";
 export * from "./text-field";
 export * from "./toolbar";
 export * from "./tooltip";
-export * from "#/lib/m3/scheme";
+export * from "#kit/lib/m3/scheme";

@@ -4,7 +4,7 @@ import {
   CheckboxIndicator as CheckboxIndicatorPrimitive,
 } from "@ui-sdk/solid/checkbox";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 // ui-sdk's Checkbox is the box itself. `Checkbox` here is the `<label>` that lays out the box
 // and its text; put `checked` / `onCheckedChange` on `CheckboxControl`.

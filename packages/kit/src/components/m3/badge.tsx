@@ -1,6 +1,6 @@
 import { type JSX } from "@solidjs/web";
 import { omit } from "solid-js";
-import { type ClassValue, cn } from "#/lib/utils";
+import { type ClassValue, cn } from "#kit/lib/utils";
 
 const badgeSizeClasses = {
   /** A 6px dot. */

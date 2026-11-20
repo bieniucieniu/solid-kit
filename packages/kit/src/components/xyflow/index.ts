@@ -1,5 +1,5 @@
-export { createFlow } from "#/lib/xyflow/createFlow";
-export type { Flow as FlowStore } from "#/lib/xyflow/createFlow";
+export { createFlow } from "#kit/lib/xyflow/createFlow";
+export type { Flow as FlowStore } from "#kit/lib/xyflow/createFlow";
 export { Flow, type FlowProps } from "./Flow";
 export { useFlow } from "./context";
 export { Handle, type HandleProps } from "./components/Handle";
@@ -10,7 +10,7 @@ export type {
   FlowOptions,
   NodeComponentProps,
   EdgeComponentProps,
-} from "#/lib/xyflow/types";
+} from "#kit/lib/xyflow/types";
 
 export {
   ConnectionLineType,

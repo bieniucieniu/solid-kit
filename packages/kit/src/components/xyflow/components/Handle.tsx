@@ -8,7 +8,7 @@ import {
 } from "@xyflow/system";
 import { createEffect, omit } from "solid-js";
 import { useFlow, useNodeId } from "../context";
-import { cx } from "#/lib/utils/xyflow/cx";
+import { cx } from "#kit/lib/utils/xyflow/cx";
 
 export type HandleProps = {
   type?: HandleType;

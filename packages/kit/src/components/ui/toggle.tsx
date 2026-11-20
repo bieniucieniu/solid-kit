@@ -1,6 +1,6 @@
 import { Toggle as TogglePrimitive } from "@ui-sdk/solid/toggle";
 import { type ComponentProps, omit } from "solid-js";
-import { type ClassValue, cn, partClass } from "#/lib/utils";
+import { type ClassValue, cn, partClass } from "#kit/lib/utils";
 
 const toggleVariantClasses = {
   default: "bg-transparent",

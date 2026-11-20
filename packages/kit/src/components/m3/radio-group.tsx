@@ -5,7 +5,7 @@ import {
   RadioIndicator as RadioIndicatorPrimitive,
 } from "@ui-sdk/solid/radio";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 /** `value` / `onValueChange` hold the checked radio's value. Name it with `aria-label` or a label. */
 export function RadioGroup(props: ComponentProps<typeof RadioGroupPrimitive>) {

@@ -6,7 +6,7 @@ import {
 } from "@ui-sdk/solid/field";
 import { Input as InputPrimitive } from "@ui-sdk/solid/input";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 /** Classes for a text control, shared with `Textarea` and `InputGroup`. */
 export const inputControlClass =

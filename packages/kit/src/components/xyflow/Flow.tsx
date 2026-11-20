@@ -1,11 +1,11 @@
 import { type JSX } from "@solidjs/web";
 import { For, Show, createEffect, createSignal, onSettled } from "solid-js";
 import { FlowProvider, useFlow } from "./context";
-import type { Flow as FlowStore } from "#/lib/xyflow/createFlow";
+import type { Flow as FlowStore } from "#kit/lib/xyflow/createFlow";
 import { ConnectionLine, EdgeView } from "./components/Edges";
 import { NodeView } from "./components/NodeView";
 import { Pane } from "./components/Pane";
-import { cx } from "#/lib/utils/xyflow/cx";
+import { cx } from "#kit/lib/utils/xyflow/cx";
 
 export type FlowProps = {
   flow: FlowStore;

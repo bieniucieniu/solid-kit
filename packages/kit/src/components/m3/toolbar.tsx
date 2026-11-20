@@ -1,6 +1,6 @@
 import { type JSX } from "@solidjs/web";
 import { omit } from "solid-js";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 const toolbarVariantClasses = {
   /** Full width along the bottom (or top) edge. */

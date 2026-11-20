@@ -9,7 +9,7 @@ import {
 import { type JSX, type ValidComponent } from "@solidjs/web";
 import { type ComponentProps, omit } from "solid-js";
 import { dynamic } from "@solidjs/web";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 /** Standard (always visible) drawer: a 360px column of destinations. */
 export function NavigationDrawer(props: JSX.HTMLAttributes<HTMLElement>) {

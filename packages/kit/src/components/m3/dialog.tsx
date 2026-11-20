@@ -10,7 +10,7 @@ import {
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, omit } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export function Dialog(props: ComponentProps<typeof DialogRootPrimitive>) {
   return <DialogRootPrimitive {...props} />;

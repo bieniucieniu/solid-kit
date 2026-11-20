@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vite-plus/test";
-import { element, installFlowBrowser, mountFlow, nodes } from "#/testing/xyflow/mount";
+import { element, installFlowBrowser, mountFlow, nodes } from "#kit/testing/xyflow/mount";
 
 // The node `ResizeObserver` reports its first size a frame after mount.
 // Wait it out so a later re-measure can only come from the fix.

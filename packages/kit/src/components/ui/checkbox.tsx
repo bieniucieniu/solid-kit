@@ -5,7 +5,7 @@ import {
   CheckboxIndicator as CheckboxIndicatorPrimitive,
 } from "@ui-sdk/solid/checkbox";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 /**
  * The box. It renders its own check and dash icons unless you pass children. Wrap it and its

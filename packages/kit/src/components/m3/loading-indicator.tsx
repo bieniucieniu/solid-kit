@@ -1,6 +1,6 @@
 import { type JSX } from "@solidjs/web";
 import { omit } from "solid-js";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 export interface LoadingIndicatorProps extends JSX.HTMLAttributes<HTMLSpanElement> {
   /** Put the shape on a primary-container circle. */

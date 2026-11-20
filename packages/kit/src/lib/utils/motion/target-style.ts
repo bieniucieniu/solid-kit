@@ -1,5 +1,5 @@
 import type { JSX } from "@solidjs/web";
-import type { Target } from "#/lib/motion/types";
+import type { Target } from "#kit/lib/motion/types";
 
 type TransformKey =
   | "x"

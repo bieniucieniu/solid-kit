@@ -11,7 +11,7 @@ import {
 } from "@ui-sdk/solid/combobox";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 type SearchLabelProps = ComponentProps<typeof ComboboxLabelPrimitive>;
 type SearchControlProps = JSX.HTMLAttributes<HTMLDivElement>;

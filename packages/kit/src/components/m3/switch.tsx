@@ -4,7 +4,7 @@ import {
   SwitchThumb as SwitchThumbPrimitive,
 } from "@ui-sdk/solid/switch";
 import { type ComponentProps, Show, omit } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 // ui-sdk's Switch is the track. `Switch` here is the `<label>` that lays out the track and its
 // text; put `checked` / `onCheckedChange` on `SwitchControl`.

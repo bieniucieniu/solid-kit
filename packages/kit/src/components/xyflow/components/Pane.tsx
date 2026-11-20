@@ -9,10 +9,10 @@ import {
 } from "@xyflow/system";
 import { type JSX } from "@solidjs/web";
 import { Show } from "solid-js";
-import { getSelectionChanges } from "#/lib/utils/xyflow/changes";
+import { getSelectionChanges } from "#kit/lib/utils/xyflow/changes";
 import { useFlow } from "../context";
-import { cx } from "#/lib/utils/xyflow/cx";
-import type { FlowEdge, FlowNode } from "#/lib/xyflow/types";
+import { cx } from "#kit/lib/utils/xyflow/cx";
+import type { FlowEdge, FlowNode } from "#kit/lib/xyflow/types";
 
 const layerStyle: JSX.CSSProperties = {
   position: "absolute",

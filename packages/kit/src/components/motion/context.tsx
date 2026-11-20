@@ -1,6 +1,6 @@
 import type { JSX } from "@solidjs/web";
 import { createContext, useContext } from "solid-js";
-import type { ReducedMotion, Transition, VariantLabels } from "#/lib/motion/types";
+import type { ReducedMotion, Transition, VariantLabels } from "#kit/lib/motion/types";
 
 export interface MotionConfigValue {
   readonly transition: Transition | undefined;

@@ -6,7 +6,7 @@ import {
   TabsTab as TabsTabPrimitive,
 } from "@ui-sdk/solid/tabs";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export { TabsTabIcon } from "@ui-sdk/solid/tabs";
 

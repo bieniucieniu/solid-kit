@@ -5,7 +5,7 @@ import {
 } from "@ui-sdk/solid/toggle";
 import { type ComponentProps, createContext, omit, useContext } from "solid-js";
 import { type ToggleSize, type ToggleVariant, toggleVariants } from "./toggle";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 type ToggleGroupStyle = { variant?: ToggleVariant; size?: ToggleSize; spacing?: number };
 

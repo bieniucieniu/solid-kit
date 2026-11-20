@@ -18,7 +18,7 @@ import {
   createMenuItemIndicator,
   createMenuRadioItem,
 } from "./menu-parts";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 export { MenuSub as ContextMenuSub } from "@ui-sdk/solid/menu";
 

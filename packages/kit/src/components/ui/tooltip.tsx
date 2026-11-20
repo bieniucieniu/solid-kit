@@ -5,7 +5,7 @@ import {
   TooltipTrigger as TooltipTriggerPrimitive,
 } from "@ui-sdk/solid/tooltip";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass, popupMotion } from "#/lib/utils";
+import { partClass, popupMotion } from "#kit/lib/utils";
 
 export { TooltipShortcut, createTooltipController } from "@ui-sdk/solid/tooltip";
 

@@ -10,7 +10,7 @@ import {
 } from "@ui-sdk/solid/pagination";
 import { type ComponentProps, For, omit } from "solid-js";
 import { buttonVariants } from "./button";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export { createPaginationController, paginationRange } from "@ui-sdk/solid/pagination";
 

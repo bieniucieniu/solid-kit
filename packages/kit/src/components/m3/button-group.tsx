@@ -1,7 +1,7 @@
 import { type JSX } from "@solidjs/web";
 import { omit } from "solid-js";
 import { type ButtonGroupVariant, ButtonGroupContext, type ButtonSize } from "./button";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 /** Space between buttons in a standard group, per size. */
 const standardGapClasses = {

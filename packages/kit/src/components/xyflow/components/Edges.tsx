@@ -13,8 +13,8 @@ import {
 import { Show, createMemo } from "solid-js";
 import { dynamic } from "@solidjs/web";
 import { useFlow } from "../context";
-import { cx } from "#/lib/utils/xyflow/cx";
-import type { EdgeComponentProps, FlowEdge } from "#/lib/xyflow/types";
+import { cx } from "#kit/lib/utils/xyflow/cx";
+import type { EdgeComponentProps, FlowEdge } from "#kit/lib/xyflow/types";
 
 export function BaseEdge(props: {
   path: string;

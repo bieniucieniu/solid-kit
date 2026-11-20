@@ -9,7 +9,7 @@ import {
 } from "@ui-sdk/solid/toast";
 import { type ComponentProps, omit } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 /**
  * `toast("Saved", { description, action })` queues a toast from anywhere; `toast.success`,

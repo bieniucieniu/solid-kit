@@ -10,7 +10,7 @@ import {
 } from "@ui-sdk/solid/alert-dialog";
 import { type ComponentProps, omit } from "solid-js";
 import { type ButtonSize, type ButtonVariant, buttonVariants } from "./button";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export { createConfirm } from "@ui-sdk/solid/alert-dialog";
 

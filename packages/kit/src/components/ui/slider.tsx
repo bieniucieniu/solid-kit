@@ -7,7 +7,7 @@ import {
   SliderValue as SliderValuePrimitive,
 } from "@ui-sdk/solid/slider";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 /**
  * Compose it as `Slider > SliderControl > SliderTrack > (SliderIndicator, SliderThumb)`. Name a

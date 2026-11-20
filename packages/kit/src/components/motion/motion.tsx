@@ -10,16 +10,16 @@ import {
   resolveVariant,
   stripTarget,
   styleMotionValues,
-} from "#/lib/utils/motion/resolve";
-import { scheduleMotion } from "#/lib/motion/schedule";
-import { MotionState, type MotionSnapshot } from "#/lib/motion/state";
-import { isTransformKey, pinPopLayout, targetToStyle } from "#/lib/utils/motion/target-style";
+} from "#kit/lib/utils/motion/resolve";
+import { scheduleMotion } from "#kit/lib/motion/schedule";
+import { MotionState, type MotionSnapshot } from "#kit/lib/motion/state";
+import { isTransformKey, pinPopLayout, targetToStyle } from "#kit/lib/utils/motion/target-style";
 import {
   motionPropKeys,
   type AnimationControls,
   type MotionComponentProps,
   type MotionStyle,
-} from "#/lib/motion/types";
+} from "#kit/lib/motion/types";
 
 const components = new Map<string, Component<MotionComponentProps>>();
 

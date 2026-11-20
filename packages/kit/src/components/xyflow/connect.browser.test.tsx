@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vite-plus/test";
 import { page, userEvent, type Locator } from "vite-plus/test/browser";
-import { element, installFlowBrowser, mountFlow, nodes } from "#/testing/xyflow/mount";
+import { element, installFlowBrowser, mountFlow, nodes } from "#kit/testing/xyflow/mount";
 
 function handle(view: Locator, id: string, kind: "source" | "target") {
   const found = view

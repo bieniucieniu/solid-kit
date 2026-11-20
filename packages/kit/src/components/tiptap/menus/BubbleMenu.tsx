@@ -3,7 +3,7 @@ import { type JSX } from "@solidjs/web";
 import { Portal, spread } from "@solidjs/web";
 import { createEffect, createMemo, omit } from "solid-js";
 import { useCurrentEditor } from "../Context";
-import { getAutoPluginKey } from "#/lib/utils/tiptap/getAutoPluginKey";
+import { getAutoPluginKey } from "#kit/lib/utils/tiptap/getAutoPluginKey";
 
 type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 

@@ -8,7 +8,7 @@ import {
   createToaster,
 } from "@ui-sdk/solid/toast";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 /**
  * Snackbars have their own ui-sdk toaster, apart from any other toasts on the page.

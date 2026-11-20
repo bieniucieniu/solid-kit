@@ -10,7 +10,7 @@ import {
   NavigationMenuViewport as NavigationMenuViewportPrimitive,
 } from "@ui-sdk/solid/navigation-menu";
 import { type ComponentProps, Show, omit } from "solid-js";
-import { cn, partClass, popupMotion } from "#/lib/utils";
+import { cn, partClass, popupMotion } from "#kit/lib/utils";
 
 export { NavigationMenuLinkIcon } from "@ui-sdk/solid/navigation-menu";
 

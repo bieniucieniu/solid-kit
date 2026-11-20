@@ -6,7 +6,7 @@ import {
   OTPInputSlot as OTPInputSlotPrimitive,
 } from "@ui-sdk/solid/otp-input";
 import { type ComponentProps, omit } from "solid-js";
-import { partClass } from "#/lib/utils";
+import { partClass } from "#kit/lib/utils";
 
 /**
  * A one-time code. One native input holds the code; the slots only display it, so paste, autofill

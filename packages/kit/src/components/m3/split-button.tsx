@@ -2,7 +2,7 @@ import { MenuTrigger as MenuTriggerPrimitive } from "@ui-sdk/solid/menu";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, createContext, omit, useContext } from "solid-js";
 import { type ButtonSize, buttonVariants } from "./button";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export type SplitButtonVariant = "elevated" | "filled" | "tonal" | "outlined";
 

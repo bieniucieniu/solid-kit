@@ -1,6 +1,6 @@
 import { type JSX } from "@solidjs/web";
 import { createContext, useContext } from "solid-js";
-import type { Flow } from "#/lib/xyflow/createFlow";
+import type { Flow } from "#kit/lib/xyflow/createFlow";
 
 // Optional contexts default to null: Solid 2 throws on a read with no provider and no default.
 export const FlowContext = createContext<Flow | null>(null);

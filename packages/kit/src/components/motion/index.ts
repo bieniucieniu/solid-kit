@@ -14,7 +14,7 @@ export {
   useTime,
   useTransform,
   useVelocity,
-} from "#/lib/motion/hooks";
+} from "#kit/lib/motion/hooks";
 export { motion } from "./motion";
 export { AnimatePresence, useIsPresent } from "./presence";
 export type {
@@ -31,4 +31,4 @@ export type {
   Variant,
   VariantLabels,
   Variants,
-} from "#/lib/motion/types";
+} from "#kit/lib/motion/types";

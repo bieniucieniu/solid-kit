@@ -1,7 +1,7 @@
 import type { JSX } from "@solidjs/web";
 import { omit } from "solid-js";
 import { Button, type ButtonProps, type ButtonVariant } from "./button";
-import { cn } from "#/lib/utils";
+import { cn } from "#kit/lib/utils";
 
 export function InputGroup(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const rest = omit(props, "class", "ref");

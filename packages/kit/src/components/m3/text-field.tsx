@@ -8,7 +8,7 @@ import { Input as TextFieldInputPrimitive } from "@ui-sdk/solid/input";
 import { Textarea as TextFieldTextAreaPrimitive } from "@ui-sdk/solid/textarea";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps, createContext, omit, useContext } from "solid-js";
-import { cn, partClass } from "#/lib/utils";
+import { cn, partClass } from "#kit/lib/utils";
 
 export type TextFieldVariant = "filled" | "outlined";
 

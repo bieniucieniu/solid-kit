@@ -2,7 +2,7 @@ import { Toggle as ToggleButtonPrimitive } from "@ui-sdk/solid/toggle";
 import { type JSX } from "@solidjs/web";
 import { type ComponentProps } from "solid-js";
 import { createContext, omit, useContext } from "solid-js";
-import { type ClassValue, cn, partClass } from "#/lib/utils";
+import { type ClassValue, cn, partClass } from "#kit/lib/utils";
 
 const buttonBase =
   "group/button relative inline-flex shrink-0 cursor-pointer items-center justify-center whitespace-nowrap select-none state-layer focus-ring motion-fast disabled:pointer-events-none disabled:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0";

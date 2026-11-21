@@ -2,7 +2,7 @@
   "name": "solid-kit",
   "version": "0.0.1",
   "private": true,
-  "description": "SolidJS packages. Each library lives under packages/ and is published on its own.",
+  "description": "SolidJS packages. Libraries live under packages/, apps under apps/.",
   "license": "MIT",
   "type": "module",
   "scripts": {

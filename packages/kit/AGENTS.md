@@ -1,14 +1,14 @@
 # @solid-kit/kit — Solid 2.0
 
-The main package. It rewrites the five Solid 1.9 libraries in `packages/1.9/` for Solid 2.0, one subpath each:
+The main package. It rewrites the Solid 1.9 code in `packages/1.9` (`@solid-kit/kit-1.9`, same layout) for Solid 2.0, one subpath each:
 
-| Subpath                                                 | Source                                     | 1.9 original          |
-| ------------------------------------------------------- | ------------------------------------------ | --------------------- |
-| `@solid-kit/kit/ui`, `/ui/theme.css`                    | `src/components/ui/`                       | `packages/1.9/ui`     |
-| `@solid-kit/kit/m3`, `/m3/theme.css`, `/m3/tokens.css`  | `src/components/m3/`, `src/lib/m3/`        | `packages/1.9/m3`     |
-| `@solid-kit/kit/motion`                                 | `src/components/motion/`, `src/lib/motion` | `packages/1.9/motion` |
-| `@solid-kit/kit/xyflow`, `/xyflow/panels`, `/style.css` | `src/components/xyflow/`, `src/lib/xyflow` | `packages/1.9/xyflow` |
-| `@solid-kit/kit/tiptap`, `/tiptap/menus`, `/node-view`  | `src/components/tiptap/`, `src/lib/tiptap` | `packages/1.9/tiptap` |
+| Subpath                                                 | Source                                     | 1.9 original                         |
+| ------------------------------------------------------- | ------------------------------------------ | ------------------------------------ |
+| `@solid-kit/kit/ui`, `/ui/theme.css`                    | `src/components/ui/`                       | `packages/1.9/src/components/ui`     |
+| `@solid-kit/kit/m3`, `/m3/theme.css`, `/m3/tokens.css`  | `src/components/m3/`, `src/lib/m3/`        | `packages/1.9/src/components/m3`     |
+| `@solid-kit/kit/motion`                                 | `src/components/motion/`, `src/lib/motion` | `packages/1.9/src/components/motion` |
+| `@solid-kit/kit/xyflow`, `/xyflow/panels`, `/style.css` | `src/components/xyflow/`, `src/lib/xyflow` | `packages/1.9/src/components/xyflow` |
+| `@solid-kit/kit/tiptap`, `/tiptap/menus`, `/node-view`  | `src/components/tiptap/`, `src/lib/tiptap` | `packages/1.9/src/components/tiptap` |
 
 Keep each subpath's public names and props the same as its 1.9 barrel unless ui-sdk forces a change.
 

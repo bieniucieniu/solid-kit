@@ -1,12 +1,12 @@
 ---
-description: Solid 1.9 reactivity conventions for packages/1.9 and storybook
-globs: packages/1.9/**/*.tsx, packages/1.9/**/*.ts, packages/storybook/**/*.tsx
+description: Solid 1.9 reactivity conventions for packages/1.9 and apps/storybook
+globs: packages/1.9/**/*.tsx, packages/1.9/**/*.ts, apps/storybook/**/*.tsx
 alwaysApply: false
 ---
 
-# Solid 1.9 reactivity in packages/1.9/* and packages/storybook
+# Solid 1.9 reactivity in packages/1.9 and apps/storybook
 
-Peer is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. The component function runs once. Match Tiptap React's public behavior; implement it like `packages/1.9/tiptap/src`. Never import `react`.
+Peer is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. The component function runs once. Match Tiptap React's public behavior; implement it like `packages/1.9/src/components/tiptap`. Never import `react`.
 
 ## Do not write
 

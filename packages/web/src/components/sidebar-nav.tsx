@@ -1,10 +1,10 @@
 import {
+  cn,
   NavigationDrawer,
   NavigationDrawerHeadline,
   NavigationDrawerItem,
   NavigationDrawerItemLabel,
 } from "@solid-kit/kit/m3";
-import { cn } from "@solid-kit/kit/ui";
 import { useLinkState } from "@solidjs/router";
 import { For, Show } from "solid-js";
 import type { NavItem } from "~/nav";

@@ -1,4 +1,4 @@
-import { Switch, SwitchLabel } from "@solid-kit/kit/ui";
+import { Switch, SwitchControl, SwitchLabel } from "@solid-kit/kit/m3";
 import { Flow, Position, createFlow, type FlowEdge, type FlowNode } from "@solid-kit/kit/xyflow";
 import { Background, Controls } from "@solid-kit/kit/xyflow/panels";
 import { type Accessor, For, createSignal, type Setter } from "solid-js";
@@ -45,17 +45,16 @@ export default function InteractionDemo() {
 
   return (
     <div class="flex flex-col">
-      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-border px-3 py-2.5">
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-outline-variant px-4 py-3">
         <For each={options}>
           {(option) => (
-            <SwitchLabel>
-              <Switch
-                size="sm"
+            <Switch>
+              <SwitchControl
                 checked={option.value()}
                 onCheckedChange={(next) => option.set(next)}
               />
-              {option.label}
-            </SwitchLabel>
+              <SwitchLabel>{option.label}</SwitchLabel>
+            </Switch>
           )}
         </For>
       </div>

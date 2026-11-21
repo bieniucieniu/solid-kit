@@ -1,5 +1,5 @@
 import { AnimatePresence, MotionConfig, motion } from "@solid-kit/kit/motion";
-import { Button } from "@solid-kit/kit/ui";
+import { Button } from "@solid-kit/kit/m3";
 import { createSignal } from "solid-js";
 
 interface Item {
@@ -19,14 +19,13 @@ export default function ListDemo() {
       <div class="space-y-4">
         <div class="flex flex-wrap gap-2">
           <Button
-            type="button"
             onClick={() =>
               setItems((list) => [...list, { id: Date.now(), name: `Item ${list.length + 1}` }])
             }
           >
             Add
           </Button>
-          <Button type="button" onClick={() => setItems((list) => list.slice(0, -1))}>
+          <Button variant="outlined" onClick={() => setItems((list) => list.slice(0, -1))}>
             Remove
           </Button>
         </div>
@@ -34,7 +33,7 @@ export default function ListDemo() {
           <AnimatePresence each={items} by={(item) => item.id}>
             {(item) => (
               <motion.div
-                class="rounded-lg bg-muted px-3 py-2 text-sm text-foreground"
+                class="rounded-medium bg-surface-container-high px-4 py-3 typescale-body-medium text-on-surface"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

@@ -1,4 +1,4 @@
-import { Badge } from "@solid-kit/kit/ui";
+import { InputChip } from "@solid-kit/kit/m3";
 import {
   BaseEdge,
   Flow,
@@ -47,9 +47,9 @@ function LabeledEdge(props: EdgeComponentProps) {
         class="overflow-visible"
       >
         <div class="flex h-full items-center justify-center">
-          <Badge variant="outline" class="bg-background">
+          <InputChip class="h-6 bg-surface px-2 typescale-label-medium">
             {props.edge.label ?? kind()}
-          </Badge>
+          </InputChip>
         </div>
       </foreignObject>
     </>

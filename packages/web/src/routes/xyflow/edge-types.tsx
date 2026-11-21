@@ -4,7 +4,7 @@ import source from "~/demos/xyflow/edge-types.tsx?raw";
 
 const EdgeTypesDemo = clientOnly(() => import("~/demos/xyflow/edge-types"));
 
-const snippet = `import { Badge } from "@solid-kit/kit/ui";
+const snippet = `import { InputChip } from "@solid-kit/kit/m3";
 import { BaseEdge, createFlow, getBezierPath, type EdgeComponentProps } from "@solid-kit/kit/xyflow";
 
 function LabeledEdge(props: EdgeComponentProps) {
@@ -13,7 +13,7 @@ function LabeledEdge(props: EdgeComponentProps) {
     <>
       <BaseEdge path={geometry()[0]} />
       <foreignObject x={geometry()[1] - 50} y={geometry()[2] - 12} width={100} height={24}>
-        <Badge variant="outline">{props.edge.label}</Badge>
+        <InputChip class="h-6 bg-surface px-2">{props.edge.label}</InputChip>
       </foreignObject>
     </>
   );

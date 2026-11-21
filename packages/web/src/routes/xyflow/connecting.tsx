@@ -4,7 +4,7 @@ import source from "~/demos/xyflow/connecting.tsx?raw";
 
 const ConnectingDemo = clientOnly(() => import("~/demos/xyflow/connecting"));
 
-const snippet = `import { Button, ButtonGroup } from "@solid-kit/kit/ui";
+const snippet = `import { Button, ButtonGroup } from "@solid-kit/kit/m3";
 import { Flow, createFlow } from "@solid-kit/kit/xyflow";
 
 const flow = createFlow(() => ({
@@ -14,11 +14,11 @@ const flow = createFlow(() => ({
   onConnect: (connection) => console.log(connection.source, connection.target),
 }));
 
-<ButtonGroup>
-  <Button variant="outline" onClick={() => flow.setNodes([...flow.nodes, nextNode()])}>
+<ButtonGroup variant="connected">
+  <Button variant="tonal" onClick={() => flow.setNodes([...flow.nodes, nextNode()])}>
     Add node
   </Button>
-  <Button variant="outline" onClick={() => void flow.fitView()}>
+  <Button variant="tonal" onClick={() => void flow.fitView()}>
     Fit view
   </Button>
 </ButtonGroup>

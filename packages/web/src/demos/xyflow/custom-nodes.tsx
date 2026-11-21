@@ -1,14 +1,15 @@
 import {
-  Badge,
   Card,
   CardAction,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
+  InputChip,
   Switch,
+  SwitchControl,
   SwitchLabel,
-} from "@solid-kit/kit/ui";
+} from "@solid-kit/kit/m3";
 import {
   Flow,
   Handle,
@@ -30,25 +31,31 @@ function TaskNode(props: NodeComponentProps) {
   return (
     <>
       <Handle type="target" position={Position.Left} />
-      <Card size="sm" class="w-56">
+      <Card variant="outlined" class="w-60">
         <CardHeader>
           <CardTitle>{data().title}</CardTitle>
           <CardDescription>{data().owner}</CardDescription>
           <CardAction>
-            <Badge variant={data().done ? "default" : "secondary"}>
+            <InputChip
+              class={
+                data().done
+                  ? "h-6 border-transparent bg-secondary-container px-2 text-on-secondary-container"
+                  : "h-6 px-2"
+              }
+            >
               {data().done ? "Done" : "Open"}
-            </Badge>
+            </InputChip>
           </CardAction>
         </CardHeader>
         <CardContent>
           {/* `nodrag` lets the switch take the pointer instead of starting a node drag. */}
-          <SwitchLabel class="nodrag">
-            <Switch
+          <Switch class="nodrag">
+            <SwitchControl
               checked={data().done}
               onCheckedChange={(done) => flow.updateNode(props.node.id, { data: { done } })}
             />
-            Complete
-          </SwitchLabel>
+            <SwitchLabel>Complete</SwitchLabel>
+          </Switch>
         </CardContent>
       </Card>
       <Handle type="source" position={Position.Right} />
@@ -62,12 +69,12 @@ function ReviewNode(props: NodeComponentProps) {
   return (
     <>
       <Handle type="target" position={Position.Left} />
-      <Card size="sm" class="w-44">
+      <Card variant="outlined" class="w-44">
         <CardHeader>
           <CardTitle>{data().title}</CardTitle>
           <CardDescription>Two outcomes</CardDescription>
         </CardHeader>
-        <CardContent class="grid gap-2 text-right text-muted-foreground">
+        <CardContent class="grid gap-2 text-right typescale-body-medium text-on-surface-variant">
           <span>Approved</span>
           <span>Changes</span>
         </CardContent>

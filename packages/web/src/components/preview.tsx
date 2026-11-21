@@ -8,15 +8,24 @@ import {
   CodeBlockLine,
   CodeBlockTitle,
   createHighlightedCode,
-} from "@solid-kit/kit/ui";
-import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@solid-kit/kit/m3";
+  Tabs,
+  TabsContent,
+  TabsIndicator,
+  TabsList,
+  TabsTrigger,
+} from "@solid-kit/kit/m3";
 import type { JSX } from "@solidjs/web";
 import { For, Show } from "solid-js";
 
 export function Preview(props: { children?: JSX.Element; class?: string }) {
   return (
     <div
-      class={cn("overflow-hidden rounded-lg border border-border bg-background p-6", props.class)}
+      class={cn(
+        "overflow-hidden rounded-lg border border-border bg-background p-6",
+        // Sections wrapped in `data-m3` (m3, motion, xyflow, tiptap) get an M3 surface.
+        "in-data-m3:rounded-large in-data-m3:border-outline-variant in-data-m3:bg-surface in-data-m3:text-on-surface",
+        props.class,
+      )}
     >
       {props.children}
     </div>

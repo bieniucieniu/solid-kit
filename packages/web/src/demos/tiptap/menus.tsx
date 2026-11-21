@@ -6,7 +6,7 @@ import { BubbleMenu, FloatingMenu } from "@solid-kit/kit/tiptap/menus";
 import { BlockButtons, HeadingButtons, MarkButtons, useMenuState } from "./menu-bar";
 
 const menuClass =
-  "flex items-center gap-1 rounded-lg border border-border bg-popover p-1 shadow-md";
+  "flex items-center gap-1 rounded-full bg-surface-container p-1 text-on-surface-variant shadow-level-3";
 
 function SelectionTools() {
   const state = useMenuState();

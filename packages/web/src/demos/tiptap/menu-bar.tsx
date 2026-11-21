@@ -1,6 +1,6 @@
 import { type JSX } from "@solidjs/web";
 import { For, Show } from "solid-js";
-import { Button, ButtonGroup, Toggle } from "@solid-kit/kit/ui";
+import { ButtonGroup, IconButton, ToggleIconButton, Toolbar } from "@solid-kit/kit/m3";
 import { useTiptap, useTiptapState } from "@solid-kit/kit/tiptap";
 
 const inactive = {
@@ -61,8 +61,7 @@ export function MenuToggle(props: {
   children: JSX.Element;
 }) {
   return (
-    <Toggle
-      variant="outline"
+    <ToggleIconButton
       aria-label={props.label}
       title={props.label}
       pressed={props.pressed}
@@ -70,7 +69,7 @@ export function MenuToggle(props: {
       onMouseDown={keepSelection}
     >
       {props.children}
-    </Toggle>
+    </ToggleIconButton>
   );
 }
 
@@ -213,10 +212,7 @@ export function HistoryButtons(props: { state: MenuState }) {
   const ctx = useTiptap();
   return (
     <ButtonGroup aria-label="History">
-      <Button
-        type="button"
-        variant="outline"
-        size="icon"
+      <IconButton
         aria-label="Undo"
         title="Undo"
         disabled={!props.state().canUndo}
@@ -227,11 +223,8 @@ export function HistoryButtons(props: { state: MenuState }) {
           <path d="M9 14 4 9l5-5" />
           <path d="M4 9h11a5 5 0 0 1 0 10h-3" />
         </Icon>
-      </Button>
-      <Button
-        type="button"
-        variant="outline"
-        size="icon"
+      </IconButton>
+      <IconButton
         aria-label="Redo"
         title="Redo"
         disabled={!props.state().canRedo}
@@ -242,7 +235,7 @@ export function HistoryButtons(props: { state: MenuState }) {
           <path d="m15 14 5-5-5-5" />
           <path d="M20 9H9a5 5 0 0 0 0 10h3" />
         </Icon>
-      </Button>
+      </IconButton>
     </ButtonGroup>
   );
 }
@@ -250,15 +243,11 @@ export function HistoryButtons(props: { state: MenuState }) {
 export function MenuBar() {
   const state = useMenuState();
   return (
-    <div
-      role="toolbar"
-      aria-label="Formatting"
-      class="flex flex-wrap items-center gap-2 border-b border-border bg-muted/40 px-3 py-2"
-    >
+    <Toolbar aria-label="Formatting" class="h-auto min-h-16 flex-wrap justify-start gap-2 py-2">
       <MarkButtons state={state} />
       <HeadingButtons state={state} />
       <BlockButtons state={state} />
       <HistoryButtons state={state} />
-    </div>
+    </Toolbar>
   );
 }

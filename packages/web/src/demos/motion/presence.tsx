@@ -1,5 +1,5 @@
 import { AnimatePresence, MotionConfig, motion } from "@solid-kit/kit/motion";
-import { Button } from "@solid-kit/kit/ui";
+import { Button } from "@solid-kit/kit/m3";
 import { createSignal } from "solid-js";
 
 export default function PresenceDemo() {
@@ -8,12 +8,10 @@ export default function PresenceDemo() {
   return (
     <MotionConfig transition={{ duration: 0.35 }}>
       <div class="flex flex-wrap items-center gap-4">
-        <Button type="button" onClick={() => setOpen((value) => !value)}>
-          Toggle
-        </Button>
+        <Button onClick={() => setOpen((value) => !value)}>Toggle</Button>
         <AnimatePresence when={open}>
           <motion.div
-            class="rounded-lg bg-muted px-4 py-3 text-sm text-foreground"
+            class="rounded-large bg-secondary-container px-4 py-3 typescale-body-medium text-on-secondary-container"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}

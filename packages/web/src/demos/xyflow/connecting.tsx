@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, ButtonGroupText } from "@solid-kit/kit/ui";
+import { Button, ButtonGroup, Toolbar } from "@solid-kit/kit/m3";
 import { Flow, Position, createFlow, type FlowEdge, type FlowNode } from "@solid-kit/kit/xyflow";
 import { Background, Controls } from "@solid-kit/kit/xyflow/panels";
 import { createSignal } from "solid-js";
@@ -59,27 +59,25 @@ export default function ConnectingDemo() {
 
   return (
     <div class="flex flex-col">
-      <div class="flex flex-wrap items-center gap-2 border-b border-border px-3 py-2">
-        <ButtonGroup>
-          <Button variant="outline" onClick={addNode}>
+      <Toolbar class="h-auto min-h-16 flex-wrap justify-start gap-x-4 gap-y-2 py-2">
+        <ButtonGroup variant="connected" size="sm">
+          <Button variant="tonal" onClick={addNode}>
             Add node
           </Button>
-          <Button variant="outline" onClick={() => void flow.fitView()}>
+          <Button variant="tonal" onClick={() => void flow.fitView()}>
             Fit view
           </Button>
-          <Button variant="outline" onClick={reset}>
+          <Button variant="tonal" onClick={reset}>
             Reset
           </Button>
         </ButtonGroup>
-        <ButtonGroup>
-          <ButtonGroupText>
-            {flow.nodes.length} nodes · {flow.edges.length} edges
-          </ButtonGroupText>
-        </ButtonGroup>
-        <p class="text-xs text-muted-foreground" aria-live="polite">
+        <span class="typescale-label-large text-on-surface">
+          {flow.nodes.length} nodes · {flow.edges.length} edges
+        </span>
+        <p class="typescale-body-small text-on-surface-variant" aria-live="polite">
           {last()}
         </p>
-      </div>
+      </Toolbar>
       <div class="h-96">
         <Flow flow={flow}>
           <Background />

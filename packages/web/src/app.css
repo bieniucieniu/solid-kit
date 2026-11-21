@@ -27,9 +27,9 @@
 
 .tiptap-editor {
   overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--background);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-large);
+  background: var(--md-sys-color-surface);
 }
 
 .ProseMirror {
@@ -47,7 +47,7 @@
 .ProseMirror p.is-editor-empty:first-child::before {
   float: left;
   height: 0;
-  color: var(--muted-foreground);
+  color: var(--md-sys-color-on-surface-variant);
   pointer-events: none;
   content: attr(data-placeholder);
 }
@@ -100,14 +100,14 @@
 }
 
 .ProseMirror blockquote {
-  border-left: 2px solid var(--border);
+  border-left: 2px solid var(--md-sys-color-outline-variant);
   padding-left: 0.875rem;
-  color: var(--muted-foreground);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 .ProseMirror code {
-  border-radius: 0.25rem;
-  background: var(--muted);
+  border-radius: var(--radius-extra-small);
+  background: var(--md-sys-color-surface-container-high);
   padding: 0.125rem 0.3rem;
   font-family: ui-monospace, monospace;
   font-size: 0.8125em;
@@ -115,9 +115,9 @@
 
 .ProseMirror pre {
   overflow-x: auto;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background: var(--muted);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--radius-medium);
+  background: var(--md-sys-color-surface-container-high);
   padding: 0.75rem 1rem;
   font-family: ui-monospace, monospace;
   font-size: 0.8125rem;
@@ -133,28 +133,32 @@
 .ProseMirror hr {
   margin-block: 1.5em;
   border: 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--md-sys-color-outline-variant);
 }
 
-/* Map xyflow's variables to the theme tokens so the canvas follows light and dark mode. */
+/* Map xyflow's variables to the M3 tokens so the canvas follows light and dark mode. */
 .xy-flow {
-  --xy-node-color: var(--card-foreground);
-  --xy-node-background-color: var(--card);
-  --xy-node-border: 1px solid var(--border);
-  --xy-node-border-radius: var(--radius-md);
-  --xy-node-boxshadow-selected: 0 0 0 2px var(--ring);
-  --xy-handle-background-color: var(--foreground);
-  --xy-handle-border-color: var(--background);
-  --xy-edge-stroke: var(--muted-foreground);
-  --xy-edge-stroke-selected: var(--foreground);
-  --xy-connectionline-stroke: var(--muted-foreground);
-  --xy-background-pattern-dots-color: var(--border);
-  --xy-selection-background-color: color-mix(in oklch, var(--ring) 10%, transparent);
-  --xy-selection-border: 1px dotted var(--ring);
-  --xy-controls-button-background-color: var(--background);
-  --xy-controls-button-background-color-hover: var(--muted);
-  --xy-controls-button-color: var(--foreground);
-  --xy-controls-button-color-hover: var(--foreground);
-  --xy-controls-button-border-color: var(--border);
-  --xy-controls-box-shadow: 0 0 0 1px var(--border);
+  --xy-node-color: var(--md-sys-color-on-surface);
+  --xy-node-background-color: var(--md-sys-color-surface-container-low);
+  --xy-node-border: 1px solid var(--md-sys-color-outline-variant);
+  --xy-node-border-radius: var(--radius-medium);
+  --xy-node-boxshadow-selected: 0 0 0 2px var(--md-sys-color-primary);
+  --xy-handle-background-color: var(--md-sys-color-on-surface);
+  --xy-handle-border-color: var(--md-sys-color-surface);
+  --xy-edge-stroke: var(--md-sys-color-on-surface-variant);
+  --xy-edge-stroke-selected: var(--md-sys-color-on-surface);
+  --xy-connectionline-stroke: var(--md-sys-color-on-surface-variant);
+  --xy-background-pattern-dots-color: var(--md-sys-color-outline-variant);
+  --xy-selection-background-color: color-mix(
+    in oklch,
+    var(--md-sys-color-primary) 10%,
+    transparent
+  );
+  --xy-selection-border: 1px dotted var(--md-sys-color-primary);
+  --xy-controls-button-background-color: var(--md-sys-color-surface);
+  --xy-controls-button-background-color-hover: var(--md-sys-color-surface-container-high);
+  --xy-controls-button-color: var(--md-sys-color-on-surface);
+  --xy-controls-button-color-hover: var(--md-sys-color-on-surface);
+  --xy-controls-button-border-color: var(--md-sys-color-outline-variant);
+  --xy-controls-box-shadow: 0 0 0 1px var(--md-sys-color-outline-variant);
 }

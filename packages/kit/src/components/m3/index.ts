@@ -7,6 +7,7 @@ export * from "./button-group";
 export * from "./card";
 export * from "./checkbox";
 export * from "./chip";
+export * from "./code-block";
 export * from "./dialog";
 export * from "./divider";
 export * from "./fab";

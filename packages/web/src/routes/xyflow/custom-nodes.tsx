@@ -4,7 +4,7 @@ import source from "~/demos/xyflow/custom-nodes.tsx?raw";
 
 const CustomNodesDemo = clientOnly(() => import("~/demos/xyflow/custom-nodes"));
 
-const snippet = `import { Card, CardHeader, CardTitle, Switch, SwitchLabel } from "@solid-kit/kit/ui";
+const snippet = `import { Card, CardHeader, CardTitle, Switch, SwitchControl, SwitchLabel } from "@solid-kit/kit/m3";
 import {
   Handle,
   Position,
@@ -18,18 +18,18 @@ function TaskNode(props: NodeComponentProps) {
   return (
     <>
       <Handle type="target" position={Position.Left} />
-      <Card size="sm">
+      <Card variant="outlined">
         <CardHeader>
           <CardTitle>{props.node.data.title as string}</CardTitle>
         </CardHeader>
         {/* \`nodrag\` lets the switch take the pointer instead of starting a node drag. */}
-        <SwitchLabel class="nodrag">
-          <Switch
+        <Switch class="nodrag">
+          <SwitchControl
             checked={props.node.data.done as boolean}
             onCheckedChange={(done) => flow.updateNode(props.node.id, { data: { done } })}
           />
-          Complete
-        </SwitchLabel>
+          <SwitchLabel>Complete</SwitchLabel>
+        </Switch>
       </Card>
       <Handle id="approved" type="source" position={Position.Right} />
     </>
@@ -52,7 +52,7 @@ export default function CustomNodesPage() {
   return (
     <DocsPage
       title="Custom nodes"
-      description="Nodes built from ui cards, with named handles and state the node updates itself."
+      description="Nodes built from m3 cards, with named handles and state the node updates itself."
       snippet={snippet}
       source={source}
       sourceTitle="demos/xyflow/custom-nodes.tsx"

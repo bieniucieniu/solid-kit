@@ -1,4 +1,6 @@
 import { describe, expect, test } from "vite-plus/test";
+// Loads the Playwright provider's option types (`force` on dragAndDrop).
+import type {} from "vite-plus/test/browser-playwright";
 import { page, userEvent } from "vite-plus/test/browser";
 import {
   TextNode,
@@ -138,7 +140,11 @@ describe("nodes", () => {
       .element()
       .querySelector(".xy-flow__handle.target");
     if (!source || !target) throw new Error("handles were not measured");
-    await userEvent.dragAndDrop(page.elementLocator(source), page.elementLocator(target));
+    // A handle on a non-connectable node takes no pointer events (no `connectionindicator`),
+    // so the node under it gets the press. `force` skips Playwright's hit check and drags anyway.
+    await userEvent.dragAndDrop(page.elementLocator(source), page.elementLocator(target), {
+      force: true,
+    });
 
     expect(flow.edges.length).toBe(0);
   });

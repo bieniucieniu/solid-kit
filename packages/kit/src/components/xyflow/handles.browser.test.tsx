@@ -28,6 +28,16 @@ function handleCenter(node: HTMLElement, kind: "source" | "target") {
   return center(handle);
 }
 
+// Where an edge meets a handle: the middle of the handle's outer side, as @xyflow/system's
+// getHandlePosition (and React Flow) computes it from the measured handle box.
+function handleAnchor(node: HTMLElement, kind: "source" | "target") {
+  const handle = node.querySelector(`.xy-flow__handle.${kind}`);
+  if (!(handle instanceof HTMLElement)) return null;
+  const side = handle.dataset.handlepos;
+  if (side !== "top" && side !== "right" && side !== "bottom" && side !== "left") return null;
+  return edgePoint(handle, side);
+}
+
 function pathEnds(edge: Element) {
   const path = edge.querySelector(".xy-flow__edge-path");
   if (!(path instanceof SVGPathElement)) return null;
@@ -79,8 +89,8 @@ describe("handles", () => {
         const edge = view.getByTestId("rf__edge-e1-2").query();
         if (!edge) return 999;
         const ends = pathEnds(edge);
-        const source = handleCenter(flowNode(view, "1"), "source");
-        const target = handleCenter(flowNode(view, "2"), "target");
+        const source = handleAnchor(flowNode(view, "1"), "source");
+        const target = handleAnchor(flowNode(view, "2"), "target");
         if (!ends || !source || !target) return 999;
         return Math.max(distance(ends.start, source), distance(ends.end, target));
       })
@@ -129,8 +139,8 @@ describe("handles", () => {
         const edge = view.getByTestId("rf__edge-e1-2").query();
         if (!edge) return 999;
         const ends = pathEnds(edge);
-        const source = handleCenter(flowNode(view, "1"), "source");
-        const target = handleCenter(flowNode(view, "2"), "target");
+        const source = handleAnchor(flowNode(view, "1"), "source");
+        const target = handleAnchor(flowNode(view, "2"), "target");
         if (!ends || !source || !target) return 999;
         return Math.max(distance(ends.start, source), distance(ends.end, target));
       })
@@ -178,8 +188,8 @@ describe("handles", () => {
         const edge = view.getByTestId("rf__edge-e1-2").query();
         if (!edge) return 999;
         const ends = pathEnds(edge);
-        const source = handleCenter(flowNode(view, "1"), "source");
-        const target = handleCenter(flowNode(view, "2"), "target");
+        const source = handleAnchor(flowNode(view, "1"), "source");
+        const target = handleAnchor(flowNode(view, "2"), "target");
         if (!ends || !source || !target) return 999;
         return Math.max(distance(ends.start, source), distance(ends.end, target));
       })

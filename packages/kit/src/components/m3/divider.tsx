@@ -14,9 +14,10 @@ type DividerProps = ComponentProps<typeof SeparatorPrimitive> & {
 
 /** A 1px outline-variant line. `inset` indents it from the start or both ends. */
 export function Divider(props: DividerProps) {
-  const rest = omit(props, "class", "inset");
+  const rest = omit(props, "inset");
   return (
     <SeparatorPrimitive
+      {...rest}
       class={partClass(
         () =>
           cn(
@@ -25,7 +26,6 @@ export function Divider(props: DividerProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }

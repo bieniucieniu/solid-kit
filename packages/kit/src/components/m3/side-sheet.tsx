@@ -17,9 +17,9 @@ export function SideSheet(props: ComponentProps<typeof DialogRootPrimitive>) {
 }
 
 export function SideSheetOverlay(props: ComponentProps<typeof DialogBackdropPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogBackdropPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -27,7 +27,6 @@ export function SideSheetOverlay(props: ComponentProps<typeof DialogBackdropPrim
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -42,9 +41,10 @@ const sideClasses = {
 export function SideSheetContent(
   props: ComponentProps<typeof DialogContentPrimitive> & { side?: "start" | "end" },
 ) {
-  const rest = omit(props, "class", "side");
+  const rest = omit(props, "side");
   return (
     <DialogContentPrimitive
+      {...rest}
       class={partClass(
         () =>
           cn(
@@ -53,80 +53,71 @@ export function SideSheetContent(
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function SideSheetHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
-      ref={props.ref}
       data-slot="side-sheet-header"
+      {...props}
       class={cn("flex min-h-18 shrink-0 items-center gap-2 pr-3 pl-6", props.class)}
-      {...rest}
     />
   );
 }
 
 export function SideSheetTitle(props: ComponentProps<typeof DialogTitlePrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogTitlePrimitive
+      {...props}
       class={partClass(
         () => cn("flex-1 typescale-title-large text-on-surface-variant"),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function SideSheetDescription(props: ComponentProps<typeof DialogDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogDescriptionPrimitive
+      {...props}
       class={partClass(() => cn("px-6 typescale-body-medium text-on-surface-variant"), props.class)}
-      {...rest}
     />
   );
 }
 
 export function SideSheetBody(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
-      ref={props.ref}
       data-slot="side-sheet-body"
+      {...props}
       class={cn("min-h-0 flex-1 overflow-y-auto px-6 py-2", props.class)}
-      {...rest}
     />
   );
 }
 
 /** Bottom action row with a divider above it. */
 export function SideSheetActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
-      ref={props.ref}
       data-slot="side-sheet-actions"
+      {...props}
       class={cn(
         "flex shrink-0 items-center gap-2 border-t border-outline-variant px-6 pt-4 pb-6",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Icon close button for the header. Shows a close icon unless given children. */
 export function SideSheetClose(props: ComponentProps<typeof DialogClosePrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <DialogClosePrimitive
       aria-label="Close"
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -134,7 +125,6 @@ export function SideSheetClose(props: ComponentProps<typeof DialogClosePrimitive
           ),
         props.class,
       )}
-      {...rest}
     >
       {props.children ?? (
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

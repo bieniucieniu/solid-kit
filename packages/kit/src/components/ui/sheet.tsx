@@ -18,8 +18,7 @@ type SheetSide = "top" | "right" | "bottom" | "left";
 
 /** A panel from an edge of the screen. `side` defaults to `right`. */
 export function Sheet(props: ComponentProps<typeof DrawerPrimitive>) {
-  const rest = omit(props, "side");
-  return <DrawerPrimitive side={props.side ?? "right"} {...rest} />;
+  return <DrawerPrimitive {...props} side={props.side ?? "right"} />;
 }
 
 export function SheetTrigger(props: ComponentProps<typeof DrawerTriggerPrimitive>) {
@@ -27,14 +26,13 @@ export function SheetTrigger(props: ComponentProps<typeof DrawerTriggerPrimitive
 }
 
 export function SheetOverlay(props: ComponentProps<typeof DrawerBackdropPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerBackdropPrimitive
+      {...props}
       class={partClass(
         "fixed inset-0 z-50 bg-black/80 supports-backdrop-filter:backdrop-blur-xs",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -46,15 +44,15 @@ export function SheetContent(
     showCloseButton?: boolean;
   },
 ) {
-  const rest = omit(props, "class", "children", "side", "showCloseButton");
+  const rest = omit(props, "side", "showCloseButton");
   return (
     <DrawerContentPrimitive
       data-close-button={(props.showCloseButton ?? true) ? "" : undefined}
+      {...rest}
       class={partClass(
         "z-50 flex flex-col gap-4 bg-popover bg-clip-padding p-6 text-xs/relaxed text-popover-foreground shadow-lg outline-none data-[side=bottom]:h-auto data-[side=bottom]:w-full data-[side=bottom]:border-t data-[side=left]:h-full data-[side=left]:w-3/4 data-[side=left]:border-r data-[side=right]:h-full data-[side=right]:w-3/4 data-[side=right]:border-l data-[side=top]:h-auto data-[side=top]:w-full data-[side=top]:border-b data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm",
         props.class,
       )}
-      {...rest}
     >
       {props.children as JSX.Element}
       <Show when={props.showCloseButton ?? true}>
@@ -85,33 +83,30 @@ export function SheetContent(
 }
 
 export function SheetHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
       data-slot="sheet-header"
+      {...props}
       class={cn("flex flex-col gap-1.5 in-data-close-button:pr-8", props.class)}
-      {...rest}
     />
   );
 }
 
 export function SheetFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
       data-slot="sheet-footer"
+      {...props}
       class={cn("mt-auto flex flex-col gap-2", props.class)}
-      {...rest}
     />
   );
 }
 
 export function SheetTitle(props: ComponentProps<typeof DrawerTitlePrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerTitlePrimitive
+      {...props}
       class={partClass("text-sm font-medium text-foreground", props.class)}
-      {...rest}
     />
   );
 }
@@ -120,11 +115,10 @@ export function SheetTitle(props: ComponentProps<typeof DrawerTitlePrimitive>) {
 export const SheetLabel = SheetTitle;
 
 export function SheetDescription(props: ComponentProps<typeof DrawerDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerDescriptionPrimitive
+      {...props}
       class={partClass("text-xs/relaxed text-muted-foreground", props.class)}
-      {...rest}
     />
   );
 }
@@ -135,14 +129,14 @@ export function SheetClose(
     size?: ButtonSize;
   },
 ) {
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <DrawerClosePrimitive
+      {...rest}
       class={partClass(
         () => buttonVariants({ variant: props.variant ?? "outline", size: props.size }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

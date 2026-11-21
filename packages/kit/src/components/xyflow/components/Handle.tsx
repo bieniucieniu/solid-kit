@@ -27,7 +27,6 @@ export function Handle(props: HandleProps) {
     "type",
     "position",
     "id",
-    "class",
     "isConnectable",
     "isConnectableStart",
     "isConnectableEnd",

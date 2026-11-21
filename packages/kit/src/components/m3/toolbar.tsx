@@ -28,21 +28,20 @@ export interface ToolbarProps extends JSX.HTMLAttributes<HTMLDivElement> {
 
 /** Frequently used actions for the current page. Put icon buttons and buttons inside. */
 export function Toolbar(props: ToolbarProps) {
-  const rest = omit(props, "class", "ref", "variant", "color", "orientation");
+  const rest = omit(props, "variant", "color", "orientation");
   return (
     <div
-      ref={props.ref}
       role="toolbar"
       aria-orientation={props.orientation ?? "horizontal"}
       data-slot="toolbar"
       data-variant={props.variant ?? "docked"}
       data-orientation={props.orientation ?? "horizontal"}
+      {...rest}
       class={cn(
         toolbarVariantClasses[props.variant ?? "docked"],
         toolbarColorClasses[props.color ?? "standard"],
         props.class,
       )}
-      {...rest}
     />
   );
 }

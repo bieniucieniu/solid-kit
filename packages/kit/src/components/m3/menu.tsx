@@ -15,7 +15,7 @@ import {
   MenuTrigger as MenuTriggerPrimitive,
 } from "@ui-sdk/solid/menu";
 import { type JSX } from "@solidjs/web";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { cn, partClass } from "#kit/lib/utils";
 
 const surfaceClass =
@@ -64,68 +64,53 @@ function ChevronRightIcon() {
 }
 
 export function MenuContent(props: MenuContentProps) {
-  const rest = omit(props, "class");
   return (
     <MenuContentPrimitive
       sideOffset={4}
+      {...props}
       class={partClass(() => cn(surfaceClass), props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuItem(props: MenuItemProps) {
-  const rest = omit(props, "class");
-  return <MenuItemPrimitive class={partClass(() => cn(itemClass), props.class)} {...rest} />;
+  return <MenuItemPrimitive {...props} class={partClass(() => cn(itemClass), props.class)} />;
 }
 
 /** Leading icon slot, in on-surface-variant. */
 export function MenuItemIcon(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
-      ref={props.ref}
       data-slot="menu-item-icon"
+      {...props}
       class={cn(
         "flex shrink-0 text-on-surface-variant group-data-checked/menu-item:text-on-tertiary-container group-data-disabled/menu-item:text-on-surface/38",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Labels a MenuItem, MenuCheckboxItem, or MenuRadioItem. In MenuSubTrigger use a plain span. */
 export function MenuItemLabel(props: MenuItemLabelProps) {
-  const rest = omit(props, "class");
-  return (
-    <span
-      ref={props.ref}
-      data-slot="menu-item-label"
-      class={cn("flex-1 truncate", props.class)}
-      {...rest}
-    />
-  );
+  return <span data-slot="menu-item-label" {...props} class={cn("flex-1 truncate", props.class)} />;
 }
 
 export function MenuItemDescription(props: MenuItemDescriptionProps) {
-  const rest = omit(props, "class");
   return (
     <span
-      ref={props.ref}
       data-slot="menu-item-description"
+      {...props}
       class={cn("typescale-body-small text-on-surface-variant", props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuItemIndicator(props: MenuItemIndicatorProps) {
-  const rest = omit(props, "class", "children");
   return (
     <MenuItemIndicatorPrimitive
+      {...props}
       class={partClass(() => cn("ml-auto flex shrink-0"), props.class)}
-      {...rest}
     >
       {props.children ?? <CheckIcon />}
     </MenuItemIndicatorPrimitive>
@@ -134,76 +119,68 @@ export function MenuItemIndicator(props: MenuItemIndicatorProps) {
 
 /** Trailing text such as a keyboard shortcut. */
 export function MenuShortcut(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
-      ref={props.ref}
       data-slot="menu-shortcut"
+      {...props}
       class={cn("ml-auto typescale-label-large text-on-surface-variant", props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuCheckboxItem(props: MenuCheckboxItemProps) {
-  const rest = omit(props, "class");
   return (
     <MenuCheckboxItemPrimitive
+      {...props}
       class={partClass(() => cn(itemClass, selectableItemClass), props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuRadioGroup(props: MenuRadioGroupProps) {
-  const rest = omit(props, "class");
   return (
     <MenuRadioGroupPrimitive
+      {...props}
       class={partClass(() => cn("flex flex-col gap-0.5"), props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuRadioItem(props: MenuRadioItemProps) {
-  const rest = omit(props, "class");
   return (
     <MenuRadioItemPrimitive
+      {...props}
       class={partClass(() => cn(itemClass, selectableItemClass), props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuGroup(props: MenuGroupProps) {
-  const rest = omit(props, "class");
   return (
     <MenuGroupPrimitive
+      {...props}
       class={partClass(() => cn("flex flex-col gap-0.5"), props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuGroupLabel(props: MenuGroupLabelProps) {
-  const rest = omit(props, "class");
   return (
     <MenuGroupLabelPrimitive
+      {...props}
       class={partClass(
         () => cn("px-3 pt-2 pb-1 typescale-label-medium text-on-surface-variant"),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function MenuSubTrigger(props: MenuSubTriggerProps) {
-  const rest = omit(props, "class", "children");
   return (
     <MenuSubTriggerPrimitive
+      {...props}
       class={partClass(() => cn(itemClass, "data-open:bg-on-surface/8"), props.class)}
-      {...rest}
     >
       {props.children}
       <ChevronRightIcon />
@@ -212,18 +189,16 @@ export function MenuSubTrigger(props: MenuSubTriggerProps) {
 }
 
 export function MenuSubContent(props: MenuSubContentProps) {
-  const rest = omit(props, "class");
   return (
-    <MenuSubContentPrimitive class={partClass(() => cn(surfaceClass), props.class)} {...rest} />
+    <MenuSubContentPrimitive {...props} class={partClass(() => cn(surfaceClass), props.class)} />
   );
 }
 
 export function MenuSeparator(props: MenuSeparatorProps) {
-  const rest = omit(props, "class");
   return (
     <MenuSeparatorPrimitive
+      {...props}
       class={partClass(() => cn("mx-3 my-1 h-px border-none bg-outline-variant"), props.class)}
-      {...rest}
     />
   );
 }

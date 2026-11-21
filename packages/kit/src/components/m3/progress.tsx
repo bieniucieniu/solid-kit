@@ -10,31 +10,28 @@ import { partClass } from "#kit/lib/utils";
 
 /** Linear progress. ui-sdk progress: `value` (null while indeterminate), `min`, `max`. */
 export function Progress(props: ComponentProps<typeof ProgressPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <ProgressPrimitive
+      {...props}
       class={partClass("group/progress flex w-full flex-col gap-2", props.class)}
-      {...rest}
     />
   );
 }
 
 export function ProgressLabel(props: ComponentProps<typeof ProgressLabelPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <ProgressLabelPrimitive
+      {...props}
       class={partClass("typescale-title-small text-on-surface", props.class)}
-      {...rest}
     />
   );
 }
 
 export function ProgressValueLabel(props: ComponentProps<typeof ProgressValuePrimitive>) {
-  const rest = omit(props, "class");
   return (
     <ProgressValuePrimitive
+      {...props}
       class={partClass("typescale-label-large text-on-surface-variant tabular-nums", props.class)}
-      {...rest}
     />
   );
 }
@@ -44,14 +41,13 @@ export function ProgressValueLabel(props: ComponentProps<typeof ProgressValuePri
  * marks the end.
  */
 export function ProgressTrack(props: ComponentProps<typeof ProgressTrackPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <ProgressTrackPrimitive
+      {...props}
       class={partClass(
         "relative flex h-1 w-full items-center gap-1 has-data-wavy:h-2.5 after:h-1 after:min-w-0 after:flex-1 after:rounded-full after:bg-secondary-container before:absolute before:right-0 before:z-10 before:size-1 before:rounded-full before:bg-primary group-data-indeterminate/progress:overflow-hidden group-data-indeterminate/progress:rounded-full group-data-indeterminate/progress:bg-secondary-container group-data-indeterminate/progress:before:hidden group-data-indeterminate/progress:after:hidden",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -63,15 +59,15 @@ export function ProgressFill(
     wavy?: boolean;
   },
 ) {
-  const rest = omit(props, "class", "wavy");
+  const rest = omit(props, "wavy");
   return (
     <ProgressIndicatorPrimitive
       data-wavy={props.wavy ? "" : undefined}
+      {...rest}
       class={partClass(
         "h-1 shrink-0 rounded-full bg-primary motion-default data-wavy:h-2.5 data-wavy:wave-mask data-wavy:animate-m3-wave group-data-indeterminate/progress:w-1/2 group-data-indeterminate/progress:origin-left group-data-indeterminate/progress:animate-m3-linear-indeterminate",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -128,12 +124,12 @@ export function CircularProgress(
     thickness?: number;
   },
 ) {
-  const rest = omit(props, "class", "size", "thickness", "children");
+  const rest = omit(props, "size", "thickness");
   return (
     <ProgressPrimitive
       data-variant="circular"
-      class={partClass("group/progress inline-flex shrink-0", props.class)}
       {...rest}
+      class={partClass("group/progress inline-flex shrink-0", props.class)}
     >
       {(state) => (
         <CircularIndicator

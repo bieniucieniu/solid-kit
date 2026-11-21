@@ -8,7 +8,7 @@ import {
   PaginationNext as PaginationNextPrimitive,
   PaginationPrevious as PaginationPreviousPrimitive,
 } from "@ui-sdk/solid/pagination";
-import { type ComponentProps, For, omit } from "solid-js";
+import { type ComponentProps, For } from "solid-js";
 import { buttonVariants } from "./button";
 import { cn, partClass } from "#kit/lib/utils";
 
@@ -25,47 +25,42 @@ const stepClass = buttonVariants({ variant: "ghost" });
 
 /** A `nav` around the page list. Pass `pageCount` (or `total` and `pageSize`) and `page`/`onPageChange`. */
 export function Pagination(props: ComponentProps<typeof PaginationPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <PaginationPrimitive
       aria-label="Pagination"
+      {...props}
       class={partClass("mx-auto flex w-full justify-center data-disabled:opacity-50", props.class)}
-      {...rest}
     />
   );
 }
 
 export function PaginationList(props: ComponentProps<typeof PaginationListPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <PaginationListPrimitive
+      {...props}
       class={partClass("flex list-none items-center gap-0.5 p-0", props.class)}
-      {...rest}
     />
   );
 }
 
 export function PaginationItem(props: ComponentProps<typeof PaginationItemPrimitive>) {
-  const rest = omit(props, "class");
-  return <PaginationItemPrimitive class={partClass("flex", props.class)} {...rest} />;
+  return <PaginationItemPrimitive {...props} class={partClass("flex", props.class)} />;
 }
 
 /** A page's link. It shows its page number unless you pass children. */
 export function PaginationLink(props: ComponentProps<typeof PaginationLinkPrimitive>) {
-  const rest = omit(props, "class");
-  return <PaginationLinkPrimitive class={partClass(pageClass, props.class)} {...rest} />;
+  return <PaginationLinkPrimitive {...props} class={partClass(pageClass, props.class)} />;
 }
 
 export function PaginationPrevious(props: ComponentProps<typeof PaginationPreviousPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <PaginationPreviousPrimitive
       aria-label="Go to previous page"
+      {...props}
       class={partClass(
         cn(stepClass, "pl-2! data-disabled:pointer-events-none data-disabled:opacity-50"),
         props.class,
       )}
-      {...rest}
     >
       {(props.children as JSX.Element) ?? (
         <>
@@ -87,15 +82,14 @@ export function PaginationPrevious(props: ComponentProps<typeof PaginationPrevio
 }
 
 export function PaginationNext(props: ComponentProps<typeof PaginationNextPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <PaginationNextPrimitive
       aria-label="Go to next page"
+      {...props}
       class={partClass(
         cn(stepClass, "pr-2! data-disabled:pointer-events-none data-disabled:opacity-50"),
         props.class,
       )}
-      {...rest}
     >
       {(props.children as JSX.Element) ?? (
         <>
@@ -117,14 +111,13 @@ export function PaginationNext(props: ComponentProps<typeof PaginationNextPrimit
 }
 
 export function PaginationEllipsis(props: ComponentProps<typeof PaginationEllipsisPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <PaginationEllipsisPrimitive
+      {...props}
       class={partClass(
         "flex size-7 items-center justify-center [&_svg:not([class*='size-'])]:size-3.5",
         props.class,
       )}
-      {...rest}
     />
   );
 }

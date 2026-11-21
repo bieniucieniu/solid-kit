@@ -4,7 +4,7 @@ import {
   CheckboxGroup as CheckboxGroupPrimitive,
   CheckboxIndicator as CheckboxIndicatorPrimitive,
 } from "@ui-sdk/solid/checkbox";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { cn, partClass } from "#kit/lib/utils";
 
 /**
@@ -12,14 +12,13 @@ import { cn, partClass } from "#kit/lib/utils";
  * text in `CheckboxLabel` (a `<label>`), or name it with `aria-label`.
  */
 export function Checkbox(props: ComponentProps<typeof CheckboxPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <CheckboxPrimitive
+      {...props}
       class={partClass(
         "group/checkbox relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input transition-shadow outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:cursor-not-allowed disabled:opacity-50 data-disabled:cursor-not-allowed data-disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive/20 dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary data-indeterminate:border-primary data-indeterminate:bg-primary data-indeterminate:text-primary-foreground dark:data-indeterminate:bg-primary",
         props.class,
       )}
-      {...rest}
     >
       {(props.children as JSX.Element) ?? <CheckboxIndicator />}
     </CheckboxPrimitive>
@@ -28,14 +27,13 @@ export function Checkbox(props: ComponentProps<typeof CheckboxPrimitive>) {
 
 /** Shows while checked or mixed: a check, or a dash while mixed. */
 export function CheckboxIndicator(props: ComponentProps<typeof CheckboxIndicatorPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <CheckboxIndicatorPrimitive
+      {...props}
       class={partClass(
         "grid place-content-center text-current transition-none [&>svg]:size-3.5",
         props.class,
       )}
-      {...rest}
     >
       {(props.children as JSX.Element) ?? (
         <svg
@@ -57,20 +55,18 @@ export function CheckboxIndicator(props: ComponentProps<typeof CheckboxIndicator
 
 /** A `<label>` that lays out a checkbox and its text. */
 export function CheckboxLabel(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {
-  const rest = omit(props, "class");
   return (
     <label
       data-slot="checkbox-label"
+      {...props}
       class={cn(
         "inline-flex items-center gap-2 text-xs/relaxed leading-none font-medium text-foreground select-none has-data-disabled:cursor-not-allowed has-data-disabled:opacity-50",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function CheckboxGroup(props: ComponentProps<typeof CheckboxGroupPrimitive>) {
-  const rest = omit(props, "class");
-  return <CheckboxGroupPrimitive class={partClass("grid gap-3", props.class)} {...rest} />;
+  return <CheckboxGroupPrimitive {...props} class={partClass("grid gap-3", props.class)} />;
 }

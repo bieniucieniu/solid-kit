@@ -8,7 +8,7 @@ import {
   DrawerTrigger as DrawerTriggerPrimitive,
 } from "@ui-sdk/solid/drawer";
 import { type JSX } from "@solidjs/web";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { ScrollArea } from "./scroll-area";
 import { cn, partClass } from "#kit/lib/utils";
 
@@ -22,11 +22,10 @@ export function BottomSheet(props: Omit<ComponentProps<typeof DrawerRootPrimitiv
 
 /** The scrim. ui-sdk fades it with how far the sheet is open, so it tracks a drag. */
 export function BottomSheetOverlay(props: ComponentProps<typeof DrawerBackdropPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerBackdropPrimitive
+      {...props}
       class={partClass(() => cn("fixed inset-0 z-50 bg-scrim/32"), props.class)}
-      {...rest}
     />
   );
 }
@@ -37,9 +36,9 @@ export function BottomSheetOverlay(props: ComponentProps<typeof DrawerBackdropPr
  * space. Put long content in `BottomSheetBody`.
  */
 export function BottomSheetContent(props: ComponentProps<typeof DrawerContentPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerContentPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -47,44 +46,39 @@ export function BottomSheetContent(props: ComponentProps<typeof DrawerContentPri
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** The 32x4 grab handle at the top. Visual only: the whole sheet is draggable. */
 export function BottomSheetDragHandle(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
-      ref={props.ref}
       aria-hidden="true"
       data-slot="bottom-sheet-drag-handle"
+      {...props}
       class={cn(
         "mx-auto my-5.5 h-1 w-8 shrink-0 rounded-full bg-on-surface-variant/40",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function BottomSheetTitle(props: ComponentProps<typeof DrawerTitlePrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerTitlePrimitive
+      {...props}
       class={partClass(() => cn("px-2 pb-2 typescale-title-large text-on-surface"), props.class)}
-      {...rest}
     />
   );
 }
 
 export function BottomSheetDescription(props: ComponentProps<typeof DrawerDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerDescriptionPrimitive
+      {...props}
       class={partClass(() => cn("px-2 typescale-body-medium text-on-surface-variant"), props.class)}
-      {...rest}
     />
   );
 }
@@ -95,13 +89,11 @@ export function BottomSheetDescription(props: ComponentProps<typeof DrawerDescri
  * closing the sheet only once it is scrolled to the top.
  */
 export function BottomSheetBody(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <ScrollArea
-      ref={props.ref}
       data-slot="bottom-sheet-body"
+      {...props}
       class={cn("-mx-4 -mb-6 min-h-0 flex-1 px-4 pb-6", props.class)}
-      {...rest}
     />
   );
 }

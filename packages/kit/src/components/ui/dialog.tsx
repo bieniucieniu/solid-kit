@@ -23,14 +23,13 @@ export function DialogTrigger(props: ComponentProps<typeof DialogTriggerPrimitiv
 }
 
 export function DialogOverlay(props: ComponentProps<typeof DialogBackdropPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogBackdropPrimitive
+      {...props}
       class={partClass(
         "fixed inset-0 isolate z-50 bg-black/80 transition-opacity duration-100 supports-backdrop-filter:backdrop-blur-xs data-starting-style:opacity-0 data-ending-style:opacity-0",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -41,14 +40,14 @@ export const DialogBackdrop = DialogOverlay;
 export function DialogContent(
   props: ComponentProps<typeof DialogContentPrimitive> & { showCloseButton?: boolean },
 ) {
-  const rest = omit(props, "class", "children", "showCloseButton");
+  const rest = omit(props, "showCloseButton");
   return (
     <DialogContentPrimitive
+      {...rest}
       class={partClass(
         "fixed top-1/2 left-1/2 z-50 m-0 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border-0 bg-popover p-4 text-xs/relaxed text-popover-foreground ring-1 ring-foreground/10 transition-[opacity,scale] duration-100 outline-none sm:max-w-sm data-starting-style:scale-95 data-starting-style:opacity-0 data-ending-style:scale-95 data-ending-style:opacity-0",
         props.class,
       )}
-      {...rest}
     >
       {props.children as JSX.Element}
       <Show when={props.showCloseButton ?? true}>
@@ -79,38 +78,36 @@ export function DialogContent(
 }
 
 export function DialogHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
-  return <div data-slot="dialog-header" class={cn("flex flex-col gap-1", props.class)} {...rest} />;
+  return (
+    <div data-slot="dialog-header" {...props} class={cn("flex flex-col gap-1", props.class)} />
+  );
 }
 
 export function DialogFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
       data-slot="dialog-footer"
+      {...props}
       class={cn("flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", props.class)}
-      {...rest}
     />
   );
 }
 
 export function DialogTitle(props: ComponentProps<typeof DialogTitlePrimitive>) {
-  const rest = omit(props, "class");
-  return <DialogTitlePrimitive class={partClass("text-sm font-medium", props.class)} {...rest} />;
+  return <DialogTitlePrimitive {...props} class={partClass("text-sm font-medium", props.class)} />;
 }
 
 /** The 1.9 name for the title. */
 export const DialogLabel = DialogTitle;
 
 export function DialogDescription(props: ComponentProps<typeof DialogDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogDescriptionPrimitive
+      {...props}
       class={partClass(
         "text-xs/relaxed text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -121,14 +118,14 @@ export function DialogClose(
     size?: ButtonSize;
   },
 ) {
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <DialogClosePrimitive
+      {...rest}
       class={partClass(
         () => buttonVariants({ variant: props.variant ?? "outline", size: props.size }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

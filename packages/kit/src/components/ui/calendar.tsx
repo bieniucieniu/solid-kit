@@ -9,7 +9,7 @@ import {
   CalendarWeekdays,
   CalendarWeeks,
 } from "@ui-sdk/solid/calendar";
-import { type ComponentProps, For, omit } from "solid-js";
+import { type ComponentProps, For } from "solid-js";
 import { buttonVariants } from "./button";
 import { partClass } from "#kit/lib/utils";
 
@@ -26,9 +26,8 @@ export {
  * Build a custom layout from `CalendarRoot` and the parts instead.
  */
 export function Calendar(props: ComponentProps<typeof CalendarPrimitive>) {
-  const rest = omit(props, "class");
   return (
-    <CalendarRoot class={props.class} {...rest}>
+    <CalendarRoot {...props} class={props.class}>
       <div class="relative flex h-7 items-center justify-center">
         <CalendarPrevious class="absolute left-0" />
         <CalendarHeading />
@@ -50,18 +49,16 @@ export function Calendar(props: ComponentProps<typeof CalendarPrimitive>) {
 
 /** The calendar root, for a custom layout. */
 export function CalendarRoot(props: ComponentProps<typeof CalendarPrimitive>) {
-  const rest = omit(props, "class");
   return (
-    <CalendarPrimitive class={partClass("flex w-fit flex-col gap-3 p-3", props.class)} {...rest} />
+    <CalendarPrimitive {...props} class={partClass("flex w-fit flex-col gap-3 p-3", props.class)} />
   );
 }
 
 export function CalendarHeading(props: ComponentProps<typeof CalendarHeadingPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <CalendarHeadingPrimitive
+      {...props}
       class={partClass("text-sm font-medium text-foreground select-none", props.class)}
-      {...rest}
     />
   );
 }
@@ -76,12 +73,11 @@ const navClass = buttonVariants({
 });
 
 export function CalendarPrevious(props: ComponentProps<typeof CalendarPreviousPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <CalendarPreviousPrimitive
       aria-label="Previous month"
+      {...props}
       class={partClass(navClass, props.class)}
-      {...rest}
     >
       {props.children ?? (
         <svg
@@ -101,12 +97,11 @@ export function CalendarPrevious(props: ComponentProps<typeof CalendarPreviousPr
 }
 
 export function CalendarNext(props: ComponentProps<typeof CalendarNextPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <CalendarNextPrimitive
       aria-label="Next month"
+      {...props}
       class={partClass(navClass, props.class)}
-      {...rest}
     >
       {props.children ?? (
         <svg
@@ -126,30 +121,28 @@ export function CalendarNext(props: ComponentProps<typeof CalendarNextPrimitive>
 }
 
 export function CalendarGrid(props: ComponentProps<typeof CalendarGridPrimitive>) {
-  const rest = omit(props, "class");
   return (
-    <CalendarGridPrimitive class={partClass("w-full border-collapse", props.class)} {...rest} />
+    <CalendarGridPrimitive {...props} class={partClass("w-full border-collapse", props.class)} />
   );
 }
 
 export function CalendarWeekday(props: ComponentProps<typeof CalendarWeekdayPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <CalendarWeekdayPrimitive
+      {...props}
       class={partClass(
         "w-7 pb-1 text-[0.7rem] font-normal text-muted-foreground select-none",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** A day cell. It shows the day of the month unless it has children. */
 export function CalendarDay(props: ComponentProps<typeof CalendarDayPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <CalendarDayPrimitive
+      {...props}
       class={partClass(
         [
           "size-7 rounded-md p-0 text-center text-xs font-normal tabular-nums transition-colors outline-none select-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/30",
@@ -159,7 +152,6 @@ export function CalendarDay(props: ComponentProps<typeof CalendarDayPrimitive>) 
         ],
         props.class,
       )}
-      {...rest}
     />
   );
 }

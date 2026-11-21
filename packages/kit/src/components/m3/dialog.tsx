@@ -18,9 +18,9 @@ export function Dialog(props: ComponentProps<typeof DialogRootPrimitive>) {
 
 /** The scrim: 32% scrim color over the page. */
 export function DialogOverlay(props: ComponentProps<typeof DialogBackdropPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogBackdropPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -28,7 +28,6 @@ export function DialogOverlay(props: ComponentProps<typeof DialogBackdropPrimiti
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -39,10 +38,11 @@ export function DialogContent(
     fullScreen?: boolean;
   },
 ) {
-  const rest = omit(props, "class", "fullScreen");
+  const rest = omit(props, "fullScreen");
   return (
     <DialogContentPrimitive
       data-full-screen={props.fullScreen ? "" : undefined}
+      {...rest}
       class={partClass(
         () =>
           cn(
@@ -53,47 +53,42 @@ export function DialogContent(
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Optional hero icon above the headline. Centers the headline when present. */
 export function DialogIcon(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
-      ref={props.ref}
       data-slot="dialog-icon"
+      {...props}
       class={cn(
         "flex justify-center text-secondary [&_svg:not([class*='size-'])]:size-6",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Top row of a full-screen dialog: close button, headline, and a confirm action. */
 export function DialogHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
-      ref={props.ref}
       data-slot="dialog-header"
+      {...props}
       class={cn(
         "flex h-14 shrink-0 items-center gap-1 px-1 [&>[data-slot=dialog-title]]:flex-1 [&>[data-slot=dialog-title]]:typescale-title-large",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function DialogHeadline(props: ComponentProps<typeof DialogTitlePrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogTitlePrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -101,49 +96,43 @@ export function DialogHeadline(props: ComponentProps<typeof DialogTitlePrimitive
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function DialogDescription(props: ComponentProps<typeof DialogDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DialogDescriptionPrimitive
+      {...props}
       class={partClass(
         () =>
           cn("typescale-body-medium text-on-surface-variant group-data-full-screen/dialog:px-6"),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Scrollable body for longer content, such as a list. */
 export function DialogBody(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
-      ref={props.ref}
       data-slot="dialog-body"
+      {...props}
       class={cn(
         "min-h-0 flex-1 overflow-y-auto typescale-body-medium text-on-surface-variant group-data-full-screen/dialog:px-6",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function DialogActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
-      ref={props.ref}
       data-slot="dialog-actions"
+      {...props}
       class={cn("flex flex-wrap items-center justify-end gap-2 pt-2", props.class)}
-      {...rest}
     />
   );
 }
@@ -155,14 +144,14 @@ export function DialogClose(
     size?: ButtonSize;
   },
 ) {
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <DialogClosePrimitive
+      {...rest}
       class={partClass(
         () => buttonVariants({ variant: props.variant ?? "text", size: props.size }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

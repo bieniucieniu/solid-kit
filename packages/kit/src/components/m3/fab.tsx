@@ -54,37 +54,35 @@ export interface FabProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
 
 /** Floating action button for the screen's primary action. Give it an `aria-label`. */
 export function Fab(props: FabProps) {
-  const rest = omit(props, "class", "ref", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="fab"
       data-variant={props.variant ?? "tonal-primary"}
       data-size={props.size ?? "default"}
-      class={fabVariants({ variant: props.variant, size: props.size, class: props.class })}
       {...rest}
+      class={fabVariants({ variant: props.variant, size: props.size, class: props.class })}
     />
   );
 }
 
 /** FAB with a text label next to the icon. */
 export function ExtendedFab(props: FabProps) {
-  const rest = omit(props, "class", "ref", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="extended-fab"
       data-variant={props.variant ?? "tonal-primary"}
       data-size={props.size ?? "default"}
+      {...rest}
       class={fabVariants({
         variant: props.variant,
         size: props.size,
         extended: true,
         class: props.class,
       })}
-      {...rest}
     />
   );
 }

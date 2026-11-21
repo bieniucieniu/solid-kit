@@ -22,33 +22,31 @@ export interface ChipProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
 
 /** A chip that starts an action, such as adding to a calendar. The leading icon is primary. */
 export function AssistChip(props: ChipProps) {
-  const rest = omit(props, "class", "ref", "elevated");
+  const rest = omit(props, "elevated");
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="assist-chip"
+      {...rest}
       class={cn(
         chipBase,
         surface(props.elevated),
         "text-on-surface [&>svg]:text-primary disabled:[&>svg]:text-on-surface/38",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** A chip offering a generated suggestion, such as a quick reply. */
 export function SuggestionChip(props: ChipProps) {
-  const rest = omit(props, "class", "ref", "elevated");
+  const rest = omit(props, "elevated");
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="suggestion-chip"
-      class={cn(chipBase, surface(props.elevated), "text-on-surface-variant", props.class)}
       {...rest}
+      class={cn(chipBase, surface(props.elevated), "text-on-surface-variant", props.class)}
     />
   );
 }
@@ -68,9 +66,10 @@ type FilterChipProps = ComponentProps<typeof ToggleButtonPrimitive> & { elevated
  * mark while selected; the chip's start padding drops to 8px to make room for it.
  */
 export function FilterChip(props: FilterChipProps) {
-  const rest = omit(props, "class", "elevated", "children");
+  const rest = omit(props, "elevated");
   return (
     <ToggleButtonPrimitive
+      {...rest}
       class={partClass(
         () =>
           cn(
@@ -80,7 +79,6 @@ export function FilterChip(props: FilterChipProps) {
           ),
         props.class,
       )}
-      {...rest}
     >
       {(state) => (
         <>
@@ -101,35 +99,32 @@ export function FilterChip(props: FilterChipProps) {
  * avatar or icon, the text, and InputChipRemove inside.
  */
 export function InputChip(props: JSX.HTMLAttributes<HTMLSpanElement> & { disabled?: boolean }) {
-  const rest = omit(props, "class", "ref", "disabled");
+  const rest = omit(props, "disabled");
   return (
     <span
-      ref={props.ref}
       data-slot="input-chip"
       data-disabled={props.disabled ? "" : undefined}
       aria-disabled={props.disabled ? "true" : undefined}
+      {...rest}
       class={cn(
         "group/chip relative inline-flex h-8 shrink-0 items-center gap-2 rounded-small border border-outline-variant px-3 typescale-label-large whitespace-nowrap text-on-surface-variant data-disabled:border-on-surface/12 data-disabled:text-on-surface/38 has-[>img:first-child]:pl-1 has-[>[data-slot=input-chip-remove]:last-child]:pr-1 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4.5 [&>img]:size-6 [&>img]:rounded-full",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** The trailing remove button of an input chip. Give it an `aria-label`. */
 export function InputChipRemove(props: JSX.ButtonHTMLAttributes<HTMLButtonElement>) {
-  const rest = omit(props, "class", "ref", "children");
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="input-chip-remove"
+      {...props}
       class={cn(
         "relative flex size-6 cursor-pointer items-center justify-center rounded-full state-layer focus-ring disabled:pointer-events-none [&_svg]:size-4.5",
         props.class,
       )}
-      {...rest}
     >
       {props.children ?? (
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -142,14 +137,12 @@ export function InputChipRemove(props: JSX.ButtonHTMLAttributes<HTMLButtonElemen
 
 /** Lays out chips in a wrapping row. */
 export function ChipSet(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <div
-      ref={props.ref}
       role="group"
       data-slot="chip-set"
+      {...props}
       class={cn("flex flex-wrap items-center gap-2", props.class)}
-      {...rest}
     />
   );
 }

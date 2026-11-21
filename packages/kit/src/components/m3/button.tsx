@@ -196,16 +196,16 @@ export interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement>
 }
 
 export function Button(props: ButtonProps) {
-  const rest = omit(props, "class", "ref", "variant", "size", "shape");
+  const rest = omit(props, "variant", "size", "shape");
   const group = useButtonGroupStyle(props);
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="button"
       data-variant={props.variant ?? "filled"}
       data-size={group.size}
       data-shape={props.shape ?? "round"}
+      {...rest}
       class={buttonVariants({
         variant: props.variant,
         size: group.size,
@@ -213,7 +213,6 @@ export function Button(props: ButtonProps) {
         connected: group.connected,
         class: props.class,
       })}
-      {...rest}
     />
   );
 }
@@ -226,13 +225,14 @@ export type ToggleButtonProps = ComponentProps<typeof ToggleButtonPrimitive> & {
 
 /** A button that stays selected: `pressed` / `defaultPressed` / `onPressedChange` on ui-sdk's Toggle. */
 export function ToggleButton(props: ToggleButtonProps) {
-  const rest = omit(props, "class", "variant", "size", "shape");
+  const rest = omit(props, "variant", "size", "shape");
   const group = useButtonGroupStyle(props);
   return (
     <ToggleButtonPrimitive
       data-variant={props.variant ?? "filled"}
       data-size={group.size}
       data-shape={props.shape ?? "round"}
+      {...rest}
       class={partClass(
         () =>
           toggleButtonVariants({
@@ -243,7 +243,6 @@ export function ToggleButton(props: ToggleButtonProps) {
           }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

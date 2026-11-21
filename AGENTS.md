@@ -63,7 +63,7 @@ A component function runs once. Updates come from signals read in JSX, `createMe
 | Do not write (1.9 or React)                   | Write (2.0)                                                                   |
 | --------------------------------------------- | ----------------------------------------------------------------------------- |
 | `useState` / `useMemo` / `useRef`             | `createSignal` / inline reads or `createMemo` / `let el` + `ref={el}`         |
-| `splitProps(props, [...])`                    | `const rest = omit(props, "a", "b")`; read the picked keys off `props`        |
+| `splitProps(props, [...])`                    | `<X {...props} class={…} />`; `omit` only keys that must not reach the DOM    |
 | `mergeProps(a, b)`                            | `merge(a, b)` (`undefined` overrides)                                         |
 | `createEffect(() => { … onCleanup(…) })`      | `createEffect(() => read(), (value) => { …; return cleanup })`                |
 | `on(deps, fn)`                                | read the deps in the compute function; `{ defer: true }` to skip the first    |

@@ -4,7 +4,7 @@ import {
   CollapsiblePanel as CollapsiblePanelPrimitive,
   CollapsibleTrigger as CollapsibleTriggerPrimitive,
 } from "@ui-sdk/solid/collapsible";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { cn, partClass } from "#kit/lib/utils";
 
 export function Collapsible(props: ComponentProps<typeof CollapsiblePrimitive>) {
@@ -12,14 +12,13 @@ export function Collapsible(props: ComponentProps<typeof CollapsiblePrimitive>) 
 }
 
 export function CollapsibleTrigger(props: ComponentProps<typeof CollapsibleTriggerPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <CollapsibleTriggerPrimitive
+      {...props}
       class={partClass(
         "group/collapsible-trigger inline-flex items-center gap-2 rounded-md text-xs/relaxed font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:opacity-50",
         props.class,
       )}
-      {...rest}
     >
       {props.children as JSX.Element}
       <svg
@@ -38,11 +37,10 @@ export function CollapsibleTrigger(props: ComponentProps<typeof CollapsibleTrigg
 
 /** Animates its height from `--collapsible-panel-height`, which ui-sdk measures. */
 export function CollapsibleContent(props: ComponentProps<typeof CollapsiblePanelPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <CollapsiblePanelPrimitive
+      {...props}
       class="h-(--collapsible-panel-height) overflow-hidden text-xs/relaxed transition-[height] duration-200 ease-out data-ending-style:h-0 data-starting-style:h-0"
-      {...rest}
     >
       <div class={cn("pt-2", props.class as string)}>{props.children as JSX.Element}</div>
     </CollapsiblePanelPrimitive>

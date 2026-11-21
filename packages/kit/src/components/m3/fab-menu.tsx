@@ -60,9 +60,9 @@ function CloseIcon() {
 /** Shows its children (the FAB icon) while closed and a close icon while open. */
 export function FabMenuTrigger(props: FabMenuTriggerProps) {
   const context = useContext(FabMenuContext);
-  const rest = omit(props, "class", "children");
   return (
     <MenuTriggerPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -71,7 +71,6 @@ export function FabMenuTrigger(props: FabMenuTriggerProps) {
           ),
         props.class,
       )}
-      {...rest}
     >
       <span class="contents group-data-open/fab-menu-trigger:hidden">
         {props.children as JSX.Element}
@@ -84,12 +83,12 @@ export function FabMenuTrigger(props: FabMenuTriggerProps) {
 }
 
 export function FabMenuContent(props: FabMenuContentProps) {
-  const rest = omit(props, "class");
   return (
     <MenuContentPrimitive
       side="top"
       align="end"
       sideOffset={8}
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -97,7 +96,6 @@ export function FabMenuContent(props: FabMenuContentProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -105,9 +103,9 @@ export function FabMenuContent(props: FabMenuContentProps) {
 /** A pill-shaped action. Put an icon and a label inside. */
 export function FabMenuItem(props: FabMenuItemProps) {
   const context = useContext(FabMenuContext);
-  const rest = omit(props, "class");
   return (
     <MenuItemPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -116,7 +114,6 @@ export function FabMenuItem(props: FabMenuItemProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }

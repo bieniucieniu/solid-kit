@@ -26,16 +26,15 @@ export { createToaster, toast } from "@ui-sdk/solid/toast";
  * index; hovered or focused, they spread out by their offset.
  */
 export function ToastRegion(props: ComponentProps<typeof ToastRegionPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <ToastRegionPrimitive
       side="bottom"
       align="end"
+      {...props}
       class={partClass(
         "fixed right-4 bottom-4 z-50 h-(--toast-front-height) w-[356px] max-w-[calc(100vw-2rem)] outline-none data-expanded:h-[calc(var(--toast-stack-height)+(var(--toast-count)-1)*12px)]",
         props.class,
       )}
-      {...rest}
     >
       {props.children ??
         (() => (
@@ -53,9 +52,9 @@ export function ToastRegion(props: ComponentProps<typeof ToastRegionPrimitive>) 
 }
 
 export function Toast(props: ComponentProps<typeof ToastPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <ToastPrimitive
+      {...props}
       class={partClass(
         [
           "group/toast absolute inset-x-0 bottom-0 z-[calc(100-var(--toast-index))] flex h-(--toast-height) flex-col gap-1.5 overflow-hidden rounded-lg border border-border bg-popover p-4 text-xs/relaxed text-popover-foreground shadow-lg select-none",
@@ -65,27 +64,24 @@ export function Toast(props: ComponentProps<typeof ToastPrimitive>) {
         ],
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function ToastTitle(props: ComponentProps<typeof ToastTitlePrimitive>) {
-  const rest = omit(props, "class");
   return (
     <ToastTitlePrimitive
+      {...props}
       class={partClass("text-xs font-medium empty:hidden", props.class)}
-      {...rest}
     />
   );
 }
 
 export function ToastDescription(props: ComponentProps<typeof ToastDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <ToastDescriptionPrimitive
+      {...props}
       class={partClass("text-xs/relaxed text-muted-foreground empty:hidden", props.class)}
-      {...rest}
     />
   );
 }
@@ -96,14 +92,14 @@ export function ToastAction(
     size?: ButtonSize;
   },
 ) {
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <ToastActionPrimitive
+      {...rest}
       class={partClass(
         () => buttonVariants({ variant: props.variant ?? "default", size: props.size ?? "sm" }),
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -115,10 +111,11 @@ export function ToastClose(
     size?: ButtonSize;
   },
 ) {
-  const rest = omit(props, "class", "variant", "size", "children");
+  const rest = omit(props, "variant", "size");
   return (
     <ToastClosePrimitive
       aria-label={props.children ? undefined : "Close"}
+      {...rest}
       class={partClass(
         () =>
           props.children
@@ -131,7 +128,6 @@ export function ToastClose(
               }),
         props.class,
       )}
-      {...rest}
     >
       {(props.children as JSX.Element) ?? (
         <svg

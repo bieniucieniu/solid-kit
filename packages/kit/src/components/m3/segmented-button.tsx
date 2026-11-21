@@ -3,7 +3,7 @@ import {
   ToggleGroup as ToggleGroupPrimitive,
 } from "@ui-sdk/solid/toggle";
 import { type JSX } from "@solidjs/web";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { cn, partClass } from "#kit/lib/utils";
 
 type SegmentedButtonProps = ComponentProps<typeof ToggleGroupPrimitive>;
@@ -14,11 +14,10 @@ type SegmentedButtonItemProps = ComponentProps<typeof ToggleGroupItemPrimitive>;
  * several. Uses ui-sdk's toggle group: `value` is the array of pressed values, with `onValueChange`.
  */
 export function SegmentedButton(props: SegmentedButtonProps) {
-  const rest = omit(props, "class");
   return (
     <ToggleGroupPrimitive
+      {...props}
       class={partClass("inline-flex h-10 items-stretch", props.class)}
-      {...rest}
     />
   );
 }
@@ -38,14 +37,13 @@ function CheckIcon() {
 
 /** A selected segment shows a check mark in place of its SegmentedButtonIcon. */
 export function SegmentedButtonItem(props: SegmentedButtonItemProps) {
-  const rest = omit(props, "class", "children");
   return (
     <ToggleGroupItemPrimitive
+      {...props}
       class={partClass(
         "group/segment relative -ml-px flex min-w-12 flex-1 cursor-pointer items-center justify-center gap-2 border border-outline px-3 typescale-label-large text-on-surface select-none state-layer focus-ring motion-fast first:ml-0 first:rounded-s-full last:rounded-e-full focus-visible:z-10 data-pressed:bg-secondary-container data-pressed:text-on-secondary-container disabled:border-on-surface/12 disabled:text-on-surface/38 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4.5",
         props.class,
       )}
-      {...rest}
     >
       <>
         <CheckIcon />
@@ -58,13 +56,11 @@ export function SegmentedButtonItem(props: SegmentedButtonItemProps) {
 
 /** Optional leading icon. Hidden while the segment is selected (the check mark shows instead). */
 export function SegmentedButtonIcon(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <span
-      ref={props.ref}
       data-slot="segmented-button-icon"
+      {...props}
       class={cn("contents group-data-pressed/segment:hidden", props.class)}
-      {...rest}
     />
   );
 }

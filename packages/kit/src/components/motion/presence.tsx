@@ -51,10 +51,14 @@ export interface AnimatePresenceProps<T = unknown> {
 
 interface Row<T> {
   key: string;
-  item: T;
-  index: number;
+  item: Accessor<T>;
+  setItem: (item: T) => void;
+  index: Accessor<number>;
+  setIndex: (index: number) => void;
   present: Accessor<boolean>;
   setPresent: (present: boolean) => void;
+  /** Initial animations are skipped for this row (the presence-wide block, or it already entered). */
+  block: { readonly current: boolean };
 }
 
 function readFlag(source: boolean | Accessor<boolean> | undefined, fallback: boolean): boolean {
@@ -99,6 +103,7 @@ export function AnimatePresence<T>(props: AnimatePresenceProps<T>) {
   }
 
   const roots = new Map<string, { dispose: () => void; row: Row<T> }>();
+  const rowEntered = new Map<string, () => void>();
   // Rows are created from the list effect's apply phase, which has no owner of its own.
   const owner = getOwner();
   const entered = new Set<string>();
@@ -107,8 +112,8 @@ export function AnimatePresence<T>(props: AnimatePresenceProps<T>) {
     const key = keyFor(item, index);
     const found = roots.get(key);
     if (found) {
-      found.row.item = item;
-      found.row.index = index;
+      found.row.setItem(item);
+      found.row.setIndex(index);
       found.row.setPresent(true);
       return found.row;
     }
@@ -116,7 +121,30 @@ export function AnimatePresence<T>(props: AnimatePresenceProps<T>) {
     const dispose = runWithOwner(owner, () =>
       createRoot((done) => {
         const [present, setPresent] = createSignal(true);
-        row = { key, item, index, present, setPresent };
+        // Functions and objects are stored as values, not as signal updaters.
+        const [currentItem, setCurrentItem] = createSignal<{ value: T }>({ value: item });
+        const [currentIndex, setIndex] = createSignal(index);
+        let entered = false;
+        row = {
+          key,
+          item: () => currentItem().value,
+          setItem: (next) => {
+            if (untrack(currentItem).value !== next) setCurrentItem({ value: next });
+          },
+          index: currentIndex,
+          setIndex,
+          present,
+          setPresent,
+          block: {
+            get current() {
+              return block.current || entered;
+            },
+          },
+        };
+        const markEntered = () => {
+          entered = true;
+        };
+        rowEntered.set(key, markEntered);
         return done;
       }),
     );
@@ -141,6 +169,7 @@ export function AnimatePresence<T>(props: AnimatePresenceProps<T>) {
     queueMicrotask(() => {
       const found = roots.get(key);
       roots.delete(key);
+      rowEntered.delete(key);
       found?.dispose();
     });
     const stillExiting = remaining.some((row) => !untrack(row.present));
@@ -183,6 +212,19 @@ export function AnimatePresence<T>(props: AnimatePresenceProps<T>) {
 
   const listMode = createMemo(() => readList(props.each) !== undefined);
 
+  // A row's content is built from its current item. A kept key with a new item object rebuilds
+  // only that row; it has already entered, so the rebuilt motion elements skip `initial`.
+  function renderRow(row: Row<T>) {
+    const render = props.children;
+    if (typeof render !== "function") return render;
+    return createMemo(() => {
+      const item = row.item();
+      const element = untrack(() => render(item, row.index));
+      rowEntered.get(row.key)?.();
+      return element;
+    }) as unknown as JSX.Element;
+  }
+
   return (
     <Show
       when={listMode()}
@@ -208,12 +250,10 @@ export function AnimatePresence<T>(props: AnimatePresenceProps<T>) {
             custom={props.custom}
             anchorX={props.anchorX}
             anchorY={props.anchorY}
-            block={block}
+            block={row.block}
             onDone={() => finish(row.key)}
           >
-            {typeof props.children === "function"
-              ? props.children(row.item, () => row.index)
-              : props.children}
+            {renderRow(row)}
           </PresenceScope>
         )}
       </For>

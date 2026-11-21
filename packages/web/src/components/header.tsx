@@ -50,7 +50,7 @@ export function Header() {
 
   return (
     <AppBar class="sticky top-0 z-40 h-(--header-height) min-h-0 border-b border-outline-variant">
-      <AppBarLeading class="h-full">
+      <AppBarLeading class="h-(--header-height)">
         <Show when={currentPackage()}>
           {(pkg) => (
             <ModalNavigationDrawer open={menuOpen()} onOpenChange={(open) => setMenuOpen(open)}>
@@ -85,7 +85,7 @@ export function Header() {
       >
         <For each={packages}>{(item) => <PackageLink item={item} />}</For>
       </nav>
-      <AppBarTrailing class="h-full">
+      <AppBarTrailing class="h-(--header-height)">
         <ThemeToggle />
       </AppBarTrailing>
     </AppBar>

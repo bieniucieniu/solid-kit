@@ -1,12 +1,12 @@
 ---
-description: Solid 2.0 conventions, the repo default (packages/kit, packages/web, packages/kit-playground)
-globs: packages/kit/**/*.tsx, packages/kit/**/*.ts, packages/web/**/*.tsx, packages/web/**/*.ts, packages/kit-playground/**/*.tsx, packages/kit-playground/**/*.ts
+description: Solid 2.0 conventions, the repo default (packages/kit, apps/web, apps/kit-playground)
+globs: packages/kit/**/*.tsx, packages/kit/**/*.ts, apps/web/**/*.tsx, apps/web/**/*.ts, apps/kit-playground/**/*.tsx, apps/kit-playground/**/*.ts
 alwaysApply: false
 ---
 
 # Solid 2.0 (default)
 
-Everything outside `packages/1.9/**` and `packages/storybook` is Solid 2.0. `solid-js` and `@solidjs/web` `^2.0.3`, `jsxImportSource: "@solidjs/web"`. Full rules: root `AGENTS.md` ("Package Development: Solid 2.0") and `packages/kit/AGENTS.md` (ui-sdk wrapping). Never import `react` or a `packages/1.9` package.
+Everything outside `packages/1.9/**` and `apps/storybook` is Solid 2.0. `solid-js` and `@solidjs/web` `^2.0.3`, `jsxImportSource: "@solidjs/web"`. Full rules: root `AGENTS.md` ("Package Development: Solid 2.0") and `packages/kit/AGENTS.md` (ui-sdk wrapping). Never import `react` or `@solid-kit/kit-1.9`.
 
 ## Write
 
@@ -21,6 +21,6 @@ Everything outside `packages/1.9/**` and `packages/storybook` is Solid 2.0. `sol
 - `JSX`, `ComponentProps`, `Portal`, `dynamic`, `isServer`, `clientOnly`, `HydrationScript`, `httpStatus` from `@solidjs/web`.
 - Writes apply on the next microtask. Write signals in handlers or an effect's apply function, never in a memo or component body.
 
-## packages/web
+## apps/web
 
 Solid 2 start mode (`@solidjs/vite-plugin` `start` + `ssr`, `src/Document.tsx`, `src/App.tsx`), file routes in `src/routes`, `@solidjs/router` 2 with plain `<a href>` (no `<A>`) and `useLinkState` for active state. Pages prerender to `dist/client`; `dist/server/node.js` serves them.

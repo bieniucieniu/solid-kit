@@ -10,10 +10,10 @@ import {
   Button,
 } from "@solid-kit/kit-1.9/ui";
 
+// Render-only stories: the demo owns the component's required props, so no `component`/args.
 const meta = {
   title: "UI/Toast",
-  component: Toast,
-} satisfies Meta<typeof Toast>;
+} satisfies Meta;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

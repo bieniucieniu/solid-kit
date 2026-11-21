@@ -12,10 +12,10 @@ import {
 } from "@solid-kit/kit-1.9/ui";
 import { createSignal } from "solid-js";
 
+// Render-only stories: the demo owns the component's required props, so no `component`/args.
 const meta = {
   title: "UI/Select",
-  component: Select,
-} satisfies Meta<typeof Select>;
+} satisfies Meta;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -44,7 +44,7 @@ function SelectDemo() {
     >
       <SelectLabel>Fruit</SelectLabel>
       <SelectTrigger>
-        <SelectValue<string>>{(state) => state.selectedOption()}</SelectValue>
+        <SelectValue>{(state) => state.selectedOption() as string}</SelectValue>
       </SelectTrigger>
       <SelectPortal>
         <SelectContent>

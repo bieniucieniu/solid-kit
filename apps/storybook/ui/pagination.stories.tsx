@@ -9,10 +9,10 @@ import {
 } from "@solid-kit/kit-1.9/ui";
 import { createSignal } from "solid-js";
 
+// Render-only stories: the demo owns the component's required props, so no `component`/args.
 const meta = {
   title: "UI/Pagination",
-  component: Pagination,
-} satisfies Meta<typeof Pagination>;
+} satisfies Meta;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

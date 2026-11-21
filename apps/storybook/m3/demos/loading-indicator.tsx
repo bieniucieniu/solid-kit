@@ -1,0 +1,11 @@
+import { LoadingIndicator } from "@solid-kit/kit-1.9/m3";
+import { DemoRow } from "./shared";
+
+export function LoadingIndicatorDemo() {
+  return (
+    <DemoRow label="Default and contained" class="gap-6">
+      <LoadingIndicator aria-label="Loading" />
+      <LoadingIndicator contained aria-label="Loading" />
+    </DemoRow>
+  );
+}

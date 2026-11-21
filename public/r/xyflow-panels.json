@@ -7,19 +7,19 @@
   "registryDependencies": ["bieniucieniu/solid-kit/xyflow"],
   "files": [
     {
-      "path": "packages/1.9/xyflow/src/components/xyflow/panels.ts",
+      "path": "packages/1.9/src/components/xyflow/panels.ts",
       "content": "export { Background } from \"./components/Background\";\nexport { Controls } from \"./components/Controls\";\n",
       "type": "registry:component",
       "target": "@components/xyflow/panels.ts"
     },
     {
-      "path": "packages/1.9/xyflow/src/components/xyflow/components/Background.tsx",
+      "path": "packages/1.9/src/components/xyflow/components/Background.tsx",
       "content": "import { useFlow } from \"../context\";\n\nexport function Background() {\n  const flow = useFlow();\n  const gap = () => 20 * (flow.transform[2] || 1);\n  const patternId = \"xy-flow-background\";\n\n  return (\n    <svg\n      class=\"xy-flow__background\"\n      data-testid=\"rf__background\"\n      style={{ position: \"absolute\", width: \"100%\", height: \"100%\", top: \"0\", left: \"0\" }}\n    >\n      <pattern\n        id={patternId}\n        x={flow.transform[0] % gap()}\n        y={flow.transform[1] % gap()}\n        width={gap()}\n        height={gap()}\n        patternUnits=\"userSpaceOnUse\"\n      >\n        <circle cx=\"1\" cy=\"1\" r={flow.transform[2]} class=\"xy-flow__background-pattern dots\" />\n      </pattern>\n      <rect width=\"100%\" height=\"100%\" fill={`url(#${patternId})`} />\n    </svg>\n  );\n}\n",
       "type": "registry:component",
       "target": "@components/xyflow/components/Background.tsx"
     },
     {
-      "path": "packages/1.9/xyflow/src/components/xyflow/components/Controls.tsx",
+      "path": "packages/1.9/src/components/xyflow/components/Controls.tsx",
       "content": "import { useFlow } from \"../context\";\n\nexport function Controls() {\n  const flow = useFlow();\n\n  return (\n    <div\n      class=\"xy-flow__panel bottom left xy-flow__controls\"\n      data-testid=\"rf__controls\"\n      role=\"group\"\n      aria-label=\"Flow controls\"\n    >\n      <button\n        type=\"button\"\n        class=\"xy-flow__controls-button xy-flow__controls-zoomin\"\n        aria-label=\"zoom in\"\n        disabled={flow.transform[2] >= flow.maxZoom}\n        onClick={() => void flow.zoomIn()}\n      >\n        <PlusIcon />\n      </button>\n      <button\n        type=\"button\"\n        class=\"xy-flow__controls-button xy-flow__controls-zoomout\"\n        aria-label=\"zoom out\"\n        disabled={flow.transform[2] <= flow.minZoom}\n        onClick={() => void flow.zoomOut()}\n      >\n        <MinusIcon />\n      </button>\n      <button\n        type=\"button\"\n        class=\"xy-flow__controls-button xy-flow__controls-fitview\"\n        aria-label=\"fit view\"\n        onClick={() => void flow.fitView()}\n      >\n        <FitIcon />\n      </button>\n    </div>\n  );\n}\n\nfunction PlusIcon() {\n  return (\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\">\n      <path d=\"M14 14V8h4v6h6v4h-6v6h-4v-6H8v-4z\" />\n    </svg>\n  );\n}\n\nfunction MinusIcon() {\n  return (\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\">\n      <path d=\"M8 14h16v4H8z\" />\n    </svg>\n  );\n}\n\nfunction FitIcon() {\n  return (\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\">\n      <path d=\"M4 12V4h8v4h4V4h8v8h-4v4h4v8h-8v-4h-4v4H4v-8h4v-4zm4-4H8v4h4V8zm12 0h-4v4h4V8zM8 20v4h4v-4zm16 4v-4h-4v4z\" />\n    </svg>\n  );\n}\n",
       "type": "registry:component",
       "target": "@components/xyflow/components/Controls.tsx"

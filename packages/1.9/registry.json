@@ -1,0 +1,321 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "motion",
+      "type": "registry:block",
+      "title": "Motion",
+      "description": "Solid bindings over the vanilla motion API.",
+      "dependencies": ["motion@^14.9.0", "solid-js@^1.9.0"],
+      "files": [
+        {
+          "path": "src/components/motion/index.ts",
+          "type": "registry:component",
+          "target": "@components/motion/index.ts"
+        },
+        {
+          "path": "src/components/motion/context.tsx",
+          "type": "registry:component",
+          "target": "@components/motion/context.tsx"
+        },
+        {
+          "path": "src/lib/motion/hooks.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/hooks.ts"
+        },
+        {
+          "path": "src/components/motion/motion.tsx",
+          "type": "registry:component",
+          "target": "@components/motion/motion.tsx"
+        },
+        {
+          "path": "src/components/motion/presence.tsx",
+          "type": "registry:component",
+          "target": "@components/motion/presence.tsx"
+        },
+        {
+          "path": "src/lib/utils/motion/resolve.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/motion/resolve.ts"
+        },
+        {
+          "path": "src/lib/motion/schedule.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/schedule.ts"
+        },
+        {
+          "path": "src/lib/motion/state.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/state.ts"
+        },
+        {
+          "path": "src/lib/utils/motion/target-style.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/motion/target-style.ts"
+        },
+        {
+          "path": "src/lib/motion/types.ts",
+          "type": "registry:lib",
+          "target": "@lib/motion/types.ts"
+        }
+      ]
+    },
+    {
+      "name": "tiptap",
+      "type": "registry:block",
+      "title": "Tiptap",
+      "description": "Core editor.",
+      "dependencies": [
+        "fast-equals@^5.3.3",
+        "@tiptap/core@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "files": [
+        {
+          "path": "src/components/tiptap/index.ts",
+          "type": "registry:component",
+          "target": "@components/tiptap/index.ts"
+        },
+        {
+          "path": "src/components/tiptap/Context.tsx",
+          "type": "registry:component",
+          "target": "@components/tiptap/Context.tsx"
+        },
+        {
+          "path": "src/components/tiptap/EditorContent.tsx",
+          "type": "registry:component",
+          "target": "@components/tiptap/EditorContent.tsx"
+        },
+        {
+          "path": "src/components/tiptap/Tiptap.tsx",
+          "type": "registry:component",
+          "target": "@components/tiptap/Tiptap.tsx"
+        },
+        {
+          "path": "src/lib/tiptap/types.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/types.ts"
+        },
+        {
+          "path": "src/lib/tiptap/useEditor.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/useEditor.ts"
+        },
+        {
+          "path": "src/components/tiptap/useEditorState.ts",
+          "type": "registry:component",
+          "target": "@components/tiptap/useEditorState.ts"
+        },
+        {
+          "path": "src/lib/tiptap/editor.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/editor.ts"
+        }
+      ]
+    },
+    {
+      "name": "tiptap-menus",
+      "type": "registry:block",
+      "title": "Tiptap Menus",
+      "description": "Bubble menu and floating menu.",
+      "dependencies": [
+        "@tiptap/extension-bubble-menu@^3.23.5",
+        "@tiptap/extension-floating-menu@^3.23.5",
+        "@tiptap/pm@^3.23.5",
+        "solid-js@^1.9.0"
+      ],
+      "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
+      "files": [
+        {
+          "path": "src/components/tiptap/menus/index.ts",
+          "type": "registry:component",
+          "target": "@components/tiptap/menus/index.ts"
+        },
+        {
+          "path": "src/components/tiptap/menus/BubbleMenu.tsx",
+          "type": "registry:component",
+          "target": "@components/tiptap/menus/BubbleMenu.tsx"
+        },
+        {
+          "path": "src/components/tiptap/menus/FloatingMenu.tsx",
+          "type": "registry:component",
+          "target": "@components/tiptap/menus/FloatingMenu.tsx"
+        },
+        {
+          "path": "src/lib/utils/tiptap/getAutoPluginKey.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/tiptap/getAutoPluginKey.ts"
+        }
+      ],
+      "docs": "Import from \"@/components/tiptap/menus\"."
+    },
+    {
+      "name": "tiptap-node-view",
+      "type": "registry:block",
+      "title": "Tiptap Node View",
+      "description": "Node and mark view renderers.",
+      "dependencies": ["@tiptap/core@^3.23.5", "@tiptap/pm@^3.23.5", "solid-js@^1.9.0"],
+      "registryDependencies": ["bieniucieniu/solid-kit/tiptap"],
+      "files": [
+        {
+          "path": "src/components/tiptap/node-view.ts",
+          "type": "registry:component",
+          "target": "@components/tiptap/node-view.ts"
+        },
+        {
+          "path": "src/components/tiptap/NodeViewContent.tsx",
+          "type": "registry:component",
+          "target": "@components/tiptap/NodeViewContent.tsx"
+        },
+        {
+          "path": "src/components/tiptap/NodeViewWrapper.tsx",
+          "type": "registry:component",
+          "target": "@components/tiptap/NodeViewWrapper.tsx"
+        },
+        {
+          "path": "src/lib/tiptap/SolidMarkViewRenderer.tsx",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/SolidMarkViewRenderer.tsx"
+        },
+        {
+          "path": "src/lib/tiptap/SolidNodeViewRenderer.tsx",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/SolidNodeViewRenderer.tsx"
+        },
+        {
+          "path": "src/lib/tiptap/SolidRenderer.tsx",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/SolidRenderer.tsx"
+        },
+        {
+          "path": "src/lib/tiptap/useSolidNodeView.ts",
+          "type": "registry:lib",
+          "target": "@lib/tiptap/useSolidNodeView.ts"
+        }
+      ],
+      "docs": "Import from \"@/components/tiptap/node-view\"."
+    },
+    {
+      "name": "xyflow",
+      "type": "registry:block",
+      "title": "XYFlow",
+      "description": "Canvas.",
+      "dependencies": ["@xyflow/system@0.0.83", "solid-js@^1.9.0"],
+      "files": [
+        {
+          "path": "src/components/xyflow/index.ts",
+          "type": "registry:component",
+          "target": "@components/xyflow/index.ts"
+        },
+        {
+          "path": "src/components/xyflow/Flow.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/Flow.tsx"
+        },
+        {
+          "path": "src/lib/xyflow/createFlow.ts",
+          "type": "registry:lib",
+          "target": "@lib/xyflow/createFlow.ts"
+        },
+        {
+          "path": "src/components/xyflow/context.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/context.tsx"
+        },
+        {
+          "path": "src/lib/xyflow/types.ts",
+          "type": "registry:lib",
+          "target": "@lib/xyflow/types.ts"
+        },
+        {
+          "path": "src/lib/utils/xyflow/changes.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/xyflow/changes.ts"
+        },
+        {
+          "path": "src/lib/utils/xyflow/cx.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils/xyflow/cx.ts"
+        },
+        {
+          "path": "src/components/xyflow/style.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/style.css"
+        },
+        {
+          "path": "src/components/xyflow/styles/init.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/init.css"
+        },
+        {
+          "path": "src/components/xyflow/styles/base.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/base.css"
+        },
+        {
+          "path": "src/components/xyflow/styles/style.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/style.css"
+        },
+        {
+          "path": "src/components/xyflow/styles/node-resizer.css",
+          "type": "registry:file",
+          "target": "@components/xyflow/styles/node-resizer.css"
+        },
+        {
+          "path": "src/components/xyflow/components/Edges.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/components/Edges.tsx"
+        },
+        {
+          "path": "src/components/xyflow/components/Handle.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/components/Handle.tsx"
+        },
+        {
+          "path": "src/components/xyflow/components/Nodes.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/components/Nodes.tsx"
+        },
+        {
+          "path": "src/components/xyflow/components/NodeView.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/components/NodeView.tsx"
+        },
+        {
+          "path": "src/components/xyflow/components/Pane.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/components/Pane.tsx"
+        }
+      ],
+      "docs": "Import the stylesheet from \"@/components/xyflow/style.css\"."
+    },
+    {
+      "name": "xyflow-panels",
+      "type": "registry:block",
+      "title": "XYFlow Panels",
+      "description": "Background and controls.",
+      "dependencies": ["solid-js@^1.9.0"],
+      "registryDependencies": ["bieniucieniu/solid-kit/xyflow"],
+      "files": [
+        {
+          "path": "src/components/xyflow/panels.ts",
+          "type": "registry:component",
+          "target": "@components/xyflow/panels.ts"
+        },
+        {
+          "path": "src/components/xyflow/components/Background.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/components/Background.tsx"
+        },
+        {
+          "path": "src/components/xyflow/components/Controls.tsx",
+          "type": "registry:component",
+          "target": "@components/xyflow/components/Controls.tsx"
+        }
+      ],
+      "docs": "Import { Background, Controls } from \"@/components/xyflow/panels\". The core stylesheet is still required."
+    }
+  ]
+}

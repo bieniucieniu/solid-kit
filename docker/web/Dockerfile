@@ -8,7 +8,7 @@
 #
 # Layer order (cache-friendly):
 #   1) pnpm install (package manifests + lockfile)
-#   2) build web → packages/web/dist
+#   2) build web → apps/web/dist
 #
 #   docker build -f docker/web/Dockerfile -t solid-kit-web .
 
@@ -23,13 +23,13 @@ RUN corepack enable && corepack prepare pnpm@12.16.1 --activate
 
 # --- 1. Install deps (invalidates when manifests / lockfile change) ---
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY --parents apps/*/package.json ./
 COPY --parents packages/*/package.json ./
-COPY --parents packages/1.9/*/package.json ./
 RUN pnpm install --frozen-lockfile --filter web...
 
 # --- 2. Build web (invalidates when sources change) ---
 COPY packages/kit ./packages/kit
-COPY packages/web ./packages/web
+COPY apps/web ./apps/web
 RUN pnpm --filter web build
 
 FROM ${NODE_IMAGE} AS runtime
@@ -37,7 +37,7 @@ WORKDIR /app
 
 RUN addgroup -S solidkit && adduser -S -G solidkit -H -s /sbin/nologin solidkit
 
-COPY --from=build --chown=solidkit:solidkit /workspace/packages/web/dist ./dist
+COPY --from=build --chown=solidkit:solidkit /workspace/apps/web/dist ./dist
 
 USER solidkit
 EXPOSE 8080

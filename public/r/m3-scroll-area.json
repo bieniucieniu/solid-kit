@@ -6,7 +6,7 @@
   "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
-      "path": "packages/1.9/m3/src/components/scroll-area.tsx",
+      "path": "packages/1.9/src/components/m3/scroll-area.tsx",
       "content": "import { type JSX, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\n/**\n * A native scroll container with a thin outline-colored scrollbar. Scrolling stops at its\n * edges instead of chaining to the page. Give it a bounded size (`max-h-*`, or `min-h-0\n * flex-1` inside a flex column).\n */\nexport function ScrollArea(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\"]);\n  return (\n    <div\n      ref={props.ref}\n      data-slot=\"scroll-area\"\n      class={cn(\n        \"relative overflow-auto overscroll-contain [scrollbar-color:var(--md-sys-color-outline)_transparent] [scrollbar-width:thin] outline-none focus-visible:outline-3 focus-visible:-outline-offset-3 focus-visible:outline-secondary\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@components/m3/scroll-area.tsx"

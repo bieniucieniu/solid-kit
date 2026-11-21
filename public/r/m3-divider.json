@@ -7,7 +7,7 @@
   "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
-      "path": "packages/1.9/m3/src/components/divider.tsx",
+      "path": "packages/1.9/src/components/m3/divider.tsx",
       "content": "import { Separator as SeparatorPrimitive } from \"@kobalte/core/separator\";\nimport { type ComponentProps, splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nconst insetClasses = {\n  none: \"\",\n  start: \"data-[orientation=horizontal]:ms-4 data-[orientation=vertical]:mt-4\",\n  middle: \"data-[orientation=horizontal]:mx-4 data-[orientation=vertical]:my-4\",\n};\n\ntype DividerProps = ComponentProps<typeof SeparatorPrimitive> & {\n  inset?: keyof typeof insetClasses;\n};\n\n/** A 1px outline-variant line. `inset` indents it from the start or both ends. */\nexport function Divider(props: DividerProps) {\n  const [, rest] = splitProps(props, [\"class\", \"ref\", \"inset\"]);\n  return (\n    <SeparatorPrimitive\n      ref={props.ref}\n      data-slot=\"divider\"\n      class={cn(\n        \"shrink-0 border-none bg-outline-variant data-[orientation=horizontal]:h-px data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch\",\n        insetClasses[props.inset ?? \"none\"],\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@components/m3/divider.tsx"

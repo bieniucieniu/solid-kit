@@ -1,0 +1,26 @@
+---
+description: Solid 2.0 conventions, the repo default (packages/kit, packages/web, packages/kit-playground)
+globs: packages/kit/**/*.tsx, packages/kit/**/*.ts, packages/web/**/*.tsx, packages/web/**/*.ts, packages/kit-playground/**/*.tsx, packages/kit-playground/**/*.ts
+alwaysApply: false
+---
+
+# Solid 2.0 (default)
+
+Everything outside `packages/1.9/**` and `packages/storybook` is Solid 2.0. `solid-js` and `@solidjs/web` `^2.0.3`, `jsxImportSource: "@solidjs/web"`. Full rules: root `AGENTS.md` ("Package Development: Solid 2.0") and `packages/kit/AGENTS.md` (ui-sdk wrapping). Never import `react` or a `packages/1.9` package.
+
+## Write
+
+- `omit(props, "a")` / `merge(a, b)`, not `splitProps` / `mergeProps`. Never destructure `props`.
+- `createEffect(() => read(), (value) => { …; return cleanup })`. `onSettled` for mount work. No `on(...)`, no `onMount`.
+- `<Ctx value={v}>`; optional contexts default to `null`.
+- `class={{ a: on() }}` or `class={["base", { a: on() }]}`; no `classList`.
+- `<For each keyed={false}>` for index-stable lists; `dynamic(() => c)` from `@solidjs/web` for a dynamic component.
+- Stores from `solid-js` with draft setters `setState((d) => { d.a = 1 })`.
+- `Loading` / `Errored` / async `createMemo`; no `Suspense`, `ErrorBoundary`, `createResource`, `batch`, `createMutable`.
+- `tabindex`, and ARIA booleans as strings (`"true"` / `"false"`).
+- `JSX`, `ComponentProps`, `Portal`, `dynamic`, `isServer`, `clientOnly`, `HydrationScript`, `httpStatus` from `@solidjs/web`.
+- Writes apply on the next microtask. Write signals in handlers or an effect's apply function, never in a memo or component body.
+
+## packages/web
+
+Solid 2 start mode (`@solidjs/vite-plugin` `start` + `ssr`, `src/Document.tsx`, `src/App.tsx`), file routes in `src/routes`, `@solidjs/router` 2 with plain `<a href>` (no `<A>`) and `useLinkState` for active state. Pages prerender to `dist/client`; `dist/server/node.js` serves them.

@@ -6,7 +6,7 @@ SolidJS ports of popular React libraries, plus shadcn-style component registries
 
 `packages/kit` (`@solid-kit/kit`) is the main package: a Solid 2.0 rewrite of all five 1.9 packages, with `ui` and `m3` on [ui-sdk](https://github.com/vercel-labs/ui). `packages/kit-playground` shows it in the browser.
 
-The Solid 1.9 packages live under `packages/1.9/` and stay on Solid 1.9. They feed the docs site, Storybook, and the shadcn registry.
+The docs site (`packages/web`) runs on Solid 2.0 and the kit, server-rendered and prerendered to static HTML. The Solid 1.9 packages live under `packages/1.9/` and stay on Solid 1.9. They feed Storybook and the shadcn registry.
 
 | Package                   | What it is                                                                                                           |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -17,7 +17,7 @@ The Solid 1.9 packages live under `packages/1.9/` and stay on Solid 1.9. They fe
 | `@solid-kit/motion`       | Solid lifecycle around the vanilla `motion` API, with props that match Motion for React                              |
 | `packages/1.9/ui`         | UI component registry for the shadcn CLI and Tailwind 4 ([README](packages/1.9/ui/README.md))                        |
 | `packages/1.9/m3`         | Material 3 Expressive registry on the same API as `ui` ([README](packages/1.9/m3/README.md))                         |
-| `packages/web`            | Docs and demo site (Solid 1.9)                                                                                       |
+| `packages/web`            | Docs and demo site for `@solid-kit/kit` (Solid 2.0 start mode, m3 chrome)                                            |
 | `packages/storybook`      | Storybook for the 1.9 packages (Solid 1.9)                                                                           |
 
 ## Development

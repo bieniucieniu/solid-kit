@@ -43,24 +43,4 @@ export function DialogContent(props: ComponentProps<typeof DialogContentPrimitiv
 
 ## Solid 2.0 rules
 
-| Do not write (1.9)                            | Write (2.0)                                                                |
-| --------------------------------------------- | -------------------------------------------------------------------------- |
-| `splitProps(props, [...])`                    | `const rest = omit(props, "a", "b")`; read the picked keys off `props`     |
-| `mergeProps(a, b)`                            | `merge(a, b)` (`undefined` overrides)                                      |
-| `createEffect(() => { … onCleanup(…) })`      | `createEffect(() => read(), (value) => { …; return cleanup })`             |
-| `on(deps, fn)`                                | read the deps in the compute function; `{ defer: true }` to skip the first |
-| `onMount`                                     | `onSettled(() => { …; return cleanup })`                                   |
-| `<Ctx.Provider value={v}>`                    | `<Ctx value={v}>`                                                          |
-| `classList={{ a: on() }}`                     | `class={{ a: on() }}` or `class={["base", { a: on() }]}`                   |
-| `<Index each>`                                | `<For each keyed={false}>` (item is an accessor, index a number)           |
-| `<Dynamic component={c}>`                     | `const C = dynamic(() => c)` from `@solidjs/web`, then `<C />`             |
-| `solid-js/web`, `solid-js/store`              | `@solidjs/web`; stores from `solid-js`                                     |
-| store path setters, `produce`, `unwrap`       | draft setters `setState((d) => { d.a = 1 })`, `snapshot`                   |
-| `Suspense`, `ErrorBoundary`, `createResource` | `Loading`, `Errored`, async `createMemo`                                   |
-| `batch`                                       | nothing; writes batch on the microtask. `flush()` in tests                 |
-| `use:`, `on:`, `attr:`, `bool:`, `/*@once*/`  | ref callbacks or factories, camelCase `onX`, plain attributes              |
-
-- Never destructure `props`. Read `props.x` inside JSX, a memo, or an effect's compute function. Reads at the top of a component body warn (`STRICT_READ_UNTRACKED`).
-- Do not write signals inside a memo or a component body. Writes go in event handlers, actions, or an effect's apply function.
-- A ref callback cannot create effects or call `onCleanup`. Do that work in the component body and keep the element in a variable.
-- `JSX`, `ComponentProps`, `Portal`, `dynamic`, `isServer`, `render` come from `@solidjs/web`. `Show`, `For`, `Switch`, `Match`, `createSignal`, `createMemo`, `createEffect`, `createStore`, `omit`, `merge` come from `solid-js`.
+The Solid 2.0 rules are the repo default and live in the root [AGENTS.md](../../AGENTS.md#package-development-solid-20-default).

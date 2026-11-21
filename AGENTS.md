@@ -47,11 +47,56 @@ ai/drawer-bottom-sheet
 
 # Repository layout
 
-pnpm workspace. Root `solid-kit` is private and exports nothing. `packages/kit` (`@solid-kit/kit`) is the main package: the Solid 2.0 rewrite of all five libraries, one subpath each (`./ui`, `./m3`, `./motion`, `./xyflow`, `./tiptap`). Its rules are in [packages/kit/AGENTS.md](packages/kit/AGENTS.md). `packages/kit-playground` is a client-only Solid 2.0 app that renders it (`kit-playground` in `.claude/launch.json`). The Solid 1.9 libraries live in `packages/1.9/<name>` (`@solid-kit/ui`, `m3`, `motion`, `xyflow`, `tiptap`), each with its own `package.json` and public exports. They are frozen on 1.9 and feed `packages/web` and `packages/storybook`. Do not re-export a package from the root.
+pnpm workspace. Root `solid-kit` is private and exports nothing. Do not re-export a package from the root.
 
-# Package Development: Solid 1.9 (`packages/1.9/**`, `packages/web`, `packages/storybook`)
+- `packages/kit` (`@solid-kit/kit`) is the main package: the Solid 2.0 rewrite of all five libraries, one subpath each (`./ui`, `./m3`, `./motion`, `./xyflow`, `./tiptap`). Its ui-sdk and subpath rules are in [packages/kit/AGENTS.md](packages/kit/AGENTS.md).
+- `packages/web` is the docs site, on Solid 2.0 and `@solid-kit/kit` (`web` in `.claude/launch.json`).
+- `packages/kit-playground` is a client-only Solid 2.0 app that renders the kit (`kit-playground` in `.claude/launch.json`).
+- `packages/1.9/<name>` (`@solid-kit/ui`, `m3`, `motion`, `xyflow`, `tiptap`) are the Solid 1.9 libraries, each with its own `package.json` and public exports. They are frozen on 1.9 and feed `packages/storybook` and the shadcn registry.
 
-Peer dependency is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. Write Solid 1.9 only in these folders. `packages/kit` is Solid 2.0 and follows [packages/kit/AGENTS.md](packages/kit/AGENTS.md).
+# Package Development: Solid 2.0 (default)
+
+Solid 2.0 is the default everywhere except `packages/1.9/**` and `packages/storybook`, which follow the 1.9 section below. `solid-js` and `@solidjs/web` are `^2.0.3`. `jsxImportSource` is `@solidjs/web`. Guides: [v2.solidjs.com](https://v2.solidjs.com), [migration](https://github.com/solidjs/solid/blob/next/documentation/solid-2.0/MIGRATION.md).
+
+A component function runs once. Updates come from signals read in JSX, `createMemo`, or an effect's compute function. There is no re-render and no dependency array. Never import `react`, `react-dom`, or `react/jsx-runtime`, and never write React hooks, `className`, `htmlFor`, `key=`, camelCase `style` keys, or unitless style numbers.
+
+| Do not write (1.9 or React)                   | Write (2.0)                                                                   |
+| --------------------------------------------- | ----------------------------------------------------------------------------- |
+| `useState` / `useMemo` / `useRef`             | `createSignal` / inline reads or `createMemo` / `let el` + `ref={el}`         |
+| `splitProps(props, [...])`                    | `const rest = omit(props, "a", "b")`; read the picked keys off `props`        |
+| `mergeProps(a, b)`                            | `merge(a, b)` (`undefined` overrides)                                         |
+| `createEffect(() => { … onCleanup(…) })`      | `createEffect(() => read(), (value) => { …; return cleanup })`                |
+| `on(deps, fn)`                                | read the deps in the compute function; `{ defer: true }` to skip the first    |
+| `onMount`                                     | `onSettled(() => { …; return cleanup })`                                      |
+| `<Ctx.Provider value={v}>`                    | `<Ctx value={v}>`; an optional context needs a `null` default                 |
+| `classList={{ a: on() }}`                     | `class={{ a: on() }}` or `class={["base", { a: on() }]}`                      |
+| `<Index each>`                                | `<For each keyed={false}>` (item is an accessor, index a number)              |
+| `<Dynamic component={c}>`                     | `const C = dynamic(() => c)` from `@solidjs/web`, then `<C />`                |
+| `solid-js/web`, `solid-js/store`              | `@solidjs/web`; stores from `solid-js`                                        |
+| store path setters, `produce`, `unwrap`       | draft setters `setState((d) => { d.a = 1 })`, `snapshot`                      |
+| `Suspense`, `ErrorBoundary`, `createResource` | `Loading`, `Errored`, async `createMemo`                                      |
+| `batch`, `createMutable`                      | nothing; writes batch on the microtask. `flush()` in tests                    |
+| `use:`, `on:`, `attr:`, `bool:`, `/*@once*/`  | ref callbacks or factories, camelCase `onX`, plain attributes                 |
+| `tabIndex`, `aria-pressed={on()}`             | `tabindex`, ARIA values as strings (`aria-pressed={on() ? "true" : "false"}`) |
+
+- Never destructure `props`. Read `props.x` inside JSX, a memo, or an effect's compute function. Reads at the top of a component body warn (`STRICT_READ_UNTRACKED`).
+- Do not write signals inside a memo or a component body. Writes go in event handlers, actions, or an effect's apply function. Writes apply on the next microtask; do not call `flush()` inside `onSettled`.
+- A ref callback cannot create effects or call `onCleanup`. Do that work in the component body and keep the element in a variable.
+- `JSX`, `ComponentProps`, `Portal`, `dynamic`, `isServer`, `render`, `clientOnly`, `HydrationScript`, `httpStatus` come from `@solidjs/web`. `Show`, `For`, `Switch`, `Match`, `Loading`, `createSignal`, `createMemo`, `createEffect`, `createStore`, `omit`, `merge` come from `solid-js`.
+- Components come from `@solid-kit/kit/<subpath>`. Never import a `packages/1.9` package into 2.0 code.
+
+## `packages/web`
+
+- Solid 2 start mode: `@solidjs/vite-plugin` with `start` + `ssr`, `src/Document.tsx` (the HTML shell) and `src/App.tsx` (the router). There is no `@solidjs/start` or `entry-*.tsx`.
+- File routes under `src/routes` (`filesystem-routing`); `file-routes.d.ts` is generated by the build and committed. A route exports `route = { preload } satisfies RouteDefinition` for data and `httpStatus`.
+- `@solidjs/router` 2: links are plain `<a href>`; there is no `<A>`. The router sets `data-active` on every link the path is under and `aria-current="page"` on the exact one. Use `useLinkState(href, { end })` for active state in JS.
+- `prerender-crawler` writes every page reachable from `/` to static HTML in `dist/client`. `dist/server/node.js` serves those and renders the rest; it bundles its dependencies (`ssr.noExternal`), so it runs without `node_modules`.
+- Browser-only code (tiptap, xyflow, motion demos) goes through `clientOnly(() => import(...))`.
+- The chrome is m3 (`AppBar`, `NavigationDrawer`, `Tabs`). The `/m3` section wraps its pages in `data-m3` so `--primary` and friends switch to the M3 scheme.
+
+# Package Development: Solid 1.9 (`packages/1.9/**`, `packages/storybook`)
+
+Peer dependency is `solid-js` `^1.9.0`. `jsxImportSource` is `solid-js`. Write Solid 1.9 only in these folders; everything else is 2.0 (above). Storybook 10 and its Solid adapter are 1.9-only, so Storybook stays on these packages.
 
 Match the public behavior of [Tiptap React](https://github.com/ueberdosis/tiptap/tree/main/packages/react). Implement it with the patterns already in `packages/1.9/tiptap/src`. Copying React component bodies, hooks, or JSX is a bug.
 
@@ -123,9 +168,9 @@ export function NodeViewWrapper(props: NodeViewWrapperProps) {
 }
 ```
 
-## Solid 2.0 — not in the 1.9 folders
+## Solid 2.0 APIs stay out of the 1.9 folders
 
-Solid 2.0 is a different API. The 1.9 packages, web, and storybook still typecheck as 1.9; only `packages/kit` is 2.0. Guides: [v2.solidjs.com](https://v2.solidjs.com), [migration](https://github.com/solidjs/solid/blob/next/documentation/solid-2.0/MIGRATION.md), [RC post](https://www.solidjs.com/blog/solid-2-0-rc-the-big-reveal).
+These packages typecheck as 1.9. In `packages/1.9/**` and `packages/storybook`:
 
 | If you reach for this (2.0)                                           | Stay on this (1.9)                                                          |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------------- |

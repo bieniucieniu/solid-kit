@@ -26,14 +26,13 @@ export function DrawerTrigger(props: ComponentProps<typeof DrawerTriggerPrimitiv
 
 /** ui-sdk sets its opacity from how far the drawer is open, so it tracks a drag. */
 export function DrawerOverlay(props: ComponentProps<typeof DrawerBackdropPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerBackdropPrimitive
+      {...props}
       class={partClass(
         "fixed inset-0 z-50 bg-black/80 supports-backdrop-filter:backdrop-blur-xs",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -57,9 +56,9 @@ export function DrawerContent(
     showHandle?: boolean;
   },
 ) {
-  const rest = omit(props, "class", "children", "showHandle");
+  const rest = omit(props, "showHandle");
   return (
-    <DrawerContentPrimitive class={partClass(drawerContentClass, props.class)} {...rest}>
+    <DrawerContentPrimitive {...rest} class={partClass(drawerContentClass, props.class)}>
       {(props.showHandle ?? true) && (
         <DrawerHandlePrimitive class="mx-auto mt-3 hidden h-1.5 w-[100px] shrink-0 rounded-full bg-muted group-data-[side=bottom]/drawer-content:block" />
       )}
@@ -69,33 +68,30 @@ export function DrawerContent(
 }
 
 export function DrawerHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
       data-slot="drawer-header"
+      {...props}
       class={cn("flex flex-col gap-1 text-center md:text-left", props.class)}
-      {...rest}
     />
   );
 }
 
 export function DrawerFooter(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class");
   return (
     <div
       data-slot="drawer-footer"
+      {...props}
       class={cn("mt-auto flex flex-col gap-2", props.class)}
-      {...rest}
     />
   );
 }
 
 export function DrawerTitle(props: ComponentProps<typeof DrawerTitlePrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerTitlePrimitive
+      {...props}
       class={partClass("text-sm font-medium text-foreground", props.class)}
-      {...rest}
     />
   );
 }
@@ -104,11 +100,10 @@ export function DrawerTitle(props: ComponentProps<typeof DrawerTitlePrimitive>) 
 export const DrawerLabel = DrawerTitle;
 
 export function DrawerDescription(props: ComponentProps<typeof DrawerDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <DrawerDescriptionPrimitive
+      {...props}
       class={partClass("text-xs/relaxed text-muted-foreground", props.class)}
-      {...rest}
     />
   );
 }
@@ -119,14 +114,14 @@ export function DrawerClose(
     size?: ButtonSize;
   },
 ) {
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <DrawerClosePrimitive
+      {...rest}
       class={partClass(
         () => buttonVariants({ variant: props.variant ?? "outline", size: props.size }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

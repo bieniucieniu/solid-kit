@@ -4,7 +4,7 @@ import {
   TooltipContent as TooltipContentPrimitive,
   TooltipTrigger as TooltipTriggerPrimitive,
 } from "@ui-sdk/solid/tooltip";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { partClass, popupMotion } from "#kit/lib/utils";
 
 export { TooltipShortcut, createTooltipController } from "@ui-sdk/solid/tooltip";
@@ -18,10 +18,10 @@ export function TooltipTrigger(props: ComponentProps<typeof TooltipTriggerPrimit
 }
 
 export function TooltipContent(props: ComponentProps<typeof TooltipContentPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <TooltipContentPrimitive
       sideOffset={4}
+      {...props}
       class={partClass(
         [
           "z-50 inline-flex w-fit max-w-xs items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background has-data-[slot=kbd]:pr-1.5 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm",
@@ -29,20 +29,18 @@ export function TooltipContent(props: ComponentProps<typeof TooltipContentPrimit
         ],
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function TooltipArrow(props: ComponentProps<typeof TooltipArrowPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <TooltipArrowPrimitive
+      {...props}
       class={partClass(
         "size-2 rotate-45 bg-foreground data-[side=bottom]:-top-1 data-[side=left]:-right-1 data-[side=right]:-left-1 data-[side=top]:-bottom-1",
         props.class,
       )}
-      {...rest}
     />
   );
 }

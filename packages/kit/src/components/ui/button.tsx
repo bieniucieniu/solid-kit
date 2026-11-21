@@ -54,16 +54,16 @@ export type ButtonProps = ComponentProps<typeof ButtonPrimitive> & {
 
 /** A button on ui-sdk's Button: native props, `render` for links, and a pending state for async `onClick`. */
 export function Button(props: ButtonProps) {
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <ButtonPrimitive
       data-variant={props.variant ?? "default"}
       data-size={props.size ?? "default"}
+      {...rest}
       class={partClass(
         () => buttonVariants({ variant: props.variant, size: props.size }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

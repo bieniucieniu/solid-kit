@@ -24,14 +24,17 @@ Run tooling through devenv: `devenv shell -- vp check packages/kit`, `devenv she
 
 ```tsx
 import { DialogContent as DialogContentPrimitive } from "@ui-sdk/solid/dialog";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { partClass } from "#kit/lib/utils";
 
 export function DialogContent(props: ComponentProps<typeof DialogContentPrimitive>) {
-  const rest = omit(props, "class");
-  return <DialogContentPrimitive class={partClass("…tailwind…", props.class)} {...rest} />;
+  return <DialogContentPrimitive {...props} class={partClass("…tailwind…", props.class)} />;
 }
 ```
+
+- Spread `{...props}` first and put the attributes you set again (`class`, `style`, handlers, JSX children) after it; later attributes win. Defaults a caller may override (`type="button"`, `role`) go before the spread.
+- `omit` only the keys the wrapper consumes and must not reach the element (`variant`, `size`). Every `omit` / `merge` builds a props view, so do not add one for a key you set again anyway.
+- Never write `ref={props.ref}`: the spread already applies the caller's ref, and an explicit one runs it a second time.
 
 - ui-sdk sets `data-slot` on every part. Do not set it on a wrapped part. Set it on plain elements (`data-slot="dialog-header"`).
 - A part's `class`, `style`, and `children` may be functions of its state. `partClass(base, props.class)` merges both forms.

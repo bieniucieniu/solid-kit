@@ -35,16 +35,16 @@ export type ToggleProps = ComponentProps<typeof TogglePrimitive> & {
 };
 
 export function Toggle(props: ToggleProps) {
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <TogglePrimitive
       data-variant={props.variant ?? "default"}
       data-size={props.size ?? "default"}
+      {...rest}
       class={partClass(
         () => toggleVariants({ variant: props.variant, size: props.size }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

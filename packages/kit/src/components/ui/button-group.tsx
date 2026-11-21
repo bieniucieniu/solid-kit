@@ -12,34 +12,31 @@ const buttonGroupOrientationClasses = {
 export function ButtonGroup(
   props: JSX.HTMLAttributes<HTMLDivElement> & { orientation?: "horizontal" | "vertical" },
 ) {
-  const rest = omit(props, "class", "ref", "orientation");
+  const rest = omit(props, "orientation");
   return (
     <div
-      ref={props.ref}
       role="group"
       data-slot="button-group"
       data-orientation={props.orientation ?? "horizontal"}
+      {...rest}
       class={cn(
         "group/button-group flex w-fit items-stretch *:focus-visible:relative *:focus-visible:z-10 has-[>[data-slot=button-group]]:gap-2 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-r-md [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
         buttonGroupOrientationClasses[props.orientation ?? "horizontal"],
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function ButtonGroupText(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <div
-      ref={props.ref}
       data-slot="button-group-text"
+      {...props}
       class={cn(
         "flex items-center gap-2 rounded-md border bg-muted px-2.5 text-xs/relaxed font-medium [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -47,18 +44,17 @@ export function ButtonGroupText(props: JSX.HTMLAttributes<HTMLDivElement>) {
 export function ButtonGroupSeparator(
   props: JSX.HTMLAttributes<HTMLDivElement> & { orientation?: "horizontal" | "vertical" },
 ) {
-  const rest = omit(props, "class", "ref", "orientation");
+  const rest = omit(props, "orientation");
   return (
     <div
-      ref={props.ref}
       role="separator"
       data-slot="button-group-separator"
       data-orientation={props.orientation ?? "vertical"}
+      {...rest}
       class={cn(
         "relative shrink-0 self-stretch bg-input data-[orientation=horizontal]:mx-px data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-auto data-[orientation=vertical]:my-px data-[orientation=vertical]:h-auto data-[orientation=vertical]:w-px",
         props.class,
       )}
-      {...rest}
     />
   );
 }

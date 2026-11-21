@@ -23,7 +23,7 @@ type TabsContentProps = ComponentProps<typeof TabsPanelPrimitive>;
  * ui-sdk tabs: `value` / `onValueChange`; each tab and its panel share a `value`.
  */
 export function Tabs(props: TabsProps) {
-  const rest = omit(props, "class", "variant");
+  const rest = omit(props, "variant");
   return (
     <TabsContext
       value={{
@@ -34,8 +34,8 @@ export function Tabs(props: TabsProps) {
     >
       <TabsPrimitive
         data-variant={props.variant ?? "primary"}
-        class={partClass(() => cn("group/tabs flex w-full flex-col"), props.class)}
         {...rest}
+        class={partClass(() => cn("group/tabs flex w-full flex-col"), props.class)}
       />
     </TabsContext>
   );
@@ -43,9 +43,9 @@ export function Tabs(props: TabsProps) {
 
 /** The tab row, with a divider along the bottom. Put TabsIndicator last. */
 export function TabsList(props: TabsListProps) {
-  const rest = omit(props, "class");
   return (
     <TabsListPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -53,7 +53,6 @@ export function TabsList(props: TabsListProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -67,9 +66,9 @@ const triggerVariantClasses = {
 /** A tab: label, icon, or both (stacked in primary tabs, inline in secondary tabs). */
 export function TabsTrigger(props: TabsTriggerProps) {
   const context = useContext(TabsContext);
-  const rest = omit(props, "class");
   return (
     <TabsTabPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -78,7 +77,6 @@ export function TabsTrigger(props: TabsTriggerProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -92,9 +90,9 @@ const indicatorVariantClasses = {
 
 export function TabsIndicator(props: TabsIndicatorProps) {
   const context = useContext(TabsContext);
-  const rest = omit(props, "class");
   return (
     <TabsIndicatorPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -103,20 +101,18 @@ export function TabsIndicator(props: TabsIndicatorProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function TabsContent(props: TabsContentProps) {
-  const rest = omit(props, "class");
   return (
     <TabsPanelPrimitive
+      {...props}
       class={partClass(
         () => cn("py-4 outline-none focus-visible:outline-3 focus-visible:outline-secondary"),
         props.class,
       )}
-      {...rest}
     />
   );
 }

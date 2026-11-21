@@ -18,7 +18,7 @@ type ToggleGroupItemProps = ComponentProps<typeof TogglePrimitive> & {
 };
 
 export function ToggleGroup(props: ToggleGroupProps) {
-  const rest = omit(props, "class", "style", "variant", "size", "spacing");
+  const rest = omit(props, "variant", "size", "spacing");
   const context: ToggleGroupStyle = {
     get variant() {
       return props.variant;
@@ -36,6 +36,7 @@ export function ToggleGroup(props: ToggleGroupProps) {
         data-variant={props.variant ?? "default"}
         data-size={props.size ?? "default"}
         data-spacing={props.spacing ?? 2}
+        {...rest}
         style={{
           "--gap": String(props.spacing ?? 2),
           ...(typeof props.style === "object" ? (props.style as JSX.CSSProperties) : {}),
@@ -44,7 +45,6 @@ export function ToggleGroup(props: ToggleGroupProps) {
           "group/toggle-group flex w-fit flex-row items-center gap-[--spacing(var(--gap))] rounded-md data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-stretch data-[size=sm]:rounded-[min(var(--radius-md),8px)]",
           props.class,
         )}
-        {...rest}
       />
     </ToggleGroupContext>
   );
@@ -52,12 +52,13 @@ export function ToggleGroup(props: ToggleGroupProps) {
 
 export function ToggleGroupItem(props: ToggleGroupItemProps) {
   const group = useContext(ToggleGroupContext);
-  const rest = omit(props, "class", "variant", "size");
+  const rest = omit(props, "variant", "size");
   return (
     <TogglePrimitive
       data-variant={group.variant ?? props.variant ?? "default"}
       data-size={group.size ?? props.size ?? "default"}
       data-spacing={group.spacing ?? 2}
+      {...rest}
       class={partClass(
         () =>
           cn(
@@ -69,7 +70,6 @@ export function ToggleGroupItem(props: ToggleGroupItemProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }

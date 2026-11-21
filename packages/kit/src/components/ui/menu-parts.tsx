@@ -60,15 +60,13 @@ export function Menu(props: ComponentProps<typeof MenuPrimitive>) {
 
 /** Sits 4px off its trigger, and scrolls once it runs out of room. */
 export function MenuContent(props: ComponentProps<typeof MenuContentPrimitive>) {
-  const rest = omit(props, "class");
   return (
-    <MenuContentPrimitive sideOffset={4} class={partClass(surfaceClass, props.class)} {...rest} />
+    <MenuContentPrimitive sideOffset={4} {...props} class={partClass(surfaceClass, props.class)} />
   );
 }
 
 export function MenuSubContent(props: ComponentProps<typeof MenuSubContentPrimitive>) {
-  const rest = omit(props, "class");
-  return <MenuSubContentPrimitive class={partClass(surfaceClass, props.class)} {...rest} />;
+  return <MenuSubContentPrimitive {...props} class={partClass(surfaceClass, props.class)} />;
 }
 
 export type MenuItemProps = ComponentProps<typeof MenuItemPrimitive> & {
@@ -78,51 +76,48 @@ export type MenuItemProps = ComponentProps<typeof MenuItemPrimitive> & {
 
 /** One command. Give it a `value` for the menu's `onAction`, or an `onSelect`. */
 export function MenuItem(props: MenuItemProps) {
-  const rest = omit(props, "class", "variant", "destructive");
+  const rest = omit(props, "variant");
   return (
     <MenuItemPrimitive
+      {...rest}
       destructive={props.destructive ?? props.variant === "destructive"}
       class={partClass(itemClass, props.class)}
-      {...rest}
     />
   );
 }
 
 /** The item's main text, for an item that also has a description. */
 export function MenuItemLabel(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
       data-slot="menu-item-label"
+      {...props}
       class={cn("text-xs text-foreground", props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuItemDescription(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
       data-slot="menu-item-description"
+      {...props}
       class={cn("text-xs text-muted-foreground", props.class)}
-      {...rest}
     />
   );
 }
 
 export function createMenuItemIndicator(side: "start" | "end") {
   return function MenuItemIndicator(props: ComponentProps<typeof MenuItemIndicatorPrimitive>) {
-    const rest = omit(props, "class", "children");
     return (
       <MenuItemIndicatorPrimitive
+        {...props}
         class={partClass(
           side === "end"
             ? "pointer-events-none absolute right-2 flex items-center justify-center"
             : "pointer-events-none absolute left-2 flex size-4 items-center justify-center [&_svg:not([class*='size-'])]:size-4",
           props.class,
         )}
-        {...rest}
       >
         {(props.children as JSX.Element) ?? <CheckIcon />}
       </MenuItemIndicatorPrimitive>
@@ -132,56 +127,49 @@ export function createMenuItemIndicator(side: "start" | "end") {
 
 export function createMenuCheckboxItem(side: "start" | "end") {
   return function MenuCheckboxItem(props: ComponentProps<typeof MenuCheckboxItemPrimitive>) {
-    const rest = omit(props, "class");
     return (
-      <MenuCheckboxItemPrimitive class={partClass(checkItemClass(side), props.class)} {...rest} />
+      <MenuCheckboxItemPrimitive {...props} class={partClass(checkItemClass(side), props.class)} />
     );
   };
 }
 
 export function createMenuRadioItem(side: "start" | "end") {
   return function MenuRadioItem(props: ComponentProps<typeof MenuRadioItemPrimitive>) {
-    const rest = omit(props, "class");
     return (
-      <MenuRadioItemPrimitive class={partClass(checkItemClass(side), props.class)} {...rest} />
+      <MenuRadioItemPrimitive {...props} class={partClass(checkItemClass(side), props.class)} />
     );
   };
 }
 
 export function MenuRadioGroup(props: ComponentProps<typeof MenuRadioGroupPrimitive>) {
-  const rest = omit(props, "class");
-  return <MenuRadioGroupPrimitive class={partClass("flex flex-col", props.class)} {...rest} />;
+  return <MenuRadioGroupPrimitive {...props} class={partClass("flex flex-col", props.class)} />;
 }
 
 export function MenuGroup(props: ComponentProps<typeof MenuGroupPrimitive>) {
-  const rest = omit(props, "class");
-  return <MenuGroupPrimitive class={partClass("flex flex-col", props.class)} {...rest} />;
+  return <MenuGroupPrimitive {...props} class={partClass("flex flex-col", props.class)} />;
 }
 
 export function MenuGroupLabel(props: ComponentProps<typeof MenuGroupLabelPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <MenuGroupLabelPrimitive
+      {...props}
       class={partClass("px-2 py-1.5 text-xs text-muted-foreground", props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuItemIcon(props: ComponentProps<typeof MenuItemIconPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <MenuItemIconPrimitive
+      {...props}
       class={partClass("size-3.5 shrink-0 text-muted-foreground", props.class)}
-      {...rest}
     />
   );
 }
 
 export function MenuSubTrigger(props: ComponentProps<typeof MenuSubTriggerPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
-    <MenuSubTriggerPrimitive class={partClass(subTriggerClass, props.class)} {...rest}>
+    <MenuSubTriggerPrimitive {...props} class={partClass(subTriggerClass, props.class)}>
       {props.children as JSX.Element}
       <svg
         viewBox="0 0 24 24"
@@ -198,28 +186,26 @@ export function MenuSubTrigger(props: ComponentProps<typeof MenuSubTriggerPrimit
 }
 
 export function MenuSeparator(props: ComponentProps<typeof MenuSeparatorPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <MenuSeparatorPrimitive
+      {...props}
       class={partClass(
         "-mx-1 my-1 h-px bg-border/50 data-[orientation=vertical]:mx-0 data-[orientation=vertical]:my-0 data-[orientation=vertical]:h-auto data-[orientation=vertical]:w-px",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Shows an item's `shortcut`, or the keys you pass. */
 export function MenuShortcut(props: ComponentProps<typeof MenuShortcutPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <MenuShortcutPrimitive
+      {...props}
       class={partClass(
         "ml-auto text-[0.625rem] tracking-widest text-muted-foreground group-data-highlighted/menu-item:text-accent-foreground",
         props.class,
       )}
-      {...rest}
     />
   );
 }

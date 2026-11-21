@@ -5,7 +5,7 @@ import {
   FieldLabel as FieldLabelPrimitive,
 } from "@ui-sdk/solid/field";
 import { Input as InputPrimitive } from "@ui-sdk/solid/input";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import { partClass } from "#kit/lib/utils";
 
 /** Classes for a text control, shared with `Textarea` and `InputGroup`. */
@@ -17,49 +17,44 @@ export const inputControlClass =
  * control. Pass `disabled` or `invalid` here; the value goes on `InputControl`.
  */
 export function Input(props: ComponentProps<typeof FieldPrimitive>) {
-  const rest = omit(props, "class");
-  return <FieldPrimitive class={partClass("flex w-full flex-col gap-2", props.class)} {...rest} />;
+  return <FieldPrimitive {...props} class={partClass("flex w-full flex-col gap-2", props.class)} />;
 }
 
 export function InputLabel(props: ComponentProps<typeof FieldLabelPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <FieldLabelPrimitive
+      {...props}
       class={partClass(
         "flex items-center gap-2 text-xs/relaxed leading-none font-medium select-none data-disabled:pointer-events-none data-disabled:opacity-50",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** The native `<input>`. Takes `value`/`defaultValue`/`onValueChange` and every native attribute. */
 export function InputControl(props: ComponentProps<typeof InputPrimitive>) {
-  const rest = omit(props, "class");
-  return <InputPrimitive class={partClass(inputControlClass, props.class)} {...rest} />;
+  return <InputPrimitive {...props} class={partClass(inputControlClass, props.class)} />;
 }
 
 export function InputDescription(props: ComponentProps<typeof FieldDescriptionPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <FieldDescriptionPrimitive
+      {...props}
       class={partClass(
         "text-left text-xs/relaxed leading-normal font-normal text-muted-foreground",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Shows while the field is invalid. */
 export function InputErrorMessage(props: ComponentProps<typeof FieldErrorPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <FieldErrorPrimitive
+      {...props}
       class={partClass("text-xs/relaxed font-normal text-destructive", props.class)}
-      {...rest}
     />
   );
 }

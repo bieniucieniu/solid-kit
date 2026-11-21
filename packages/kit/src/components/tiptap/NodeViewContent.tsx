@@ -8,7 +8,7 @@ export interface NodeViewContentProps extends ComponentProps<"div"> {
 }
 
 export function NodeViewContent(props: NodeViewContentProps) {
-  const rest = omit(props, "as", "style");
+  const rest = omit(props, "as");
   const nv = useSolidNodeView();
 
   const Tag = dynamic(() => props.as || "div");

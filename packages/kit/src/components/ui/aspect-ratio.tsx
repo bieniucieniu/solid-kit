@@ -7,12 +7,11 @@ type AspectRatioProps = JSX.HTMLAttributes<HTMLDivElement> & {
 };
 
 export function AspectRatio(props: AspectRatioProps) {
-  const rest = omit(props, "class", "ref", "ratio", "style");
+  const rest = omit(props, "ratio");
   return (
     <div
-      ref={props.ref}
-      class={cn("relative w-full", props.class)}
       {...rest}
+      class={cn("relative w-full", props.class)}
       style={{
         ...(props.style && typeof props.style === "object" ? props.style : {}),
         "aspect-ratio": props.ratio ?? "1 / 1",

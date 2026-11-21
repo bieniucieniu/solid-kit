@@ -1,6 +1,6 @@
 import { Menubar as MenubarPrimitive } from "@ui-sdk/solid/menubar";
 import { MenuTrigger as MenuTriggerPrimitive } from "@ui-sdk/solid/menu";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import {
   Menu,
   MenuContent,
@@ -25,11 +25,10 @@ export { MenuSub as MenubarSub } from "@ui-sdk/solid/menu";
 
 /** A bar of menus. Each `MenubarMenu` inside joins it. */
 export function Menubar(props: ComponentProps<typeof MenubarPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <MenubarPrimitive
+      {...props}
       class={partClass("flex h-9 items-center rounded-lg border p-1", props.class)}
-      {...rest}
     />
   );
 }
@@ -37,14 +36,13 @@ export function Menubar(props: ComponentProps<typeof MenubarPrimitive>) {
 export const MenubarMenu = Menu;
 
 export function MenubarTrigger(props: ComponentProps<typeof MenuTriggerPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <MenuTriggerPrimitive
+      {...props}
       class={partClass(
         "flex items-center rounded-[calc(var(--radius-md)-2px)] px-2 py-[calc(--spacing(0.85))] text-xs/relaxed font-medium outline-hidden select-none hover:bg-muted focus-visible:bg-muted data-open:bg-muted data-disabled:opacity-50",
         props.class,
       )}
-      {...rest}
     />
   );
 }

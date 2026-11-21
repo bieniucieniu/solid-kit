@@ -11,18 +11,18 @@ type SkeletonProps = JSX.HTMLAttributes<HTMLDivElement> & {
 
 /** A placeholder block. ui-sdk has no skeleton part, so this is a plain element. */
 export function Skeleton(props: SkeletonProps) {
-  const rest = omit(props, "class", "visible", "animate");
+  const rest = omit(props, "visible", "animate");
   return (
     <div
       data-slot="skeleton"
       data-visible={(props.visible ?? true) ? "" : undefined}
       data-animate={(props.animate ?? true) ? "" : undefined}
       aria-busy={(props.visible ?? true) ? "true" : undefined}
+      {...rest}
       class={cn(
         "block rounded-md data-visible:bg-muted data-visible:text-transparent data-visible:data-animate:animate-pulse data-visible:[&>*]:invisible",
         props.class,
       )}
-      {...rest}
     />
   );
 }

@@ -1,5 +1,5 @@
 import { MenuContextTrigger as MenuContextTriggerPrimitive } from "@ui-sdk/solid/menu";
-import { type ComponentProps, omit } from "solid-js";
+import { type ComponentProps } from "solid-js";
 import {
   Menu,
   MenuContent,
@@ -27,8 +27,7 @@ export const ContextMenu = Menu;
 
 /** The area that opens the menu. It renders a `div`. */
 export function ContextMenuTrigger(props: ComponentProps<typeof MenuContextTriggerPrimitive>) {
-  const rest = omit(props, "class");
-  return <MenuContextTriggerPrimitive class={partClass("select-none", props.class)} {...rest} />;
+  return <MenuContextTriggerPrimitive {...props} class={partClass("select-none", props.class)} />;
 }
 
 export const ContextMenuContent = MenuContent;

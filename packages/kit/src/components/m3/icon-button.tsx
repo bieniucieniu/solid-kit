@@ -103,15 +103,15 @@ export interface IconButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElem
 
 /** Give it an `aria-label`; the icon is its only content. */
 export function IconButton(props: IconButtonProps) {
-  const rest = omit(props, "class", "ref", "variant", "size", "shape", "width");
+  const rest = omit(props, "variant", "size", "shape", "width");
   const group = useButtonGroupStyle(props);
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="icon-button"
       data-variant={props.variant ?? "standard"}
       data-size={group.size}
+      {...rest}
       class={iconButtonVariants({
         variant: props.variant,
         size: group.size,
@@ -120,7 +120,6 @@ export function IconButton(props: IconButtonProps) {
         connected: group.connected,
         class: props.class,
       })}
-      {...rest}
     />
   );
 }
@@ -133,12 +132,13 @@ export type ToggleIconButtonProps = ComponentProps<typeof ToggleButtonPrimitive>
 };
 
 export function ToggleIconButton(props: ToggleIconButtonProps) {
-  const rest = omit(props, "class", "variant", "size", "shape", "width");
+  const rest = omit(props, "variant", "size", "shape", "width");
   const group = useButtonGroupStyle(props);
   return (
     <ToggleButtonPrimitive
       data-variant={props.variant ?? "standard"}
       data-size={group.size}
+      {...rest}
       class={partClass(
         () =>
           toggleIconButtonVariants({
@@ -150,7 +150,6 @@ export function ToggleIconButton(props: ToggleIconButtonProps) {
           }),
         props.class,
       )}
-      {...rest}
     />
   );
 }

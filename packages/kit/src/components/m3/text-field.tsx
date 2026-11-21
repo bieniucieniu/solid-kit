@@ -26,7 +26,7 @@ type TextFieldErrorMessageProps = ComponentProps<typeof TextFieldErrorMessagePri
  * `disabled` here; `value` / `onValueChange` go on TextFieldInput or TextFieldTextArea.
  */
 export function TextField(props: TextFieldProps) {
-  const rest = omit(props, "class", "variant");
+  const rest = omit(props, "variant");
   return (
     <TextFieldContext
       value={{
@@ -37,8 +37,8 @@ export function TextField(props: TextFieldProps) {
     >
       <TextFieldPrimitive
         data-variant={props.variant ?? "filled"}
-        class={partClass(() => cn("group/text-field flex w-full flex-col"), props.class)}
         {...rest}
+        class={partClass(() => cn("group/text-field flex w-full flex-col"), props.class)}
       />
     </TextFieldContext>
   );
@@ -54,17 +54,15 @@ const containerVariantClasses = {
 /** The input box: holds the leading icon, label, input, and trailing icon. */
 export function TextFieldContainer(props: JSX.HTMLAttributes<HTMLDivElement>) {
   const context = useContext(TextFieldContext);
-  const rest = omit(props, "class", "ref");
   return (
     <div
-      ref={props.ref}
       data-slot="text-field-container"
+      {...props}
       class={cn(
         "group/field relative flex min-h-14 w-full cursor-text items-center has-[textarea]:items-start group-data-disabled/text-field:cursor-not-allowed",
         containerVariantClasses[context.variant],
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -82,9 +80,9 @@ const labelVariantClasses = {
 
 export function TextFieldLabel(props: TextFieldLabelProps) {
   const context = useContext(TextFieldContext);
-  const rest = omit(props, "class");
   return (
     <TextFieldLabelPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -93,7 +91,6 @@ export function TextFieldLabel(props: TextFieldLabelProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -108,67 +105,61 @@ const inputBase =
 
 export function TextFieldInput(props: TextFieldInputProps) {
   const context = useContext(TextFieldContext);
-  const rest = omit(props, "class");
   return (
     <TextFieldInputPrimitive
       placeholder=" "
+      {...props}
       class={partClass(() => cn(inputBase, inputVariantClasses[context.variant]), props.class)}
-      {...rest}
     />
   );
 }
 
 export function TextFieldTextArea(props: TextFieldTextAreaProps) {
   const context = useContext(TextFieldContext);
-  const rest = omit(props, "class");
   return (
     <TextFieldTextAreaPrimitive
       placeholder=" "
+      {...props}
       class={partClass(
         () => cn(inputBase, inputVariantClasses[context.variant], "min-h-28 resize-y"),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Leading icon, 24px, in on-surface-variant. */
 export function TextFieldLeading(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <span
-      ref={props.ref}
       data-slot="text-field-leading"
+      {...props}
       class={cn(
         "relative z-10 flex shrink-0 items-center justify-center self-center pr-4 pl-3 text-on-surface-variant group-data-disabled/text-field:text-on-surface/38 [&_svg:not([class*='size-'])]:size-6",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** Trailing icon or icon button. Turns error-colored while invalid. */
 export function TextFieldTrailing(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <span
-      ref={props.ref}
       data-slot="text-field-trailing"
+      {...props}
       class={cn(
         "relative z-10 flex shrink-0 items-center justify-center self-center pr-3 pl-4 text-on-surface-variant group-data-invalid/text-field:text-error group-data-disabled/text-field:text-on-surface/38 [&_svg:not([class*='size-'])]:size-6",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function TextFieldDescription(props: TextFieldDescriptionProps) {
-  const rest = omit(props, "class");
   return (
     <TextFieldDescriptionPrimitive
+      {...props}
       class={partClass(
         () =>
           cn(
@@ -176,17 +167,15 @@ export function TextFieldDescription(props: TextFieldDescriptionProps) {
           ),
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function TextFieldErrorMessage(props: TextFieldErrorMessageProps) {
-  const rest = omit(props, "class");
   return (
     <TextFieldErrorMessagePrimitive
+      {...props}
       class={partClass(() => cn("px-4 pt-1 typescale-body-small text-error"), props.class)}
-      {...rest}
     />
   );
 }

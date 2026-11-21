@@ -28,30 +28,27 @@ export interface BadgeProps extends JSX.HTMLAttributes<HTMLSpanElement> {
  * icon's top-end corner.
  */
 export function Badge(props: BadgeProps) {
-  const rest = omit(props, "class", "ref", "size");
+  const rest = omit(props, "size");
   return (
     <span
-      ref={props.ref}
       data-slot="badge"
       data-size={props.size ?? "large"}
-      class={badgeVariants({ size: props.size, class: props.class })}
       {...rest}
+      class={badgeVariants({ size: props.size, class: props.class })}
     />
   );
 }
 
 /** Positions a Badge over the top-end corner of the icon next to it. */
 export function BadgeAnchor(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <span
-      ref={props.ref}
       data-slot="badge-anchor"
+      {...props}
       class={cn(
         "relative inline-flex [&>[data-slot=badge]]:absolute [&>[data-slot=badge][data-size=large]]:start-[calc(100%-12px)] [&>[data-slot=badge][data-size=large]]:-top-0.5 [&>[data-slot=badge][data-size=small]]:start-[calc(100%-6px)] [&>[data-slot=badge][data-size=small]]:top-0",
         props.class,
       )}
-      {...rest}
     />
   );
 }

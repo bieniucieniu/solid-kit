@@ -38,7 +38,7 @@ export interface SplitButtonProps extends JSX.HTMLAttributes<HTMLDivElement> {
  * SplitButtonTrigger inside.
  */
 export function SplitButton(props: SplitButtonProps) {
-  const rest = omit(props, "class", "variant", "size", "style");
+  const rest = omit(props, "variant", "size");
   return (
     <SplitButtonContext
       value={{
@@ -51,16 +51,15 @@ export function SplitButton(props: SplitButtonProps) {
       }}
     >
       <div
-        ref={props.ref}
         role="group"
         data-slot="split-button"
+        {...rest}
         class={cn("inline-flex items-center gap-0.5", props.class)}
         style={{
           "--split-inner": corners[props.size ?? "sm"].inner,
           "--split-outer": corners[props.size ?? "sm"].outer,
           ...(typeof props.style === "object" ? (props.style as JSX.CSSProperties) : {}),
         }}
-        {...rest}
       />
     </SplitButtonContext>
   );
@@ -69,12 +68,11 @@ export function SplitButton(props: SplitButtonProps) {
 /** The leading half: the main action. */
 export function SplitButtonAction(props: JSX.ButtonHTMLAttributes<HTMLButtonElement>) {
   const context = useContext(SplitButtonContext);
-  const rest = omit(props, "class");
   return (
     <button
-      ref={props.ref}
       type="button"
       data-slot="split-button-action"
+      {...props}
       class={buttonVariants({
         variant: context.variant,
         size: context.size,
@@ -83,7 +81,6 @@ export function SplitButtonAction(props: JSX.ButtonHTMLAttributes<HTMLButtonElem
           props.class,
         ),
       })}
-      {...rest}
     />
   );
 }
@@ -109,9 +106,9 @@ type SplitButtonTriggerProps = ComponentProps<typeof MenuTriggerPrimitive>;
  */
 export function SplitButtonTrigger(props: SplitButtonTriggerProps) {
   const context = useContext(SplitButtonContext);
-  const rest = omit(props, "class", "children");
   return (
     <MenuTriggerPrimitive
+      {...props}
       class={partClass(
         () =>
           buttonVariants({
@@ -124,7 +121,6 @@ export function SplitButtonTrigger(props: SplitButtonTriggerProps) {
           }),
         props.class,
       )}
-      {...rest}
     >
       {props.children ?? <ArrowDropDownIcon />}
     </MenuTriggerPrimitive>

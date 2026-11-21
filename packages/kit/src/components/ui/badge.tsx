@@ -24,14 +24,13 @@ export function badgeVariants(options?: { variant?: BadgeVariant; class?: ClassV
 }
 
 export function Badge(props: JSX.HTMLAttributes<HTMLSpanElement> & { variant?: BadgeVariant }) {
-  const rest = omit(props, "class", "ref", "variant");
+  const rest = omit(props, "variant");
   return (
     <span
-      ref={props.ref}
       data-slot="badge"
       data-variant={props.variant ?? "default"}
-      class={badgeVariants({ variant: props.variant, class: props.class })}
       {...rest}
+      class={badgeVariants({ variant: props.variant, class: props.class })}
     />
   );
 }

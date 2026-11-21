@@ -5,7 +5,7 @@ import { cn } from "#kit/lib/utils";
 export function NativeSelect(
   props: Omit<JSX.SelectHTMLAttributes<HTMLSelectElement>, "size"> & { size?: "sm" | "default" },
 ) {
-  const rest = omit(props, "class", "ref", "size");
+  const rest = omit(props, "size");
   return (
     <div
       data-slot="native-select-wrapper"
@@ -13,11 +13,10 @@ export function NativeSelect(
       class={cn("group/native-select relative w-fit has-[select:disabled]:opacity-50", props.class)}
     >
       <select
-        ref={props.ref}
         data-slot="native-select"
         data-size={props.size ?? "default"}
-        class="h-7 w-full min-w-0 appearance-none rounded-md border border-input bg-input/20 py-0.5 pr-6 pl-2 text-xs/relaxed transition-colors outline-none select-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive/20 data-[size=sm]:h-6 data-[size=sm]:text-[0.625rem] dark:bg-input/30 dark:hover:bg-input/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40"
         {...rest}
+        class="h-7 w-full min-w-0 appearance-none rounded-md border border-input bg-input/20 py-0.5 pr-6 pl-2 text-xs/relaxed transition-colors outline-none select-none selection:bg-primary selection:text-primary-foreground placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:border-destructive aria-invalid:ring-2 aria-invalid:ring-destructive/20 data-[size=sm]:h-6 data-[size=sm]:text-[0.625rem] dark:bg-input/30 dark:hover:bg-input/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40"
       />
       <svg
         viewBox="0 0 24 24"
@@ -36,25 +35,21 @@ export function NativeSelect(
 }
 
 export function NativeSelectOption(props: JSX.OptionHTMLAttributes<HTMLOptionElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <option
-      ref={props.ref}
       data-slot="native-select-option"
+      {...props}
       class={cn("bg-[Canvas] text-[CanvasText]", props.class)}
-      {...rest}
     />
   );
 }
 
 export function NativeSelectOptGroup(props: JSX.OptgroupHTMLAttributes<HTMLOptGroupElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <optgroup
-      ref={props.ref}
       data-slot="native-select-optgroup"
+      {...props}
       class={cn("bg-[Canvas] text-[CanvasText]", props.class)}
-      {...rest}
     />
   );
 }

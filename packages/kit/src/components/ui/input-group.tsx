@@ -4,17 +4,15 @@ import { Button, type ButtonProps, type ButtonVariant } from "./button";
 import { cn } from "#kit/lib/utils";
 
 export function InputGroup(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <div
-      ref={props.ref}
       data-slot="input-group"
       role="group"
+      {...props}
       class={cn(
         "group/input-group relative flex h-7 w-full min-w-0 items-center rounded-md border border-input bg-input/20 text-xs/relaxed transition-colors outline-none has-data-[align=block-end]:rounded-md has-data-[align=block-start]:rounded-md has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:ring-2 has-[[data-slot=input-group-control]:focus-visible]:ring-ring/30 has-[[data-slot][aria-invalid=true]]:border-destructive has-[[data-slot][aria-invalid=true]]:ring-2 has-[[data-slot][aria-invalid=true]]:ring-destructive/20 has-[textarea]:rounded-md has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto dark:bg-input/30 dark:has-[[data-slot][aria-invalid=true]]:ring-destructive/40 has-[>[data-align=block-end]]:[&>input]:pt-3 has-[>[data-align=block-start]]:[&>input]:pb-3 has-[>[data-align=inline-end]]:[&>input]:pr-1.5 has-[>[data-align=inline-start]]:[&>input]:pl-1.5",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -31,13 +29,13 @@ const addonAlignClasses = {
 export function InputGroupAddon(
   props: JSX.HTMLAttributes<HTMLDivElement> & { align?: keyof typeof addonAlignClasses },
 ) {
-  const rest = omit(props, "class", "ref", "align", "onClick");
+  const rest = omit(props, "align");
   return (
     <div
-      ref={props.ref}
       role="group"
       data-slot="input-group-addon"
       data-align={props.align ?? "inline-start"}
+      {...rest}
       class={cn(
         "flex h-auto cursor-text items-center justify-center gap-1 py-2 text-xs/relaxed font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 **:data-[slot=kbd]:rounded-[calc(var(--radius-sm)-2px)] **:data-[slot=kbd]:bg-muted-foreground/10 **:data-[slot=kbd]:px-1 **:data-[slot=kbd]:text-[0.625rem] [&>svg:not([class*='size-'])]:size-3.5",
         addonAlignClasses[props.align ?? "inline-start"],
@@ -50,7 +48,6 @@ export function InputGroupAddon(
           ?.querySelector<HTMLElement>("[data-slot=input-group-control]")
           ?.focus();
       }}
-      {...rest}
     />
   );
 }
@@ -68,63 +65,57 @@ export function InputGroupButton(
     size?: keyof typeof inputGroupButtonSizeClasses;
   },
 ) {
-  const rest = omit(props, "class", "variant", "size", "type");
+  const rest = omit(props, "size");
   return (
     <Button
+      data-size={props.size ?? "xs"}
+      {...rest}
       type={props.type ?? "button"}
       variant={props.variant ?? "ghost"}
-      data-size={props.size ?? "xs"}
       class={cn(
         "flex items-center gap-2 rounded-md text-xs/relaxed shadow-none",
         inputGroupButtonSizeClasses[props.size ?? "xs"],
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function InputGroupText(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <span
-      ref={props.ref}
       data-slot="input-group-text"
+      {...props}
       class={cn(
         "flex items-center gap-2 text-xs/relaxed text-muted-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function InputGroupInput(props: JSX.InputHTMLAttributes<HTMLInputElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <input
-      ref={props.ref}
       data-slot="input-group-control"
+      {...props}
       class={cn(
         "h-full w-full min-w-0 flex-1 rounded-none border-0 bg-transparent px-2 py-0.5 text-sm shadow-none ring-0 outline-none placeholder:text-muted-foreground focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-0 md:text-xs/relaxed dark:bg-transparent",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function InputGroupTextarea(props: JSX.TextareaHTMLAttributes<HTMLTextAreaElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <textarea
-      ref={props.ref}
       data-slot="input-group-control"
+      {...props}
       class={cn(
         "field-sizing-content min-h-16 w-full flex-1 resize-none rounded-none border-0 bg-transparent px-2 py-2 text-sm shadow-none ring-0 outline-none placeholder:text-muted-foreground focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-0 md:text-xs/relaxed dark:bg-transparent",
         props.class,
       )}
-      {...rest}
     />
   );
 }

@@ -10,15 +10,14 @@ import { cn, partClass } from "#kit/lib/utils";
 // text; put `checked` / `onCheckedChange` on `SwitchControl`.
 
 export function Switch(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {
-  const rest = omit(props, "class");
   return (
     <label
       data-slot="switch"
+      {...props}
       class={cn(
         "group/switch inline-flex items-center gap-4 text-on-surface has-data-disabled:cursor-not-allowed",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -28,14 +27,13 @@ export function Switch(props: JSX.LabelHTMLAttributes<HTMLLabelElement>) {
  * It renders its own thumb unless you pass children.
  */
 export function SwitchControl(props: ComponentProps<typeof SwitchPrimitive>) {
-  const rest = omit(props, "class", "children");
   return (
     <SwitchPrimitive
+      {...props}
       class={partClass(
         "group/switch-control relative inline-flex h-8 w-13 shrink-0 cursor-pointer items-center rounded-full border-2 border-outline bg-surface-container-highest outline-none motion-fast [--switch-layer:0] hover:[--switch-layer:0.08] focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-secondary focus-visible:[--switch-layer:0.1] active:[--switch-layer:0.1] data-checked:border-primary data-checked:bg-primary data-disabled:border-on-surface/12 data-disabled:bg-on-surface/12 data-disabled:[--switch-layer:0] data-disabled:data-checked:border-transparent",
         props.class,
       )}
-      {...rest}
     >
       {(props.children as JSX.Element) ?? <SwitchThumb />}
     </SwitchPrimitive>
@@ -78,15 +76,15 @@ export function SwitchThumb(
     icons?: boolean;
   },
 ) {
-  const rest = omit(props, "class", "icons", "children");
+  const rest = omit(props, "icons");
   return (
     <SwitchThumbPrimitive
       data-icons={props.icons ? "" : undefined}
+      {...rest}
       class={partClass(
         "pointer-events-none absolute top-1/2 left-3.5 flex size-4 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-outline motion-fast data-checked:size-6 data-checked:translate-x-[calc(-50%+20px)] data-checked:bg-on-primary data-icons:size-6 group-active/switch-control:size-7 group-data-disabled/switch-control:bg-on-surface/38 group-data-disabled/switch-control:data-checked:bg-surface",
         props.class,
       )}
-      {...rest}
     >
       <span class="absolute size-10 rounded-full bg-on-surface opacity-(--switch-layer) motion-fast group-data-checked/switch-control:bg-primary" />
       <Show when={props.icons}>
@@ -100,37 +98,34 @@ export function SwitchThumb(
 }
 
 export function SwitchLabel(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
       data-slot="switch-label"
+      {...props}
       class={cn(
         "typescale-body-large text-on-surface select-none group-has-data-disabled/switch:text-on-surface/38",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function SwitchDescription(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
       data-slot="switch-description"
+      {...props}
       class={cn("typescale-body-small text-on-surface-variant", props.class)}
-      {...rest}
     />
   );
 }
 
 export function SwitchErrorMessage(props: JSX.HTMLAttributes<HTMLSpanElement>) {
-  const rest = omit(props, "class");
   return (
     <span
       data-slot="switch-error-message"
+      {...props}
       class={cn("typescale-body-small text-error", props.class)}
-      {...rest}
     />
   );
 }

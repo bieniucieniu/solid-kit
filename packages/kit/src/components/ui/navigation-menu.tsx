@@ -24,14 +24,14 @@ export function NavigationMenu(
     viewport?: boolean;
   },
 ) {
-  const rest = omit(props, "class", "children", "viewport");
+  const rest = omit(props, "viewport");
   return (
     <NavigationMenuPrimitive
+      {...rest}
       class={partClass(
         "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
         props.class,
       )}
-      {...rest}
     >
       {props.children as JSX.Element}
       <Show when={props.viewport !== false}>
@@ -42,21 +42,19 @@ export function NavigationMenu(
 }
 
 export function NavigationMenuList(props: ComponentProps<typeof NavigationMenuListPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <NavigationMenuListPrimitive
+      {...props}
       class={partClass(
         "group flex flex-1 list-none items-center justify-center gap-0",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function NavigationMenuItem(props: ComponentProps<typeof NavigationMenuItemPrimitive>) {
-  const rest = omit(props, "class");
-  return <NavigationMenuItemPrimitive class={partClass("relative", props.class)} {...rest} />;
+  return <NavigationMenuItemPrimitive {...props} class={partClass("relative", props.class)} />;
 }
 
 export const navigationMenuTriggerStyle =
@@ -65,11 +63,10 @@ export const navigationMenuTriggerStyle =
 export function NavigationMenuTrigger(
   props: ComponentProps<typeof NavigationMenuTriggerPrimitive>,
 ) {
-  const rest = omit(props, "class", "children");
   return (
     <NavigationMenuTriggerPrimitive
+      {...props}
       class={partClass(navigationMenuTriggerStyle, props.class)}
-      {...rest}
     >
       {props.children as JSX.Element}
       <svg
@@ -93,28 +90,26 @@ export function NavigationMenuTrigger(
 export function NavigationMenuContent(
   props: ComponentProps<typeof NavigationMenuContentPrimitive>,
 ) {
-  const rest = omit(props, "class");
   return (
     <NavigationMenuContentPrimitive
+      {...props}
       class={partClass(
         "absolute top-0 left-0 w-max p-1.5 transition-[opacity,translate] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] outline-none data-[motion=from-end]:data-starting-style:translate-x-52 data-[motion=from-start]:data-starting-style:-translate-x-52 data-[motion=to-end]:data-ending-style:translate-x-52 data-[motion=to-start]:data-ending-style:-translate-x-52 data-starting-style:opacity-0 data-ending-style:opacity-0 **:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 /** A link. `current` marks the page you are on. */
 export function NavigationMenuLink(props: ComponentProps<typeof NavigationMenuLinkPrimitive>) {
-  const rest = omit(props, "class");
   return (
     <NavigationMenuLinkPrimitive
+      {...props}
       class={partClass(
         "flex items-center gap-1.5 rounded-lg p-2 text-xs/relaxed transition-all outline-none hover:bg-muted focus:bg-muted focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:outline-1 aria-[current=page]:bg-muted/50 aria-[current=page]:hover:bg-muted [&_svg:not([class*='size-'])]:size-4",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -123,10 +118,10 @@ export function NavigationMenuLink(props: ComponentProps<typeof NavigationMenuLi
 export function NavigationMenuViewport(
   props: ComponentProps<typeof NavigationMenuViewportPrimitive>,
 ) {
-  const rest = omit(props, "class");
   return (
     <NavigationMenuViewportPrimitive
       sideOffset={6}
+      {...props}
       class={partClass(
         [
           "z-50 h-(--viewport-height) w-(--viewport-width) overflow-hidden rounded-xl bg-popover text-xs/relaxed text-popover-foreground shadow-md ring-1 ring-foreground/10 transition-[width,height,opacity,scale] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
@@ -134,7 +129,6 @@ export function NavigationMenuViewport(
         ],
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -143,16 +137,15 @@ export function NavigationMenuViewport(
 export function NavigationMenuIndicator(
   props: ComponentProps<typeof NavigationMenuIndicatorPrimitive>,
 ) {
-  const rest = omit(props, "class");
   return (
     <NavigationMenuIndicatorPrimitive
+      {...props}
       class={partClass(
         cn(
           "absolute top-(--active-item-bottom) left-(--active-item-left) z-10 h-0.5 w-(--active-item-width) bg-foreground opacity-0 transition-all duration-200 data-visible:opacity-100",
         ),
         props.class,
       )}
-      {...rest}
     />
   );
 }

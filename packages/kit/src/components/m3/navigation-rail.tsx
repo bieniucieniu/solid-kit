@@ -15,7 +15,7 @@ export interface NavigationRailProps extends JSX.HTMLAttributes<HTMLElement> {
  * Children: NavigationRailHeader (menu button, FAB), then NavigationRailItem.
  */
 export function NavigationRail(props: NavigationRailProps) {
-  const rest = omit(props, "class", "ref", "expanded");
+  const rest = omit(props, "expanded");
   return (
     <NavigationRailContext
       value={{
@@ -25,14 +25,13 @@ export function NavigationRail(props: NavigationRailProps) {
       }}
     >
       <nav
-        ref={props.ref}
         data-slot="navigation-rail"
         data-expanded={props.expanded ? "" : undefined}
+        {...rest}
         class={cn(
           "group/navigation-rail flex h-full w-24 shrink-0 flex-col items-center gap-1 bg-surface py-11 text-on-surface-variant motion-default data-expanded:w-60 data-expanded:items-stretch data-expanded:px-5",
           props.class,
         )}
-        {...rest}
       />
     </NavigationRailContext>
   );
@@ -40,16 +39,14 @@ export function NavigationRail(props: NavigationRailProps) {
 
 /** Top area for a menu button and a FAB or extended FAB. */
 export function NavigationRailHeader(props: JSX.HTMLAttributes<HTMLDivElement>) {
-  const rest = omit(props, "class", "ref");
   return (
     <div
-      ref={props.ref}
       data-slot="navigation-rail-header"
+      {...props}
       class={cn(
         "-mt-5 mb-10 flex flex-col items-center gap-1 group-data-expanded/navigation-rail:items-start",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -63,15 +60,15 @@ export type NavigationRailItemProps = JSX.HTMLAttributes<HTMLElement> &
 
 export function NavigationRailItem(props: NavigationRailItemProps) {
   const context = useContext(NavigationRailContext);
-  const rest = omit(props, "class", "ref", "as", "active");
+  const rest = omit(props, "as", "active");
   const Tag = dynamic(() => props.as ?? "button");
   return (
     <Tag
-      ref={props.ref}
       type={props.as ? undefined : "button"}
       data-slot="navigation-rail-item"
       data-active={props.active ? "" : undefined}
       aria-current={props.active ? "page" : undefined}
+      {...rest}
       class={cn(
         "group/navigation-item relative flex cursor-pointer outline-none select-none disabled:pointer-events-none disabled:opacity-38",
         context.expanded
@@ -79,7 +76,6 @@ export function NavigationRailItem(props: NavigationRailItemProps) {
           : "w-full flex-col items-center gap-1 pb-1",
         props.class,
       )}
-      {...rest}
     />
   );
 }
@@ -87,29 +83,26 @@ export function NavigationRailItem(props: NavigationRailItemProps) {
 /** The icon. Collapsed, it sits in a 56x32 active indicator. */
 export function NavigationRailIcon(props: JSX.HTMLAttributes<HTMLSpanElement>) {
   const context = useContext(NavigationRailContext);
-  const rest = omit(props, "class", "ref");
   return (
     <span
-      ref={props.ref}
       data-slot="navigation-rail-icon"
+      {...props}
       class={cn(
         "relative flex shrink-0 items-center justify-center [&_svg:not([class*='size-'])]:size-6",
         !context.expanded &&
           "h-8 w-14 rounded-full text-on-surface-variant state-layer motion-fast group-hover/navigation-item:before:opacity-8 group-focus-visible/navigation-item:outline-3 group-focus-visible/navigation-item:outline-offset-2 group-focus-visible/navigation-item:outline-secondary group-active/navigation-item:before:opacity-10 group-data-active/navigation-item:bg-secondary-container group-data-active/navigation-item:text-on-secondary-container",
         props.class,
       )}
-      {...rest}
     />
   );
 }
 
 export function NavigationRailLabel(props: JSX.HTMLAttributes<HTMLSpanElement>) {
   const context = useContext(NavigationRailContext);
-  const rest = omit(props, "class", "ref");
   return (
     <span
-      ref={props.ref}
       data-slot="navigation-rail-label"
+      {...props}
       class={cn(
         "max-w-full truncate",
         context.expanded
@@ -117,7 +110,6 @@ export function NavigationRailLabel(props: JSX.HTMLAttributes<HTMLSpanElement>) 
           : "typescale-label-medium text-on-surface-variant group-data-active/navigation-item:text-secondary",
         props.class,
       )}
-      {...rest}
     />
   );
 }

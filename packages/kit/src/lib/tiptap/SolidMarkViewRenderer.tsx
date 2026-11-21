@@ -24,7 +24,8 @@ export const MarkViewContent = (props: MarkViewContentProps) => {
   const ctx = useContext(SolidMarkViewContext);
 
   const Tag = dynamic(() => props.as || "span");
-  return <Tag {...rest} ref={ctx.markViewContentRef} data-mark-view-content="" />;
+  // The renderer and the caller both need the element; pass both refs (see NodeViewContent).
+  return <Tag {...rest} ref={[ctx.markViewContentRef, props.ref]} data-mark-view-content="" />;
 };
 
 export interface SolidMarkViewRendererOptions extends MarkViewRendererOptions {

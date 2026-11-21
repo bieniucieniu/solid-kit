@@ -15,7 +15,9 @@ export function NodeViewContent(props: NodeViewContentProps) {
   return (
     <Tag
       {...rest}
-      ref={nv.nodeViewContentRef}
+      // The renderer and the caller both need the element. `ref` set here replaces the one in
+      // the spread, so pass both; Solid calls each entry and skips an empty one.
+      ref={[nv.nodeViewContentRef, props.ref]}
       data-node-view-content=""
       style={{
         "white-space": "pre-wrap",

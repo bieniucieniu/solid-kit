@@ -1,12 +1,11 @@
 import {
   Slider,
   SliderFill,
-  SliderInput,
   SliderLabel,
   SliderThumb,
   SliderTrack,
   SliderValueLabel,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { DemoRow, DemoStack } from "./shared";
 
 export function SliderDemo() {
@@ -19,9 +18,7 @@ export function SliderDemo() {
         </div>
         <SliderTrack>
           <SliderFill />
-          <SliderThumb>
-            <SliderInput />
-          </SliderThumb>
+          <SliderThumb></SliderThumb>
         </SliderTrack>
       </Slider>
       <Slider defaultValue={[20, 70]}>
@@ -31,21 +28,15 @@ export function SliderDemo() {
         </div>
         <SliderTrack>
           <SliderFill />
-          <SliderThumb>
-            <SliderInput />
-          </SliderThumb>
-          <SliderThumb>
-            <SliderInput />
-          </SliderThumb>
+          <SliderThumb></SliderThumb>
+          <SliderThumb></SliderThumb>
         </SliderTrack>
       </Slider>
       <DemoRow label="Disabled">
         <Slider defaultValue={[60]} disabled>
           <SliderTrack>
             <SliderFill />
-            <SliderThumb>
-              <SliderInput />
-            </SliderThumb>
+            <SliderThumb></SliderThumb>
           </SliderTrack>
         </Slider>
       </DemoRow>

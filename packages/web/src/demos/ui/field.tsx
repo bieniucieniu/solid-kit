@@ -8,10 +8,7 @@ import {
   FieldLegend,
   FieldSet,
   Switch,
-  SwitchControl,
-  SwitchInput,
-  SwitchThumb,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 const inputClass =
   "h-7 w-full rounded-md border border-input bg-input/20 px-2 text-xs/relaxed text-foreground outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30 dark:bg-input/30";
@@ -32,12 +29,7 @@ export function FieldDemo() {
             <FieldLabel for="field-public">Public profile (horizontal)</FieldLabel>
             <FieldDescription>Anyone can see your name.</FieldDescription>
           </FieldContent>
-          <Switch id="field-public">
-            <SwitchInput />
-            <SwitchControl>
-              <SwitchThumb />
-            </SwitchControl>
-          </Switch>
+          <Switch id="field-public" />
         </Field>
         <Field orientation="responsive">
           <FieldContent>

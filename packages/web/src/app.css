@@ -1,11 +1,11 @@
-@import "@solid-kit/ui/theme.css";
-@import "@solid-kit/m3/tokens.css";
+/* The ui theme declares `@layer ui-sdk;` first and imports Tailwind. */
+@import "@solid-kit/kit/ui/theme.css";
+@import "@solid-kit/kit/m3/tokens.css";
 @source ".";
-@source "../../1.9/ui/src";
-@source "../../1.9/m3/src";
+@source "../../kit/src";
 
 :root {
-  --header-height: 2.5rem;
+  --header-height: 4rem;
 }
 
 @layer base {

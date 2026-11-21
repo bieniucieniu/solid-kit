@@ -10,7 +10,7 @@ import {
   CardTitle,
   type CardVariant,
   IconButton,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { For } from "solid-js";
 import { MoreVertIcon } from "./shared";
 
@@ -42,7 +42,7 @@ export function CardDemo() {
           </Card>
         )}
       </For>
-      <Card variant="filled" interactive tabIndex={0} class="expanded:col-span-3">
+      <Card variant="filled" interactive tabindex={0} class="expanded:col-span-3">
         <CardHeader>
           <CardTitle>Interactive card</CardTitle>
           <CardDescription>Hover, focus, or press to see the state layer.</CardDescription>

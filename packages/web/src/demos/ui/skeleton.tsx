@@ -1,4 +1,4 @@
-import { Skeleton } from "@solid-kit/ui";
+import { Skeleton } from "@solid-kit/kit/ui";
 
 export function SkeletonDemo() {
   return (

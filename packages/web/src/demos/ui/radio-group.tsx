@@ -1,34 +1,28 @@
-import {
-  RadioGroup,
-  RadioGroupItem,
-  RadioGroupItemControl,
-  RadioGroupItemIndicator,
-  RadioGroupItemInput,
-  RadioGroupItemLabel,
-  RadioGroupLabel,
-} from "@solid-kit/ui";
+import { RadioGroup, RadioGroupItem, RadioGroupItemLabel } from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
 export function RadioGroupDemo() {
   const [fruit, setFruit] = createSignal("apple");
 
   return (
-    <RadioGroup value={fruit()} onChange={setFruit}>
-      <RadioGroupLabel>Fruit</RadioGroupLabel>
-      <RadioGroupItem value="apple">
-        <RadioGroupItemInput />
-        <RadioGroupItemControl>
-          <RadioGroupItemIndicator />
-        </RadioGroupItemControl>
-        <RadioGroupItemLabel>Apple</RadioGroupItemLabel>
-      </RadioGroupItem>
-      <RadioGroupItem value="pear">
-        <RadioGroupItemInput />
-        <RadioGroupItemControl>
-          <RadioGroupItemIndicator />
-        </RadioGroupItemControl>
-        <RadioGroupItemLabel>Pear</RadioGroupItemLabel>
-      </RadioGroupItem>
-    </RadioGroup>
+    <div class="flex flex-col gap-3">
+      <span id="fruit-label" class="text-xs/relaxed font-medium text-foreground">
+        Fruit
+      </span>
+      <RadioGroup
+        aria-labelledby="fruit-label"
+        value={fruit()}
+        onValueChange={(next) => setFruit(String(next))}
+      >
+        <RadioGroupItemLabel>
+          <RadioGroupItem value="apple" />
+          Apple
+        </RadioGroupItemLabel>
+        <RadioGroupItemLabel>
+          <RadioGroupItem value="pear" />
+          Pear
+        </RadioGroupItemLabel>
+      </RadioGroup>
+    </div>
   );
 }

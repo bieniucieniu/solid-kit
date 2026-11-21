@@ -6,21 +6,18 @@ const snippet = `import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuPortal,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <ContextMenu>
   <ContextMenuTrigger>Right click</ContextMenuTrigger>
-  <ContextMenuPortal>
-    <ContextMenuContent>
-      <ContextMenuItem>Back</ContextMenuItem>
-      <ContextMenuItem>Forward</ContextMenuItem>
-      <ContextMenuSeparator />
-      <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
-    </ContextMenuContent>
-  </ContextMenuPortal>
+  <ContextMenuContent>
+    <ContextMenuItem>Back</ContextMenuItem>
+    <ContextMenuItem>Forward</ContextMenuItem>
+    <ContextMenuSeparator />
+    <ContextMenuItem variant="destructive">Delete</ContextMenuItem>
+  </ContextMenuContent>
 </ContextMenu>`;
 
 export default function ContextMenuPage() {

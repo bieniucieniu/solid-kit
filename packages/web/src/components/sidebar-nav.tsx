@@ -1,24 +1,44 @@
-import { A } from "@solidjs/router";
-import { buttonVariants, cn } from "@solid-kit/ui";
-import { For } from "solid-js";
+import {
+  NavigationDrawer,
+  NavigationDrawerHeadline,
+  NavigationDrawerItem,
+  NavigationDrawerItemLabel,
+} from "@solid-kit/kit/m3";
+import { cn } from "@solid-kit/kit/ui";
+import { useLinkState } from "@solidjs/router";
+import { For, Show } from "solid-js";
 import type { NavItem } from "~/nav";
 
-export function SidebarNav(props: { items: NavItem[]; class?: string }) {
+/**
+ * The router marks plain anchors itself: `data-active` on every link the path is under, and
+ * `aria-current="page"` on the exact one. Only the exact page gets the active indicator, so the
+ * overview link stays plain on its child pages.
+ */
+const exactActiveClass =
+  "h-11 data-active:bg-transparent data-active:text-on-surface-variant data-active:aria-[current=page]:bg-secondary-container data-active:aria-[current=page]:text-on-secondary-container";
+
+function SidebarLink(props: { item: NavItem }) {
+  const link = useLinkState(() => props.item.href, { end: true });
   return (
-    <nav class={cn("flex flex-col gap-1", props.class)}>
-      <For each={props.items}>
-        {(item) => (
-          <A
-            href={item.href}
-            end
-            class={buttonVariants({ variant: "ghost", class: "w-full justify-start" })}
-            activeClass="bg-muted text-foreground"
-            inactiveClass="text-muted-foreground"
-          >
-            {item.title}
-          </A>
-        )}
-      </For>
-    </nav>
+    <NavigationDrawerItem
+      as="a"
+      href={props.item.href}
+      active={link.current()}
+      class={exactActiveClass}
+    >
+      <NavigationDrawerItemLabel>{props.item.title}</NavigationDrawerItemLabel>
+    </NavigationDrawerItem>
+  );
+}
+
+/** The package's pages as an M3 navigation drawer column. */
+export function SidebarNav(props: { items: NavItem[]; title?: string; class?: string }) {
+  return (
+    <NavigationDrawer aria-label={props.title} class={cn("w-full bg-transparent", props.class)}>
+      <Show when={props.title}>
+        {(title) => <NavigationDrawerHeadline>{title()}</NavigationDrawerHeadline>}
+      </Show>
+      <For each={props.items}>{(item) => <SidebarLink item={item} />}</For>
+    </NavigationDrawer>
   );
 }

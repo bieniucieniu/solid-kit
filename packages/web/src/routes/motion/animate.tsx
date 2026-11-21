@@ -1,10 +1,10 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/motion/animate.tsx?raw";
 
 const AnimateDemo = clientOnly(() => import("~/demos/motion/animate"));
 
-const snippet = `import { motion } from "@solid-kit/motion";
+const snippet = `import { motion } from "@solid-kit/kit/motion";
 
 <motion.div animate={{ x: 80 }} />`;
 

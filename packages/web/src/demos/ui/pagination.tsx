@@ -1,11 +1,4 @@
-import {
-  Pagination,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationItems,
-  PaginationNext,
-  PaginationPrevious,
-} from "@solid-kit/ui";
+import { Pagination, PaginationItems } from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
 export function PaginationDemo() {
@@ -13,16 +6,8 @@ export function PaginationDemo() {
 
   return (
     <div class="flex flex-col gap-3">
-      <Pagination
-        count={10}
-        page={page()}
-        onPageChange={setPage}
-        itemComponent={(props) => <PaginationItem page={props.page}>{props.page}</PaginationItem>}
-        ellipsisComponent={() => <PaginationEllipsis />}
-      >
-        <PaginationPrevious />
+      <Pagination pageCount={10} page={page()} onPageChange={(next) => setPage(next)}>
         <PaginationItems />
-        <PaginationNext />
       </Pagination>
       <p class="text-sm text-muted-foreground">Page {page()}</p>
     </div>

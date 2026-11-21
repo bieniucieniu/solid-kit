@@ -10,7 +10,7 @@ const snippet = `import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 // variant: "default" | "outline" | "muted"   size: "default" | "sm" | "xs"
 // ItemMedia variant: "default" | "icon" | "image"

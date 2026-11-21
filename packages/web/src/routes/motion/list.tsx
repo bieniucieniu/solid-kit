@@ -1,10 +1,10 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/motion/list.tsx?raw";
 
 const ListDemo = clientOnly(() => import("~/demos/motion/list"));
 
-const snippet = `import { AnimatePresence, motion } from "@solid-kit/motion";
+const snippet = `import { AnimatePresence, motion } from "@solid-kit/kit/motion";
 
 <AnimatePresence each={items} by={(item) => item.id}>
   {(item) => <motion.div exit={{ opacity: 0 }}>{item.name}</motion.div>}

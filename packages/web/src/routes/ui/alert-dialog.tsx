@@ -11,27 +11,24 @@ const snippet = `import {
   AlertDialogHeader,
   AlertDialogLabel,
   AlertDialogOverlay,
-  AlertDialogPortal,
   AlertDialogTrigger,
-  Button,
-} from "@solid-kit/ui";
+  buttonVariants,
+} from "@solid-kit/kit/ui";
 
 // AlertDialogContent size: "default" | "sm"
 <AlertDialog>
-  <AlertDialogTrigger as={Button}>Delete</AlertDialogTrigger>
-  <AlertDialogPortal>
-    <AlertDialogOverlay />
-    <AlertDialogContent size="sm">
-      <AlertDialogHeader>
-        <AlertDialogLabel>Delete this file?</AlertDialogLabel>
-        <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
-      </AlertDialogHeader>
-      <AlertDialogFooter>
-        <AlertDialogClose>Cancel</AlertDialogClose>
-        <AlertDialogClose variant="destructive">Delete</AlertDialogClose>
-      </AlertDialogFooter>
-    </AlertDialogContent>
-  </AlertDialogPortal>
+  <AlertDialogTrigger class={buttonVariants()}>Delete</AlertDialogTrigger>
+  <AlertDialogOverlay />
+  <AlertDialogContent size="sm">
+    <AlertDialogHeader>
+      <AlertDialogLabel>Delete this file?</AlertDialogLabel>
+      <AlertDialogDescription>This cannot be undone.</AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogClose>Cancel</AlertDialogClose>
+      <AlertDialogClose variant="destructive">Delete</AlertDialogClose>
+    </AlertDialogFooter>
+  </AlertDialogContent>
 </AlertDialog>`;
 
 export default function AlertDialogPage() {

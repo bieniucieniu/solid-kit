@@ -1,4 +1,4 @@
-import { LoadingIndicator } from "@solid-kit/m3";
+import { LoadingIndicator } from "@solid-kit/kit/m3";
 import { DemoRow } from "./shared";
 
 export function LoadingIndicatorDemo() {

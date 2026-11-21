@@ -1,5 +1,5 @@
-import { applyScheme, Button, type SchemeVariant } from "@solid-kit/m3";
-import { createEffect, createSignal, For, onCleanup, onMount } from "solid-js";
+import { applyScheme, Button, type SchemeVariant } from "@solid-kit/kit/m3";
+import { createEffect, createSignal, For, onSettled } from "solid-js";
 import { ButtonDemo } from "./button";
 import { DemoRow, DemoStack } from "./shared";
 
@@ -13,29 +13,33 @@ export function ColorSchemeDemo() {
   const [variant, setVariant] = createSignal<SchemeVariant>("tonal-spot");
   const [dark, setDark] = createSignal(false);
 
-  onMount(() => {
+  onSettled(() => {
     const root = document.documentElement;
     setDark(root.classList.contains("dark"));
     const observer = new MutationObserver(() => setDark(root.classList.contains("dark")));
     observer.observe(root, { attributes: true, attributeFilter: ["class"] });
-    onCleanup(() => observer.disconnect());
+    return () => observer.disconnect();
   });
 
-  createEffect(() => {
-    const element = target;
-    if (!element) return;
-    const options = { seed: seed(), variant: variant(), dark: dark() };
-    let remove: (() => void) | undefined;
-    let stale = false;
-    void applyScheme(element, options).then((cleanup) => {
-      if (stale) cleanup();
-      else remove = cleanup;
-    });
-    onCleanup(() => {
-      stale = true;
-      remove?.();
-    });
-  });
+  // Compute reads the choice; the apply phase generates and applies the scheme, and its cleanup
+  // removes it again.
+  createEffect(
+    () => ({ seed: seed(), variant: variant(), dark: dark() }),
+    (options) => {
+      const element = target;
+      if (!element) return;
+      let remove: (() => void) | undefined;
+      let stale = false;
+      void applyScheme(element, options).then((cleanup) => {
+        if (stale) cleanup();
+        else remove = cleanup;
+      });
+      return () => {
+        stale = true;
+        remove?.();
+      };
+    },
+  );
 
   return (
     <DemoStack>
@@ -45,10 +49,12 @@ export function ColorSchemeDemo() {
             <button
               type="button"
               aria-label={color}
-              aria-pressed={seed() === color}
+              aria-pressed={seed() === color ? "true" : "false"}
               class="size-10 cursor-pointer rounded-full ring-offset-2 ring-offset-surface aria-pressed:ring-3 aria-pressed:ring-on-surface"
               style={{ background: color }}
-              onClick={() => setSeed(color)}
+              onClick={() => {
+                setSeed(color);
+              }}
             />
           )}
         </For>

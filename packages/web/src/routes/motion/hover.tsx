@@ -1,10 +1,10 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/motion/hover.tsx?raw";
 
 const HoverDemo = clientOnly(() => import("~/demos/motion/hover"));
 
-const snippet = `import { motion } from "@solid-kit/motion";
+const snippet = `import { motion } from "@solid-kit/kit/motion";
 
 <motion.div whileHover={{ scale: 1.15 }} />`;
 

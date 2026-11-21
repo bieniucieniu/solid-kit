@@ -2,17 +2,12 @@ import { DocsPage } from "~/components/preview";
 import { SnackbarDemo } from "~/demos/m3/snackbar";
 import source from "~/demos/m3/snackbar.tsx?raw";
 
-const snippet = `import { Snackbar, SnackbarAction, SnackbarList, SnackbarMessage, SnackbarRegion, snackbar } from "@solid-kit/m3";
+const snippet = `import { SnackbarRegion, snackbar } from "@solid-kit/kit/m3";
 
-// Mount once
-<SnackbarRegion><SnackbarList /></SnackbarRegion>
+// Mount once. Snackbars have their own queue, apart from other toasts.
+<SnackbarRegion />
 
-snackbar.show((props) => (
-  <Snackbar toastId={props.toastId}>
-    <SnackbarMessage>Message archived</SnackbarMessage>
-    <SnackbarAction onClick={() => snackbar.dismiss(props.toastId)}>Undo</SnackbarAction>
-  </Snackbar>
-));`;
+snackbar("Message archived", { action: { label: "Undo", onAction: () => undo() } });`;
 
 export default function SnackbarPage() {
   return (

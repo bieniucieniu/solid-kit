@@ -1,15 +1,8 @@
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPInput,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@solid-kit/ui";
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@solid-kit/kit/ui";
 
 export function InputOTPDemo() {
   return (
     <InputOTP maxLength={6}>
-      <InputOTPInput />
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />

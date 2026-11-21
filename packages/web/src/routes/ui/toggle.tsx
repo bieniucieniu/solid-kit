@@ -2,10 +2,10 @@ import { DocsPage } from "~/components/preview";
 import { ToggleDemo } from "~/demos/ui/toggle";
 import source from "~/demos/ui/toggle.tsx?raw";
 
-const snippet = `import { Toggle } from "@solid-kit/ui";
+const snippet = `import { Toggle } from "@solid-kit/kit/ui";
 
 // variant: "default" | "outline"   size: "sm" | "default" | "lg"
-<Toggle variant="outline" size="sm" pressed={pressed()} onChange={setPressed}>
+<Toggle variant="outline" size="sm" pressed={pressed()} onPressedChange={(next) => setPressed(next)}>
   Bold
 </Toggle>`;
 

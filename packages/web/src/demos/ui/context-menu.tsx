@@ -2,10 +2,9 @@ import {
   ContextMenu,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuPortal,
   ContextMenuSeparator,
   ContextMenuTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
 export function ContextMenuDemo() {
@@ -17,16 +16,14 @@ export function ContextMenuDemo() {
         <ContextMenuTrigger class="flex h-24 w-64 items-center justify-center rounded-lg border border-dashed border-border text-xs text-muted-foreground">
           Right click
         </ContextMenuTrigger>
-        <ContextMenuPortal>
-          <ContextMenuContent>
-            <ContextMenuItem onSelect={() => setAction("Back")}>Back</ContextMenuItem>
-            <ContextMenuItem onSelect={() => setAction("Forward")}>Forward</ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem variant="destructive" onSelect={() => setAction("Delete")}>
-              Delete
-            </ContextMenuItem>
-          </ContextMenuContent>
-        </ContextMenuPortal>
+        <ContextMenuContent>
+          <ContextMenuItem onSelect={() => setAction("Back")}>Back</ContextMenuItem>
+          <ContextMenuItem onSelect={() => setAction("Forward")}>Forward</ContextMenuItem>
+          <ContextMenuSeparator />
+          <ContextMenuItem variant="destructive" onSelect={() => setAction("Delete")}>
+            Delete
+          </ContextMenuItem>
+        </ContextMenuContent>
       </ContextMenu>
       <p class="text-xs text-muted-foreground">Action: {action()}</p>
     </div>

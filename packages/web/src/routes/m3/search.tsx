@@ -2,25 +2,28 @@ import { DocsPage } from "~/components/preview";
 import { SearchDemo } from "~/demos/m3/search";
 import source from "~/demos/m3/search.tsx?raw";
 
-const snippet = `import { Search, SearchContent, SearchControl, SearchInput, SearchItem, SearchItemLabel, SearchListbox, SearchPortal } from "@solid-kit/m3";
+const snippet = `import {
+  Search,
+  SearchContent,
+  SearchControl,
+  SearchInput,
+  SearchItem,
+  SearchListbox,
+  SearchNoResult,
+} from "@solid-kit/kit/m3";
 
-<Search
-  options={options()}
-  onInputChange={filter}
-  itemComponent={(props) => (
-    <SearchItem item={props.item}>
-      <SearchItemLabel>{props.item.rawValue}</SearchItemLabel>
-    </SearchItem>
-  )}
->
+// Search is ui-sdk's Combobox: it filters the items by their label as you type.
+<Search>
   <SearchControl>
-    <SearchInput placeholder="Search" />
+    <SearchInput placeholder="Search fruit" aria-label="Search fruit" />
   </SearchControl>
-  <SearchPortal>
-    <SearchContent>
-      <SearchListbox />
-    </SearchContent>
-  </SearchPortal>
+  <SearchContent>
+    <SearchListbox>
+      <SearchItem value="Apple">Apple</SearchItem>
+      <SearchItem value="Banana">Banana</SearchItem>
+    </SearchListbox>
+    <SearchNoResult>No fruit found</SearchNoResult>
+  </SearchContent>
 </Search>`;
 
 export default function SearchPage() {

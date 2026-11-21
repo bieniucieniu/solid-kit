@@ -1,11 +1,10 @@
-import { Switch, SwitchControl, SwitchInput, SwitchLabel, SwitchThumb } from "@solid-kit/m3";
+import { Switch, SwitchControl, SwitchLabel, SwitchThumb } from "@solid-kit/kit/m3";
 import { DemoRow, DemoStack } from "./shared";
 
 function Example(props: { label: string; checked?: boolean; icons?: boolean; disabled?: boolean }) {
   return (
-    <Switch defaultChecked={props.checked} disabled={props.disabled}>
-      <SwitchInput />
-      <SwitchControl>
+    <Switch>
+      <SwitchControl defaultChecked={props.checked} disabled={props.disabled}>
         <SwitchThumb icons={props.icons} />
       </SwitchControl>
       <SwitchLabel>{props.label}</SwitchLabel>

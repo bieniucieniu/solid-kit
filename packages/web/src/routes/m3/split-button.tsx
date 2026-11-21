@@ -2,17 +2,15 @@ import { DocsPage } from "~/components/preview";
 import { SplitButtonDemo } from "~/demos/m3/split-button";
 import source from "~/demos/m3/split-button.tsx?raw";
 
-const snippet = `import { Menu, MenuContent, MenuItem, MenuPortal, SplitButton, SplitButtonAction, SplitButtonTrigger } from "@solid-kit/m3";
+const snippet = `import { Menu, MenuContent, MenuItem, SplitButton, SplitButtonAction, SplitButtonTrigger } from "@solid-kit/kit/m3";
 
 <SplitButton variant="tonal" size="sm">
   <SplitButtonAction>Send</SplitButtonAction>
-  <Menu placement="bottom-end">
+  <Menu>
     <SplitButtonTrigger aria-label="More send options" />
-    <MenuPortal>
-      <MenuContent>
-        <MenuItem>Schedule send</MenuItem>
-      </MenuContent>
-    </MenuPortal>
+    <MenuContent align="end">
+      <MenuItem>Schedule send</MenuItem>
+    </MenuContent>
   </Menu>
 </SplitButton>`;
 

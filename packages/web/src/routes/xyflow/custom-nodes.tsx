@@ -1,25 +1,17 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/xyflow/custom-nodes.tsx?raw";
 
 const CustomNodesDemo = clientOnly(() => import("~/demos/xyflow/custom-nodes"));
 
-const snippet = `import {
-  Card,
-  CardHeader,
-  CardTitle,
-  Switch,
-  SwitchControl,
-  SwitchInput,
-  SwitchThumb,
-} from "@solid-kit/ui";
+const snippet = `import { Card, CardHeader, CardTitle, Switch, SwitchLabel } from "@solid-kit/kit/ui";
 import {
   Handle,
   Position,
   createFlow,
   useFlow,
   type NodeComponentProps,
-} from "@solid-kit/xyflow";
+} from "@solid-kit/kit/xyflow";
 
 function TaskNode(props: NodeComponentProps) {
   const flow = useFlow();
@@ -30,16 +22,14 @@ function TaskNode(props: NodeComponentProps) {
         <CardHeader>
           <CardTitle>{props.node.data.title as string}</CardTitle>
         </CardHeader>
-        <Switch
-          class="nodrag"
-          checked={props.node.data.done as boolean}
-          onChange={(done) => flow.updateNode(props.node.id, { data: { done } })}
-        >
-          <SwitchInput />
-          <SwitchControl>
-            <SwitchThumb />
-          </SwitchControl>
-        </Switch>
+        {/* \`nodrag\` lets the switch take the pointer instead of starting a node drag. */}
+        <SwitchLabel class="nodrag">
+          <Switch
+            checked={props.node.data.done as boolean}
+            onCheckedChange={(done) => flow.updateNode(props.node.id, { data: { done } })}
+          />
+          Complete
+        </SwitchLabel>
       </Card>
       <Handle id="approved" type="source" position={Position.Right} />
     </>

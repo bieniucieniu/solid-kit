@@ -2,11 +2,15 @@ import { DocsPage } from "~/components/preview";
 import { ButtonGroupDemo } from "~/demos/m3/button-group";
 import source from "~/demos/m3/button-group.tsx?raw";
 
-const snippet = `import { ButtonGroup, ToggleButton } from "@solid-kit/m3";
+const snippet = `import { ButtonGroup, ToggleButton } from "@solid-kit/kit/m3";
 
 <ButtonGroup variant="connected" size="md">
-  <ToggleButton variant="tonal" pressed={view() === "day"} onChange={() => setView("day")}>Day</ToggleButton>
-  <ToggleButton variant="tonal" pressed={view() === "week"} onChange={() => setView("week")}>Week</ToggleButton>
+  <ToggleButton variant="tonal" pressed={view() === "day"} onPressedChange={() => setView("day")}>
+    Day
+  </ToggleButton>
+  <ToggleButton variant="tonal" pressed={view() === "week"} onPressedChange={() => setView("week")}>
+    Week
+  </ToggleButton>
 </ButtonGroup>`;
 
 export default function ButtonGroupPage() {

@@ -2,14 +2,15 @@ import { DocsPage, VariantRow, VariantStack } from "~/components/preview";
 import { CalendarDemo, CalendarRangeDemo } from "~/demos/ui/calendar";
 import source from "~/demos/ui/calendar.tsx?raw";
 
-const snippet = `import { Calendar } from "@solid-kit/ui";
+const snippet = `import { Calendar } from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
-const [date, setDate] = createSignal<Date | null>(new Date());
+// Values are ISO dates. mode: "single" | "multiple" | "range"
+const [date, setDate] = createSignal<string | null>("2026-11-20");
 
-<Calendar mode="single" value={date()} onValueChange={setDate} />
+<Calendar mode="single" value={date()} onValueChange={(next) => setDate(next)} />
 
-<Calendar mode="range" numberOfMonths={2} />`;
+<Calendar mode="range" months={2} defaultValue={["2026-11-20", "2026-11-29"]} />`;
 
 export default function CalendarPage() {
   return (

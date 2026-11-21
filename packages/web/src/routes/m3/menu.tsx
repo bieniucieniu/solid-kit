@@ -2,19 +2,17 @@ import { DocsPage } from "~/components/preview";
 import { MenuDemo } from "~/demos/m3/menu";
 import source from "~/demos/m3/menu.tsx?raw";
 
-const snippet = `import { Menu, MenuContent, MenuItem, MenuItemIcon, MenuItemLabel, MenuPortal, MenuShortcut, MenuTrigger } from "@solid-kit/m3";
+const snippet = `import { Menu, MenuContent, MenuItem, MenuItemIcon, MenuItemLabel, MenuShortcut, MenuTrigger, buttonVariants } from "@solid-kit/kit/m3";
 
 <Menu>
-  <MenuTrigger as={Button}>Open</MenuTrigger>
-  <MenuPortal>
-    <MenuContent>
-      <MenuItem>
-        <MenuItemIcon><EditIcon /></MenuItemIcon>
-        <MenuItemLabel>Edit</MenuItemLabel>
-        <MenuShortcut>⌘E</MenuShortcut>
-      </MenuItem>
-    </MenuContent>
-  </MenuPortal>
+  <MenuTrigger class={buttonVariants()}>Open</MenuTrigger>
+  <MenuContent>
+    <MenuItem>
+      <MenuItemIcon><EditIcon /></MenuItemIcon>
+      <MenuItemLabel>Edit</MenuItemLabel>
+      <MenuShortcut>⌘E</MenuShortcut>
+    </MenuItem>
+  </MenuContent>
 </Menu>`;
 
 export default function MenuPage() {

@@ -1,15 +1,18 @@
-import { SegmentedButton, SegmentedButtonIcon, SegmentedButtonItem } from "@solid-kit/m3";
+import { SegmentedButton, SegmentedButtonIcon, SegmentedButtonItem } from "@solid-kit/kit/m3";
 import { createSignal } from "solid-js";
 import { DemoRow, DemoStack, HomeIcon, MailIcon, PersonIcon } from "./shared";
 
 export function SegmentedButtonDemo() {
-  const [size, setSize] = createSignal("m");
+  const [size, setSize] = createSignal(["m"]);
   return (
     <DemoStack>
       <DemoRow label="Single select">
         <SegmentedButton
           value={size()}
-          onChange={(value) => value && setSize(value)}
+          onValueChange={(value) => {
+            // Single select keeps one segment pressed.
+            if ((value as string[]).length) setSize(value as string[]);
+          }}
           class="w-full max-w-sm"
         >
           <SegmentedButtonItem value="s">Small</SegmentedButtonItem>

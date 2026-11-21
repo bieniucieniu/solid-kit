@@ -2,14 +2,16 @@ import { DocsPage } from "~/components/preview";
 import { ButtonDemo } from "~/demos/m3/button";
 import source from "~/demos/m3/button.tsx?raw";
 
-const snippet = `import { Button, ToggleButton } from "@solid-kit/m3";
+const snippet = `import { Button, ToggleButton } from "@solid-kit/kit/m3";
 
 // variant: "elevated" | "filled" | "tonal" | "outlined" | "text"
 // size: "xs" | "sm" | "md" | "lg" | "xl"
 // shape: "round" | "square"
 <Button>Save</Button>
 <Button variant="outlined" size="md" shape="square">Cancel</Button>
-<ToggleButton variant="tonal" pressed={on()} onChange={setOn}>Follow</ToggleButton>`;
+<ToggleButton variant="tonal" pressed={on()} onPressedChange={(next) => setOn(next)}>
+  Follow
+</ToggleButton>`;
 
 export default function ButtonPage() {
   return (

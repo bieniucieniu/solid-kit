@@ -8,14 +8,15 @@ const snippet = `import {
   AccordionHeader,
   AccordionItem,
   AccordionTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
-<Accordion initialValue="one">
+// The value is an array of open items. Pass \`multiple\` to open several at once.
+<Accordion defaultValue={["one"]}>
   <AccordionItem value="one">
     <AccordionHeader>
       <AccordionTrigger>Is it accessible?</AccordionTrigger>
     </AccordionHeader>
-    <AccordionContent>Yes. It uses a disclosure pattern.</AccordionContent>
+    <AccordionContent>Yes.</AccordionContent>
   </AccordionItem>
 </Accordion>`;
 

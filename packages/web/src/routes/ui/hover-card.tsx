@@ -3,20 +3,17 @@ import { HoverCardDemo } from "~/demos/ui/hover-card";
 import source from "~/demos/ui/hover-card.tsx?raw";
 
 const snippet = `import {
-  Button,
+  buttonVariants,
   HoverCard,
   HoverCardContent,
-  HoverCardPortal,
   HoverCardTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <HoverCard>
-  <HoverCardTrigger as={Button}>Hover</HoverCardTrigger>
-  <HoverCardPortal>
-    <HoverCardContent>
-      Ada Lovelace
-    </HoverCardContent>
-  </HoverCardPortal>
+  <HoverCardTrigger class={buttonVariants()}>Hover</HoverCardTrigger>
+  <HoverCardContent>
+    Ada Lovelace
+  </HoverCardContent>
 </HoverCard>`;
 
 export default function HoverCardPage() {

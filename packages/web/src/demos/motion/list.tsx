@@ -1,5 +1,5 @@
-import { AnimatePresence, MotionConfig, motion } from "@solid-kit/motion";
-import { Button } from "@solid-kit/ui";
+import { AnimatePresence, MotionConfig, motion } from "@solid-kit/kit/motion";
+import { Button } from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
 interface Item {

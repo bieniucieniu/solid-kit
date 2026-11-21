@@ -3,27 +3,24 @@ import { DialogDemo } from "~/demos/ui/dialog";
 import source from "~/demos/ui/dialog.tsx?raw";
 
 const snippet = `import {
-  Button,
+  buttonVariants,
   Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
   DialogLabel,
   DialogOverlay,
-  DialogPortal,
   DialogTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <Dialog>
-  <DialogTrigger as={Button}>Open</DialogTrigger>
-  <DialogPortal>
-    <DialogOverlay />
-    <DialogContent>
-      <DialogLabel>Edit profile</DialogLabel>
-      <DialogDescription>Details</DialogDescription>
-      <DialogClose>Close</DialogClose>
-    </DialogContent>
-  </DialogPortal>
+  <DialogTrigger class={buttonVariants()}>Open</DialogTrigger>
+  <DialogOverlay />
+  <DialogContent>
+    <DialogLabel>Edit profile</DialogLabel>
+    <DialogDescription>Details</DialogDescription>
+    <DialogClose>Close</DialogClose>
+  </DialogContent>
 </Dialog>`;
 
 export default function DialogPage() {

@@ -8,12 +8,10 @@ import {
   CodeBlockLine,
   CodeBlockTitle,
   createHighlightedCode,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@solid-kit/ui";
-import { For, type JSX, Show } from "solid-js";
+} from "@solid-kit/kit/ui";
+import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@solid-kit/kit/m3";
+import type { JSX } from "@solidjs/web";
+import { For, Show } from "solid-js";
 
 export function Preview(props: { children?: JSX.Element; class?: string }) {
   return (
@@ -54,8 +52,8 @@ export function DocsPage(props: {
   return (
     <article class="space-y-6">
       <header class="space-y-2">
-        <h1 class="text-3xl font-semibold tracking-tight text-foreground">{props.title}</h1>
-        <p class="text-muted-foreground">{props.description}</p>
+        <h1 class="typescale-headline-medium text-on-surface">{props.title}</h1>
+        <p class="typescale-body-large text-on-surface-variant">{props.description}</p>
       </header>
       <Show
         when={props.source}
@@ -63,9 +61,10 @@ export function DocsPage(props: {
       >
         {(source) => (
           <Tabs defaultValue="preview">
-            <TabsList variant="line">
+            <TabsList aria-label="Example" class="w-fit bg-transparent">
               <TabsTrigger value="preview">Preview</TabsTrigger>
               <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsIndicator />
             </TabsList>
             <TabsContent value="preview" class="text-base">
               <Preview class={props.previewClass}>{props.children}</Preview>

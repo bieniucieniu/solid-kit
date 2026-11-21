@@ -2,12 +2,13 @@ import { DocsPage } from "~/components/preview";
 import { ResizableDemo } from "~/demos/ui/resizable";
 import source from "~/demos/ui/resizable.tsx?raw";
 
-const snippet = `import { Resizable, ResizableHandle, ResizablePanel } from "@solid-kit/ui";
+const snippet = `import { Resizable, ResizableHandle, ResizablePanel } from "@solid-kit/kit/ui";
 
+// Sizes are percentages of the space the panels share.
 <Resizable class="h-64 rounded-lg border">
-  <ResizablePanel initialSize={0.4} minSize={0.15}>Sidebar</ResizablePanel>
+  <ResizablePanel defaultSize={40} minSize={15}>Sidebar</ResizablePanel>
   <ResizableHandle withHandle />
-  <ResizablePanel initialSize={0.6}>
+  <ResizablePanel defaultSize={60}>
     <Resizable orientation="vertical">
       <ResizablePanel>Top</ResizablePanel>
       <ResizableHandle withHandle />

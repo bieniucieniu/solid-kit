@@ -2,11 +2,11 @@ import { DocsPage } from "~/components/preview";
 import { SwitchDemo } from "~/demos/m3/switch";
 import source from "~/demos/m3/switch.tsx?raw";
 
-const snippet = `import { Switch, SwitchControl, SwitchInput, SwitchLabel, SwitchThumb } from "@solid-kit/m3";
+const snippet = `import { Switch, SwitchControl, SwitchLabel, SwitchThumb } from "@solid-kit/kit/m3";
 
-<Switch defaultChecked>
-  <SwitchInput />
-  <SwitchControl>
+// Switch is the label; the state goes on SwitchControl.
+<Switch>
+  <SwitchControl defaultChecked>
     <SwitchThumb icons />
   </SwitchControl>
   <SwitchLabel>Wi-Fi</SwitchLabel>

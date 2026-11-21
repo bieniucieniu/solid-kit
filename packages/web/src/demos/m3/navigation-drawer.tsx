@@ -1,9 +1,8 @@
 import {
-  Button,
+  buttonVariants,
   ModalNavigationDrawer,
   ModalNavigationDrawerContent,
   ModalNavigationDrawerOverlay,
-  ModalNavigationDrawerPortal,
   ModalNavigationDrawerTrigger,
   NavigationDrawer,
   NavigationDrawerDivider,
@@ -11,8 +10,9 @@ import {
   NavigationDrawerItem,
   NavigationDrawerItemBadge,
   NavigationDrawerItemLabel,
-} from "@solid-kit/m3";
-import { createSignal, For, type JSX } from "solid-js";
+} from "@solid-kit/kit/m3";
+import { type JSX } from "@solidjs/web";
+import { createSignal, For } from "solid-js";
 import { DeleteIcon, HomeIcon, MailIcon, SendIcon, StarIcon } from "./shared";
 
 const items: { label: string; icon: () => JSX.Element; badge?: string }[] = [
@@ -60,15 +60,15 @@ export function NavigationDrawerDemo() {
         </NavigationDrawer>
       </div>
       <ModalNavigationDrawer>
-        <ModalNavigationDrawerTrigger as={Button} variant="tonal" class="self-start">
+        <ModalNavigationDrawerTrigger
+          class={buttonVariants({ variant: "tonal", class: "self-start" })}
+        >
           Open modal drawer
         </ModalNavigationDrawerTrigger>
-        <ModalNavigationDrawerPortal>
-          <ModalNavigationDrawerOverlay />
-          <ModalNavigationDrawerContent>
-            <Destinations />
-          </ModalNavigationDrawerContent>
-        </ModalNavigationDrawerPortal>
+        <ModalNavigationDrawerOverlay />
+        <ModalNavigationDrawerContent>
+          <Destinations />
+        </ModalNavigationDrawerContent>
       </ModalNavigationDrawer>
     </div>
   );

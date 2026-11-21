@@ -6,16 +6,14 @@
   "scripts": {
     "dev": "vp dev",
     "build": "vp build",
-    "preview": "vp preview"
+    "preview": "vp preview",
+    "start": "node dist/server/node.js",
+    "typecheck": "tsc -p . --noEmit"
   },
   "dependencies": {
-    "@solid-kit/m3": "workspace:*",
-    "@solid-kit/motion": "workspace:*",
-    "@solid-kit/tiptap": "workspace:*",
-    "@solid-kit/ui": "workspace:*",
-    "@solid-kit/xyflow": "workspace:*",
-    "@solidjs/router": "^0.16.0",
-    "@solidjs/start": "^2.1.0",
+    "@solid-kit/kit": "workspace:*",
+    "@solidjs/router": "2.0.0",
+    "@solidjs/web": "^2.0.3",
     "@tiptap/core": "^3.23.5",
     "@tiptap/extension-bubble-menu": "^3.23.5",
     "@tiptap/extension-floating-menu": "^3.23.5",
@@ -23,12 +21,14 @@
     "@tiptap/pm": "^3.23.5",
     "@tiptap/starter-kit": "^3.23.5",
     "motion": "^14.9.0",
-    "solid-js": "^1.9.15",
+    "solid-js": "^2.0.3",
     "tiptap-markdown": "^0.9.0"
   },
   "devDependencies": {
+    "@solidjs/vite-plugin": "3.0.1",
     "@tailwindcss/vite": "^4.3.3",
-    "nitro": "3.0.261029-rc",
+    "filesystem-routing": "0.5.0",
+    "prerender-crawler": "0.3.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.5.4",
     "vite": "catalog:",

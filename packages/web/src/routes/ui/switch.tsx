@@ -2,16 +2,13 @@ import { DocsPage } from "~/components/preview";
 import { SwitchDemo } from "~/demos/ui/switch";
 import source from "~/demos/ui/switch.tsx?raw";
 
-const snippet = `import { Switch, SwitchControl, SwitchInput, SwitchLabel, SwitchThumb } from "@solid-kit/ui";
+const snippet = `import { Switch, SwitchLabel } from "@solid-kit/kit/ui";
 
 // size: "sm" | "default"
-<Switch size="sm" checked={checked()} onChange={setChecked}>
-  <SwitchInput />
-  <SwitchControl>
-    <SwitchThumb />
-  </SwitchControl>
-  <SwitchLabel>Airplane mode</SwitchLabel>
-</Switch>`;
+<SwitchLabel>
+  <Switch checked={checked()} onCheckedChange={(next) => setChecked(next)} />
+  Airplane mode
+</SwitchLabel>`;
 
 export default function SwitchPage() {
   return (

@@ -33,3 +33,4 @@ export * from "./text-field";
 export * from "./toolbar";
 export * from "./tooltip";
 export * from "#kit/lib/m3/scheme";
+export { cn } from "#kit/lib/utils";

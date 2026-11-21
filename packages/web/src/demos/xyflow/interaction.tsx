@@ -1,8 +1,8 @@
-import { Switch, SwitchControl, SwitchInput, SwitchLabel, SwitchThumb } from "@solid-kit/ui";
-import { Flow, Position, createFlow, type FlowEdge, type FlowNode } from "@solid-kit/xyflow";
-import { Background, Controls } from "@solid-kit/xyflow/panels";
+import { Switch, SwitchLabel } from "@solid-kit/kit/ui";
+import { Flow, Position, createFlow, type FlowEdge, type FlowNode } from "@solid-kit/kit/xyflow";
+import { Background, Controls } from "@solid-kit/kit/xyflow/panels";
 import { type Accessor, For, createSignal, type Setter } from "solid-js";
-import "@solid-kit/xyflow/style.css";
+import "@solid-kit/kit/xyflow/style.css";
 
 const side = { sourcePosition: Position.Right, targetPosition: Position.Left };
 
@@ -48,13 +48,14 @@ export default function InteractionDemo() {
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-border px-3 py-2.5">
         <For each={options}>
           {(option) => (
-            <Switch size="sm" checked={option.value()} onChange={(next) => option.set(next)}>
-              <SwitchInput />
-              <SwitchControl>
-                <SwitchThumb />
-              </SwitchControl>
-              <SwitchLabel>{option.label}</SwitchLabel>
-            </Switch>
+            <SwitchLabel>
+              <Switch
+                size="sm"
+                checked={option.value()}
+                onCheckedChange={(next) => option.set(next)}
+              />
+              {option.label}
+            </SwitchLabel>
           )}
         </For>
       </div>

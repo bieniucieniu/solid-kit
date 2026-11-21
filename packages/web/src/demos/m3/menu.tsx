@@ -1,5 +1,5 @@
 import {
-  Button,
+  buttonVariants,
   Menu,
   MenuCheckboxItem,
   MenuContent,
@@ -9,7 +9,6 @@ import {
   MenuItemIcon,
   MenuItemIndicator,
   MenuItemLabel,
-  MenuPortal,
   MenuRadioGroup,
   MenuRadioItem,
   MenuSeparator,
@@ -18,7 +17,7 @@ import {
   MenuSubContent,
   MenuSubTrigger,
   MenuTrigger,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { createSignal } from "solid-js";
 import { DeleteIcon, EditIcon, ShareIcon } from "./shared";
 
@@ -27,59 +26,53 @@ export function MenuDemo() {
   const [sort, setSort] = createSignal("name");
   return (
     <Menu>
-      <MenuTrigger as={Button} variant="tonal">
-        Open menu
-      </MenuTrigger>
-      <MenuPortal>
-        <MenuContent>
-          <MenuItem>
+      <MenuTrigger class={buttonVariants({ variant: "tonal" })}>Open menu</MenuTrigger>
+      <MenuContent>
+        <MenuItem>
+          <MenuItemIcon>
+            <EditIcon />
+          </MenuItemIcon>
+          <MenuItemLabel>Edit</MenuItemLabel>
+          <MenuShortcut>⌘E</MenuShortcut>
+        </MenuItem>
+        <MenuSub>
+          <MenuSubTrigger>
             <MenuItemIcon>
-              <EditIcon />
+              <ShareIcon />
             </MenuItemIcon>
-            <MenuItemLabel>Edit</MenuItemLabel>
-            <MenuShortcut>⌘E</MenuShortcut>
-          </MenuItem>
-          <MenuSub>
-            <MenuSubTrigger>
-              <MenuItemIcon>
-                <ShareIcon />
-              </MenuItemIcon>
-              <span class="flex-1">Share</span>
-            </MenuSubTrigger>
-            <MenuPortal>
-              <MenuSubContent>
-                <MenuItem>Email</MenuItem>
-                <MenuItem>Copy link</MenuItem>
-              </MenuSubContent>
-            </MenuPortal>
-          </MenuSub>
-          <MenuItem disabled>
-            <MenuItemIcon>
-              <DeleteIcon />
-            </MenuItemIcon>
-            <MenuItemLabel>Delete</MenuItemLabel>
-          </MenuItem>
-          <MenuSeparator />
-          <MenuCheckboxItem checked={wrap()} onChange={setWrap}>
-            <MenuItemLabel>Word wrap</MenuItemLabel>
-            <MenuItemIndicator />
-          </MenuCheckboxItem>
-          <MenuSeparator />
-          <MenuGroup>
-            <MenuGroupLabel>Sort by</MenuGroupLabel>
-            <MenuRadioGroup value={sort()} onChange={setSort}>
-              <MenuRadioItem value="name">
-                <MenuItemLabel>Name</MenuItemLabel>
-                <MenuItemIndicator />
-              </MenuRadioItem>
-              <MenuRadioItem value="date">
-                <MenuItemLabel>Date</MenuItemLabel>
-                <MenuItemIndicator />
-              </MenuRadioItem>
-            </MenuRadioGroup>
-          </MenuGroup>
-        </MenuContent>
-      </MenuPortal>
+            <span class="flex-1">Share</span>
+          </MenuSubTrigger>
+          <MenuSubContent>
+            <MenuItem>Email</MenuItem>
+            <MenuItem>Copy link</MenuItem>
+          </MenuSubContent>
+        </MenuSub>
+        <MenuItem disabled>
+          <MenuItemIcon>
+            <DeleteIcon />
+          </MenuItemIcon>
+          <MenuItemLabel>Delete</MenuItemLabel>
+        </MenuItem>
+        <MenuSeparator />
+        <MenuCheckboxItem value="wrap" checked={wrap()} onCheckedChange={(next) => setWrap(next)}>
+          <MenuItemLabel>Word wrap</MenuItemLabel>
+          <MenuItemIndicator />
+        </MenuCheckboxItem>
+        <MenuSeparator />
+        <MenuGroup>
+          <MenuGroupLabel>Sort by</MenuGroupLabel>
+          <MenuRadioGroup value={sort()} onValueChange={(next) => setSort(next)}>
+            <MenuRadioItem value="name">
+              <MenuItemLabel>Name</MenuItemLabel>
+              <MenuItemIndicator />
+            </MenuRadioItem>
+            <MenuRadioItem value="date">
+              <MenuItemLabel>Date</MenuItemLabel>
+              <MenuItemIndicator />
+            </MenuRadioItem>
+          </MenuRadioGroup>
+        </MenuGroup>
+      </MenuContent>
     </Menu>
   );
 }

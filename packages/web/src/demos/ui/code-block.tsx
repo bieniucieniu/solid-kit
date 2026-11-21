@@ -9,7 +9,7 @@ import {
   CodeBlockLine,
   CodeBlockTitle,
   createHighlightedCode,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import { createSignal, For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
@@ -148,9 +148,11 @@ export function CodeBlockDemo() {
                 variant="ghost"
                 size="icon-xs"
                 aria-label="Wrap lines"
-                aria-pressed={wrap()}
-                classList={{ "bg-muted text-foreground": wrap() }}
-                onClick={() => setWrap(!wrap())}
+                aria-pressed={wrap() ? "true" : "false"}
+                class={{ "bg-muted text-foreground": wrap() }}
+                onClick={() => {
+                  setWrap(!wrap());
+                }}
               >
                 <WrapIcon />
               </Button>
@@ -174,9 +176,11 @@ export function CodeBlockDemo() {
               type="button"
               variant="ghost"
               size="xs"
-              aria-expanded={expanded()}
+              aria-expanded={expanded() ? "true" : "false"}
               aria-controls="code-block-logs"
-              onClick={() => setExpanded(!expanded())}
+              onClick={() => {
+                setExpanded(!expanded());
+              }}
             >
               {expanded() ? "Show less" : "Show more"}
             </Button>

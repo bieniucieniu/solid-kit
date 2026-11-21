@@ -2,27 +2,10 @@ import { DocsPage } from "~/components/preview";
 import { PaginationDemo } from "~/demos/ui/pagination";
 import source from "~/demos/ui/pagination.tsx?raw";
 
-const snippet = `import {
-  Pagination,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationItems,
-  PaginationNext,
-  PaginationPrevious,
-} from "@solid-kit/ui";
+const snippet = `import { Pagination, PaginationItems } from "@solid-kit/kit/ui";
 
-<Pagination
-  count={10}
-  page={page()}
-  onPageChange={setPage}
-  itemComponent={(props) => (
-    <PaginationItem page={props.page}>{props.page}</PaginationItem>
-  )}
-  ellipsisComponent={() => <PaginationEllipsis />}
->
-  <PaginationPrevious />
+<Pagination pageCount={10} page={page()} onPageChange={(next) => setPage(next)}>
   <PaginationItems />
-  <PaginationNext />
 </Pagination>`;
 
 export default function PaginationPage() {

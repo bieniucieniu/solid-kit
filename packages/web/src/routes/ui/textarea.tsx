@@ -2,11 +2,11 @@ import { DocsPage } from "~/components/preview";
 import { TextareaDemo } from "~/demos/ui/textarea";
 import source from "~/demos/ui/textarea.tsx?raw";
 
-const snippet = `import { Textarea, TextareaControl, TextareaDescription, TextareaLabel } from "@solid-kit/ui";
+const snippet = `import { Textarea, TextareaControl, TextareaDescription, TextareaLabel } from "@solid-kit/kit/ui";
 
-<Textarea value={value()} onChange={setValue}>
+<Textarea>
   <TextareaLabel>Bio</TextareaLabel>
-  <TextareaControl placeholder="A short note" />
+  <TextareaControl value={value()} onValueChange={(next) => setValue(next)} />
   <TextareaDescription>Shown on your profile.</TextareaDescription>
 </Textarea>`;
 

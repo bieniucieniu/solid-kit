@@ -1,5 +1,6 @@
-import { Button, type ButtonSize, type ButtonVariant } from "@solid-kit/ui";
-import { For, type JSX } from "solid-js";
+import { Button, type ButtonSize, type ButtonVariant } from "@solid-kit/kit/ui";
+import { type JSX } from "@solidjs/web";
+import { For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
 const variants: ButtonVariant[] = [

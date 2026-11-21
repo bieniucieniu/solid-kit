@@ -2,16 +2,10 @@ import { DocsPage } from "~/components/preview";
 import { InputOTPDemo } from "~/demos/ui/input-otp";
 import source from "~/demos/ui/input-otp.tsx?raw";
 
-const snippet = `import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPInput,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@solid-kit/ui";
+const snippet = `import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "@solid-kit/kit/ui";
 
-<InputOTP maxLength={6} onComplete={(code) => verify(code)}>
-  <InputOTPInput />
+// One native input holds the code; the slots display it.
+<InputOTP maxLength={6}>
   <InputOTPGroup>
     <InputOTPSlot index={0} />
     <InputOTPSlot index={1} />

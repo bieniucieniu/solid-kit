@@ -8,7 +8,7 @@ export default function TiptapIndex() {
     <PackageIndex
       title="Tiptap"
       description="Basic, markdown, and menu editors."
-      snippet={'import { Tiptap, useEditor } from "@solid-kit/tiptap";'}
+      snippet={'import { Tiptap, useEditor } from "@solid-kit/kit/tiptap";'}
       pages={pages}
     />
   );

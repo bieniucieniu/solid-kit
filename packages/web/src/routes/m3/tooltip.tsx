@@ -2,12 +2,28 @@ import { DocsPage } from "~/components/preview";
 import { TooltipDemo } from "~/demos/m3/tooltip";
 import source from "~/demos/m3/tooltip.tsx?raw";
 
-const snippet = `import { RichTooltip, RichTooltipContent, RichTooltipPortal, RichTooltipSubhead, RichTooltipTrigger, Tooltip, TooltipContent, TooltipPortal, TooltipTrigger } from "@solid-kit/m3";
+const snippet = `import {
+  RichTooltip,
+  RichTooltipContent,
+  RichTooltipSubhead,
+  RichTooltipTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  iconButtonVariants,
+} from "@solid-kit/kit/m3";
 
 <Tooltip>
-  <TooltipTrigger as={IconButton} aria-label="Favorite"><StarIcon /></TooltipTrigger>
-  <TooltipPortal><TooltipContent>Add to favorites</TooltipContent></TooltipPortal>
-</Tooltip>`;
+  <TooltipTrigger class={iconButtonVariants()} aria-label="Favorite"><StarIcon /></TooltipTrigger>
+  <TooltipContent>Add to favorites</TooltipContent>
+</Tooltip>
+
+<RichTooltip>
+  <RichTooltipTrigger class={iconButtonVariants()} aria-label="About"><InfoIcon /></RichTooltipTrigger>
+  <RichTooltipContent>
+    <RichTooltipSubhead>Storage</RichTooltipSubhead>
+  </RichTooltipContent>
+</RichTooltip>`;
 
 export default function TooltipPage() {
   return (

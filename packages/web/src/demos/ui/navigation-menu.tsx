@@ -3,8 +3,10 @@ import {
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
+  NavigationMenuList,
   NavigationMenuTrigger,
-} from "@solid-kit/ui";
+  navigationMenuTriggerStyle,
+} from "@solid-kit/kit/ui";
 import { For } from "solid-js";
 
 const gettingStarted = [
@@ -23,52 +25,59 @@ const components = [
 ];
 
 const packages = [
-  { title: "@solid-kit/ui", href: "/ui", description: "shadcn-style components on Kobalte." },
-  { title: "@solid-kit/tiptap", href: "/", description: "Tiptap editor bindings for Solid." },
+  { title: "@solid-kit/kit/ui", href: "/ui", description: "shadcn-style components on ui-sdk." },
+  { title: "@solid-kit/kit/tiptap", href: "/", description: "Tiptap editor bindings for Solid." },
 ];
 
 export function NavigationMenuDemo() {
   // The viewport renders below the list, so leave room for it inside clipped previews.
   return (
     <div class="min-h-64">
-      <NavigationMenu>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-          <NavigationMenuContent class="grid w-96 grid-cols-2 gap-1">
-            <For each={gettingStarted}>
-              {(item) => (
-                <NavigationMenuLink href={item.href} class="flex-col items-start gap-0.5">
-                  <span class="font-medium">{item.title}</span>
-                  <span class="text-muted-foreground">{item.description}</span>
-                </NavigationMenuLink>
-              )}
-            </For>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent class="w-48">
-            <For each={components}>
-              {(item) => <NavigationMenuLink href={item.href}>{item.title}</NavigationMenuLink>}
-            </For>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Packages</NavigationMenuTrigger>
-          <NavigationMenuContent class="w-72">
-            <For each={packages}>
-              {(item) => (
-                <NavigationMenuLink href={item.href} class="flex-col items-start gap-0.5">
-                  <span class="font-medium">{item.title}</span>
-                  <span class="text-muted-foreground">{item.description}</span>
-                </NavigationMenuLink>
-              )}
-            </For>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuTrigger href="https://github.com/bieniucieniu/solid-kit">
-          GitHub
-        </NavigationMenuTrigger>
+      <NavigationMenu aria-label="Site">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+            <NavigationMenuContent class="grid w-96 grid-cols-2 gap-1">
+              <For each={gettingStarted}>
+                {(item) => (
+                  <NavigationMenuLink href={item.href} class="flex-col items-start gap-0.5">
+                    <span class="font-medium">{item.title}</span>
+                    <span class="text-muted-foreground">{item.description}</span>
+                  </NavigationMenuLink>
+                )}
+              </For>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+            <NavigationMenuContent class="w-48">
+              <For each={components}>
+                {(item) => <NavigationMenuLink href={item.href}>{item.title}</NavigationMenuLink>}
+              </For>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Packages</NavigationMenuTrigger>
+            <NavigationMenuContent class="w-72">
+              <For each={packages}>
+                {(item) => (
+                  <NavigationMenuLink href={item.href} class="flex-col items-start gap-0.5">
+                    <span class="font-medium">{item.title}</span>
+                    <span class="text-muted-foreground">{item.description}</span>
+                  </NavigationMenuLink>
+                )}
+              </For>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              href="https://github.com/bieniucieniu/solid-kit"
+              class={navigationMenuTriggerStyle}
+            >
+              GitHub
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        </NavigationMenuList>
       </NavigationMenu>
     </div>
   );

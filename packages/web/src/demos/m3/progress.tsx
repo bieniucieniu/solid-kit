@@ -5,15 +5,15 @@ import {
   ProgressLabel,
   ProgressTrack,
   ProgressValueLabel,
-} from "@solid-kit/m3";
-import { createSignal, onCleanup, onMount } from "solid-js";
+} from "@solid-kit/kit/m3";
+import { createSignal, onSettled } from "solid-js";
 import { DemoRow, DemoStack } from "./shared";
 
 export function ProgressDemo() {
   const [value, setValue] = createSignal(30);
-  onMount(() => {
+  onSettled(() => {
     const timer = setInterval(() => setValue((v) => (v >= 100 ? 0 : v + 10)), 1200);
-    onCleanup(() => clearInterval(timer));
+    return () => clearInterval(timer);
   });
   return (
     <DemoStack class="max-w-md">
@@ -32,7 +32,7 @@ export function ProgressDemo() {
           <ProgressFill wavy />
         </ProgressTrack>
       </Progress>
-      <Progress indeterminate>
+      <Progress value={null}>
         <ProgressLabel>Indeterminate</ProgressLabel>
         <ProgressTrack>
           <ProgressFill />
@@ -40,7 +40,7 @@ export function ProgressDemo() {
       </Progress>
       <DemoRow label="Circular">
         <CircularProgress value={value()} aria-label="Upload progress" />
-        <CircularProgress indeterminate aria-label="Loading" />
+        <CircularProgress value={null} aria-label="Loading" />
         <CircularProgress value={75} size={48} aria-label="Storage used" />
       </DemoRow>
     </DemoStack>

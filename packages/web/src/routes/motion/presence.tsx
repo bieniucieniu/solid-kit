@@ -1,10 +1,10 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/motion/presence.tsx?raw";
 
 const PresenceDemo = clientOnly(() => import("~/demos/motion/presence"));
 
-const snippet = `import { AnimatePresence, motion } from "@solid-kit/motion";
+const snippet = `import { AnimatePresence, motion } from "@solid-kit/kit/motion";
 
 <AnimatePresence when={open}>
   <motion.div

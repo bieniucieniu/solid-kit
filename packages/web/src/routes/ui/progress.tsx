@@ -8,7 +8,7 @@ const snippet = `import {
   ProgressLabel,
   ProgressTrack,
   ProgressValueLabel,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <Progress value={64}>
   <ProgressLabel>Upload</ProgressLabel>

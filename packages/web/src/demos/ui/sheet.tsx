@@ -1,5 +1,5 @@
 import {
-  Button,
+  buttonVariants,
   Sheet,
   SheetClose,
   SheetContent,
@@ -8,9 +8,8 @@ import {
   SheetHeader,
   SheetLabel,
   SheetOverlay,
-  SheetPortal,
   SheetTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import { For } from "solid-js";
 
 const sides = ["top", "right", "bottom", "left"] as const;
@@ -21,23 +20,19 @@ export function SheetDemo() {
       <For each={sides}>
         {(side) => (
           <Sheet>
-            <SheetTrigger as={Button} variant="outline">
-              Open {side}
-            </SheetTrigger>
-            <SheetPortal>
-              <SheetOverlay />
-              <SheetContent side={side}>
-                <SheetHeader>
-                  <SheetLabel>Settings</SheetLabel>
-                  <SheetDescription>Changes apply to this project.</SheetDescription>
-                </SheetHeader>
-                <p class="text-muted-foreground">Content placed directly in the sheet is padded.</p>
-                <SheetFooter>
-                  <SheetClose variant="default">Save</SheetClose>
-                  <SheetClose>Cancel</SheetClose>
-                </SheetFooter>
-              </SheetContent>
-            </SheetPortal>
+            <SheetTrigger class={buttonVariants({ variant: "outline" })}>Open {side}</SheetTrigger>
+            <SheetOverlay />
+            <SheetContent side={side}>
+              <SheetHeader>
+                <SheetLabel>Settings</SheetLabel>
+                <SheetDescription>Changes apply to this project.</SheetDescription>
+              </SheetHeader>
+              <p class="text-muted-foreground">Content placed directly in the sheet is padded.</p>
+              <SheetFooter>
+                <SheetClose variant="default">Save</SheetClose>
+                <SheetClose>Cancel</SheetClose>
+              </SheetFooter>
+            </SheetContent>
           </Sheet>
         )}
       </For>

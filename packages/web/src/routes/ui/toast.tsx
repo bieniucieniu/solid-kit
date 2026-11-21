@@ -2,34 +2,15 @@ import { DocsPage } from "~/components/preview";
 import { ToastDemo } from "~/demos/ui/toast";
 import source from "~/demos/ui/toast.tsx?raw";
 
-const snippet = `import {
-  Button,
-  Toast,
-  ToastCloseButton,
-  ToastDescription,
-  toaster,
-  ToastList,
-  ToastRegion,
-  ToastTitle,
-} from "@solid-kit/ui";
+const snippet = `import { ToastRegion, toast } from "@solid-kit/kit/ui";
 
-<Button
-  type="button"
-  onClick={() =>
-    toaster.show((props) => (
-      <Toast toastId={props.toastId}>
-        <ToastTitle>Saved</ToastTitle>
-        <ToastDescription>Your changes are stored.</ToastDescription>
-        <ToastCloseButton>Close</ToastCloseButton>
-      </Toast>
-    ))
-  }
->
-  Show toast
-</Button>
-<ToastRegion>
-  <ToastList />
-</ToastRegion>`;
+// Mount once, near the app root.
+<ToastRegion />
+
+toast("Saved", {
+  description: "Your changes are stored.",
+  action: { label: "Undo", onAction: () => undo() },
+});`;
 
 export default function ToastPage() {
   return (

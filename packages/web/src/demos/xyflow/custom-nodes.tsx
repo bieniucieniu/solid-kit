@@ -7,11 +7,8 @@ import {
   CardHeader,
   CardTitle,
   Switch,
-  SwitchControl,
-  SwitchInput,
   SwitchLabel,
-  SwitchThumb,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import {
   Flow,
   Handle,
@@ -19,9 +16,9 @@ import {
   createFlow,
   useFlow,
   type NodeComponentProps,
-} from "@solid-kit/xyflow";
-import { Background, Controls } from "@solid-kit/xyflow/panels";
-import "@solid-kit/xyflow/style.css";
+} from "@solid-kit/kit/xyflow";
+import { Background, Controls } from "@solid-kit/kit/xyflow/panels";
+import "@solid-kit/kit/xyflow/style.css";
 
 type TaskData = { title: string; owner: string; done: boolean };
 type ReviewData = { title: string };
@@ -45,17 +42,13 @@ function TaskNode(props: NodeComponentProps) {
         </CardHeader>
         <CardContent>
           {/* `nodrag` lets the switch take the pointer instead of starting a node drag. */}
-          <Switch
-            class="nodrag"
-            checked={data().done}
-            onChange={(done) => flow.updateNode(props.node.id, { data: { done } })}
-          >
-            <SwitchInput />
-            <SwitchControl>
-              <SwitchThumb />
-            </SwitchControl>
-            <SwitchLabel>Complete</SwitchLabel>
-          </Switch>
+          <SwitchLabel class="nodrag">
+            <Switch
+              checked={data().done}
+              onCheckedChange={(done) => flow.updateNode(props.node.id, { data: { done } })}
+            />
+            Complete
+          </SwitchLabel>
         </CardContent>
       </Card>
       <Handle type="source" position={Position.Right} />

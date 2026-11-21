@@ -9,7 +9,7 @@ export default function MotionIndex() {
       title="Motion"
       description="Animate, hover, drag, spring, presence, and lists."
       snippet={
-        'import { AnimatePresence, motion, useMotionValue, useSpring } from "@solid-kit/motion";'
+        'import { AnimatePresence, motion, useMotionValue, useSpring } from "@solid-kit/kit/motion";'
       }
       pages={pages}
     />

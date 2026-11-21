@@ -129,8 +129,11 @@ function createMotionComponent(tag: string): Component<MotionComponentProps> {
     function setRef(node: Element) {
       element = node;
       state.attach(node);
-      const ref = local.ref;
-      if (typeof ref === "function") ref(node);
+      // Solid 2 hands a component its ref as a callback or a (nested) array of callbacks.
+      const ref: unknown = local.ref;
+      for (const fn of [ref].flat(Infinity)) {
+        if (typeof fn === "function") fn(node);
+      }
     }
 
     // Compute reads the props; the apply phase runs the animation after the DOM commit.

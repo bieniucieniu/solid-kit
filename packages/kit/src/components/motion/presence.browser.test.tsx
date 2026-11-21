@@ -38,6 +38,25 @@ describe("motion", () => {
       .toContain("translateX");
   });
 
+  test("ref accepts a callback or an array of callbacks", () => {
+    const one: Element[] = [];
+    const two: Element[] = [];
+    let single: Element | undefined;
+    render(() => (
+      <>
+        <motion.div
+          data-testid="array"
+          ref={[(el: Element) => one.push(el), (el: Element) => two.push(el)]}
+        />
+        <motion.div data-testid="single" ref={(el: Element) => (single = el)} />
+      </>
+    ));
+    const array = page.getByTestId("array").elements()[0];
+    expect(one).toEqual([array]);
+    expect(two).toEqual([array]);
+    expect(single).toBe(page.getByTestId("single").elements()[0]);
+  });
+
   test("hover scales the element", async () => {
     render(() => (
       <motion.div
@@ -111,6 +130,44 @@ describe("motion", () => {
     await element(page.getByTestId("b")).toBeVisible();
     await expect.poll(() => page.getByTestId("a").elements().length, { timeout: 1000 }).toBe(0);
     await element(page.getByTestId("b")).toBeVisible();
+  });
+
+  test("each shows a kept row's new item and index without replaying initial", async () => {
+    const [items, setItems] = createSignal([
+      { id: "a", name: "Alpha" },
+      { id: "b", name: "Beta" },
+    ]);
+    render(() => (
+      <AnimatePresence each={items} by={(item) => item.id}>
+        {(item, index) => (
+          <motion.div
+            data-testid={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {index()}:{item.name}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    ));
+
+    const opacity = (id: string) => {
+      const node = page.getByTestId(id).elements()[0];
+      return node instanceof HTMLElement ? Number(getComputedStyle(node).opacity) : -1;
+    };
+    await expect.poll(() => page.getByTestId("b").elements()[0]?.textContent).toBe("1:Beta");
+    await expect.poll(() => opacity("b"), { timeout: 1000 }).toBe(1);
+
+    // Same keys: a renamed item and a swapped order.
+    setItems([
+      { id: "b", name: "Bravo" },
+      { id: "a", name: "Alpha" },
+    ]);
+    await expect.poll(() => page.getByTestId("b").elements()[0]?.textContent).toBe("0:Bravo");
+    await expect.poll(() => page.getByTestId("a").elements()[0]?.textContent).toBe("1:Alpha");
+    // The rebuilt row starts at its animate target instead of fading in again.
+    expect(opacity("b")).toBe(1);
   });
 
   test("wait holds a new row until the old one exits", async () => {

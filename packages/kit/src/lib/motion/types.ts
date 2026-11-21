@@ -114,12 +114,15 @@ export interface MotionProps {
   style?: MotionStyle;
 }
 
+/** A ref as Solid 2 passes it: a variable, a callback, or a (nested) array of them. */
+export type MotionRef = Element | ((el: Element) => void) | readonly MotionRef[];
+
 export type MotionComponentProps = MotionProps &
   Omit<
     JSX.HTMLAttributes<HTMLElement>,
-    "style" | "children" | "onDrag" | "onDragStart" | "onDragEnd"
+    "ref" | "style" | "children" | "onDrag" | "onDragStart" | "onDragEnd"
   > & {
-    ref?: (el: Element) => void;
+    ref?: MotionRef;
     children?: JSX.Element;
     style?: MotionStyle;
     d?: string;

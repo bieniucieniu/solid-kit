@@ -6,7 +6,7 @@
   "registryDependencies": ["bieniucieniu/solid-kit/utils"],
   "files": [
     {
-      "path": "packages/1.9/ui/src/components/scroll-area.tsx",
+      "path": "packages/1.9/src/components/ui/scroll-area.tsx",
       "content": "import type { JSX } from \"solid-js\";\nimport { splitProps } from \"solid-js\";\nimport { cn } from \"@/lib/utils\";\n\nexport function ScrollArea(props: JSX.HTMLAttributes<HTMLDivElement>) {\n  const [, rest] = splitProps(props, [\"class\"]);\n  return (\n    <div\n      data-slot=\"scroll-area\"\n      class={cn(\n        \"relative overflow-auto rounded-[inherit] [scrollbar-color:var(--border)_transparent] scrollbar-thin transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1\",\n        props.class,\n      )}\n      {...rest}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "@ui/scroll-area.tsx"

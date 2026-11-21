@@ -5,8 +5,9 @@ import {
   NavigationBarIcon,
   NavigationBarItem,
   NavigationBarLabel,
-} from "@solid-kit/m3";
-import { createSignal, For, type JSX } from "solid-js";
+} from "@solid-kit/kit/m3";
+import { type JSX } from "@solidjs/web";
+import { createSignal, For } from "solid-js";
 import { DemoRow, DemoStack, HomeIcon, MailIcon, PersonIcon, StarIcon } from "./shared";
 
 const items: { label: string; icon: () => JSX.Element; badge?: string }[] = [

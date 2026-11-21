@@ -1,12 +1,12 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/xyflow/canvas.tsx?raw";
 
 const CanvasDemo = clientOnly(() => import("~/demos/xyflow/canvas"));
 
-const snippet = `import { Flow, Position, createFlow } from "@solid-kit/xyflow";
-import { Background, Controls } from "@solid-kit/xyflow/panels";
-import "@solid-kit/xyflow/style.css";
+const snippet = `import { Flow, Position, createFlow } from "@solid-kit/kit/xyflow";
+import { Background, Controls } from "@solid-kit/kit/xyflow/panels";
+import "@solid-kit/kit/xyflow/style.css";
 
 const flow = createFlow(() => ({
   nodes: [

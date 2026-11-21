@@ -2,18 +2,16 @@ import { DocsPage } from "~/components/preview";
 import { BottomSheetDemo } from "~/demos/m3/bottom-sheet";
 import source from "~/demos/m3/bottom-sheet.tsx?raw";
 
-const snippet = `import { BottomSheet, BottomSheetBody, BottomSheetContent, BottomSheetDragHandle, BottomSheetOverlay, BottomSheetPortal, BottomSheetTitle, BottomSheetTrigger } from "@solid-kit/m3";
+const snippet = `import { BottomSheet, BottomSheetBody, BottomSheetContent, BottomSheetDragHandle, BottomSheetOverlay, BottomSheetTitle, BottomSheetTrigger, buttonVariants } from "@solid-kit/kit/m3";
 
 <BottomSheet>
-  <BottomSheetTrigger as={Button}>Share</BottomSheetTrigger>
-  <BottomSheetPortal>
-    <BottomSheetOverlay />
-    <BottomSheetContent>
-      <BottomSheetDragHandle />
-      <BottomSheetTitle>Share</BottomSheetTitle>
-      <BottomSheetBody>{/* scrolls when it outgrows the sheet */}</BottomSheetBody>
-    </BottomSheetContent>
-  </BottomSheetPortal>
+  <BottomSheetTrigger class={buttonVariants()}>Share</BottomSheetTrigger>
+  <BottomSheetOverlay />
+  <BottomSheetContent>
+    <BottomSheetDragHandle />
+    <BottomSheetTitle>Share</BottomSheetTitle>
+    <BottomSheetBody>{/* scrolls when it outgrows the sheet */}</BottomSheetBody>
+  </BottomSheetContent>
 </BottomSheet>`;
 
 export default function BottomSheetPage() {

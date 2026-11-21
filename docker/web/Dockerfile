@@ -1,11 +1,14 @@
 # syntax=docker/dockerfile:1
 # Multi-arch: linux/amd64 (x64) + linux/arm64 (Apple Silicon, Raspberry Pi 4 / ARMv8)
 #
-# Build once on $BUILDPLATFORM (pnpm + Vite/Nitro), then copy .output into per-arch runtime.
+# Build once on $BUILDPLATFORM (pnpm + Vite, Solid 2 start mode), then copy dist into the
+# per-arch runtime. The build prerenders every page to static HTML in dist/client; the Node
+# server (dist/server/node.js) serves those files and renders anything else. The server build
+# bundles its dependencies, so the runtime image needs no node_modules.
 #
 # Layer order (cache-friendly):
 #   1) pnpm install (package manifests + lockfile)
-#   2) build web → packages/web/.output
+#   2) build web → packages/web/dist
 #
 #   docker build -f docker/web/Dockerfile -t solid-kit-web .
 
@@ -25,11 +28,7 @@ COPY --parents packages/1.9/*/package.json ./
 RUN pnpm install --frozen-lockfile --filter web...
 
 # --- 2. Build web (invalidates when sources change) ---
-COPY packages/1.9/ui ./packages/1.9/ui
-COPY packages/1.9/m3 ./packages/1.9/m3
-COPY packages/1.9/motion ./packages/1.9/motion
-COPY packages/1.9/xyflow ./packages/1.9/xyflow
-COPY packages/1.9/tiptap ./packages/1.9/tiptap
+COPY packages/kit ./packages/kit
 COPY packages/web ./packages/web
 RUN pnpm --filter web build
 
@@ -38,7 +37,7 @@ WORKDIR /app
 
 RUN addgroup -S solidkit && adduser -S -G solidkit -H -s /sbin/nologin solidkit
 
-COPY --from=build --chown=solidkit:solidkit /workspace/packages/web/.output ./.output
+COPY --from=build --chown=solidkit:solidkit /workspace/packages/web/dist ./dist
 
 USER solidkit
 EXPOSE 8080
@@ -47,4 +46,4 @@ ENV NODE_ENV=production \
   PORT=8080 \
   HOST=0.0.0.0
 
-ENTRYPOINT ["node", ".output/server/index.mjs"]
+ENTRYPOINT ["node", "dist/server/node.js"]

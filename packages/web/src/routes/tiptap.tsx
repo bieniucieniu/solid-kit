@@ -1,6 +1,6 @@
-import type { RouteSectionProps } from "@solidjs/router";
+import { type ParentProps } from "solid-js";
 import { DocsLayout } from "~/components/docs-layout";
 
-export default function TiptapLayout(props: RouteSectionProps) {
+export default function TiptapLayout(props: ParentProps) {
   return <DocsLayout pkg="tiptap">{props.children}</DocsLayout>;
 }

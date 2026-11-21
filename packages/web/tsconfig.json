@@ -6,7 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
-    "jsxImportSource": "solid-js",
+    "jsxImportSource": "@solidjs/web",
     "types": ["vite/client"],
     "strict": true,
     "skipLibCheck": true,
@@ -14,9 +14,8 @@
     "isolatedModules": true,
     "paths": {
       "~/*": ["./src/*"],
-      "@/*": ["../1.9/ui/src/*"],
-      "#/*": ["../1.9/motion/src/*", "../1.9/tiptap/src/*", "../1.9/xyflow/src/*"]
+      "#kit/*": ["../kit/src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "file-routes.d.ts"]
 }

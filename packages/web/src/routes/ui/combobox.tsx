@@ -6,32 +6,27 @@ const snippet = `import {
   Combobox,
   ComboboxContent,
   ComboboxControl,
+  ComboboxEmpty,
   ComboboxInput,
   ComboboxItem,
-  ComboboxItemLabel,
   ComboboxLabel,
   ComboboxListbox,
-  ComboboxPortal,
-} from "@solid-kit/ui";
+  ComboboxTrigger,
+} from "@solid-kit/kit/ui";
 
-<Combobox
-  options={["Apple", "Banana", "Orange"]}
-  placeholder="Search fruit"
-  itemComponent={(props) => (
-    <ComboboxItem item={props.item}>
-      <ComboboxItemLabel>{props.item.rawValue}</ComboboxItemLabel>
-    </ComboboxItem>
-  )}
->
+<Combobox value={value()} onValueChange={(next) => setValue(next)}>
   <ComboboxLabel>Fruit</ComboboxLabel>
   <ComboboxControl>
-    <ComboboxInput />
+    <ComboboxInput placeholder="Search fruit" />
+    <ComboboxTrigger />
   </ComboboxControl>
-  <ComboboxPortal>
-    <ComboboxContent>
-      <ComboboxListbox />
-    </ComboboxContent>
-  </ComboboxPortal>
+  <ComboboxContent>
+    <ComboboxListbox>
+      <ComboboxItem value="Apple">Apple</ComboboxItem>
+      <ComboboxItem value="Banana">Banana</ComboboxItem>
+    </ComboboxListbox>
+    <ComboboxEmpty>No fruit found.</ComboboxEmpty>
+  </ComboboxContent>
 </Combobox>`;
 
 export default function ComboboxPage() {

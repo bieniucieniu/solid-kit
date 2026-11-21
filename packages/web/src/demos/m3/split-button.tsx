@@ -3,12 +3,11 @@ import {
   Menu,
   MenuContent,
   MenuItem,
-  MenuPortal,
   SplitButton,
   SplitButtonAction,
   SplitButtonTrigger,
   type SplitButtonVariant,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { For } from "solid-js";
 import { DemoRow, DemoStack, SendIcon } from "./shared";
 
@@ -22,14 +21,12 @@ function Example(props: { variant?: SplitButtonVariant; size?: ButtonSize }) {
         <SendIcon />
         Send
       </SplitButtonAction>
-      <Menu placement="bottom-end">
+      <Menu>
         <SplitButtonTrigger aria-label="More send options" />
-        <MenuPortal>
-          <MenuContent>
-            <MenuItem>Schedule send</MenuItem>
-            <MenuItem>Send without sound</MenuItem>
-          </MenuContent>
-        </MenuPortal>
+        <MenuContent align="end">
+          <MenuItem>Schedule send</MenuItem>
+          <MenuItem>Send without sound</MenuItem>
+        </MenuContent>
       </Menu>
     </SplitButton>
   );

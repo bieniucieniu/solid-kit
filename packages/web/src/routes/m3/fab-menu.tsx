@@ -2,16 +2,14 @@ import { DocsPage } from "~/components/preview";
 import { FabMenuDemo } from "~/demos/m3/fab-menu";
 import source from "~/demos/m3/fab-menu.tsx?raw";
 
-const snippet = `import { FabMenu, FabMenuContent, FabMenuItem, FabMenuPortal, FabMenuTrigger } from "@solid-kit/m3";
+const snippet = `import { FabMenu, FabMenuContent, FabMenuItem, FabMenuTrigger } from "@solid-kit/kit/m3";
 
 <FabMenu color="primary">
   <FabMenuTrigger aria-label="Create"><AddIcon /></FabMenuTrigger>
-  <FabMenuPortal>
-    <FabMenuContent>
-      <FabMenuItem><MailIcon />Message</FabMenuItem>
-      <FabMenuItem><PersonIcon />Contact</FabMenuItem>
-    </FabMenuContent>
-  </FabMenuPortal>
+  <FabMenuContent>
+    <FabMenuItem><MailIcon />Message</FabMenuItem>
+    <FabMenuItem><PersonIcon />Contact</FabMenuItem>
+  </FabMenuContent>
 </FabMenu>`;
 
 export default function FabMenuPage() {

@@ -11,7 +11,7 @@ const snippet = `import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 // size: "default" | "sm"
 <Card size="sm">

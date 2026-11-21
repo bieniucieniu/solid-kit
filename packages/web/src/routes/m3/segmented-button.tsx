@@ -2,9 +2,10 @@ import { DocsPage } from "~/components/preview";
 import { SegmentedButtonDemo } from "~/demos/m3/segmented-button";
 import source from "~/demos/m3/segmented-button.tsx?raw";
 
-const snippet = `import { SegmentedButton, SegmentedButtonIcon, SegmentedButtonItem } from "@solid-kit/m3";
+const snippet = `import { SegmentedButton, SegmentedButtonIcon, SegmentedButtonItem } from "@solid-kit/kit/m3";
 
-<SegmentedButton value={size()} onChange={setSize}>
+// The value is the array of selected segments. Pass \`multiple\` to select several.
+<SegmentedButton value={size()} onValueChange={(next) => setSize(next)}>
   <SegmentedButtonItem value="s">Small</SegmentedButtonItem>
   <SegmentedButtonItem value="m">
     <SegmentedButtonIcon><StarIcon /></SegmentedButtonIcon>

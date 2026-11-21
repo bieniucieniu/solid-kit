@@ -1,34 +1,18 @@
-import {
-  Button,
-  Snackbar,
-  SnackbarAction,
-  SnackbarClose,
-  SnackbarList,
-  SnackbarMessage,
-  SnackbarRegion,
-  snackbar,
-} from "@solid-kit/m3";
-import { Portal } from "solid-js/web";
+import { Button, SnackbarRegion, snackbar } from "@solid-kit/kit/m3";
 
 let count = 0;
 
 export function SnackbarDemo() {
   const showSimple = () => {
     count += 1;
-    snackbar.show((props) => (
-      <Snackbar toastId={props.toastId}>
-        <SnackbarMessage>Message {count} archived</SnackbarMessage>
-      </Snackbar>
-    ));
+    snackbar(`Message ${count} archived`);
   };
   const showWithAction = () => {
-    snackbar.show((props) => (
-      <Snackbar toastId={props.toastId} persistent>
-        <SnackbarMessage>Connection lost. Changes are saved locally.</SnackbarMessage>
-        <SnackbarAction onClick={() => snackbar.dismiss(props.toastId)}>Retry</SnackbarAction>
-        <SnackbarClose />
-      </Snackbar>
-    ));
+    snackbar("Connection lost. Changes are saved locally.", {
+      // Stays until it's dismissed: the action or the close button.
+      duration: Infinity,
+      action: { label: "Retry" },
+    });
   };
   return (
     <div class="flex flex-wrap gap-3">
@@ -38,11 +22,7 @@ export function SnackbarDemo() {
       <Button variant="outlined" onClick={showWithAction}>
         With action and close
       </Button>
-      <Portal>
-        <SnackbarRegion>
-          <SnackbarList />
-        </SnackbarRegion>
-      </Portal>
+      <SnackbarRegion />
     </div>
   );
 }

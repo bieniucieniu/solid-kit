@@ -1,4 +1,4 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/tiptap/markdown.tsx?raw";
 
@@ -6,7 +6,7 @@ const MarkdownEditor = clientOnly(() => import("~/demos/tiptap/markdown"));
 
 const snippet = `import StarterKit from "@tiptap/starter-kit";
 import { Markdown } from "tiptap-markdown";
-import { Tiptap, useEditor } from "@solid-kit/tiptap";
+import { Tiptap, useEditor } from "@solid-kit/kit/tiptap";
 
 const editor = useEditor(() => ({
   extensions: [StarterKit, Markdown],

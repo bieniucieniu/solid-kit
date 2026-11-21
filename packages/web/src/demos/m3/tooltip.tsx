@@ -1,18 +1,16 @@
 import {
   Button,
-  IconButton,
+  iconButtonVariants,
   RichTooltip,
   RichTooltipActions,
   RichTooltipContent,
-  RichTooltipPortal,
   RichTooltipSubhead,
   RichTooltipSupportingText,
   RichTooltipTrigger,
   Tooltip,
   TooltipContent,
-  TooltipPortal,
   TooltipTrigger,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { DemoRow, DemoStack, InfoIcon, StarIcon } from "./shared";
 
 export function TooltipDemo() {
@@ -20,31 +18,27 @@ export function TooltipDemo() {
     <DemoStack>
       <DemoRow label="Plain">
         <Tooltip>
-          <TooltipTrigger as={IconButton} aria-label="Add to favorites">
+          <TooltipTrigger class={iconButtonVariants()} aria-label="Add to favorites">
             <StarIcon />
           </TooltipTrigger>
-          <TooltipPortal>
-            <TooltipContent>Add to favorites</TooltipContent>
-          </TooltipPortal>
+          <TooltipContent>Add to favorites</TooltipContent>
         </Tooltip>
       </DemoRow>
       <DemoRow label="Rich">
         <RichTooltip>
-          <RichTooltipTrigger as={IconButton} aria-label="About storage">
+          <RichTooltipTrigger class={iconButtonVariants()} aria-label="About storage">
             <InfoIcon />
           </RichTooltipTrigger>
-          <RichTooltipPortal>
-            <RichTooltipContent>
-              <RichTooltipSubhead>Storage almost full</RichTooltipSubhead>
-              <RichTooltipSupportingText>
-                Free up space by removing old backups, or upgrade your plan.
-              </RichTooltipSupportingText>
-              <RichTooltipActions>
-                <Button variant="text">Manage</Button>
-                <Button variant="text">Upgrade</Button>
-              </RichTooltipActions>
-            </RichTooltipContent>
-          </RichTooltipPortal>
+          <RichTooltipContent>
+            <RichTooltipSubhead>Storage almost full</RichTooltipSubhead>
+            <RichTooltipSupportingText>
+              Free up space by removing old backups, or upgrade your plan.
+            </RichTooltipSupportingText>
+            <RichTooltipActions>
+              <Button variant="text">Manage</Button>
+              <Button variant="text">Upgrade</Button>
+            </RichTooltipActions>
+          </RichTooltipContent>
         </RichTooltip>
       </DemoRow>
     </DemoStack>

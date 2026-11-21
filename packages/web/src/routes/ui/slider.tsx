@@ -4,20 +4,21 @@ import source from "~/demos/ui/slider.tsx?raw";
 
 const snippet = `import {
   Slider,
+  SliderControl,
   SliderFill,
-  SliderLabel,
   SliderThumb,
   SliderTrack,
   SliderValueLabel,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
-<Slider value={value()} onChange={setValue} minValue={0} maxValue={100}>
-  <SliderLabel>Volume</SliderLabel>
+<Slider value={value()} onValueChange={(next) => setValue(next)} min={0} max={100}>
   <SliderValueLabel />
-  <SliderTrack>
-    <SliderFill />
-    <SliderThumb />
-  </SliderTrack>
+  <SliderControl>
+    <SliderTrack>
+      <SliderFill />
+      <SliderThumb aria-label="Volume" />
+    </SliderTrack>
+  </SliderControl>
 </Slider>`;
 
 export default function SliderPage() {

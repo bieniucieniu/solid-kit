@@ -2,7 +2,7 @@ import { DocsPage } from "~/components/preview";
 import { SeparatorDemo } from "~/demos/ui/separator";
 import source from "~/demos/ui/separator.tsx?raw";
 
-const snippet = `import { Separator } from "@solid-kit/ui";
+const snippet = `import { Separator } from "@solid-kit/kit/ui";
 
 // orientation: "horizontal" | "vertical"
 <Separator />

@@ -2,7 +2,6 @@ import {
   Checkbox,
   CheckboxControl,
   CheckboxIndicator,
-  CheckboxInput,
   Divider,
   List,
   ListItem,
@@ -12,7 +11,7 @@ import {
   ListItemOverline,
   ListItemSupportingText,
   ListItemTrailing,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { HomeIcon, MailIcon, PersonIcon, StarIcon } from "./shared";
 
 export function ListDemo() {
@@ -53,7 +52,6 @@ export function ListDemo() {
         </ListItemContent>
         <ListItemTrailing>
           <Checkbox aria-label="Select">
-            <CheckboxInput />
             <CheckboxControl>
               <CheckboxIndicator />
             </CheckboxControl>

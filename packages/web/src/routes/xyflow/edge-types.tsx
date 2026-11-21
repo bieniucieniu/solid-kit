@@ -1,11 +1,11 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/xyflow/edge-types.tsx?raw";
 
 const EdgeTypesDemo = clientOnly(() => import("~/demos/xyflow/edge-types"));
 
-const snippet = `import { Badge } from "@solid-kit/ui";
-import { BaseEdge, createFlow, getBezierPath, type EdgeComponentProps } from "@solid-kit/xyflow";
+const snippet = `import { Badge } from "@solid-kit/kit/ui";
+import { BaseEdge, createFlow, getBezierPath, type EdgeComponentProps } from "@solid-kit/kit/xyflow";
 
 function LabeledEdge(props: EdgeComponentProps) {
   const geometry = () => getBezierPath(props);

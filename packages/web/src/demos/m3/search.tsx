@@ -10,10 +10,9 @@ import {
   SearchLeading,
   SearchListbox,
   SearchNoResult,
-  SearchPortal,
   SearchTrailing,
-} from "@solid-kit/m3";
-import { createSignal } from "solid-js";
+} from "@solid-kit/kit/m3";
+import { For } from "solid-js";
 import { MenuIcon, PersonIcon, SearchIcon } from "./shared";
 
 const colors: Record<string, string> = {
@@ -28,45 +27,37 @@ const colors: Record<string, string> = {
 const all = Object.keys(colors);
 
 export function SearchDemo() {
-  const [options, setOptions] = createSignal<string[]>([]);
+  // The combobox filters the items by their label as you type.
   return (
     <div class="h-96 max-w-xl">
-      <Search
-        options={options()}
-        placeholder="Search fruit"
-        triggerMode="focus"
-        onInputChange={(query) =>
-          setOptions(
-            query ? all.filter((fruit) => fruit.toLowerCase().includes(query.toLowerCase())) : all,
-          )
-        }
-        itemComponent={(props) => (
-          <SearchItem item={props.item}>
-            <SearchIcon />
-            <span>
-              <SearchItemLabel>{String(props.item.rawValue)}</SearchItemLabel>
-              <SearchItemDescription>{colors[String(props.item.rawValue)]}</SearchItemDescription>
-            </span>
-          </SearchItem>
-        )}
-      >
+      <Search>
         <SearchControl>
           <SearchLeading>
             <IconButton aria-label="Menu">
               <MenuIcon />
             </IconButton>
           </SearchLeading>
-          <SearchInput />
+          <SearchInput placeholder="Search fruit" aria-label="Search fruit" />
           <SearchTrailing>
             <PersonIcon />
           </SearchTrailing>
         </SearchControl>
-        <SearchPortal>
-          <SearchContent>
-            <SearchListbox />
-            <SearchNoResult>No fruit found</SearchNoResult>
-          </SearchContent>
-        </SearchPortal>
+        <SearchContent>
+          <SearchListbox>
+            <For each={all}>
+              {(fruit) => (
+                <SearchItem value={fruit} label={fruit}>
+                  <SearchIcon />
+                  <span>
+                    <SearchItemLabel>{fruit}</SearchItemLabel>
+                    <SearchItemDescription>{colors[fruit]}</SearchItemDescription>
+                  </span>
+                </SearchItem>
+              )}
+            </For>
+          </SearchListbox>
+          <SearchNoResult>No fruit found</SearchNoResult>
+        </SearchContent>
       </Search>
     </div>
   );

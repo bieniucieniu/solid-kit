@@ -1,6 +1,7 @@
-import { For, type JSX, Show } from "solid-js";
-import { Button, ButtonGroup, Toggle } from "@solid-kit/ui";
-import { useTiptap, useTiptapState } from "@solid-kit/tiptap";
+import { type JSX } from "@solidjs/web";
+import { For, Show } from "solid-js";
+import { Button, ButtonGroup, Toggle } from "@solid-kit/kit/ui";
+import { useTiptap, useTiptapState } from "@solid-kit/kit/tiptap";
 
 const inactive = {
   isBold: false,
@@ -65,7 +66,7 @@ export function MenuToggle(props: {
       aria-label={props.label}
       title={props.label}
       pressed={props.pressed}
-      onChange={() => props.onToggle()}
+      onPressedChange={() => props.onToggle()}
       onMouseDown={keepSelection}
     >
       {props.children}

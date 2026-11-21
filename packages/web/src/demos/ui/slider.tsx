@@ -1,24 +1,34 @@
 import {
   Slider,
+  SliderControl,
   SliderFill,
-  SliderLabel,
   SliderThumb,
   SliderTrack,
   SliderValueLabel,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
 export function SliderDemo() {
-  const [value, setValue] = createSignal([40]);
+  const [value, setValue] = createSignal(40);
 
   return (
-    <Slider class="max-w-xs" value={value()} onChange={setValue} minValue={0} maxValue={100}>
-      <SliderLabel>Volume</SliderLabel>
-      <SliderValueLabel />
-      <SliderTrack>
-        <SliderFill />
-        <SliderThumb />
-      </SliderTrack>
+    <Slider
+      class="max-w-xs"
+      value={value()}
+      onValueChange={(next) => setValue(next as number)}
+      min={0}
+      max={100}
+    >
+      <div class="flex items-center justify-between">
+        <span class="text-xs/relaxed font-medium text-foreground">Volume</span>
+        <SliderValueLabel />
+      </div>
+      <SliderControl>
+        <SliderTrack>
+          <SliderFill />
+          <SliderThumb aria-label="Volume" />
+        </SliderTrack>
+      </SliderControl>
     </Slider>
   );
 }

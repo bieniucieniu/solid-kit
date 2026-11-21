@@ -1,34 +1,20 @@
-import {
-  Button,
-  Toast,
-  ToastCloseButton,
-  ToastDescription,
-  toaster,
-  ToastList,
-  ToastRegion,
-  ToastTitle,
-} from "@solid-kit/ui";
+import { Button, ToastRegion, toast } from "@solid-kit/kit/ui";
 
 export function ToastDemo() {
   return (
     <>
       <Button
         type="button"
-        onClick={() =>
-          toaster.show((props) => (
-            <Toast toastId={props.toastId} persistent>
-              <ToastTitle>Saved</ToastTitle>
-              <ToastDescription>Your changes are stored.</ToastDescription>
-              <ToastCloseButton>Close</ToastCloseButton>
-            </Toast>
-          ))
-        }
+        onClick={() => {
+          toast("Saved", {
+            description: "Your changes are stored.",
+            action: { label: "Undo", onAction: () => toast("Change undone") },
+          });
+        }}
       >
         Show toast
       </Button>
-      <ToastRegion>
-        <ToastList />
-      </ToastRegion>
+      <ToastRegion />
     </>
   );
 }

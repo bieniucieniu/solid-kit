@@ -9,7 +9,7 @@ const snippet = `import {
   AvatarGroup,
   AvatarGroupCount,
   AvatarImg,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 // size: "sm" | "default" | "lg"
 <Avatar size="lg">

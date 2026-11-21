@@ -1,100 +1,93 @@
-import { A, useLocation, useNavigate } from "@solidjs/router";
 import {
-  Button,
-  ScrollArea,
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetLabel,
-  SheetOverlay,
-  SheetPortal,
-  SheetTrigger,
-} from "@solid-kit/ui";
-import { createEffect, createSignal, For, on, Show } from "solid-js";
+  AppBar,
+  AppBarLeading,
+  AppBarTrailing,
+  ModalNavigationDrawer,
+  ModalNavigationDrawerContent,
+  ModalNavigationDrawerOverlay,
+  ModalNavigationDrawerTitle,
+  ModalNavigationDrawerTrigger,
+  buttonVariants,
+  iconButtonVariants,
+} from "@solid-kit/kit/m3";
+import { useLinkState, useLocation } from "@solidjs/router";
+import { For, Show, createEffect, createSignal } from "solid-js";
 import { SidebarNav } from "~/components/sidebar-nav";
 import { ThemeToggle } from "~/components/theme-toggle";
-import { packages, sidebars } from "~/nav";
+import { type PackageNav, packages, sidebars } from "~/nav";
+
+function PackageLink(props: { item: PackageNav }) {
+  const link = useLinkState(() => props.item.href);
+  return (
+    <a
+      href={props.item.href}
+      aria-current={link.active() ? "page" : undefined}
+      class={buttonVariants({
+        variant: link.active() ? "tonal" : "text",
+        size: "xs",
+        class: "shrink-0",
+      })}
+    >
+      {props.item.title}
+    </a>
+  );
+}
 
 export function Header() {
   const location = useLocation();
-  const navigate = useNavigate();
   const segment = () => location.pathname.split("/").filter(Boolean)[0] ?? "";
   const currentPackage = () => packages.find((item) => item.id === segment());
   const [menuOpen, setMenuOpen] = createSignal(false);
 
+  // Close the mobile drawer once a link in it navigates.
   createEffect(
-    on(
-      () => location.pathname,
-      () => setMenuOpen(false),
-      { defer: true },
-    ),
+    () => location.pathname,
+    () => {
+      setMenuOpen(false);
+    },
+    { defer: true },
   );
 
   return (
-    <header class="sticky top-0 z-40 h-(--header-height) border-b border-border bg-background">
-      <div class="flex h-full items-center gap-1 px-4 py-1.5 md:gap-2">
+    <AppBar class="sticky top-0 z-40 h-(--header-height) min-h-0 border-b border-outline-variant">
+      <AppBarLeading class="h-full">
         <Show when={currentPackage()}>
           {(pkg) => (
-            <Sheet open={menuOpen()} onOpenChange={setMenuOpen}>
-              <SheetTrigger
-                as={Button}
-                type="button"
-                variant="ghost"
-                size="icon"
-                class="md:hidden"
+            <ModalNavigationDrawer open={menuOpen()} onOpenChange={(open) => setMenuOpen(open)}>
+              <ModalNavigationDrawerTrigger
                 aria-label={`Open ${pkg().title} navigation`}
+                class={iconButtonVariants({ size: "sm", class: "md:hidden" })}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 6h16M4 12h16M4 18h16" />
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M3 18h18v-2H3v2Zm0-5h18v-2H3v2Zm0-7v2h18V6H3Z" />
                 </svg>
-              </SheetTrigger>
-              <SheetPortal>
-                <SheetOverlay />
-                <SheetContent side="left">
-                  <SheetHeader>
-                    <SheetLabel>{pkg().title}</SheetLabel>
-                  </SheetHeader>
-                  <ScrollArea class="-mx-3 min-h-0 flex-1 px-3">
-                    <SidebarNav items={sidebars[pkg().id]} />
-                  </ScrollArea>
-                </SheetContent>
-              </SheetPortal>
-            </Sheet>
+              </ModalNavigationDrawerTrigger>
+              <ModalNavigationDrawerOverlay />
+              <ModalNavigationDrawerContent>
+                <ModalNavigationDrawerTitle class="sr-only">
+                  {pkg().title} navigation
+                </ModalNavigationDrawerTitle>
+                <SidebarNav items={sidebars[pkg().id]} title={pkg().title} class="p-0" />
+              </ModalNavigationDrawerContent>
+            </ModalNavigationDrawer>
           )}
         </Show>
-        <A
+        <a
           href="/"
-          class="mr-1 shrink-0 text-sm font-semibold tracking-tight whitespace-nowrap text-foreground md:mr-4"
+          class="mr-2 shrink-0 px-2 typescale-title-medium whitespace-nowrap text-on-surface"
         >
           solid-kit
-        </A>
-        <nav class="flex min-w-0 items-center gap-1 overflow-x-auto">
-          <For each={packages}>
-            {(item) => (
-              <Button
-                type="button"
-                variant={segment() === item.id ? "default" : "ghost"}
-                aria-current={segment() === item.id ? "page" : undefined}
-                classList={{ "text-muted-foreground": segment() !== item.id }}
-                onClick={() => navigate(item.href)}
-              >
-                {item.title}
-              </Button>
-            )}
-          </For>
-        </nav>
-        <div class="ml-auto">
-          <ThemeToggle />
-        </div>
-      </div>
-    </header>
+        </a>
+      </AppBarLeading>
+      <nav
+        aria-label="Packages"
+        class="col-start-2 row-start-1 flex min-w-0 items-center gap-1 overflow-x-auto [scrollbar-width:none]"
+      >
+        <For each={packages}>{(item) => <PackageLink item={item} />}</For>
+      </nav>
+      <AppBarTrailing class="h-full">
+        <ThemeToggle />
+      </AppBarTrailing>
+    </AppBar>
   );
 }

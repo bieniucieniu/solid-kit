@@ -6,7 +6,7 @@ import {
   ItemDescription,
   ItemMedia,
   ItemTitle,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import { For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 

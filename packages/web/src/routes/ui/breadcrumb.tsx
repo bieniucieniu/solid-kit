@@ -2,18 +2,26 @@ import { DocsPage } from "~/components/preview";
 import { BreadcrumbDemo } from "~/demos/ui/breadcrumb";
 import source from "~/demos/ui/breadcrumb.tsx?raw";
 
-const snippet = `import { Breadcrumb, BreadcrumbLink, BreadcrumbSeparator } from "@solid-kit/ui";
+const snippet = `import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@solid-kit/kit/ui";
 
-<Breadcrumb separator="/">
-  <ol>
-    <li>
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
       <BreadcrumbLink href="/ui">UI</BreadcrumbLink>
-      <BreadcrumbSeparator />
-    </li>
-    <li>
-      <BreadcrumbLink current>Breadcrumb</BreadcrumbLink>
-    </li>
-  </ol>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/ui/breadcrumb" current>
+        Breadcrumb
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+  </BreadcrumbList>
 </Breadcrumb>`;
 
 export default function BreadcrumbPage() {

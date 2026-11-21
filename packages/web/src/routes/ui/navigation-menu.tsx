@@ -8,7 +8,7 @@ const snippet = `import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <NavigationMenu>
   <NavigationMenuItem>
@@ -34,8 +34,8 @@ const snippet = `import {
   <NavigationMenuItem>
     <NavigationMenuTrigger>Packages</NavigationMenuTrigger>
     <NavigationMenuContent class="w-72">
-      <NavigationMenuLink href="/ui">@solid-kit/ui</NavigationMenuLink>
-      <NavigationMenuLink href="/">@solid-kit/tiptap</NavigationMenuLink>
+      <NavigationMenuLink href="/ui">@solid-kit/kit/ui</NavigationMenuLink>
+      <NavigationMenuLink href="/">@solid-kit/kit/tiptap</NavigationMenuLink>
     </NavigationMenuContent>
   </NavigationMenuItem>
   {/* A Trigger with href outside an Item is a plain link. */}

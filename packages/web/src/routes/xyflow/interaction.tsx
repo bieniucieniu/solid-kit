@@ -1,11 +1,11 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/xyflow/interaction.tsx?raw";
 
 const InteractionDemo = clientOnly(() => import("~/demos/xyflow/interaction"));
 
 const snippet = `import { createSignal } from "solid-js";
-import { createFlow } from "@solid-kit/xyflow";
+import { createFlow } from "@solid-kit/kit/xyflow";
 
 const [draggable, setDraggable] = createSignal(true);
 const [snap, setSnap] = createSignal(false);

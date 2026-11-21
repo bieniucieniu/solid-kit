@@ -10,7 +10,7 @@ import {
   TextFieldTextArea,
   TextFieldTrailing,
   type TextFieldVariant,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { For } from "solid-js";
 import { CloseIcon, DemoRow, DemoStack, SearchIcon } from "./shared";
 
@@ -29,13 +29,13 @@ export function TextFieldDemo() {
               </TextFieldContainer>
               <TextFieldDescription>As it appears on your ID</TextFieldDescription>
             </TextField>
-            <TextField variant={variant} defaultValue="Material">
+            <TextField variant={variant}>
               <TextFieldContainer>
                 <TextFieldLeading>
                   <SearchIcon />
                 </TextFieldLeading>
                 <TextFieldLabel>Search</TextFieldLabel>
-                <TextFieldInput />
+                <TextFieldInput defaultValue="Material" />
                 <TextFieldTrailing>
                   <IconButton aria-label="Clear">
                     <CloseIcon />
@@ -43,17 +43,17 @@ export function TextFieldDemo() {
                 </TextFieldTrailing>
               </TextFieldContainer>
             </TextField>
-            <TextField variant={variant} validationState="invalid" defaultValue="not-an-email">
+            <TextField variant={variant} invalid>
               <TextFieldContainer>
                 <TextFieldLabel>Email</TextFieldLabel>
-                <TextFieldInput type="email" />
+                <TextFieldInput type="email" defaultValue="not-an-email" />
               </TextFieldContainer>
               <TextFieldErrorMessage>Enter a valid email address</TextFieldErrorMessage>
             </TextField>
-            <TextField variant={variant} disabled defaultValue="Read only">
+            <TextField variant={variant} disabled>
               <TextFieldContainer>
                 <TextFieldLabel>Disabled</TextFieldLabel>
-                <TextFieldInput />
+                <TextFieldInput defaultValue="Read only" />
               </TextFieldContainer>
             </TextField>
             <TextField variant={variant} class="medium:col-span-2">

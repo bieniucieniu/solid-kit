@@ -1,4 +1,4 @@
-import { ScrollArea } from "@solid-kit/ui";
+import { ScrollArea } from "@solid-kit/kit/ui";
 
 export function ScrollAreaDemo() {
   return (

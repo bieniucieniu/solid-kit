@@ -2,13 +2,12 @@ import { DocsPage } from "~/components/preview";
 import { CheckboxDemo } from "~/demos/m3/checkbox";
 import source from "~/demos/m3/checkbox.tsx?raw";
 
-const snippet = `import { Checkbox, CheckboxControl, CheckboxIndicator, CheckboxInput, CheckboxLabel } from "@solid-kit/m3";
+const snippet = `import { Checkbox, CheckboxControl, CheckboxLabel } from "@solid-kit/kit/m3";
 
-<Checkbox defaultChecked>
-  <CheckboxInput />
-  <CheckboxControl>
-    <CheckboxIndicator />
-  </CheckboxControl>
+// Checkbox is the label; the state goes on CheckboxControl.
+// \`checked\`: true | false | "indeterminate"
+<Checkbox>
+  <CheckboxControl defaultChecked />
   <CheckboxLabel>Remember me</CheckboxLabel>
 </Checkbox>`;
 

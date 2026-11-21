@@ -3,7 +3,7 @@ import { SheetDemo } from "~/demos/ui/sheet";
 import source from "~/demos/ui/sheet.tsx?raw";
 
 const snippet = `import {
-  Button,
+  buttonVariants,
   Sheet,
   SheetClose,
   SheetContent,
@@ -12,25 +12,22 @@ const snippet = `import {
   SheetHeader,
   SheetLabel,
   SheetOverlay,
-  SheetPortal,
   SheetTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 // SheetContent side: "top" | "right" | "bottom" | "left"
 <Sheet>
-  <SheetTrigger as={Button}>Open</SheetTrigger>
-  <SheetPortal>
-    <SheetOverlay />
-    <SheetContent side="left">
-      <SheetHeader>
-        <SheetLabel>Settings</SheetLabel>
-        <SheetDescription>Changes apply to this project.</SheetDescription>
-      </SheetHeader>
-      <SheetFooter>
-        <SheetClose>Close</SheetClose>
-      </SheetFooter>
-    </SheetContent>
-  </SheetPortal>
+  <SheetTrigger class={buttonVariants()}>Open</SheetTrigger>
+  <SheetOverlay />
+  <SheetContent side="left">
+    <SheetHeader>
+      <SheetLabel>Settings</SheetLabel>
+      <SheetDescription>Changes apply to this project.</SheetDescription>
+    </SheetHeader>
+    <SheetFooter>
+      <SheetClose>Close</SheetClose>
+    </SheetFooter>
+  </SheetContent>
 </Sheet>`;
 
 export default function SheetPage() {

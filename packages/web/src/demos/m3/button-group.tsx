@@ -5,7 +5,7 @@ import {
   ToggleButton,
   ToggleIconButton,
   type ButtonSize,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { createSignal, For } from "solid-js";
 import { DemoRow, DemoStack, FavoriteIcon, ShareIcon, StarIcon } from "./shared";
 
@@ -34,7 +34,7 @@ export function ButtonGroupDemo() {
                   <ToggleButton
                     variant="tonal"
                     pressed={view() === item}
-                    onChange={() => setView(item)}
+                    onPressedChange={() => setView(item)}
                   >
                     {item}
                   </ToggleButton>

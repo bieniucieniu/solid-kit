@@ -6,7 +6,7 @@ import {
   InputGroupText,
   InputGroupTextarea,
   Kbd,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
 function SearchIcon() {

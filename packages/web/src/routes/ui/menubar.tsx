@@ -7,22 +7,19 @@ const snippet = `import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarPortal,
   MenubarSeparator,
   MenubarTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <Menubar>
   <MenubarMenu>
     <MenubarTrigger>File</MenubarTrigger>
-    <MenubarPortal>
       <MenubarContent>
         <MenubarItem>New</MenubarItem>
         <MenubarItem>Open</MenubarItem>
         <MenubarSeparator />
         <MenubarItem variant="destructive">Delete</MenubarItem>
       </MenubarContent>
-    </MenubarPortal>
   </MenubarMenu>
 </Menubar>`;
 

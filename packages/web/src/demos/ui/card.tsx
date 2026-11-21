@@ -7,7 +7,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 import { For } from "solid-js";
 
 const sizes = ["default", "sm"] as const;

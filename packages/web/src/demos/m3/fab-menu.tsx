@@ -1,4 +1,4 @@
-import { FabMenu, FabMenuContent, FabMenuItem, FabMenuPortal, FabMenuTrigger } from "@solid-kit/m3";
+import { FabMenu, FabMenuContent, FabMenuItem, FabMenuTrigger } from "@solid-kit/kit/m3";
 import { AddIcon, EditIcon, MailIcon, PersonIcon } from "./shared";
 
 export function FabMenuDemo() {
@@ -8,22 +8,20 @@ export function FabMenuDemo() {
         <FabMenuTrigger aria-label="Create">
           <AddIcon />
         </FabMenuTrigger>
-        <FabMenuPortal>
-          <FabMenuContent>
-            <FabMenuItem>
-              <MailIcon />
-              Message
-            </FabMenuItem>
-            <FabMenuItem>
-              <PersonIcon />
-              Contact
-            </FabMenuItem>
-            <FabMenuItem>
-              <EditIcon />
-              Note
-            </FabMenuItem>
-          </FabMenuContent>
-        </FabMenuPortal>
+        <FabMenuContent>
+          <FabMenuItem>
+            <MailIcon />
+            Message
+          </FabMenuItem>
+          <FabMenuItem>
+            <PersonIcon />
+            Contact
+          </FabMenuItem>
+          <FabMenuItem>
+            <EditIcon />
+            Note
+          </FabMenuItem>
+        </FabMenuContent>
       </FabMenu>
     </div>
   );

@@ -3,7 +3,7 @@ import { DrawerDemo } from "~/demos/ui/drawer";
 import source from "~/demos/ui/drawer.tsx?raw";
 
 const snippet = `import {
-  Button,
+  buttonVariants,
   Drawer,
   DrawerClose,
   DrawerContent,
@@ -12,24 +12,21 @@ const snippet = `import {
   DrawerHeader,
   DrawerLabel,
   DrawerOverlay,
-  DrawerPortal,
   DrawerTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <Drawer>
-  <DrawerTrigger as={Button}>Open</DrawerTrigger>
-  <DrawerPortal>
-    <DrawerOverlay />
-    <DrawerContent>
-      <DrawerHeader>
-        <DrawerLabel>Filters</DrawerLabel>
-        <DrawerDescription>Narrow the list.</DrawerDescription>
-      </DrawerHeader>
-      <DrawerFooter>
-        <DrawerClose>Close</DrawerClose>
-      </DrawerFooter>
-    </DrawerContent>
-  </DrawerPortal>
+  <DrawerTrigger class={buttonVariants()}>Open</DrawerTrigger>
+  <DrawerOverlay />
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerLabel>Filters</DrawerLabel>
+      <DrawerDescription>Narrow the list.</DrawerDescription>
+    </DrawerHeader>
+    <DrawerFooter>
+      <DrawerClose>Close</DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
 </Drawer>`;
 
 export default function DrawerPage() {

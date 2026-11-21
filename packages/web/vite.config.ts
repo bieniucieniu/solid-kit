@@ -1,14 +1,42 @@
+import solid from "@solidjs/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
-import { solidStart } from "@solidjs/start/config";
-import { nitro } from "nitro/vite";
+import { fileRoutes } from "filesystem-routing/vite";
+import { prerender } from "prerender-crawler/vite";
 import { defineConfig } from "vite-plus";
 
 export default defineConfig({
-  plugins: [tailwindcss(), solidStart(), nitro()],
+  plugins: [
+    tailwindcss(),
+    // Solid 2 start mode (the SolidStart successor): streaming SSR around src/App.tsx, wrapped
+    // in src/Document.tsx. `vite build` writes client assets to dist/client and the request
+    // handler to dist/server, plus a ready-to-run Node server at dist/server/node.js.
+    solid({
+      start: { nodeServer: true },
+      ssr: true,
+      // Also compile the `?pick=` route modules the fileRoutes plugin emits.
+      extensions: [".jsx", ".tsx"],
+    }),
+    fileRoutes({ types: true }),
+    // Renders every page reachable from `/` to static HTML in dist/client at build time. The
+    // Node server still renders anything the crawl did not write.
+    prerender({ mode: "static" }),
+  ],
   resolve: {
     tsconfigPaths: true,
   },
+  // Bundle every dependency into the server build, so dist/ runs on its own (the Docker image
+  // ships dist/ without node_modules).
   ssr: {
-    noExternal: [/^@solid-kit\//],
+    noExternal: true,
+  },
+  // One copy of @ui-sdk/core for the app and @ui-sdk/solid.
+  optimizeDeps: {
+    exclude: ["@ui-sdk/core"],
+  },
+  server: {
+    port: 3000,
+  },
+  build: {
+    target: "esnext",
   },
 });

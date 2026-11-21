@@ -2,14 +2,15 @@ import { DocsPage } from "~/components/preview";
 import { SliderDemo } from "~/demos/m3/slider";
 import source from "~/demos/m3/slider.tsx?raw";
 
-const snippet = `import { Slider, SliderFill, SliderInput, SliderLabel, SliderThumb, SliderTrack } from "@solid-kit/m3";
+const snippet = `import { Slider, SliderControl, SliderFill, SliderThumb, SliderTrack } from "@solid-kit/kit/m3";
 
-<Slider defaultValue={[40]}>
-  <SliderLabel>Volume</SliderLabel>
-  <SliderTrack>
-    <SliderFill />
-    <SliderThumb><SliderInput /></SliderThumb>
-  </SliderTrack>
+<Slider defaultValue={40}>
+  <SliderControl>
+    <SliderTrack>
+      <SliderFill />
+      <SliderThumb aria-label="Volume" />
+    </SliderTrack>
+  </SliderControl>
 </Slider>`;
 
 export default function SliderPage() {

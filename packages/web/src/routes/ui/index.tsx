@@ -8,7 +8,7 @@ export default function UIIndex() {
     <PackageIndex
       title="UI"
       description="Buttons, form controls, overlays, and layout."
-      snippet={'import { Button, Dialog, Input, Select, Tabs } from "@solid-kit/ui";'}
+      snippet={'import { Button, Dialog, Input, Select, Tabs } from "@solid-kit/kit/ui";'}
       pages={pages}
     />
   );

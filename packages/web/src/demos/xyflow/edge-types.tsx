@@ -1,4 +1,4 @@
-import { Badge } from "@solid-kit/ui";
+import { Badge } from "@solid-kit/kit/ui";
 import {
   BaseEdge,
   Flow,
@@ -10,9 +10,9 @@ import {
   type EdgeComponentProps,
   type FlowEdge,
   type FlowNode,
-} from "@solid-kit/xyflow";
-import { Background, Controls } from "@solid-kit/xyflow/panels";
-import "@solid-kit/xyflow/style.css";
+} from "@solid-kit/kit/xyflow";
+import { Background, Controls } from "@solid-kit/kit/xyflow/panels";
+import "@solid-kit/kit/xyflow/style.css";
 
 type PathKind = "bezier" | "straight" | "step" | "smoothstep";
 

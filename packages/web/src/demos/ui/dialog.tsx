@@ -1,27 +1,24 @@
 import {
-  Button,
+  buttonVariants,
   Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
   DialogLabel,
   DialogOverlay,
-  DialogPortal,
   DialogTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 export function DialogDemo() {
   return (
     <Dialog>
-      <DialogTrigger as={Button}>Open</DialogTrigger>
-      <DialogPortal>
-        <DialogOverlay />
-        <DialogContent>
-          <DialogLabel>Edit profile</DialogLabel>
-          <DialogDescription>This dialog stays on the page until you close it.</DialogDescription>
-          <DialogClose class="mt-4">Close</DialogClose>
-        </DialogContent>
-      </DialogPortal>
+      <DialogTrigger class={buttonVariants()}>Open</DialogTrigger>
+      <DialogOverlay />
+      <DialogContent>
+        <DialogLabel>Edit profile</DialogLabel>
+        <DialogDescription>This dialog stays on the page until you close it.</DialogDescription>
+        <DialogClose class="mt-4">Close</DialogClose>
+      </DialogContent>
     </Dialog>
   );
 }

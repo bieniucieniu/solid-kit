@@ -2,11 +2,12 @@ import { DocsPage } from "~/components/preview";
 import { InputDemo } from "~/demos/ui/input";
 import source from "~/demos/ui/input.tsx?raw";
 
-const snippet = `import { Input, InputControl, InputDescription, InputLabel } from "@solid-kit/ui";
+const snippet = `import { Input, InputControl, InputDescription, InputLabel } from "@solid-kit/kit/ui";
 
-<Input value={value()} onChange={setValue}>
+// Input is the field: pass \`disabled\` or \`invalid\` here. The value goes on InputControl.
+<Input>
   <InputLabel>Email</InputLabel>
-  <InputControl type="email" placeholder="ada@example.com" />
+  <InputControl type="email" value={value()} onValueChange={(next) => setValue(next)} />
   <InputDescription>Used to sign in.</InputDescription>
 </Input>`;
 

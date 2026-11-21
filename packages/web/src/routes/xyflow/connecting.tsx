@@ -1,11 +1,11 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/xyflow/connecting.tsx?raw";
 
 const ConnectingDemo = clientOnly(() => import("~/demos/xyflow/connecting"));
 
-const snippet = `import { Button, ButtonGroup } from "@solid-kit/ui";
-import { Flow, createFlow } from "@solid-kit/xyflow";
+const snippet = `import { Button, ButtonGroup } from "@solid-kit/kit/ui";
+import { Flow, createFlow } from "@solid-kit/kit/xyflow";
 
 const flow = createFlow(() => ({
   nodes: initialNodes,

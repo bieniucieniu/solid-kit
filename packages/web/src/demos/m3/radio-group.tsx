@@ -2,30 +2,27 @@ import {
   RadioGroup,
   RadioGroupItem,
   RadioGroupItemControl,
-  RadioGroupItemIndicator,
-  RadioGroupItemInput,
   RadioGroupItemLabel,
   RadioGroupLabel,
-} from "@solid-kit/m3";
+} from "@solid-kit/kit/m3";
 import { For } from "solid-js";
 
 const options = ["Ringtone", "Vibrate", "Silent"];
 
 export function RadioGroupDemo() {
   return (
-    <RadioGroup defaultValue="Vibrate">
-      <RadioGroupLabel>Sound</RadioGroupLabel>
-      <For each={options}>
-        {(option) => (
-          <RadioGroupItem value={option} disabled={option === "Silent"}>
-            <RadioGroupItemInput />
-            <RadioGroupItemControl>
-              <RadioGroupItemIndicator />
-            </RadioGroupItemControl>
-            <RadioGroupItemLabel>{option}</RadioGroupItemLabel>
-          </RadioGroupItem>
-        )}
-      </For>
-    </RadioGroup>
+    <div class="flex flex-col gap-1">
+      <RadioGroupLabel id="sound-label">Sound</RadioGroupLabel>
+      <RadioGroup aria-labelledby="sound-label" defaultValue="Vibrate">
+        <For each={options}>
+          {(option) => (
+            <RadioGroupItem>
+              <RadioGroupItemControl value={option} disabled={option === "Silent"} />
+              <RadioGroupItemLabel>{option}</RadioGroupItemLabel>
+            </RadioGroupItem>
+          )}
+        </For>
+      </RadioGroup>
+    </div>
   );
 }

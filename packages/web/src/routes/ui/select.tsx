@@ -6,32 +6,20 @@ const snippet = `import {
   Select,
   SelectContent,
   SelectItem,
-  SelectItemLabel,
   SelectLabel,
-  SelectListbox,
-  SelectPortal,
   SelectTrigger,
   SelectValue,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
-<Select
-  options={["Apple", "Banana", "Orange"]}
-  placeholder="Pick a fruit"
-  itemComponent={(props) => (
-    <SelectItem item={props.item}>
-      <SelectItemLabel>{props.item.rawValue}</SelectItemLabel>
-    </SelectItem>
-  )}
->
+<Select value={fruit()} onValueChange={(next) => setFruit(next)} placeholder="Pick a fruit">
   <SelectLabel>Fruit</SelectLabel>
   <SelectTrigger>
-    <SelectValue>{(state) => state.selectedOption()}</SelectValue>
+    <SelectValue />
   </SelectTrigger>
-  <SelectPortal>
-    <SelectContent>
-      <SelectListbox />
-    </SelectContent>
-  </SelectPortal>
+  <SelectContent>
+    <SelectItem value="Apple">Apple</SelectItem>
+    <SelectItem value="Banana">Banana</SelectItem>
+  </SelectContent>
 </Select>`;
 
 export default function SelectPage() {

@@ -1,22 +1,13 @@
-import {
-  Checkbox,
-  CheckboxControl,
-  CheckboxIndicator,
-  CheckboxInput,
-  CheckboxLabel,
-} from "@solid-kit/ui";
+import { Checkbox, CheckboxLabel } from "@solid-kit/kit/ui";
 import { createSignal } from "solid-js";
 
 export function CheckboxDemo() {
   const [checked, setChecked] = createSignal(false);
 
   return (
-    <Checkbox checked={checked()} onChange={setChecked}>
-      <CheckboxInput />
-      <CheckboxControl>
-        <CheckboxIndicator />
-      </CheckboxControl>
-      <CheckboxLabel>Accept terms</CheckboxLabel>
-    </Checkbox>
+    <CheckboxLabel>
+      <Checkbox checked={checked()} onCheckedChange={(next) => setChecked(next === true)} />
+      Accept terms
+    </CheckboxLabel>
   );
 }

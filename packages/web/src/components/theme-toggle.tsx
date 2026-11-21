@@ -1,14 +1,14 @@
 import {
-  Button,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItemIndicator,
-  DropdownMenuPortal,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from "@solid-kit/ui";
-import { createSignal, For } from "solid-js";
+  Menu,
+  MenuContent,
+  MenuItemIndicator,
+  MenuItemLabel,
+  MenuRadioGroup,
+  MenuRadioItem,
+  MenuTrigger,
+  iconButtonVariants,
+} from "@solid-kit/kit/m3";
+import { For, createSignal } from "solid-js";
 
 type Theme = "light" | "dark";
 type ThemePreference = Theme | "system";
@@ -31,18 +31,32 @@ function parsePreference(value: unknown): ThemePreference {
   return value === "light" || value === "dark" ? value : "system";
 }
 
-const [preference, setPreference] = createSignal<ThemePreference>("system");
-const [systemTheme, setSystemTheme] = createSignal<Theme>("light");
-const theme = (): Theme => {
-  const current = preference();
-  return current === "system" ? systemTheme() : current;
-};
+function readStoredPreference(): ThemePreference {
+  try {
+    return parsePreference(localStorage.getItem(THEME_STORAGE_KEY));
+  } catch {
+    // Storage blocked: keep following the OS.
+    return "system";
+  }
+}
+
+const isBrowser = typeof document !== "undefined";
+
+// The current theme lives in plain variables too: Solid 2 applies signal writes on the next
+// microtask, and the <html> class must change in the same task as the choice.
+let preferenceValue: ThemePreference = isBrowser ? readStoredPreference() : "system";
+let systemValue: Theme =
+  isBrowser && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+const [preference, setPreference] = createSignal<ThemePreference>(preferenceValue);
 
 function applyTheme() {
-  document.documentElement.classList.toggle("dark", theme() === "dark");
+  const theme = preferenceValue === "system" ? systemValue : preferenceValue;
+  document.documentElement.classList.toggle("dark", theme === "dark");
 }
 
 function setThemePreference(next: ThemePreference) {
+  preferenceValue = next;
   setPreference(next);
   applyTheme();
   try {
@@ -53,25 +67,18 @@ function setThemePreference(next: ThemePreference) {
   }
 }
 
-if (typeof document != "undefined") {
-  try {
-    setPreference(parsePreference(localStorage.getItem(THEME_STORAGE_KEY)));
-  } catch {
-    // Storage blocked: keep following the OS.
-  }
-
+if (isBrowser) {
   // In "system" mode, follow the OS theme live, not only on load.
-  const media = matchMedia("(prefers-color-scheme: dark)");
-  setSystemTheme(media.matches ? "dark" : "light");
-  media.addEventListener("change", (event) => {
-    setSystemTheme(event.matches ? "dark" : "light");
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+    systemValue = event.matches ? "dark" : "light";
     applyTheme();
   });
 
   // Keep other open tabs in step when the choice changes in one of them.
   window.addEventListener("storage", (event) => {
     if (event.key !== THEME_STORAGE_KEY && event.key !== null) return;
-    setPreference(parsePreference(event.newValue));
+    preferenceValue = parsePreference(event.newValue);
+    setPreference(preferenceValue);
     applyTheme();
   });
 }
@@ -80,47 +87,34 @@ export function ThemeToggle() {
   // The server can't know the theme, so the markup must not depend on it (hydration would
   // fail). Both icons render and the `.dark` class on <html> picks one, from the first paint.
   return (
-    <DropdownMenu placement="bottom-end">
-      <DropdownMenuTrigger
-        as={Button}
-        type="button"
-        variant="ghost"
-        size="icon"
-        aria-label="Change theme"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <g class="dark:hidden">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-          </g>
-          <path class="hidden dark:inline" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    <Menu>
+      <MenuTrigger aria-label="Change theme" class={iconButtonVariants({ size: "sm" })}>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            class="dark:hidden"
+            d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10ZM2 13h2a1 1 0 0 0 0-2H2a1 1 0 0 0 0 2Zm18 0h2a1 1 0 0 0 0-2h-2a1 1 0 0 0 0 2ZM11 2v2a1 1 0 0 0 2 0V2a1 1 0 0 0-2 0Zm0 18v2a1 1 0 0 0 2 0v-2a1 1 0 0 0-2 0ZM5.99 4.58a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41L5.99 4.58Zm12.37 12.37a1 1 0 0 0-1.41 1.41l1.06 1.06a1 1 0 0 0 1.41-1.41l-1.06-1.06Zm1.06-10.96a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06ZM7.05 18.36a1 1 0 0 0-1.41-1.41l-1.06 1.06a1 1 0 0 0 1.41 1.41l1.06-1.06Z"
+          />
+          <path
+            class="hidden dark:inline"
+            d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1Z"
+          />
         </svg>
-      </DropdownMenuTrigger>
-      <DropdownMenuPortal>
-        <DropdownMenuContent class="min-w-28">
-          <DropdownMenuRadioGroup
-            value={preference()}
-            onChange={(value) => setThemePreference(parsePreference(value))}
-          >
-            <For each={options}>
-              {(option) => (
-                <DropdownMenuRadioItem value={option.value}>
-                  {option.label}
-                  <DropdownMenuItemIndicator />
-                </DropdownMenuRadioItem>
-              )}
-            </For>
-          </DropdownMenuRadioGroup>
-        </DropdownMenuContent>
-      </DropdownMenuPortal>
-    </DropdownMenu>
+      </MenuTrigger>
+      <MenuContent align="end">
+        <MenuRadioGroup
+          value={preference()}
+          onValueChange={(value) => setThemePreference(parsePreference(value))}
+        >
+          <For each={options}>
+            {(option) => (
+              <MenuRadioItem value={option.value}>
+                <MenuItemLabel>{option.label}</MenuItemLabel>
+                <MenuItemIndicator />
+              </MenuRadioItem>
+            )}
+          </For>
+        </MenuRadioGroup>
+      </MenuContent>
+    </Menu>
   );
 }

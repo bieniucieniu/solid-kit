@@ -1,5 +1,5 @@
-import { cn } from "@solid-kit/m3";
-import type { JSX } from "solid-js";
+import { cn } from "@solid-kit/kit/m3";
+import { type JSX } from "@solidjs/web";
 
 /** Demo helpers. No app aliases, so Storybook can render the same demos. */
 export function DemoRow(props: { label: string; children: JSX.Element; class?: string }) {

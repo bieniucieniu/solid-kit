@@ -2,11 +2,11 @@ import { DocsPage } from "~/components/preview";
 import { NavigationBarDemo } from "~/demos/m3/navigation-bar";
 import source from "~/demos/m3/navigation-bar.tsx?raw";
 
-const snippet = `import { NavigationBar, NavigationBarIcon, NavigationBarItem, NavigationBarLabel } from "@solid-kit/m3";
+const snippet = `import { NavigationBar, NavigationBarIcon, NavigationBarItem, NavigationBarLabel } from "@solid-kit/kit/m3";
 
 // layout: "stacked" | "inline"
 <NavigationBar>
-  <NavigationBarItem as={A} href="/" active={isHome()}>
+  <NavigationBarItem as="a" href="/" active={isHome()}>
     <NavigationBarIcon><HomeIcon /></NavigationBarIcon>
     <NavigationBarLabel>Home</NavigationBarLabel>
   </NavigationBarItem>

@@ -1,4 +1,4 @@
-import { Toggle, type ToggleSize, type ToggleVariant } from "@solid-kit/ui";
+import { Toggle, type ToggleSize, type ToggleVariant } from "@solid-kit/kit/ui";
 import { createSignal, For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
@@ -13,7 +13,11 @@ export function ToggleDemo() {
       <VariantRow label="Variants">
         <For each={variants}>
           {(variant) => (
-            <Toggle variant={variant} pressed={pressed()} onChange={setPressed}>
+            <Toggle
+              variant={variant}
+              pressed={pressed()}
+              onPressedChange={(next) => setPressed(next)}
+            >
               Bold
             </Toggle>
           )}

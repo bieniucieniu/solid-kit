@@ -1,10 +1,10 @@
-import { clientOnly } from "@solidjs/start";
+import { clientOnly } from "@solidjs/web";
 import { DocsPage } from "~/components/preview";
 import source from "~/demos/tiptap/menus.tsx?raw";
 
 const MenusEditor = clientOnly(() => import("~/demos/tiptap/menus"));
 
-const snippet = `import { BubbleMenu, FloatingMenu } from "@solid-kit/tiptap/menus";
+const snippet = `import { BubbleMenu, FloatingMenu } from "@solid-kit/kit/tiptap/menus";
 
 <BubbleMenu editor={editor()}>B</BubbleMenu>
 <FloatingMenu editor={editor()}>H1</FloatingMenu>`;

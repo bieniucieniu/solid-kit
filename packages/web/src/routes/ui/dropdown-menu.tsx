@@ -3,24 +3,21 @@ import { DropdownMenuDemo } from "~/demos/ui/dropdown-menu";
 import source from "~/demos/ui/dropdown-menu.tsx?raw";
 
 const snippet = `import {
-  Button,
+  buttonVariants,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 <DropdownMenu>
-  <DropdownMenuTrigger as={Button}>Open</DropdownMenuTrigger>
-  <DropdownMenuPortal>
-    <DropdownMenuContent>
-      <DropdownMenuItem>Edit</DropdownMenuItem>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenuPortal>
+  <DropdownMenuTrigger class={buttonVariants()}>Open</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Edit</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+  </DropdownMenuContent>
 </DropdownMenu>`;
 
 export default function DropdownMenuPage() {

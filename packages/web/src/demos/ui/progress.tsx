@@ -4,7 +4,7 @@ import {
   ProgressLabel,
   ProgressTrack,
   ProgressValueLabel,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 export function ProgressDemo() {
   return (

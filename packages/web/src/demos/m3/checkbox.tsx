@@ -1,10 +1,4 @@
-import {
-  Checkbox,
-  CheckboxControl,
-  CheckboxIndicator,
-  CheckboxInput,
-  CheckboxLabel,
-} from "@solid-kit/m3";
+import { Checkbox, CheckboxControl, CheckboxLabel } from "@solid-kit/kit/m3";
 import { DemoRow, DemoStack } from "./shared";
 
 function Example(props: {
@@ -15,16 +9,12 @@ function Example(props: {
   invalid?: boolean;
 }) {
   return (
-    <Checkbox
-      defaultChecked={props.checked}
-      indeterminate={props.indeterminate}
-      disabled={props.disabled}
-      validationState={props.invalid ? "invalid" : undefined}
-    >
-      <CheckboxInput />
-      <CheckboxControl>
-        <CheckboxIndicator />
-      </CheckboxControl>
+    <Checkbox>
+      <CheckboxControl
+        defaultChecked={props.indeterminate ? "indeterminate" : props.checked}
+        disabled={props.disabled}
+        aria-invalid={props.invalid ? "true" : undefined}
+      />
       <CheckboxLabel>{props.label}</CheckboxLabel>
     </Checkbox>
   );

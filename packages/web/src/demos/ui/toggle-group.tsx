@@ -1,4 +1,9 @@
-import { ToggleGroup, ToggleGroupItem, type ToggleSize, type ToggleVariant } from "@solid-kit/ui";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+  type ToggleSize,
+  type ToggleVariant,
+} from "@solid-kit/kit/ui";
 import { createSignal, For } from "solid-js";
 import { VariantRow, VariantStack } from "~/components/preview";
 
@@ -16,14 +21,18 @@ function Items() {
 }
 
 export function ToggleGroupDemo() {
-  const [value, setValue] = createSignal<string | null>("left");
+  const [value, setValue] = createSignal<string[]>(["left"]);
 
   return (
     <VariantStack>
       <VariantRow label="Variants">
         <For each={variants}>
           {(variant) => (
-            <ToggleGroup variant={variant} value={value()} onChange={setValue}>
+            <ToggleGroup
+              variant={variant}
+              value={value()}
+              onValueChange={(next) => setValue(next as string[])}
+            >
               <Items />
             </ToggleGroup>
           )}
@@ -32,19 +41,19 @@ export function ToggleGroupDemo() {
       <VariantRow label="Sizes">
         <For each={sizes}>
           {(size) => (
-            <ToggleGroup variant="outline" size={size} defaultValue="center">
+            <ToggleGroup variant="outline" size={size} defaultValue={["center"]}>
               <Items />
             </ToggleGroup>
           )}
         </For>
       </VariantRow>
       <VariantRow label="Spacing 0 (joined)">
-        <ToggleGroup variant="outline" spacing={0} defaultValue="left">
+        <ToggleGroup variant="outline" spacing={0} defaultValue={["left"]}>
           <Items />
         </ToggleGroup>
       </VariantRow>
       <VariantRow label="Vertical">
-        <ToggleGroup variant="outline" orientation="vertical" spacing={0} defaultValue="left">
+        <ToggleGroup variant="outline" orientation="vertical" spacing={0} defaultValue={["left"]}>
           <Items />
         </ToggleGroup>
       </VariantRow>

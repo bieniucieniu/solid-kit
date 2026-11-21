@@ -4,11 +4,11 @@ import {
   AccordionHeader,
   AccordionItem,
   AccordionTrigger,
-} from "@solid-kit/ui";
+} from "@solid-kit/kit/ui";
 
 export function AccordionDemo() {
   return (
-    <Accordion initialValue="one" class="max-w-md">
+    <Accordion defaultValue={["one"]} class="max-w-md">
       <AccordionItem value="one">
         <AccordionHeader>
           <AccordionTrigger>Is it accessible?</AccordionTrigger>
